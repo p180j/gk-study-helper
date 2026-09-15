@@ -4,6 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gkstudy.ability.dto.AbilityChange;
 import com.gkstudy.ability.service.AbilityService;
+import com.gkstudy.learningproblem.service.LearningProblemService;
 import com.gkstudy.practice.dto.AnswerResult;
 import com.gkstudy.practice.dto.SubmitAnswerRequest;
 import com.gkstudy.practice.mapper.AnswerRecordMapper;
@@ -22,12 +23,15 @@ public class PracticeService {
     private final AnswerRecordMapper answerRecordMapper;
     private final ObjectMapper objectMapper;
     private final AbilityService abilityService;
+    private final LearningProblemService learningProblemService;
 
-    public PracticeService(QuestionService questionService, AnswerRecordMapper answerRecordMapper, ObjectMapper objectMapper, AbilityService abilityService) {
+    public PracticeService(QuestionService questionService, AnswerRecordMapper answerRecordMapper, ObjectMapper objectMapper,
+                           AbilityService abilityService, LearningProblemService learningProblemService) {
         this.questionService = questionService;
         this.answerRecordMapper = answerRecordMapper;
         this.objectMapper = objectMapper;
         this.abilityService = abilityService;
+        this.learningProblemService = learningProblemService;
     }
 
     @Transactional
@@ -50,6 +54,7 @@ public class PracticeService {
         record.setAnswerTime(LocalDateTime.now());
         answerRecordMapper.insert(record);
         List<AbilityChange> abilityChanges = abilityService.update(record);
+        learningProblemService.evaluate(record);
         return new AnswerResult(record.getId(), record.getCorrect(), record.getCorrectAnswerSnapshot(), question.getAnalysis(), abilityChanges);
     }
 

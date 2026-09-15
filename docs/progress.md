@@ -11,7 +11,7 @@
 - [ ] 完成每日计划生成
 - [x] 完成题目查询、训练答题和不可变 AnswerRecord 快照保存
 - [x] 完成能力画像及能力历史更新
-- [ ] 完成学习问题识别、验证与解决
+- [x] 完成学习问题识别、验证与解决
 - [ ] 完成下一次计划训练优先级调整
 - [ ] 跑通第一阶段核心学习闭环
 
@@ -40,3 +40,16 @@
 - [x] 自动测试 19 项全部通过
 - [x] 验证数据库增量并合并 schema.sql，upgrade.sql 已清理
 - [x] 从空库执行 schema.sql、init_data.sql 并启动应用
+
+## 第四阶段：LearningProblem 学习问题
+
+- [x] 集中实现 LearningProblemEngine，规则使用 AbilityProfile 与近期 AnswerRecord
+- [x] 识别 MASTERY、SPEED、STABILITY 三类学习问题
+- [x] 实现 OBSERVING、CONFIRMED、PROCESSING、VERIFYING、RESOLVED、REOPENED 生命周期
+- [x] 同一用户、知识点、问题类型复用同一 LearningProblem，并保存状态变化历史
+- [x] 保存样本、近期错误、超时、波动、四项能力、验证次数等可解释证据
+- [x] 答题事务内自动创建或更新 LearningProblem，能力回放不重复制造问题
+- [x] 提供 GET /api/learning-problems 查询接口
+- [x] 自动测试 30 项全部通过
+- [x] 真实验证“年均增长率”问题完整生命周期及去重
+- [x] 从独立空库仅执行 schema.sql、init_data.sql，并完成 Spring Boot 与 MyBatis 启动验收

@@ -3,6 +3,7 @@ package com.gkstudy.practice;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gkstudy.ability.service.AbilityService;
 import com.gkstudy.common.BusinessException;
+import com.gkstudy.learningproblem.service.LearningProblemService;
 import com.gkstudy.practice.dto.AnswerResult;
 import com.gkstudy.practice.dto.SubmitAnswerRequest;
 import com.gkstudy.practice.mapper.AnswerRecordMapper;
@@ -27,13 +28,15 @@ class PracticeServiceTest {
     private AnswerRecordMapper answerRecordMapper;
     private PracticeService practiceService;
     private AbilityService abilityService;
+    private LearningProblemService learningProblemService;
 
     @BeforeEach
     void setUp() {
         questionService = mock(QuestionService.class);
         answerRecordMapper = mock(AnswerRecordMapper.class);
         abilityService = mock(AbilityService.class);
-        practiceService = new PracticeService(questionService, answerRecordMapper, new ObjectMapper(), abilityService);
+        learningProblemService = mock(LearningProblemService.class);
+        practiceService = new PracticeService(questionService, answerRecordMapper, new ObjectMapper(), abilityService, learningProblemService);
         doAnswer(invocation -> { AnswerRecord record = invocation.getArgument(0); record.setId(99L); return 1; }).when(answerRecordMapper).insert(any());
     }
 
@@ -55,6 +58,7 @@ class PracticeServiceTest {
         assertEquals(60, record.getStandardTimeSecondsSnapshot());
         assertTrue(record.getKnowledgeSnapshot().contains("GROWTH_RATE"));
         verify(abilityService).update(record);
+        verify(learningProblemService).evaluate(record);
     }
 
     @Test

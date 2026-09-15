@@ -53,6 +53,17 @@ class DailyPlanEngineTest {
         assertThrows(IllegalArgumentException.class, () -> engine.generate(7L, LocalDate.now(), 30, Collections.emptyList(), Collections.emptyList()));
     }
 
+    @Test
+    void newUserExplorationCandidateProducesTrainingTask() {
+        MaintenanceCandidate candidate = maintenance(4, "年均增长率"); candidate.setPurpose("TRAINING");
+
+        DailyPlan plan = engine.generate(7L, LocalDate.now(), 20, Collections.emptyList(), Collections.singletonList(candidate));
+
+        assertEquals("QUESTION_SET", plan.getItems().get(0).getItemType());
+        assertEquals("TRAINING", plan.getItems().get(0).getPurpose());
+        assertTrue(plan.getItems().get(0).getReason().contains("初始训练"));
+    }
+
     private LearningProblem problem(long id, String name, String status) {
         LearningProblem problem = new LearningProblem(); problem.setId(id); problem.setKnowledgePointId(id); problem.setKnowledgePointCode("K" + id);
         problem.setKnowledgePointName(name); problem.setProblemType(id == 2 ? "STABILITY" : "MASTERY"); problem.setStatus(status); return problem;

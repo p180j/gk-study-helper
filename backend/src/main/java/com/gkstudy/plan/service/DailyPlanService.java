@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -39,8 +40,9 @@ public class DailyPlanService {
         DailyPlan existing = planMapper.findForUpdate(userId, planDate);
         if (existing != null && !force) return loadItems(existing);
         List<LearningProblem> coreProblems = priorityService.coreForPlan(userId);
-        List<MaintenanceCandidate> maintenance = planMapper.findMaintenanceCandidates(userId);
-        DailyPlan generated = engine.generate(userId, planDate, plannedMinutes, coreProblems, maintenance);
+        List<MaintenanceCandidate> candidates = new ArrayList<>(planMapper.findMaintenanceCandidates(userId));
+        candidates.addAll(planMapper.findExplorationCandidates(userId));
+        DailyPlan generated = engine.generate(userId, planDate, plannedMinutes, coreProblems, candidates);
         if (existing == null) {
             planMapper.insertPlan(generated);
         } else {

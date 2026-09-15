@@ -5,6 +5,8 @@ INSERT INTO knowledge_point(parent_id,code,name,exam_type,level,sort_no,importan
 SET @data=(SELECT id FROM knowledge_point WHERE code='DATA_ANALYSIS');
 INSERT INTO knowledge_point(parent_id,code,name,exam_type,level,sort_no,importance) VALUES
 (@data,'DATA_LOCATION','数据定位','CIVIL_SERVICE',3,1,0.85),(@data,'GROWTH_RATE','增长率','CIVIL_SERVICE',3,2,1.00),(@data,'GROWTH_AMOUNT','增长量','CIVIL_SERVICE',3,3,0.95),(@data,'BASE_AMOUNT','基期量','CIVIL_SERVICE',3,4,1.00),(@data,'CURRENT_AMOUNT','现期量','CIVIL_SERVICE',3,5,0.90),(@data,'AVG_GROWTH_RATE','年均增长率','CIVIL_SERVICE',3,6,1.00),(@data,'CONTRIBUTION_RATE','贡献率','CIVIL_SERVICE',3,7,0.85),(@data,'PULL_GROWTH_RATE','拉动增长率','CIVIL_SERVICE',3,8,0.85),(@data,'CURRENT_PROPORTION','现期比重','CIVIL_SERVICE',3,9,0.95),(@data,'BASE_PROPORTION','基期比重','CIVIL_SERVICE',3,10,0.95),(@data,'PROPORTION_CHANGE','比重变化','CIVIL_SERVICE',3,11,0.95),(@data,'AVERAGE','平均数','CIVIL_SERVICE',3,12,0.90),(@data,'MULTIPLE','倍数','CIVIL_SERVICE',3,13,0.85),(@data,'COMPREHENSIVE_JUDGEMENT','综合判断','CIVIL_SERVICE',3,14,1.00);
+-- 以下权重是问题优先级的正式初始配置：importance 表示考试重要度，
+-- improvement_potential 表示短期提升收益，transfer_value 表示对其他题型的迁移价值。
 UPDATE knowledge_point SET improvement_potential=0.90,transfer_value=0.95 WHERE code='AVG_GROWTH_RATE';
 SET @judgement=(SELECT id FROM knowledge_point WHERE code='JUDGEMENT');
 INSERT INTO knowledge_point(parent_id,code,name,exam_type,level,sort_no,importance,improvement_potential,transfer_value) VALUES

@@ -12,5 +12,6 @@ public class ImportResult {
     public void failure(int row, String reason) { failureCount++; failures.add(new ImportFailure(row, reason)); }
     public int getSuccessCount() { return successCount; }
     public int getFailureCount() { return failureCount; }
+    public int getTotalCount() { return successCount + failureCount; }
     public List<ImportFailure> getFailures() { return failures; }
 }

@@ -23,9 +23,12 @@ public class QuestionController {
 
     @GetMapping
     public ApiResponse<java.util.List<QuestionResponse>> list(@RequestParam(required = false) String status,
+                                            @RequestParam(required = false) String questionType,
+                                            @RequestParam(required = false) String usageType,
+                                            @RequestParam(required = false) String keyword,
                                             @RequestParam(defaultValue = "1") int page,
                                             @RequestParam(defaultValue = "20") int size) {
-        return ApiResponse.success(QuestionResponse.from(questionService.list(status, page, size)));
+        return ApiResponse.success(QuestionResponse.from(questionService.list(status, questionType, usageType, keyword, page, size)));
     }
 
     @GetMapping("/{id}")

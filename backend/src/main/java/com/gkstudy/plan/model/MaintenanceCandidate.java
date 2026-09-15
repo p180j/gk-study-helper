@@ -9,6 +9,7 @@ public class MaintenanceCandidate {
     private BigDecimal examImportance;
     private BigDecimal masteryScore;
     private BigDecimal confidenceScore;
+    private String purpose;
 
     public Long getKnowledgePointId() { return knowledgePointId; }
     public void setKnowledgePointId(Long knowledgePointId) { this.knowledgePointId = knowledgePointId; }
@@ -22,4 +23,6 @@ public class MaintenanceCandidate {
     public void setMasteryScore(BigDecimal masteryScore) { this.masteryScore = masteryScore; }
     public BigDecimal getConfidenceScore() { return confidenceScore; }
     public void setConfidenceScore(BigDecimal confidenceScore) { this.confidenceScore = confidenceScore; }
+    public String getPurpose() { return purpose; }
+    public void setPurpose(String purpose) { this.purpose = purpose; }
 }

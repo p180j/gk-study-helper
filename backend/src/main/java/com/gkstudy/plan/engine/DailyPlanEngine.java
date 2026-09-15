@@ -60,10 +60,13 @@ public class DailyPlanEngine {
     }
 
     private DailyPlanItem maintenanceItem(MaintenanceCandidate candidate) {
-        DailyPlanItem item = new DailyPlanItem(); item.setItemType("REVIEW"); item.setTargetType("KNOWLEDGE_POINT");
+        boolean exploration = "TRAINING".equals(candidate.getPurpose());
+        DailyPlanItem item = new DailyPlanItem(); item.setItemType(exploration ? "QUESTION_SET" : "REVIEW"); item.setTargetType("KNOWLEDGE_POINT");
         item.setTargetId(candidate.getKnowledgePointId()); item.setKnowledgePointId(candidate.getKnowledgePointId());
         item.setKnowledgePointCode(candidate.getKnowledgePointCode()); item.setKnowledgePointName(candidate.getKnowledgePointName());
-        item.setPurpose("REVIEW"); item.setStatus("PENDING"); item.setReason("保持" + candidate.getKnowledgePointName() + "已掌握能力"); return item;
+        item.setPurpose(exploration ? "TRAINING" : "REVIEW"); item.setStatus("PENDING");
+        item.setReason(exploration ? "完成" + candidate.getKnowledgePointName() + "初始训练以积累真实能力样本" : "保持" + candidate.getKnowledgePointName() + "已掌握能力");
+        return item;
     }
 
     private String problemReason(LearningProblem problem) {

@@ -9,8 +9,15 @@ import java.util.List;
 
 @Mapper
 public interface QuestionMapper {
-    @Select("<script>SELECT * FROM question <where><if test='status != null and status != \"\"'>status=#{status}</if></where> ORDER BY id DESC LIMIT #{limit} OFFSET #{offset}</script>")
-    List<Question> findAll(@Param("status") String status, @Param("offset") int offset, @Param("limit") int limit);
+    @Select("<script>SELECT * FROM question <where>"
+            + "<if test='status != null and status != \"\"'>AND status=#{status}</if>"
+            + "<if test='questionType != null and questionType != \"\"'>AND question_type=#{questionType}</if>"
+            + "<if test='usageType != null and usageType != \"\"'>AND usage_type=#{usageType}</if>"
+            + "<if test='keyword != null and keyword != \"\"'>AND (stem LIKE CONCAT('%',#{keyword},'%') OR source_name LIKE CONCAT('%',#{keyword},'%'))</if>"
+            + "</where> ORDER BY id DESC LIMIT #{limit} OFFSET #{offset}</script>")
+    List<Question> findAll(@Param("status") String status, @Param("questionType") String questionType,
+                           @Param("usageType") String usageType, @Param("keyword") String keyword,
+                           @Param("offset") int offset, @Param("limit") int limit);
 
     @Select("SELECT * FROM question WHERE id=#{id}")
     Question findById(Long id);
@@ -23,6 +30,14 @@ public interface QuestionMapper {
 
     @Select("SELECT id,code,name FROM knowledge_point WHERE code=#{code} AND status='ACTIVE'")
     KnowledgePointRef findKnowledgePointByCode(String code);
+
+    @Select("<script>SELECT DISTINCT q.* FROM question q JOIN question_knowledge qk ON qk.question_id=q.id "
+            + "WHERE qk.knowledge_point_id=#{knowledgePointId} AND q.status='ACTIVE' "
+            + "AND q.usage_type IN ('TRAINING','VALIDATION') "
+            + "ORDER BY <choose><when test='purpose == \"VALIDATION\"'>FIELD(q.usage_type,'VALIDATION','TRAINING')</when>"
+            + "<otherwise>FIELD(q.usage_type,'TRAINING','VALIDATION')</otherwise></choose>,q.id LIMIT #{limit}</script>")
+    List<Question> findForPlanItem(@Param("knowledgePointId") Long knowledgePointId,
+                                   @Param("purpose") String purpose, @Param("limit") int limit);
 
     @Select("SELECT COUNT(*) FROM question WHERE content_hash=#{contentHash}")
     int countByContentHash(String contentHash);

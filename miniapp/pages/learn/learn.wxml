@@ -1,0 +1,54 @@
+<view class="page">
+  <view class="hero"><view class="hero-title">专注完成这一题</view></view>
+  <view wx:if="{{loading}}" class="state">正在准备训练…</view>
+  <view wx:elif="{{error && !question}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="load">重新加载</button></view>
+  <view wx:elif="{{!item}}" class="state">今日暂无计划任务。</view>
+  <view wx:elif="{{!question}}" class="state">“{{item.knowledgePointName}}”暂时没有可用题目，请先在管理控台导入。</view>
+  <block wx:else>
+    <scroll-view scroll-x class="task-tabs">
+      <view class="task-tab {{planItem.id === item.id ? 'active' : ''}}" wx:for="{{plan.items}}" wx:key="id" data-id="{{planItem.id}}" wx:for-item="planItem" bindtap="selectTask">{{planItem.knowledgePointName}}</view>
+    </scroll-view>
+    <view class="card">
+      <view class="row">
+        <view><text class="tag">{{item.purpose}}</text>{{item.knowledgePointName}}</view>
+        <view class="muted">{{questionIndex + 1}} / {{questions.length}}</view>
+      </view>
+      <view class="stem">{{question.stem}}</view>
+      <view class="option {{selectedAnswer === option.optionKey ? 'selected' : ''}}" wx:for="{{question.options}}" wx:key="optionKey" wx:for-item="option" data-key="{{option.optionKey}}" bindtap="selectAnswer">
+        <text class="option-key">{{option.optionKey}}</text><text>{{option.optionText}}</text>
+      </view>
+      <view class="label">这道题你有多确定？</view>
+      <view class="choices">
+        <view class="choice {{confidence === option.value ? 'selected' : ''}}" wx:for="{{confidenceOptions}}" wx:key="value" wx:for-item="option" data-value="{{option.value}}" bindtap="selectConfidence">{{option.label}}</view>
+      </view>
+      <view class="label">如答错，选择可能错因</view>
+      <picker range="{{errorOptions}}" range-key="label" value="{{errorIndex}}" bindchange="selectError">
+        <view class="picker">{{errorOptions[errorIndex].label}} ›</view>
+      </picker>
+      <button wx:if="{{!result}}" class="primary" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submit">提交答案</button>
+    </view>
+    <view wx:if="{{error && question}}" class="card error">{{error}}</view>
+    <view wx:if="{{result}}" class="card result {{result.correct ? 'correct' : 'wrong'}}">
+      <view class="result-title">{{result.correct ? '回答正确' : '回答错误'}}</view>
+      <view>正确答案：{{result.correctAnswer}}</view>
+      <view class="analysis">{{result.analysis || '暂无解析'}}</view>
+      <view wx:if="{{!result.correct && result.errorDiagnosis}}" class="diagnosis">
+        <view class="section-title">系统判断：{{result.errorDiagnosis.suspectedCause}}</view>
+        <view class="muted">候选置信度 {{result.errorDiagnosis.confidence}}%，已出现 {{result.errorDiagnosis.occurrenceCount}} 次</view>
+        <view wx:if="{{result.errorDiagnosis.status === 'PENDING_CONFIRMATION'}}" class="diagnosis-actions">
+          <button class="secondary diagnosis-button" loading="{{diagnosisDeciding}}" disabled="{{diagnosisDeciding}}" data-confirmed="{{true}}" bindtap="decideDiagnosis">确认</button>
+          <button class="secondary diagnosis-button" loading="{{diagnosisDeciding}}" disabled="{{diagnosisDeciding}}" data-confirmed="{{false}}" bindtap="decideDiagnosis">不是</button>
+        </view>
+        <view wx:elif="{{result.errorDiagnosis.status === 'CONFIRMED'}}" class="diagnosis-status">已由你确认</view>
+        <view wx:else class="muted">已记录为不是该错因</view>
+      </view>
+      <view class="section-title change-title">能力变化</view>
+      <view wx:if="{{!result.abilityChanges.length}}" class="muted">本题未关联能力变化。</view>
+      <view wx:for="{{result.abilityChanges}}" wx:key="knowledgePointCode" class="change">
+        <view>{{item.knowledgePointCode}}</view>
+        <view class="muted">掌握 {{item.oldMastery}} → {{item.newMastery}} · 速度 {{item.oldSpeed}} → {{item.newSpeed}}</view>
+      </view>
+      <button class="primary" bindtap="nextQuestion">继续下一题</button>
+    </view>
+  </block>
+</view>

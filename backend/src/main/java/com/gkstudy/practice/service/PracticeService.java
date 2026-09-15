@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gkstudy.ability.dto.AbilityChange;
 import com.gkstudy.ability.service.AbilityService;
+import com.gkstudy.errordiagnosis.model.ErrorDiagnosis;
+import com.gkstudy.errordiagnosis.service.ErrorDiagnosisService;
 import com.gkstudy.learningproblem.service.LearningProblemService;
 import com.gkstudy.practice.dto.AnswerResult;
 import com.gkstudy.practice.dto.SubmitAnswerRequest;
@@ -23,14 +25,17 @@ public class PracticeService {
     private final AnswerRecordMapper answerRecordMapper;
     private final ObjectMapper objectMapper;
     private final AbilityService abilityService;
+    private final ErrorDiagnosisService errorDiagnosisService;
     private final LearningProblemService learningProblemService;
 
     public PracticeService(QuestionService questionService, AnswerRecordMapper answerRecordMapper, ObjectMapper objectMapper,
-                           AbilityService abilityService, LearningProblemService learningProblemService) {
+                           AbilityService abilityService, ErrorDiagnosisService errorDiagnosisService,
+                           LearningProblemService learningProblemService) {
         this.questionService = questionService;
         this.answerRecordMapper = answerRecordMapper;
         this.objectMapper = objectMapper;
         this.abilityService = abilityService;
+        this.errorDiagnosisService = errorDiagnosisService;
         this.learningProblemService = learningProblemService;
     }
 
@@ -54,8 +59,10 @@ public class PracticeService {
         record.setAnswerTime(LocalDateTime.now());
         answerRecordMapper.insert(record);
         List<AbilityChange> abilityChanges = abilityService.update(record);
+        ErrorDiagnosis errorDiagnosis = errorDiagnosisService.diagnose(record);
         learningProblemService.evaluate(record);
-        return new AnswerResult(record.getId(), record.getCorrect(), record.getCorrectAnswerSnapshot(), question.getAnalysis(), abilityChanges);
+        return new AnswerResult(record.getId(), record.getCorrect(), record.getCorrectAnswerSnapshot(), question.getAnalysis(),
+                abilityChanges, errorDiagnosis);
     }
 
     public List<AnswerRecord> history(Long userId, int page, int size) {

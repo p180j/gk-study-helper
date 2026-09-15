@@ -5,6 +5,8 @@ import com.gkstudy.ability.mapper.AbilityMapper;
 import com.gkstudy.ability.model.AbilityProfile;
 import com.gkstudy.ability.service.AbilityReplayService;
 import com.gkstudy.ability.service.AbilityService;
+import com.gkstudy.errordiagnosis.mapper.ErrorDiagnosisMapper;
+import com.gkstudy.errordiagnosis.model.ErrorDiagnosis;
 import com.gkstudy.learningproblem.engine.LearningProblemEngine;
 import com.gkstudy.learningproblem.mapper.LearningProblemMapper;
 import com.gkstudy.learningproblem.model.LearningProblem;
@@ -28,7 +30,8 @@ class LearningProblemServiceTest {
     @Test
     void repeatedEvaluationUpdatesSameProblemAndKeepsExplainableEvidence() {
         LearningProblemMapper problemMapper = mock(LearningProblemMapper.class); AbilityMapper abilityMapper = mock(AbilityMapper.class);
-        AnswerRecordMapper answerMapper = mock(AnswerRecordMapper.class); AtomicReference<LearningProblem> stored = new AtomicReference<>();
+        AnswerRecordMapper answerMapper = mock(AnswerRecordMapper.class); ErrorDiagnosisMapper diagnosisMapper = mock(ErrorDiagnosisMapper.class);
+        AtomicReference<LearningProblem> stored = new AtomicReference<>();
         List<AnswerRecord> records = records(false, false, false, false); AnswerRecord current = records.get(3);
         when(answerMapper.findAllByUserId(7L)).thenReturn(records); when(abilityMapper.findForUpdate(7L, 12L)).thenReturn(profile());
         when(problemMapper.findForUpdate(eq(7L), eq(12L), anyString())).thenAnswer(invocation ->
@@ -36,7 +39,10 @@ class LearningProblemServiceTest {
         when(problemMapper.insert(any())).thenAnswer(invocation -> {
             LearningProblem problem = invocation.getArgument(0); problem.setId(88L); stored.set(problem); return 1;
         });
-        LearningProblemService service = new LearningProblemService(new LearningProblemEngine(), problemMapper, abilityMapper, answerMapper, new ObjectMapper());
+        ErrorDiagnosis diagnosis = new ErrorDiagnosis(); diagnosis.setSuspectedCause("条件理解偏差");
+        when(diagnosisMapper.findMain(7L, 12L)).thenReturn(diagnosis);
+        LearningProblemService service = new LearningProblemService(new LearningProblemEngine(), problemMapper, abilityMapper,
+                answerMapper, diagnosisMapper, new ObjectMapper());
 
         service.evaluate(current);
         service.evaluate(current);
@@ -46,17 +52,20 @@ class LearningProblemServiceTest {
         assertEquals(88L, stored.get().getId()); assertEquals("CONFIRMED", stored.get().getStatus());
         assertTrue(stored.get().getEvidenceJson().contains("\"incorrectCount\":4"));
         assertTrue(stored.get().getEvidenceJson().contains("\"mastery\":35"));
+        assertEquals("条件理解偏差", stored.get().getRootCause());
     }
 
     @Test
     void abilityReplayDoesNotCreateAnotherLearningProblem() {
         LearningProblemMapper problemMapper = mock(LearningProblemMapper.class); AbilityMapper abilityMapper = mock(AbilityMapper.class);
         AnswerRecordMapper answerMapper = mock(AnswerRecordMapper.class); AbilityService abilityService = mock(AbilityService.class);
+        ErrorDiagnosisMapper diagnosisMapper = mock(ErrorDiagnosisMapper.class);
         List<AnswerRecord> records = records(false, false, false, false); AnswerRecord current = records.get(3);
         when(answerMapper.findAllByUserId(7L)).thenReturn(records); when(abilityMapper.findForUpdate(7L, 12L)).thenReturn(profile());
         when(problemMapper.findForUpdate(eq(7L), eq(12L), anyString())).thenReturn(null);
         when(problemMapper.insert(any())).thenAnswer(invocation -> { ((LearningProblem) invocation.getArgument(0)).setId(88L); return 1; });
-        LearningProblemService problemService = new LearningProblemService(new LearningProblemEngine(), problemMapper, abilityMapper, answerMapper, new ObjectMapper());
+        LearningProblemService problemService = new LearningProblemService(new LearningProblemEngine(), problemMapper, abilityMapper,
+                answerMapper, diagnosisMapper, new ObjectMapper());
         problemService.evaluate(current);
         AbilityReplayService replayService = new AbilityReplayService(abilityMapper, answerMapper, abilityService);
         clearInvocations(problemMapper);

@@ -1,0 +1,6 @@
+.problem { line-height: 1.8; }
+.reason { line-height: 1.65; margin-bottom: 18rpx; }
+.task { padding: 20rpx 0; border-top: 1rpx solid #edf0ed; }
+.task-name { font-weight: 650; }
+.task-reason { margin: 12rpx 0; line-height: 1.5; }
+button[size="mini"] { margin-left: 0; }

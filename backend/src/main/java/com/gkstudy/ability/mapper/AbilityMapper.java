@@ -10,7 +10,7 @@ public interface AbilityMapper {
     @Select("SELECT id,user_id,knowledge_point_id,mastery_score,speed_score,stability_score,confidence_score,sample_count,status,last_practice_time FROM ability_profile WHERE user_id=#{userId} AND knowledge_point_id=#{knowledgePointId} FOR UPDATE")
     AbilityProfile findForUpdate(@Param("userId") Long userId, @Param("knowledgePointId") Long knowledgePointId);
 
-    @Select("SELECT id,user_id,knowledge_point_id,mastery_score,speed_score,stability_score,confidence_score,sample_count,status,last_practice_time FROM ability_profile WHERE user_id=#{userId} ORDER BY knowledge_point_id")
+    @Select("SELECT ap.id,ap.user_id,ap.knowledge_point_id,kp.code AS knowledge_point_code,kp.name AS knowledge_point_name,ap.mastery_score,ap.speed_score,ap.stability_score,ap.confidence_score,ap.sample_count,ap.status,ap.last_practice_time FROM ability_profile ap JOIN knowledge_point kp ON kp.id=ap.knowledge_point_id WHERE ap.user_id=#{userId} ORDER BY kp.sort_no,ap.knowledge_point_id")
     List<AbilityProfile> findByUserId(Long userId);
 
     @Insert("INSERT INTO ability_profile(user_id,knowledge_point_id,mastery_score,speed_score,stability_score,confidence_score,sample_count,status,last_practice_time) VALUES(#{userId},#{knowledgePointId},#{masteryScore},#{speedScore},#{stabilityScore},#{confidenceScore},#{sampleCount},#{status},#{lastPracticeTime})")

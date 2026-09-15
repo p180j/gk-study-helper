@@ -39,6 +39,7 @@ class DailyPlanServiceTest {
         LearningProblem problem = new LearningProblem(); problem.setId(1L); problem.setKnowledgePointId(12L); problem.setKnowledgePointName("年均增长率");
         problem.setKnowledgePointCode("AVG_GROWTH_RATE"); problem.setProblemType("MASTERY"); problem.setStatus("CONFIRMED");
         when(priorityService.coreForPlan(7L)).thenReturn(Collections.singletonList(problem)); when(mapper.findMaintenanceCandidates(7L)).thenReturn(Collections.emptyList());
+        when(mapper.findExplorationCandidates(7L)).thenReturn(Collections.emptyList());
         DailyPlanService service = new DailyPlanService(new DailyPlanEngine(), mapper, priorityService);
 
         DailyPlan generated = service.generate(7L, 20);

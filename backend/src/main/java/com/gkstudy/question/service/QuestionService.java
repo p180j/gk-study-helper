@@ -13,10 +13,10 @@ public class QuestionService {
 
     public QuestionService(QuestionMapper questionMapper) { this.questionMapper = questionMapper; }
 
-    public List<Question> list(String status, int page, int size) {
+    public List<Question> list(String status, String questionType, String usageType, String keyword, int page, int size) {
         int safePage = Math.max(page, 1);
         int safeSize = Math.min(Math.max(size, 1), 100);
-        return questionMapper.findAll(status, (safePage - 1) * safeSize, safeSize);
+        return questionMapper.findAll(status, questionType, usageType, keyword, (safePage - 1) * safeSize, safeSize);
     }
 
     public Question detail(Long id) {

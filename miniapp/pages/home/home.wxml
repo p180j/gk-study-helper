@@ -1,0 +1,47 @@
+<view class="page">
+  <view class="hero">
+    <view class="hero-title">今天，把时间用在刀刃上</view>
+    <view class="hero-subtitle">计划来自你的真实答题表现</view>
+  </view>
+  <view wx:if="{{loading}}" class="state">正在读取今日计划…</view>
+  <view wx:elif="{{error}}" class="state error">
+    <view>{{error}}</view>
+    <button class="secondary" bindtap="load">重新加载</button>
+  </view>
+  <block wx:else>
+    <view class="card">
+      <view class="row">
+        <view class="section-title">当前核心问题</view>
+        <view class="muted">{{problems.length}} / 3</view>
+      </view>
+      <view wx:if="{{!problems.length}}" class="muted">暂无已识别问题，先完成一些训练积累样本。</view>
+      <block wx:for="{{problems}}" wx:key="id">
+        <view class="problem">
+          <view class="row"><text>{{item.knowledgePointName}}</text><text class="tag">{{item.status}}</text></view>
+          <view class="muted">{{item.problemType}} · 严重度 {{item.severity}} · 优先分 {{item.priorityScore}}</view>
+        </view>
+        <view wx:if="{{index < problems.length - 1}}" class="divider"></view>
+      </block>
+    </view>
+    <view class="card">
+      <view class="row">
+        <view class="section-title">今日计划</view>
+        <view class="tag">{{plan.plannedMinutes || 0}} 分钟</view>
+      </view>
+      <view class="muted reason">{{plan.generationReason || '当前没有可安排任务'}}</view>
+      <view wx:if="{{!plan.items.length}}" class="state">暂无任务。导入题目并完成几次作答后，计划会更准确。</view>
+      <block wx:for="{{plan.items}}" wx:key="id">
+        <view class="task">
+          <view class="row">
+            <view class="task-name">{{index + 1}}. {{item.knowledgePointName}}</view>
+            <view>{{item.plannedMinutes}} 分钟</view>
+          </view>
+          <view><text class="tag">{{item.purpose}}</text><text class="muted">{{item.itemType}}</text></view>
+          <view class="muted task-reason">{{item.reason}}</view>
+          <button class="secondary" size="mini" data-id="{{item.id}}" bindtap="startItem">开始此任务</button>
+        </view>
+      </block>
+      <button wx:if="{{plan.items.length}}" class="primary" bindtap="startFirst">开始学习</button>
+    </view>
+  </block>
+</view>

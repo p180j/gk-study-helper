@@ -7,6 +7,8 @@ public class AbilityProfile {
     private Long id;
     private Long userId;
     private Long knowledgePointId;
+    private String knowledgePointCode;
+    private String knowledgePointName;
     private BigDecimal masteryScore;
     private BigDecimal speedScore;
     private BigDecimal stabilityScore;
@@ -21,6 +23,10 @@ public class AbilityProfile {
     public void setUserId(Long userId) { this.userId = userId; }
     public Long getKnowledgePointId() { return knowledgePointId; }
     public void setKnowledgePointId(Long knowledgePointId) { this.knowledgePointId = knowledgePointId; }
+    public String getKnowledgePointCode() { return knowledgePointCode; }
+    public void setKnowledgePointCode(String knowledgePointCode) { this.knowledgePointCode = knowledgePointCode; }
+    public String getKnowledgePointName() { return knowledgePointName; }
+    public void setKnowledgePointName(String knowledgePointName) { this.knowledgePointName = knowledgePointName; }
     public BigDecimal getMasteryScore() { return masteryScore; }
     public void setMasteryScore(BigDecimal masteryScore) { this.masteryScore = masteryScore; }
     public BigDecimal getSpeedScore() { return speedScore; }

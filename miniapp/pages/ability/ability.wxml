@@ -1,0 +1,27 @@
+<view class="page">
+  <view class="hero"><view class="hero-title">能力来自每一次真实作答</view><view class="hero-subtitle">分数由后端统一计算，小程序只负责呈现</view></view>
+  <view wx:if="{{loading}}" class="state">正在读取能力数据…</view>
+  <view wx:elif="{{error}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="load">重新加载</button></view>
+  <block wx:else>
+    <view class="section-title">知识点能力</view>
+    <view wx:if="{{!abilities.length}}" class="card muted">暂无能力数据，完成训练后这里会显示变化。</view>
+    <view class="card ability" wx:for="{{abilities}}" wx:key="id">
+      <view class="row"><view class="ability-name">{{item.knowledgePointName || item.knowledgePointCode}}</view><text class="tag">{{item.status}}</text></view>
+      <view class="metrics">
+        <view><text>{{item.masteryScore}}</text><label>掌握</label></view>
+        <view><text>{{item.speedScore}}</text><label>速度</label></view>
+        <view><text>{{item.stabilityScore}}</text><label>稳定</label></view>
+        <view><text>{{item.confidenceScore}}</text><label>可信度</label></view>
+      </view>
+      <view class="muted">样本 {{item.sampleCount}} · 最近训练 {{item.lastPracticeTime}}</view>
+    </view>
+    <view class="section-title problems-title">学习问题</view>
+    <view wx:if="{{!problems.length}}" class="card muted">当前没有学习问题。</view>
+    <view class="card" wx:for="{{problems}}" wx:key="id">
+      <view class="row"><view>{{item.knowledgePointName}}</view><text class="tag">{{item.status}}</text></view>
+      <view class="muted">{{item.problemType}} · 严重度 {{item.severity}}</view>
+      <view wx:if="{{item.rootCause}}" class="evidence">主要根因：{{item.rootCause}}</view>
+      <view class="evidence">{{item.evidenceText}}</view>
+    </view>
+  </block>
+</view>

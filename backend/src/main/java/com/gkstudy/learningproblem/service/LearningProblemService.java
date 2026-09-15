@@ -4,6 +4,8 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gkstudy.ability.mapper.AbilityMapper;
 import com.gkstudy.ability.model.AbilityProfile;
+import com.gkstudy.errordiagnosis.mapper.ErrorDiagnosisMapper;
+import com.gkstudy.errordiagnosis.model.ErrorDiagnosis;
 import com.gkstudy.learningproblem.engine.LearningProblemEngine;
 import com.gkstudy.learningproblem.engine.LearningProblemEngine.Evaluation;
 import com.gkstudy.learningproblem.mapper.LearningProblemMapper;
@@ -25,12 +27,13 @@ public class LearningProblemService {
     private final LearningProblemMapper problemMapper;
     private final AbilityMapper abilityMapper;
     private final AnswerRecordMapper answerRecordMapper;
+    private final ErrorDiagnosisMapper diagnosisMapper;
     private final ObjectMapper objectMapper;
 
     public LearningProblemService(LearningProblemEngine engine, LearningProblemMapper problemMapper, AbilityMapper abilityMapper,
-                                  AnswerRecordMapper answerRecordMapper, ObjectMapper objectMapper) {
+                                  AnswerRecordMapper answerRecordMapper, ErrorDiagnosisMapper diagnosisMapper, ObjectMapper objectMapper) {
         this.engine = engine; this.problemMapper = problemMapper; this.abilityMapper = abilityMapper;
-        this.answerRecordMapper = answerRecordMapper; this.objectMapper = objectMapper;
+        this.answerRecordMapper = answerRecordMapper; this.diagnosisMapper = diagnosisMapper; this.objectMapper = objectMapper;
     }
 
     public List<LearningProblem> evaluate(AnswerRecord current) {
@@ -70,6 +73,8 @@ public class LearningProblemService {
         problem.setSeverity(evaluation.getSeverity()); problem.setPriorityScore(evaluation.getPriorityScore()); problem.setStatus(evaluation.getStatus());
         problem.setValidationCount(evaluation.getValidationCount()); problem.setValidationPassCount(evaluation.getValidationPassCount());
         problem.setEvidenceJson(evidence(problem.getProblemType(), evaluation, profile));
+        ErrorDiagnosis diagnosis = diagnosisMapper.findMain(problem.getUserId(), knowledge.getId());
+        problem.setRootCause(diagnosis == null ? null : diagnosis.getSuspectedCause());
         if ("RESOLVED".equals(evaluation.getStatus()) && problem.getResolvedTime() == null) problem.setResolvedTime(now);
         if ("REOPENED".equals(evaluation.getStatus())) problem.setResolvedTime(null);
     }

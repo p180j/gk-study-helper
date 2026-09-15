@@ -1,0 +1,21 @@
+.task-tabs { white-space: nowrap; margin-bottom: 20rpx; }
+.task-tab { display: inline-block; padding: 14rpx 22rpx; margin-right: 12rpx; border-radius: 999rpx; background: #fff; color: #68716c; }
+.task-tab.active { background: #1f6f55; color: #fff; }
+.stem { font-size: 33rpx; line-height: 1.7; margin: 30rpx 0; }
+.option { display: flex; gap: 18rpx; padding: 22rpx; border: 2rpx solid #e1e6e2; border-radius: 16rpx; margin-bottom: 15rpx; }
+.option.selected, .choice.selected { border-color: #1f6f55; background: #edf7f2; color: #155541; }
+.option-key { font-weight: 700; min-width: 38rpx; }
+.label { margin: 28rpx 0 14rpx; font-weight: 600; }
+.choices { display: flex; gap: 12rpx; }
+.choice { flex: 1; text-align: center; padding: 16rpx 8rpx; border: 2rpx solid #e1e6e2; border-radius: 14rpx; }
+.picker { padding: 20rpx; background: #f5f7f5; border-radius: 14rpx; margin-bottom: 28rpx; }
+.result { border-left: 8rpx solid #1f6f55; }
+.result.wrong { border-left-color: #bc4d47; }
+.result-title { font-size: 36rpx; font-weight: 700; margin-bottom: 18rpx; }
+.analysis { line-height: 1.7; margin: 20rpx 0; color: #56615b; }
+.diagnosis { margin: 24rpx 0; padding: 22rpx; border-radius: 16rpx; background: #fff6e8; }
+.diagnosis-actions { display: flex; gap: 16rpx; margin-top: 18rpx; }
+.diagnosis-button { flex: 1; margin: 0; }
+.diagnosis-status { margin-top: 14rpx; color: #1f6f55; }
+.change-title { margin-top: 28rpx; }
+.change { margin-bottom: 15rpx; }

@@ -5,6 +5,7 @@ import com.gkstudy.question.model.Question;
 import com.gkstudy.question.model.QuestionOption;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +22,7 @@ public class QuestionResponse {
     private final String usageType;
     private final String status;
     private final Integer version;
+    private final LocalDateTime createTime;
     private final List<QuestionOption> options;
     private final List<KnowledgePointRef> knowledgePoints;
 
@@ -28,7 +30,7 @@ public class QuestionResponse {
         id = question.getId(); questionType = question.getQuestionType(); stem = question.getStem();
         difficulty = question.getDifficultyExpected(); standardTimeSeconds = question.getStandardTimeSeconds();
         sourceType = question.getSourceType(); sourceYear = question.getSourceYear(); sourceExam = question.getSourceExam(); sourceName = question.getSourceName();
-        usageType = question.getUsageType(); status = question.getStatus(); version = question.getVersion();
+        usageType = question.getUsageType(); status = question.getStatus(); version = question.getVersion(); createTime = question.getCreateTime();
         options = question.getOptions(); knowledgePoints = question.getKnowledgePoints();
     }
 
@@ -46,6 +48,7 @@ public class QuestionResponse {
     public String getUsageType() { return usageType; }
     public String getStatus() { return status; }
     public Integer getVersion() { return version; }
+    public LocalDateTime getCreateTime() { return createTime; }
     public List<QuestionOption> getOptions() { return options; }
     public List<KnowledgePointRef> getKnowledgePoints() { return knowledgePoints; }
 }

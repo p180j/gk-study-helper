@@ -59,6 +59,22 @@ class ProblemPriorityEngineTest {
         assertEquals(3, core.size()); assertTrue(core.contains(candidate)); assertFalse(core.contains(resolved));
     }
 
+    @Test
+    void essayAndContentGapProblemsParticipateInRankingAndCore() {
+        LearningProblem essayStructure = problem(1, "归纳概括", "CONFIRMED", 70, .95, .8, .8, 60);
+        essayStructure.setProblemType("ESSAY_STRUCTURE");
+        LearningProblem contentGap = problem(2, "基层治理", "CONFIRMED", 60, .9, .7, .9, 65);
+        contentGap.setProblemType("CONTENT_GAP");
+        LearningProblem mastery = problem(3, "年均增长率", "CONFIRMED", 55, 1, .9, .95, 70);
+
+        List<LearningProblem> core = engine.core(Arrays.asList(essayStructure, contentGap, mastery), now);
+
+        assertEquals(3, core.size());
+        assertNotNull(essayStructure.getPriorityScore());
+        assertNotNull(contentGap.getPriorityScore());
+        assertTrue(core.contains(essayStructure)); assertTrue(core.contains(contentGap)); assertTrue(core.contains(mastery));
+    }
+
     private LearningProblem problem(long id, String name, String status, double severity, double importance,
                                     double improvement, double transfer, double confidence) {
         LearningProblem problem = new LearningProblem(); problem.setId(id); problem.setKnowledgePointId(id); problem.setKnowledgePointName(name);

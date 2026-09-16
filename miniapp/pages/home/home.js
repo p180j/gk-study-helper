@@ -16,13 +16,26 @@ Page({
     }
   },
   startItem(event) {
+    const id = Number(event.currentTarget.dataset.id)
+    const items = (this.data.plan && this.data.plan.items) || []
+    const item = items.find(candidate => candidate.id === id)
+    const itemType = item && item.itemType
+    if (itemType === 'ESSAY') {
+      wx.navigateTo({ url: '/pages/essay/answer?itemId=' + id })
+      return
+    }
+    if (itemType === 'READING') {
+      wx.navigateTo({ url: '/pages/reading/detail?itemId=' + id })
+      return
+    }
     const app = getApp()
-    app.globalData.pendingPlanItemId = Number(event.currentTarget.dataset.id)
+    app.globalData.pendingPlanItemId = id
     wx.switchTab({ url: '/pages/learn/learn' })
   },
   startFirst() {
     const items = (this.data.plan && this.data.plan.items) || []
     if (!items.length) return
     this.startItem({ currentTarget: { dataset: { id: items[0].id } } })
-  }
+  },
+  openCoach() { wx.navigateTo({ url: '/pages/coach/coach' }) }
 })

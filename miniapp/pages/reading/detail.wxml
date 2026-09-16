@@ -1,0 +1,43 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="state">正在读取材料…</view>
+  <view wx:elif="{{error && !material}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="load">重新加载</button></view>
+  <view wx:elif="{{!material}}" class="state">未找到学习材料。</view>
+  <block wx:else>
+    <view class="card">
+      <view class="detail-title">{{material.title}}</view>
+      <view class="muted meta">{{material.topicName}} · {{material.source}} · {{material.publishDate}}</view>
+      <view class="tags">
+        <text wx:if="{{material.readStatus === 'COMPLETED'}}" class="tag">已读</text>
+        <text wx:elif="{{material.readStatus === 'READING'}}" class="tag">在读</text>
+        <text wx:else class="tag gray">未读</text>
+        <text wx:if="{{material.favorite}}" class="tag">已收藏</text>
+        <text wx:if="{{material.masteryLevel === 'MASTERED'}}" class="tag">已掌握</text>
+      </view>
+      <view class="content">{{material.content}}</view>
+    </view>
+    <view wx:if="{{material.coreView}}" class="card"><view class="section-title">核心观点</view><view class="content">{{material.coreView}}</view></view>
+    <view wx:if="{{material.problem}}" class="card"><view class="section-title">问题</view><view class="content">{{material.problem}}</view></view>
+    <view wx:if="{{material.cause}}" class="card"><view class="section-title">原因</view><view class="content">{{material.cause}}</view></view>
+    <view wx:if="{{material.solution}}" class="card"><view class="section-title">对策</view><view class="content">{{material.solution}}</view></view>
+    <view wx:if="{{material.policyLogic}}" class="card"><view class="section-title">政策逻辑</view><view class="content">{{material.policyLogic}}</view></view>
+    <view wx:if="{{material.standardExpressions.length}}" class="card">
+      <view class="section-title">规范表达</view>
+      <view class="point" wx:for="{{material.standardExpressions}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+    </view>
+    <view wx:if="{{material.cases.length}}" class="card">
+      <view class="section-title">案例</view>
+      <view class="point" wx:for="{{material.cases}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+    </view>
+    <view wx:if="{{material.applicableEssayThemes.length}}" class="card">
+      <view class="section-title">可用于申论主题</view>
+      <view class="tags"><text class="tag" wx:for="{{material.applicableEssayThemes}}" wx:for-item="theme" wx:key="*this">{{theme}}</text></view>
+    </view>
+    <view class="card">
+      <view class="section-title">学习操作</view>
+      <button class="secondary action" loading="{{acting}}" disabled="{{acting || material.readStatus === 'COMPLETED'}}" bindtap="markRead">标记已读</button>
+      <button class="secondary action" loading="{{acting}}" disabled="{{acting}}" bindtap="toggleFavorite">{{material.favorite ? '取消收藏' : '收藏材料'}}</button>
+      <button class="secondary action" loading="{{acting}}" disabled="{{acting}}" bindtap="toggleMastered">{{material.masteryLevel === 'MASTERED' ? '取消掌握' : '标记掌握'}}</button>
+    </view>
+    <view wx:if="{{error}}" class="card error">{{error}}</view>
+  </block>
+</view>

@@ -1,0 +1,4 @@
+.task-name { font-size: 31rpx; font-weight: 650; }
+.tags { margin-top: 12rpx; }
+.task-reason { margin-top: 12rpx; line-height: 1.6; }
+.bank-title { margin-top: 38rpx; }

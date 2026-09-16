@@ -1,11 +1,13 @@
 package com.gkstudy.priority.service;
 
+import com.gkstudy.learningproblem.engine.LearningProblemEngine;
 import com.gkstudy.learningproblem.mapper.LearningProblemMapper;
 import com.gkstudy.learningproblem.model.LearningProblem;
 import com.gkstudy.priority.engine.ProblemPriorityEngine;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -25,6 +27,25 @@ public class ProblemPriorityService {
         List<LearningProblem> ranked = ranked(userId);
         for (LearningProblem problem : ranked) problemMapper.updatePriority(problem.getId(), problem.getPriorityScore());
         return core(ranked);
+    }
+
+    /**
+     * 计划生成专用：核心问题之外，追加优先级最高的未解决 CONTENT_GAP 作为配套阅读任务（最多 1 个）。
+     * 申论维度问题优先级普遍高于素材缺口，若不追加，同一主题的「申论训练 + 政治阅读」无法在同一计划中出现。
+     */
+    public List<LearningProblem> coreForPlanWithReadingGap(Long userId) {
+        List<LearningProblem> ranked = ranked(userId);
+        for (LearningProblem problem : ranked) problemMapper.updatePriority(problem.getId(), problem.getPriorityScore());
+        List<LearningProblem> active = new ArrayList<>();
+        for (LearningProblem problem : ranked) if (!"RESOLVED".equals(problem.getStatus())) active.add(problem);
+        List<LearningProblem> core = new ArrayList<>(active.subList(0, Math.min(3, active.size())));
+        for (LearningProblem problem : active) {
+            if (LearningProblemEngine.CONTENT_GAP.equals(problem.getProblemType()) && !core.contains(problem)) {
+                core.add(problem);
+                break;
+            }
+        }
+        return core;
     }
 
     public List<LearningProblem> core(Long userId) {

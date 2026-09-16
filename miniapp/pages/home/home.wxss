@@ -4,3 +4,5 @@
 .task-name { font-weight: 650; }
 .task-reason { margin: 12rpx 0; line-height: 1.5; }
 button[size="mini"] { margin-left: 0; }
+.type-tag { background: #fdf3e3; color: #b0742a; }
+.coach-entry { margin: 0; color: #1f6f55; background: #e8f4ee; border: 0; white-space: nowrap; }

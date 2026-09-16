@@ -85,4 +85,40 @@
 - [x] 管理控台导入题目后，小程序实际作答，管理控台看到对应 AnswerRecord
 - [x] 后端自动测试 55 项全部通过，前端脚本和 JSON 配置语法检查通过
 - [x] 独立空库仅执行 schema.sql、init_data.sql 后得到 14 张表、23 个知识点，并完成 Spring Boot、数据库和 MyBatis 启动验收
-- [ ] 在微信开发者工具中完成小程序编译和真机/模拟器页面运行验收（本机未安装，NOT VERIFIED）
+- [x] 在微信开发者工具中完成小程序编译和模拟器真实运行验收，覆盖三 Tab、正确/错误答题、错因确认、loading / empty / error 和防重复提交
+
+## 第七阶段：申论训练 + 政治阅读
+
+- [x] 新增申论数据模型：essay_question（题目/材料/参考要点）、essay_answer（原始作答只增不改）、essay_evaluation（结构化评分）
+- [x] 申论能力维度与申论主题作为知识点挂载 SHENLUN 根下，复用 ability_profile / learning_problem / daily_plan_item
+- [x] 8 个申论能力维度 + 8 个作文预留维度 + 10 个申论主题知识点初始数据
+- [x] 可替换评分接口 EssayGrader + 明确标记的本地规则实现 LocalRuleEssayGrader（LOCAL_RULE_V1）
+- [x] 评分结果结构化持久化：totalScore、dimensionScores、strengths、problems、missingPoints、evidence、suggestions
+- [x] 小程序申论训练流程：任务列表 → 材料/题目 → 作答 → 提交 → 原始保存 → 评分 → 能力变化展示
+- [x] LearningProblem 扩展 ESSAY_MISSING_POINTS / ESSAY_ANALYSIS / ESSAY_EXPRESSION / ESSAY_STRUCTURE / CONTENT_GAP，复用统一生命周期
+- [x] 政治阅读数据模型：political_topic（10 个初始专题）+ reading_material（结构化字段）+ reading_record
+- [x] 小程序政治阅读：专题列表、材料结构化查看（核心观点/问题/原因/对策/规范表达/案例/适用主题）、已读/收藏/掌握标记
+- [x] 申论-阅读联动：主题申论弱且阅读覆盖不足产生 CONTENT_GAP，计划同时安排主题 ESSAY + READING，完成阅读后缺口 RESOLVED
+- [x] DailyPlan 正式支持 QUESTION_SET / REVIEW / ESSAY / READING，按问题动态组合分钟数，当天计划保持稳定
+- [x] 能力页按行测/申论分组展示，展示申论能力与 LearningProblem
+- [x] 管理控台：申论题目/作答/评分查看、政治专题/材料管理与状态管理
+- [x] 真实验收场景 A：申论作答 → 原始保存 → 结构化评分 96.2 → 6 项能力更新 → 问题 CONFIRMED→VERIFYING → 计划安排申论专项
+- [x] 真实验收场景 B：后台新增基层治理材料 → 小程序阅读标记完成 → 阅读记录保存 → 专题进度更新
+- [x] 真实验收场景 C：同一 45 分钟计划同时出现基层治理 ESSAY（27 分钟）+ READING（18 分钟）
+- [x] 验证原始作答不可被评分覆盖（3 条历史作答全部原样保留）
+- [x] 后端自动测试 123 项全部通过（含既有 55 项回归）
+- [x] 从独立空库仅执行 schema.sql、init_data.sql（20 张表、51 个知识点、10 个专题）并完成 Spring Boot 启动验收
+
+## 第八阶段：真实 AI 能力接入
+
+- [x] 在 Java 11 基线上实现统一 OpenAI 兼容 AiProvider，集中管理超时、重试、结构化响应与受控异常
+- [x] 实现 REAL_AI 申论评分并保存完整调用审计；失败时保留原始作答、记录失败并支持重试
+- [x] 实现重复错因触发的 AI 根因分析，规则诊断仍为事实来源
+- [x] 实现政治阅读材料 AI 结构化，成功后保持 DRAFT 待人工确认，失败不覆盖原文
+- [x] 实现只读 AI Coach，依据真实能力、问题、错因、评分、计划和近期答题解释现状
+- [x] 小程序与管理控台补充 AI 展示、失败提示、重试和人工确认入口
+- [x] 完成 TEST_STUB 协议与降级测试；Java 11 下后端自动测试 134 项通过
+- [x] 主库升级并同步 schema.sql；独立空库仅执行 schema.sql、init_data.sql 后完成启动验证
+- [x] 使用 DeepSeek `deepseek-flash` 完成申论评分、错因深挖、政治阅读结构化、AI Coach 四条真实外部调用验收
+- [x] 验证 REAL_AI 审计、置信度百分制兼容、证据约束、失败降级和核心数据保护
+- [x] 第八阶段真实 AI 能力验收通过（Key 仅用于运行环境，未写入仓库）

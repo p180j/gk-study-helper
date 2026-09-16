@@ -1,0 +1,43 @@
+<view class="page">
+  <view class="hero">
+    <view class="hero-title">政治理论阅读</view>
+    <view class="hero-subtitle">积累主题素材，反哺申论表达</view>
+  </view>
+  <block wx:if="{{!currentTopic}}">
+    <view wx:if="{{loading}}" class="state">正在读取专题…</view>
+    <view wx:elif="{{error}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="retry">重新加载</button></view>
+    <block wx:else>
+      <view wx:if="{{!topics.length}}" class="card muted">暂无学习专题。</view>
+      <view class="card" wx:for="{{topics}}" wx:key="id" data-id="{{item.id}}" bindtap="openTopic">
+        <view class="row">
+          <view class="topic-name">{{item.name}}</view>
+          <view class="muted">{{item.completedMaterials}} / {{item.totalMaterials}} 篇</view>
+        </view>
+        <view class="muted topic-desc">{{item.description}}</view>
+        <view class="progress"><view class="progress-inner" style="width: {{item.progressPercent}}%"></view></view>
+      </view>
+    </block>
+  </block>
+  <block wx:else>
+    <view class="topic-header">
+      <button class="secondary back" size="mini" bindtap="backToTopics">‹ 返回专题</button>
+      <view class="topic-current">{{currentTopic.name}}</view>
+    </view>
+    <view wx:if="{{loading}}" class="state">正在读取材料…</view>
+    <view wx:elif="{{error}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="retry">重新加载</button></view>
+    <block wx:else>
+      <view wx:if="{{!materials.length}}" class="card muted">该专题暂无学习材料。</view>
+      <view class="card" wx:for="{{materials}}" wx:key="id" data-id="{{item.id}}" bindtap="openMaterial">
+        <view class="topic-name material-title">{{item.title}}</view>
+        <view class="muted topic-desc">{{item.source}} · {{item.publishDate}}</view>
+        <view class="tags">
+          <text wx:if="{{item.readStatus === 'COMPLETED'}}" class="tag">已读</text>
+          <text wx:elif="{{item.readStatus === 'READING'}}" class="tag">在读</text>
+          <text wx:else class="tag gray">未读</text>
+          <text wx:if="{{item.favorite}}" class="tag">已收藏</text>
+          <text wx:if="{{item.masteryLevel === 'MASTERED'}}" class="tag">已掌握</text>
+        </view>
+      </view>
+    </block>
+  </block>
+</view>

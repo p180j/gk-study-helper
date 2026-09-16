@@ -9,6 +9,8 @@ public class AbilityProfile {
     private Long knowledgePointId;
     private String knowledgePointCode;
     private String knowledgePointName;
+    // 非表字段：所属考试板块（根知识点 code，如 XINGCE/SHENLUN），查询时 join 填充。
+    private String examSection;
     private BigDecimal masteryScore;
     private BigDecimal speedScore;
     private BigDecimal stabilityScore;
@@ -27,6 +29,8 @@ public class AbilityProfile {
     public void setKnowledgePointCode(String knowledgePointCode) { this.knowledgePointCode = knowledgePointCode; }
     public String getKnowledgePointName() { return knowledgePointName; }
     public void setKnowledgePointName(String knowledgePointName) { this.knowledgePointName = knowledgePointName; }
+    public String getExamSection() { return examSection; }
+    public void setExamSection(String examSection) { this.examSection = examSection; }
     public BigDecimal getMasteryScore() { return masteryScore; }
     public void setMasteryScore(BigDecimal masteryScore) { this.masteryScore = masteryScore; }
     public BigDecimal getSpeedScore() { return speedScore; }

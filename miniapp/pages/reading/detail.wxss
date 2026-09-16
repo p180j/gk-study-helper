@@ -1,0 +1,7 @@
+.detail-title { font-size: 34rpx; font-weight: 700; line-height: 1.5; margin-bottom: 12rpx; }
+.meta { margin-bottom: 14rpx; }
+.tags { margin-top: 6rpx; }
+.tag.gray { background: #eef0ee; color: #7a817d; }
+.content { font-size: 28rpx; line-height: 1.85; color: #3b4640; }
+.point { line-height: 1.7; font-size: 27rpx; color: #3b4640; margin-bottom: 8rpx; }
+.action { margin: 0 0 18rpx; }

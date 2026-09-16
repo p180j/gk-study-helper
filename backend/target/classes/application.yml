@@ -9,3 +9,9 @@ spring:
 mybatis:
   configuration:
     map-underscore-to-camel-case: true
+ai:
+  base-url: ${AI_BASE_URL:}
+  api-key: ${AI_API_KEY:}
+  model: ${AI_MODEL:}
+  timeout-seconds: ${AI_TIMEOUT_SECONDS:45}
+  retry-count: ${AI_RETRY_COUNT:1}

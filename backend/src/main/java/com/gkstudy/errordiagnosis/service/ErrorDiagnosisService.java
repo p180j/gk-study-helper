@@ -3,6 +3,7 @@ package com.gkstudy.errordiagnosis.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gkstudy.common.BusinessException;
+import com.gkstudy.errordiagnosis.ai.AiRootCauseAnalyzer;
 import com.gkstudy.errordiagnosis.engine.ErrorDiagnosisEngine;
 import com.gkstudy.errordiagnosis.engine.ErrorDiagnosisEngine.Candidate;
 import com.gkstudy.errordiagnosis.mapper.ErrorDiagnosisMapper;
@@ -11,6 +12,8 @@ import com.gkstudy.learningproblem.mapper.LearningProblemMapper;
 import com.gkstudy.practice.mapper.AnswerRecordMapper;
 import com.gkstudy.practice.model.AnswerRecord;
 import com.gkstudy.question.model.KnowledgePointRef;
+import com.gkstudy.question.mapper.QuestionMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -28,12 +31,22 @@ public class ErrorDiagnosisService {
     private final AnswerRecordMapper answerRecordMapper;
     private final LearningProblemMapper learningProblemMapper;
     private final ObjectMapper objectMapper;
+    private final AiRootCauseAnalyzer aiAnalyzer;
+    private final QuestionMapper questionMapper;
+
+    @Autowired
+    public ErrorDiagnosisService(ErrorDiagnosisEngine engine, ErrorDiagnosisMapper diagnosisMapper,
+                                 AnswerRecordMapper answerRecordMapper, LearningProblemMapper learningProblemMapper,
+                                 ObjectMapper objectMapper, AiRootCauseAnalyzer aiAnalyzer, QuestionMapper questionMapper) {
+        this.engine = engine; this.diagnosisMapper = diagnosisMapper; this.answerRecordMapper = answerRecordMapper;
+        this.learningProblemMapper = learningProblemMapper; this.objectMapper = objectMapper;
+        this.aiAnalyzer = aiAnalyzer; this.questionMapper = questionMapper;
+    }
 
     public ErrorDiagnosisService(ErrorDiagnosisEngine engine, ErrorDiagnosisMapper diagnosisMapper,
                                  AnswerRecordMapper answerRecordMapper, LearningProblemMapper learningProblemMapper,
                                  ObjectMapper objectMapper) {
-        this.engine = engine; this.diagnosisMapper = diagnosisMapper; this.answerRecordMapper = answerRecordMapper;
-        this.learningProblemMapper = learningProblemMapper; this.objectMapper = objectMapper;
+        this(engine, diagnosisMapper, answerRecordMapper, learningProblemMapper, objectMapper, null, null);
     }
 
     @Transactional
@@ -55,6 +68,7 @@ public class ErrorDiagnosisService {
                 applyEvidence(diagnosis, current, knowledge, candidate);
                 diagnosisMapper.updateEvidence(diagnosis);
             }
+            enrichWithAi(diagnosis, current, matchingRecords(allRecords, knowledge.getId()));
             if (!"REJECTED".equals(diagnosis.getStatus()) && (primary == null || diagnosis.getConfidence().compareTo(primary.getConfidence()) > 0)) primary = diagnosis;
         }
         return primary;
@@ -68,8 +82,31 @@ public class ErrorDiagnosisService {
         if (confirmed) diagnosis.setConfidence(BigDecimal.valueOf(100));
         diagnosisMapper.updateDecision(diagnosis);
         ErrorDiagnosis main = diagnosisMapper.findMain(userId, diagnosis.getKnowledgePointId());
-        learningProblemMapper.updateRootCause(userId, diagnosis.getKnowledgePointId(), main == null ? null : main.getSuspectedCause());
+        learningProblemMapper.updateRootCause(userId, diagnosis.getKnowledgePointId(), main == null ? null : rootCause(main));
         return diagnosis;
+    }
+
+    private void enrichWithAi(ErrorDiagnosis diagnosis, AnswerRecord current, List<AnswerRecord> recent) {
+        if (aiAnalyzer == null || questionMapper == null || diagnosis.getOccurrenceCount() == null
+                || diagnosis.getOccurrenceCount() < 2 || "CONFIRMED".equals(diagnosis.getAiStatus())) return;
+        try {
+            AiRootCauseAnalyzer.Analysis analysis = aiAnalyzer.analyze(questionMapper.findById(current.getQuestionId()),
+                    questionMapper.findOptions(current.getQuestionId()), current, recent, diagnosis);
+            diagnosis.setAiExplanation(analysis.getSuspectedCause() + "：" + analysis.getExplanation());
+            diagnosis.setAiProvider(analysis.getResponse().getProvider()); diagnosis.setAiModel(analysis.getResponse().getModel());
+            diagnosis.setAiPromptVersion(AiRootCauseAnalyzer.PROMPT_VERSION);
+            diagnosis.setAiConfidence(BigDecimal.valueOf(analysis.getConfidence())); diagnosis.setAiStatus("PENDING_CONFIRMATION");
+            diagnosis.setAiRawResponse(analysis.getResponse().getRawResponse());
+            diagnosis.setAiRequestTime(analysis.getResponse().getRequestTime()); diagnosis.setAiLatencyMs(analysis.getResponse().getLatencyMs());
+        } catch (RuntimeException e) {
+            diagnosis.setAiStatus("FAILED"); diagnosis.setAiPromptVersion(AiRootCauseAnalyzer.PROMPT_VERSION);
+        }
+        diagnosisMapper.updateAiAnalysis(diagnosis);
+    }
+
+    private String rootCause(ErrorDiagnosis diagnosis) {
+        return diagnosis.getAiExplanation() == null || diagnosis.getAiExplanation().trim().isEmpty()
+                ? diagnosis.getSuspectedCause() : diagnosis.getAiExplanation();
     }
 
     private void applyEvidence(ErrorDiagnosis diagnosis, AnswerRecord current, KnowledgePointRef knowledge, Candidate candidate) {

@@ -1,6 +1,6 @@
 <view class="page">
   <view class="hero">
-    <view class="hero-title">今天，把时间用在刀刃上</view>
+    <view class="row"><view class="hero-title">今天，把时间用在刀刃上</view><button class="coach-entry" size="mini" bindtap="openCoach">问 AI 教练</button></view>
     <view class="hero-subtitle">计划来自你的真实答题表现</view>
   </view>
   <view wx:if="{{loading}}" class="state">正在读取今日计划…</view>
@@ -36,7 +36,12 @@
             <view class="task-name">{{index + 1}}. {{item.knowledgePointName}}</view>
             <view>{{item.plannedMinutes}} 分钟</view>
           </view>
-          <view><text class="tag">{{item.purpose}}</text><text class="muted">{{item.itemType}}</text></view>
+          <view>
+            <text class="tag">{{item.purpose}}</text>
+            <text wx:if="{{item.itemType === 'ESSAY'}}" class="tag type-tag">申论</text>
+            <text wx:if="{{item.itemType === 'READING'}}" class="tag type-tag">阅读</text>
+            <text class="muted">{{item.itemType}}</text>
+          </view>
           <view class="muted task-reason">{{item.reason}}</view>
           <button class="secondary" size="mini" data-id="{{item.id}}" bindtap="startItem">开始此任务</button>
         </view>

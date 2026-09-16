@@ -1,0 +1,24 @@
+<view class="page">
+  <view class="hero">
+    <view class="hero-title">申论专项训练</view>
+    <view class="hero-subtitle">真实作答形成申论能力画像</view>
+  </view>
+  <view wx:if="{{loading}}" class="state">正在读取申论任务…</view>
+  <view wx:elif="{{error}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="load">重新加载</button></view>
+  <block wx:else>
+    <view class="section-title">今日申论任务</view>
+    <view wx:if="{{!planItems.length}}" class="card muted">今日暂无申论计划任务，可从下方题库自选练习。</view>
+    <view class="card" wx:for="{{planItems}}" wx:key="itemId" data-id="{{item.itemId}}" bindtap="startPlanItem">
+      <view class="row"><view class="task-name">{{item.topicName}}</view><view class="muted">{{item.plannedMinutes}} 分钟</view></view>
+      <view class="tags"><text class="tag">{{item.purposeLabel}}</text><text wx:if="{{item.status === 'COMPLETED'}}" class="tag">已完成</text></view>
+      <view class="muted task-reason">{{item.reason}}</view>
+    </view>
+    <view class="section-title bank-title">申论题库</view>
+    <view wx:if="{{!questions.length}}" class="card muted">题库暂无申论题目。</view>
+    <view class="card" wx:for="{{questions}}" wx:key="id" data-id="{{item.id}}" bindtap="startQuestion">
+      <view class="row"><view class="task-name">{{item.topicName}}</view><text class="tag">{{item.questionTypeName}}</text></view>
+      <view class="muted">{{item.wordLimitMin}} - {{item.wordLimitMax}} 字</view>
+      <view class="muted task-reason">{{item.promptPreview}}</view>
+    </view>
+  </block>
+</view>

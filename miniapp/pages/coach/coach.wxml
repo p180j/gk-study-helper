@@ -1,0 +1,15 @@
+<view class="page">
+  <view class="hero"><view class="hero-title">AI 学习教练</view><view class="hero-subtitle">只解释你的真实学习数据，不替代计划引擎</view></view>
+  <view wx:if="{{loading}}" class="state">正在整理你的学习状态…</view>
+  <view wx:if="{{error}}" class="card error">{{error}}</view>
+  <view wx:if="{{result}}">
+    <view class="card"><view class="section-title">我现在怎么样？</view><view>{{result.currentStatus}}</view></view>
+    <view class="card"><view class="section-title">真正的问题</view><view wx:for="{{result.coreProblems}}" wx:key="*this" class="line">· {{item}}</view></view>
+    <view class="card"><view class="section-title">今天为什么这样学</view><view>{{result.todayReason}}</view><view class="answer">{{result.answer}}</view></view>
+    <view class="card"><view class="section-title">依据</view><view wx:for="{{result.evidence}}" wx:key="*this" class="line muted">· {{item}}</view></view>
+  </view>
+  <view class="card">
+    <textarea class="question" value="{{question}}" bindinput="onInput" placeholder="继续追问，例如：我最该先改什么？"></textarea>
+    <button class="primary" loading="{{asking}}" disabled="{{asking}}" bindtap="ask">问教练</button>
+  </view>
+</view>

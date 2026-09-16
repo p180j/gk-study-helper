@@ -19,7 +19,7 @@
     <view wx:if="{{!problems.length}}" class="card muted">当前没有学习问题。</view>
     <view class="card" wx:for="{{problems}}" wx:key="id">
       <view class="row"><view>{{item.knowledgePointName}}</view><text class="tag">{{item.status}}</text></view>
-      <view class="muted">{{item.problemType}} · 严重度 {{item.severity}}</view>
+      <view class="muted">{{item.problemTypeText}} · 严重度 {{item.severity}}</view>
       <view wx:if="{{item.rootCause}}" class="evidence">主要根因：{{item.rootCause}}</view>
       <view class="evidence">{{item.evidenceText}}</view>
     </view>

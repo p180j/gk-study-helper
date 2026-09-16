@@ -15,6 +15,18 @@ public class LearningProblemEngine {
     public static final String MASTERY = "MASTERY";
     public static final String SPEED = "SPEED";
     public static final String STABILITY = "STABILITY";
+    public static final String ESSAY_MISSING_POINTS = "ESSAY_MISSING_POINTS";
+    public static final String ESSAY_ANALYSIS = "ESSAY_ANALYSIS";
+    public static final String ESSAY_EXPRESSION = "ESSAY_EXPRESSION";
+    public static final String ESSAY_STRUCTURE = "ESSAY_STRUCTURE";
+    public static final String CONTENT_GAP = "CONTENT_GAP";
+
+    /** 判断是否为挂申论维度知识点的 4 种 ESSAY_* 问题（CONTENT_GAP 挂主题知识点，不在此列）。 */
+    public static boolean isEssayDimensionProblem(String problemType) {
+        return ESSAY_MISSING_POINTS.equals(problemType) || ESSAY_ANALYSIS.equals(problemType)
+                || ESSAY_EXPRESSION.equals(problemType) || ESSAY_STRUCTURE.equals(problemType);
+    }
+
     private static final int RECENT_SIZE = 6;
     private static final int PERSISTENCE_SIZE = 4;
     private static final int MIN_CONFIRM_SAMPLES = 4;

@@ -58,12 +58,13 @@ class ErrorDiagnosisServiceTest {
     @Test
     void userCanConfirmAndLearningProblemReceivesMainCause() {
         ErrorDiagnosis diagnosis = existing();
+        diagnosis.setAiExplanation("年份跨度少算1年：跨年度计算时把间隔数当成年份数");
         when(diagnosisMapper.findByIdForUpdate(91L, 7L)).thenReturn(diagnosis);
         when(diagnosisMapper.findMain(7L, 12L)).thenReturn(diagnosis);
         ErrorDiagnosis result = service.decide(7L, 91L, true);
         assertEquals("CONFIRMED", result.getStatus()); assertTrue(result.getConfirmedByUser());
         assertEquals(100, result.getConfidence().intValue());
-        verify(problemMapper).updateRootCause(7L, 12L, "条件理解偏差");
+        verify(problemMapper).updateRootCause(7L, 12L, "年份跨度少算1年：跨年度计算时把间隔数当成年份数");
     }
 
     @Test

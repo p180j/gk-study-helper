@@ -14,6 +14,9 @@
       <button data-view="import">题目导入</button>
       <button data-view="knowledge">知识点</button>
       <button data-view="answers">答题记录</button>
+      <button data-view="essays">申论题库</button>
+      <button data-view="essay-answers">申论作答</button>
+      <button data-view="readings">政治阅读</button>
     </nav>
     <div class="connection">
       <label>API 地址</label>
@@ -28,6 +31,7 @@
     <section id="content" aria-live="polite"></section>
   </main>
   <dialog id="detailDialog"><button class="close" aria-label="关闭">×</button><div id="detailContent"></div></dialog>
+  <dialog id="formDialog"><button class="close" aria-label="关闭">×</button><div id="formContent"></div></dialog>
   <script src="./api.js"></script>
   <script src="./app.js"></script>
 </body>

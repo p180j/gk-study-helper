@@ -25,6 +25,11 @@ public class LearningProblem {
     private BigDecimal improvementPotential;
     private BigDecimal transferValue;
     private BigDecimal abilityConfidence;
+    // 非表字段：申论类问题（ESSAY_*/CONTENT_GAP）的主题知识点信息，由 evidence_json 提取，
+    // 供后续计划引擎按申论主题生成训练计划项时使用。
+    private Long topicKnowledgePointId;
+    private String topicCode;
+    private String topicName;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -68,4 +73,10 @@ public class LearningProblem {
     public void setTransferValue(BigDecimal transferValue) { this.transferValue = transferValue; }
     public BigDecimal getAbilityConfidence() { return abilityConfidence; }
     public void setAbilityConfidence(BigDecimal abilityConfidence) { this.abilityConfidence = abilityConfidence; }
+    public Long getTopicKnowledgePointId() { return topicKnowledgePointId; }
+    public void setTopicKnowledgePointId(Long topicKnowledgePointId) { this.topicKnowledgePointId = topicKnowledgePointId; }
+    public String getTopicCode() { return topicCode; }
+    public void setTopicCode(String topicCode) { this.topicCode = topicCode; }
+    public String getTopicName() { return topicName; }
+    public void setTopicName(String topicName) { this.topicName = topicName; }
 }

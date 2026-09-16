@@ -2,7 +2,12 @@
   "pages": [
     "pages/home/home",
     "pages/learn/learn",
-    "pages/ability/ability"
+    "pages/ability/ability",
+    "pages/essay/essay",
+    "pages/essay/answer",
+    "pages/reading/reading",
+    "pages/reading/detail",
+    "pages/coach/coach"
   ],
   "window": {
     "navigationBarTitleText": "公考学习助手",

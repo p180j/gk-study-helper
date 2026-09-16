@@ -1,12 +1,30 @@
 <view class="page">
   <view class="hero"><view class="hero-title">专注完成这一题</view></view>
+  <view class="entries">
+    <view class="entry" bindtap="goXingce">
+      <view class="entry-name">行测专项</view>
+      <view class="muted entry-desc">按计划刷题</view>
+    </view>
+    <view class="entry" bindtap="goEssay">
+      <view class="entry-name">申论专项</view>
+      <view class="muted entry-desc">题型写作训练</view>
+    </view>
+    <view class="entry" bindtap="goReading">
+      <view class="entry-name">政治阅读</view>
+      <view class="muted entry-desc">主题素材积累</view>
+    </view>
+    <view class="entry" bindtap="goReview">
+      <view class="entry-name">错题/复习</view>
+      <view class="muted entry-desc">巩固已学内容</view>
+    </view>
+  </view>
   <view wx:if="{{loading}}" class="state">正在准备训练…</view>
   <view wx:elif="{{error && !question}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="load">重新加载</button></view>
-  <view wx:elif="{{!item}}" class="state">今日暂无计划任务。</view>
+  <view wx:elif="{{!item}}" class="state">今日暂无行测计划任务。</view>
   <view wx:elif="{{!question}}" class="state">“{{item.knowledgePointName}}”暂时没有可用题目，请先在管理控台导入。</view>
   <block wx:else>
     <scroll-view scroll-x class="task-tabs">
-      <view class="task-tab {{planItem.id === item.id ? 'active' : ''}}" wx:for="{{plan.items}}" wx:key="id" data-id="{{planItem.id}}" wx:for-item="planItem" bindtap="selectTask">{{planItem.knowledgePointName}}</view>
+      <view class="task-tab {{planItem.id === item.id ? 'active' : ''}}" wx:for="{{taskItems}}" wx:key="id" data-id="{{planItem.id}}" wx:for-item="planItem" bindtap="selectTask">{{planItem.knowledgePointName}}</view>
     </scroll-view>
     <view class="card">
       <view class="row">
@@ -35,6 +53,8 @@
       <view wx:if="{{!result.correct && result.errorDiagnosis}}" class="diagnosis">
         <view class="section-title">系统判断：{{result.errorDiagnosis.suspectedCause}}</view>
         <view class="muted">候选置信度 {{result.errorDiagnosis.confidence}}%，已出现 {{result.errorDiagnosis.occurrenceCount}} 次</view>
+        <view wx:if="{{result.errorDiagnosis.aiExplanation}}" class="ai-explanation">AI 深层分析：{{result.errorDiagnosis.aiExplanation}}</view>
+        <view wx:if="{{result.errorDiagnosis.aiStatus === 'FAILED'}}" class="muted">AI 深层分析暂时不可用，规则诊断仍然有效。</view>
         <view wx:if="{{result.errorDiagnosis.status === 'PENDING_CONFIRMATION'}}" class="diagnosis-actions">
           <button class="secondary diagnosis-button" loading="{{diagnosisDeciding}}" disabled="{{diagnosisDeciding}}" data-confirmed="{{true}}" bindtap="decideDiagnosis">确认</button>
           <button class="secondary diagnosis-button" loading="{{diagnosisDeciding}}" disabled="{{diagnosisDeciding}}" data-confirmed="{{false}}" bindtap="decideDiagnosis">不是</button>

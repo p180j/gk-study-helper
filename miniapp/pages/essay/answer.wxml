@@ -1,0 +1,70 @@
+<view class="page">
+  <view wx:if="{{loading}}" class="state">正在读取题目…</view>
+  <view wx:elif="{{error && !question}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="load">重新加载</button></view>
+  <view wx:elif="{{!question}}" class="state">未找到申论题目。</view>
+  <block wx:else>
+    <block wx:if="{{!result}}">
+      <view class="card">
+        <view class="row">
+          <view><text class="tag">{{question.topicName}}</text><text class="tag">{{question.questionTypeName}}</text></view>
+          <view wx:if="{{suggestedMinutes}}" class="muted">建议 {{suggestedMinutes}} 分钟</view>
+        </view>
+        <view class="material-toggle" bindtap="toggleMaterial">{{materialExpanded ? '收起材料' : '展开材料'}}</view>
+        <scroll-view wx:if="{{materialExpanded}}" scroll-y class="material">{{question.material}}</scroll-view>
+        <view class="divider"></view>
+        <view class="label">题目要求</view>
+        <view class="prompt">{{question.prompt}}</view>
+        <view class="muted word-limit">字数限制：{{question.wordLimitMin}} - {{question.wordLimitMax}} 字</view>
+      </view>
+      <view class="card">
+        <view class="row"><view class="label">你的作答</view><view class="muted">{{charCount}} / {{question.wordLimitMax}} 字</view></view>
+        <textarea class="answer-input" value="{{answerText}}" maxlength="-1" bindinput="onInput" placeholder="在此输入申论作答…"></textarea>
+        <button class="primary" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submit">提交作答</button>
+      </view>
+      <view wx:if="{{error}}" class="card error">{{error}}</view>
+    </block>
+    <block wx:else>
+      <view wx:if="{{result.failed}}" class="card result">
+        <view class="result-title">作答已保存</view>
+        <view class="error">{{result.message}}</view>
+        <view class="muted">原始答案不会丢失，恢复 AI 服务后可以重新评分。</view>
+        <button wx:if="{{result.retryable}}" class="primary" loading="{{submitting}}" disabled="{{submitting}}" bindtap="retryGrade">重试 AI 评分</button>
+      </view>
+      <view wx:else class="card result">
+        <view class="row">
+          <view class="result-title">评分结果</view>
+          <text wx:if="{{result.localEvaluator}}" class="tag warn-tag">本地规则评分（测试实现）</text>
+          <text wx:if="{{result.aiEvaluator}}" class="tag">真实 AI 评分</text>
+        </view>
+        <view class="score-wrap">
+          <text class="total-score">{{result.totalScore}}</text>
+          <text class="score-unit">分</text>
+        </view>
+        <view class="score-bar"><view class="score-bar-inner" style="width: {{result.totalScorePercent}}%"></view></view>
+        <view class="section-title dim-title">维度得分</view>
+        <view class="dimension" wx:for="{{result.dimensionScores}}" wx:key="code">
+          <view class="row"><view>{{item.name}}</view><view class="dimension-score">{{item.score}}</view></view>
+          <view class="score-bar"><view class="score-bar-inner" style="width: {{item.scorePercent}}%"></view></view>
+        </view>
+        <view wx:if="{{result.strengths.length}}" class="section-title dim-title">优点</view>
+        <view class="point" wx:for="{{result.strengths}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+        <view wx:if="{{result.problems.length}}" class="section-title dim-title">问题</view>
+        <view class="point" wx:for="{{result.problems}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+        <view wx:if="{{result.missingPoints.length}}" class="section-title dim-title">遗漏要点</view>
+        <view class="point" wx:for="{{result.missingPoints}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+        <view wx:if="{{result.suggestions.length}}" class="section-title dim-title">建议</view>
+        <view class="point" wx:for="{{result.suggestions}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+        <view wx:if="{{result.evidence.length}}" class="section-title dim-title">评分证据</view>
+        <view class="point" wx:for="{{result.evidence}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+        <view wx:if="{{result.aiEvaluator}}" class="muted">{{result.provider}} / {{result.model}} / {{result.promptVersion}} · 置信度 {{result.confidence}}</view>
+        <view class="section-title dim-title">能力变化</view>
+        <view wx:if="{{!result.abilityChanges.length}}" class="muted">本题未关联能力变化。</view>
+        <view wx:for="{{result.abilityChanges}}" wx:key="knowledgePointCode" class="change">
+          <view>{{item.name}}</view>
+          <view class="muted">{{item.line}}</view>
+        </view>
+        <button class="primary" bindtap="finish">完成</button>
+      </view>
+    </block>
+  </block>
+</view>

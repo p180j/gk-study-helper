@@ -17,7 +17,7 @@ const ERRORS = [
 
 Page({
   data: {
-    loading: true, error: '', plan: null, item: null, questions: [], questionIndex: 0,
+    loading: true, error: '', plan: null, taskItems: [], item: null, questions: [], questionIndex: 0,
     question: null, selectedAnswer: '', confidence: '', confidenceOptions: CONFIDENCE,
     errorIndex: 0, errorOptions: ERRORS, submitting: false, diagnosisDeciding: false, result: null
   },
@@ -46,19 +46,32 @@ Page({
     try {
       const plan = await request({ url: '/api/plan/today', showLoading: false })
       const items = plan.items || []
-      const item = items.find(candidate => candidate.id === preferredItemId) || items[0]
+      const taskItems = items.filter(candidate => candidate.itemType !== 'ESSAY' && candidate.itemType !== 'READING')
+      const item = taskItems.find(candidate => candidate.id === preferredItemId) || taskItems[0]
       if (!item) {
-        this.setData({ loading: false, plan, item: null, questions: [], question: null })
+        this.setData({ loading: false, plan, taskItems, item: null, questions: [], question: null })
         return
       }
       const questions = await request({ url: '/api/plan/items/' + item.id + '/questions?limit=10', showLoading: false })
-      this.setData({ loading: false, plan, item, questions, questionIndex: 0, question: questions[0] || null })
+      this.setData({ loading: false, plan, taskItems, item, questions, questionIndex: 0, question: questions[0] || null })
       this.resetAnswer()
     } catch (error) {
       this.setData({ loading: false, error: error.message })
     }
   },
   selectTask(event) { this.load(Number(event.currentTarget.dataset.id)) },
+  goXingce() { wx.pageScrollTo({ selector: '.task-tabs', duration: 300 }) },
+  goEssay() { wx.navigateTo({ url: '/pages/essay/essay' }) },
+  goReading() { wx.navigateTo({ url: '/pages/reading/reading' }) },
+  goReview() {
+    const items = (this.data.plan && this.data.plan.items) || []
+    const review = items.find(candidate => candidate.itemType === 'REVIEW' || candidate.purpose === 'REVIEW')
+    if (!review) {
+      wx.showToast({ title: '今日暂无复习任务', icon: 'none' })
+      return
+    }
+    this.load(review.id)
+  },
   selectAnswer(event) {
     if (this.data.submitting || this.data.result) return
     this.setData({ selectedAnswer: event.currentTarget.dataset.key })

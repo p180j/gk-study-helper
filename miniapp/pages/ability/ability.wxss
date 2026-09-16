@@ -1,3 +1,6 @@
+.section-tabs { display: flex; gap: 12rpx; margin-bottom: 20rpx; }
+.section-tab { flex: 1; text-align: center; padding: 16rpx 8rpx; border: 2rpx solid #e1e6e2; border-radius: 14rpx; background: #fff; color: #68716c; }
+.section-tab.selected { border-color: #1f6f55; background: #edf7f2; color: #155541; }
 .ability-name { font-size: 31rpx; font-weight: 650; }
 .metrics { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10rpx; margin: 26rpx 0 18rpx; text-align: center; }
 .metrics text { display: block; font-size: 34rpx; font-weight: 700; color: #1f6f55; }

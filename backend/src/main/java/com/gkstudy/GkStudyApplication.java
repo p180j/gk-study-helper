@@ -1,6 +1,7 @@
 package com.gkstudy;
+import org.apache.ibatis.annotations.Mapper;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-@MapperScan("com.gkstudy") @SpringBootApplication
+@MapperScan(basePackages = "com.gkstudy", annotationClass = Mapper.class) @SpringBootApplication
 public class GkStudyApplication { public static void main(String[] args) { SpringApplication.run(GkStudyApplication.class, args); } }

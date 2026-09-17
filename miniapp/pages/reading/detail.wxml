@@ -15,7 +15,7 @@
       </view>
       <view class="content">{{material.content}}</view>
     </view>
-    <view wx:if="{{material.coreView}}" class="card"><view class="section-title">核心观点</view><view class="content">{{material.coreView}}</view></view>
+    <view wx:if="{{material.coreView}}" class="card ai-structure"><view class="ai-badge">AI 结构化 ✦</view><view class="section-title">核心观点</view><view class="content">{{material.coreView}}</view></view>
     <view wx:if="{{material.problem}}" class="card"><view class="section-title">问题</view><view class="content">{{material.problem}}</view></view>
     <view wx:if="{{material.cause}}" class="card"><view class="section-title">原因</view><view class="content">{{material.cause}}</view></view>
     <view wx:if="{{material.solution}}" class="card"><view class="section-title">对策</view><view class="content">{{material.solution}}</view></view>

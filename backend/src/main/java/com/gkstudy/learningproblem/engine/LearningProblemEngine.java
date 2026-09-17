@@ -37,6 +37,7 @@ public class LearningProblemEngine {
     private static final int REQUIRED_VALIDATION_PASSES = 3;
 
     public Evaluation evaluate(String problemType, LearningProblem current, AbilityProfile profile, List<AnswerRecord> records) {
+        if (profile == null || profile.getSampleCount() == null || profile.getSampleCount() == 0 || "UNASSESSED".equals(profile.getStatus())) return null;
         List<AnswerRecord> recent = tail(records, RECENT_SIZE);
         List<AnswerRecord> persistence = tail(recent, PERSISTENCE_SIZE);
         double metric = metric(problemType, profile);

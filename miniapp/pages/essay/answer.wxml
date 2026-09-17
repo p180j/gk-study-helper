@@ -33,36 +33,51 @@
       <view wx:else class="card result">
         <view class="row">
           <view class="result-title">评分结果</view>
-          <text wx:if="{{result.localEvaluator}}" class="tag warn-tag">本地规则评分（测试实现）</text>
-          <text wx:if="{{result.aiEvaluator}}" class="tag">真实 AI 评分</text>
+          <text wx:if="{{result.localEvaluator}}" class="tag warn-tag">{{result.evaluatorLabel}}</text>
+          <text wx:elif="{{result.aiEvaluator}}" class="tag">{{result.evaluatorLabel}}</text>
         </view>
         <view class="score-wrap">
           <text class="total-score">{{result.totalScore}}</text>
           <text class="score-unit">分</text>
         </view>
         <view class="score-bar"><view class="score-bar-inner" style="width: {{result.totalScorePercent}}%"></view></view>
-        <view class="section-title dim-title">维度得分</view>
+        <view class="section-title dim-title">能力评分</view>
         <view class="dimension" wx:for="{{result.dimensionScores}}" wx:key="code">
           <view class="row"><view>{{item.name}}</view><view class="dimension-score">{{item.score}}</view></view>
           <view class="score-bar"><view class="score-bar-inner" style="width: {{item.scorePercent}}%"></view></view>
         </view>
-        <view wx:if="{{result.strengths.length}}" class="section-title dim-title">优点</view>
-        <view class="point" wx:for="{{result.strengths}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
-        <view wx:if="{{result.problems.length}}" class="section-title dim-title">问题</view>
-        <view class="point" wx:for="{{result.problems}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
-        <view wx:if="{{result.missingPoints.length}}" class="section-title dim-title">遗漏要点</view>
-        <view class="point" wx:for="{{result.missingPoints}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
-        <view wx:if="{{result.suggestions.length}}" class="section-title dim-title">建议</view>
-        <view class="point" wx:for="{{result.suggestions}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
-        <view wx:if="{{result.evidence.length}}" class="section-title dim-title">评分证据</view>
-        <view class="point" wx:for="{{result.evidence}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
-        <view wx:if="{{result.aiEvaluator}}" class="muted">{{result.provider}} / {{result.model}} / {{result.promptVersion}} · 置信度 {{result.confidence}}</view>
-        <view class="section-title dim-title">能力变化</view>
-        <view wx:if="{{!result.abilityChanges.length}}" class="muted">本题未关联能力变化。</view>
-        <view wx:for="{{result.abilityChanges}}" wx:key="knowledgePointCode" class="change">
-          <view>{{item.name}}</view>
-          <view class="muted">{{item.line}}</view>
-        </view>
+        <block wx:if="{{!detailExpanded}}">
+          <view wx:if="{{result.topStrengths.length}}" class="section-title dim-title">做得好的地方</view>
+          <view class="point" wx:for="{{result.topStrengths}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+          <view wx:if="{{result.topProblems.length}}" class="section-title dim-title">主要问题</view>
+          <view class="point" wx:for="{{result.topProblems}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+          <view wx:if="{{result.topMissingPoints.length}}" class="section-title dim-title">遗漏要点</view>
+          <view class="point" wx:for="{{result.topMissingPoints}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+          <view wx:if="{{result.topSuggestions.length}}" class="section-title dim-title">改进建议</view>
+          <view class="point" wx:for="{{result.topSuggestions}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+          <view wx:if="{{result.hiddenMore > 0}}" class="more-hint">还有 {{result.hiddenMore}} 条内容未展示</view>
+          <button wx:if="{{result.hasDetail}}" class="secondary full-toggle" bindtap="toggleDetail">查看完整批改 ▾</button>
+        </block>
+        <block wx:else>
+          <view wx:if="{{result.strengths.length}}" class="section-title dim-title">做得好的地方（全部）</view>
+          <view class="point" wx:for="{{result.strengths}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+          <view wx:if="{{result.problems.length}}" class="section-title dim-title">主要问题（全部）</view>
+          <view class="point" wx:for="{{result.problems}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+          <view wx:if="{{result.missingPoints.length}}" class="section-title dim-title">遗漏要点（全部）</view>
+          <view class="point" wx:for="{{result.missingPoints}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+          <view wx:if="{{result.suggestions.length}}" class="section-title dim-title">改进建议（全部）</view>
+          <view class="point" wx:for="{{result.suggestions}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+          <view wx:if="{{result.evidence.length}}" class="section-title dim-title">评分依据</view>
+          <view class="point" wx:for="{{result.evidence}}" wx:for-item="text" wx:key="*this">· {{text}}</view>
+          <view wx:if="{{result.aiEvaluator && result.confidence != null}}" class="muted confidence-line">AI 分析生成 · 结果可信度 {{result.confidence}}%</view>
+          <view class="section-title dim-title">能力变化</view>
+          <view wx:if="{{!result.abilityChanges.length}}" class="muted">本题未关联能力变化。</view>
+          <view wx:for="{{result.abilityChanges}}" wx:key="knowledgePointCode" class="change">
+            <view>{{item.name}}</view>
+            <view class="muted">{{item.line}}</view>
+          </view>
+          <button class="secondary full-toggle" bindtap="toggleDetail">收起完整批改 ▴</button>
+        </block>
         <button class="primary" bindtap="finish">完成</button>
       </view>
     </block>

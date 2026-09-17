@@ -1,4 +1,5 @@
 const { request } = require('../../utils/request')
+const { purposeLabel, abilityLabel } = require('../../utils/display')
 
 const CONFIDENCE = [
   { value: 'SURE', label: '确定' },
@@ -19,7 +20,7 @@ Page({
   data: {
     loading: true, error: '', plan: null, taskItems: [], item: null, questions: [], questionIndex: 0,
     question: null, selectedAnswer: '', confidence: '', confidenceOptions: CONFIDENCE,
-    errorIndex: 0, errorOptions: ERRORS, submitting: false, diagnosisDeciding: false, result: null
+    errorIndex: 0, errorOptions: ERRORS, submitting: false, diagnosisDeciding: false, result: null, showPractice: false
   },
   async decideDiagnosis(event) {
     if (this.data.diagnosisDeciding || !this.data.result || !this.data.result.errorDiagnosis) return
@@ -45,7 +46,8 @@ Page({
     this.setData({ loading: true, error: '', result: null })
     try {
       const plan = await request({ url: '/api/plan/today', showLoading: false })
-      const items = plan.items || []
+      const items = (plan.items || []).map(candidate => Object.assign({}, candidate, { purposeLabel: purposeLabel(candidate.purpose) }))
+      plan.items = items
       const taskItems = items.filter(candidate => candidate.itemType !== 'ESSAY' && candidate.itemType !== 'READING')
       const item = taskItems.find(candidate => candidate.id === preferredItemId) || taskItems[0]
       if (!item) {
@@ -53,14 +55,17 @@ Page({
         return
       }
       const questions = await request({ url: '/api/plan/items/' + item.id + '/questions?limit=10', showLoading: false })
-      this.setData({ loading: false, plan, taskItems, item, questions, questionIndex: 0, question: questions[0] || null })
+      this.setData({ loading: false, plan, taskItems, item, questions, questionIndex: 0, question: questions[0] || null,
+        showPractice: Boolean(preferredItemId) })
       this.resetAnswer()
     } catch (error) {
       this.setData({ loading: false, error: error.message })
     }
   },
-  selectTask(event) { this.load(Number(event.currentTarget.dataset.id)) },
-  goXingce() { wx.pageScrollTo({ selector: '.task-tabs', duration: 300 }) },
+  selectTask(event) { this.load(Number(event.currentTarget.dataset.id)).then(() => this.setData({ showPractice: true })) },
+  startCurrent() { if (this.data.question) this.setData({ showPractice: true }) },
+  closePractice() { this.setData({ showPractice: false, result: null }) },
+  goXingce() { this.startCurrent() },
   goEssay() { wx.navigateTo({ url: '/pages/essay/essay' }) },
   goReading() { wx.navigateTo({ url: '/pages/reading/reading' }) },
   goReview() {
@@ -101,6 +106,11 @@ Page({
           errorType: this.data.errorOptions[this.data.errorIndex].value
         }
       })
+      const names = {}
+      ;(this.data.question.knowledgePoints || []).forEach(knowledge => { names[knowledge.code] = knowledge.name })
+      result.abilityChanges = (result.abilityChanges || []).map(change => Object.assign({}, change, {
+        knowledgePointName: names[change.knowledgePointCode] || abilityLabel(change.knowledgePointCode)
+      }))
       this.setData({ result, submitting: false })
     } catch (error) {
       this.setData({ submitting: false, error: error.message })

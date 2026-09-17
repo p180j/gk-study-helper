@@ -2,6 +2,7 @@
 .meta { margin-bottom: 14rpx; }
 .tags { margin-top: 6rpx; }
 .tag.gray { background: #eef0ee; color: #7a817d; }
-.content { font-size: 28rpx; line-height: 1.85; color: #3b4640; }
-.point { line-height: 1.7; font-size: 27rpx; color: #3b4640; margin-bottom: 8rpx; }
+.content { font-size: 28rpx; line-height: 1.85; color: #405673; }
+.point { line-height: 1.7; font-size: 27rpx; color: #405673; margin-bottom: 8rpx; }
 .action { margin: 0 0 18rpx; }
+.ai-structure { border-top:6rpx solid #18b99e; }.ai-badge { display:inline-block; margin-bottom:18rpx; padding:7rpx 16rpx; border-radius:999rpx; color:#087d78; background:#e5fbf7; font-size:22rpx; font-weight:700; }

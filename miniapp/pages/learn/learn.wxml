@@ -1,74 +1,43 @@
 <view class="page">
-  <view class="hero"><view class="hero-title">专注完成这一题</view></view>
-  <view class="entries">
-    <view class="entry" bindtap="goXingce">
-      <view class="entry-name">行测专项</view>
-      <view class="muted entry-desc">按计划刷题</view>
-    </view>
-    <view class="entry" bindtap="goEssay">
-      <view class="entry-name">申论专项</view>
-      <view class="muted entry-desc">题型写作训练</view>
-    </view>
-    <view class="entry" bindtap="goReading">
-      <view class="entry-name">政治阅读</view>
-      <view class="muted entry-desc">主题素材积累</view>
-    </view>
-    <view class="entry" bindtap="goReview">
-      <view class="entry-name">错题/复习</view>
-      <view class="muted entry-desc">巩固已学内容</view>
-    </view>
-  </view>
+  <view class="hero"><view class="hero-title">学习</view><view class="hero-subtitle">我该怎么练？</view></view>
   <view wx:if="{{loading}}" class="state">正在准备训练…</view>
   <view wx:elif="{{error && !question}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="load">重新加载</button></view>
-  <view wx:elif="{{!item}}" class="state">今日暂无行测计划任务。</view>
-  <view wx:elif="{{!question}}" class="state">“{{item.knowledgePointName}}”暂时没有可用题目，请先在管理控台导入。</view>
+  <block wx:elif="{{!showPractice}}">
+    <view class="card continue-card">
+      <view class="row"><view class="section-title">继续今日学习</view><text class="switch-copy">切换任务 〉</text></view>
+      <view wx:if="{{item}}" class="continue-main"><view><view class="continue-title">{{item.knowledgePointName}}</view><view class="muted">{{item.reason}}</view><view class="muted progress-copy">共 {{questions.length}} 题 · {{item.plannedMinutes}} 分钟</view></view><view class="task-illustration">▤</view></view>
+      <view wx:else class="muted">今日暂无可用题目，仍可进行申论或政治阅读。</view>
+      <button wx:if="{{item && question}}" class="primary" bindtap="startCurrent">继续学习 〉</button>
+    </view>
+    <view class="section-row"><view class="section-title">为你推荐 ✦</view><view class="muted">基于今日计划</view></view>
+    <view class="recommend card" wx:for="{{plan.items}}" wx:key="id">
+      <view class="recommend-icon {{item.itemType}}">{{item.itemType === 'ESSAY' ? '申' : item.itemType === 'READING' ? '阅' : '练'}}</view>
+      <view class="recommend-body"><view class="row"><view class="recommend-title">{{item.knowledgePointName}}</view><text class="purpose purpose-{{item.purpose}}">{{item.purposeLabel}}</text></view><view class="muted recommend-reason">{{item.reason}}</view></view>
+      <button wx:if="{{item.itemType === 'QUESTION_SET' || item.itemType === 'REVIEW'}}" class="mini-action" size="mini" data-id="{{item.id}}" bindtap="selectTask">开始练习</button>
+    </view>
+    <view class="section-title free-title">自由学习</view>
+    <view class="free-grid">
+      <view class="free-entry blue" bindtap="goXingce"><view class="free-icon">▥</view><view><view>行测专项</view><text>按知识点练习</text></view></view>
+      <view class="free-entry indigo" bindtap="goEssay"><view class="free-icon">申</view><view><view>申论专项</view><text>真题与模拟题</text></view></view>
+      <view class="free-entry green" bindtap="goReading"><view class="free-icon">阅</view><view><view>政治阅读</view><text>时政热点与素材</text></view></view>
+      <view class="free-entry orange" bindtap="goReview"><view class="free-icon">错</view><view><view>错题复习</view><text>针对性巩固</text></view></view>
+    </view>
+  </block>
   <block wx:else>
-    <scroll-view scroll-x class="task-tabs">
-      <view class="task-tab {{planItem.id === item.id ? 'active' : ''}}" wx:for="{{taskItems}}" wx:key="id" data-id="{{planItem.id}}" wx:for-item="planItem" bindtap="selectTask">{{planItem.knowledgePointName}}</view>
-    </scroll-view>
-    <view class="card">
-      <view class="row">
-        <view><text class="tag">{{item.purpose}}</text>{{item.knowledgePointName}}</view>
-        <view class="muted">{{questionIndex + 1}} / {{questions.length}}</view>
-      </view>
+    <view class="practice-head row"><button class="back-button" size="mini" bindtap="closePractice">‹ 返回学习</button><view class="muted">{{questionIndex + 1}} / {{questions.length}}</view></view>
+    <view wx:if="{{!question}}" class="state">该任务暂时没有可用题目。</view>
+    <view wx:else class="card question-card">
+      <view><text class="tag">{{item.purposeLabel}}</text><text class="question-kp">{{item.knowledgePointName}}</text></view>
       <view class="stem">{{question.stem}}</view>
-      <view class="option {{selectedAnswer === option.optionKey ? 'selected' : ''}}" wx:for="{{question.options}}" wx:key="optionKey" wx:for-item="option" data-key="{{option.optionKey}}" bindtap="selectAnswer">
-        <text class="option-key">{{option.optionKey}}</text><text>{{option.optionText}}</text>
-      </view>
-      <view class="label">这道题你有多确定？</view>
-      <view class="choices">
-        <view class="choice {{confidence === option.value ? 'selected' : ''}}" wx:for="{{confidenceOptions}}" wx:key="value" wx:for-item="option" data-value="{{option.value}}" bindtap="selectConfidence">{{option.label}}</view>
-      </view>
-      <view class="label">如答错，选择可能错因</view>
-      <picker range="{{errorOptions}}" range-key="label" value="{{errorIndex}}" bindchange="selectError">
-        <view class="picker">{{errorOptions[errorIndex].label}} ›</view>
-      </picker>
+      <view class="option {{selectedAnswer === option.optionKey ? 'selected' : ''}}" wx:for="{{question.options}}" wx:key="optionKey" wx:for-item="option" data-key="{{option.optionKey}}" bindtap="selectAnswer"><text class="option-key">{{option.optionKey}}</text><text>{{option.optionText}}</text></view>
+      <view class="label">这道题你有多确定？</view><view class="choices"><view class="choice {{confidence === option.value ? 'selected' : ''}}" wx:for="{{confidenceOptions}}" wx:key="value" wx:for-item="option" data-value="{{option.value}}" bindtap="selectConfidence">{{option.label}}</view></view>
+      <view class="label">如答错，选择可能错因</view><picker range="{{errorOptions}}" range-key="label" value="{{errorIndex}}" bindchange="selectError"><view class="picker">{{errorOptions[errorIndex].label}} 〉</view></picker>
       <button wx:if="{{!result}}" class="primary" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submit">提交答案</button>
     </view>
-    <view wx:if="{{error && question}}" class="card error">{{error}}</view>
     <view wx:if="{{result}}" class="card result {{result.correct ? 'correct' : 'wrong'}}">
-      <view class="result-title">{{result.correct ? '回答正确' : '回答错误'}}</view>
-      <view>正确答案：{{result.correctAnswer}}</view>
-      <view class="analysis">{{result.analysis || '暂无解析'}}</view>
-      <view wx:if="{{!result.correct && result.errorDiagnosis}}" class="diagnosis">
-        <view class="section-title">系统判断：{{result.errorDiagnosis.suspectedCause}}</view>
-        <view class="muted">候选置信度 {{result.errorDiagnosis.confidence}}%，已出现 {{result.errorDiagnosis.occurrenceCount}} 次</view>
-        <view wx:if="{{result.errorDiagnosis.aiExplanation}}" class="ai-explanation">AI 深层分析：{{result.errorDiagnosis.aiExplanation}}</view>
-        <view wx:if="{{result.errorDiagnosis.aiStatus === 'FAILED'}}" class="muted">AI 深层分析暂时不可用，规则诊断仍然有效。</view>
-        <view wx:if="{{result.errorDiagnosis.status === 'PENDING_CONFIRMATION'}}" class="diagnosis-actions">
-          <button class="secondary diagnosis-button" loading="{{diagnosisDeciding}}" disabled="{{diagnosisDeciding}}" data-confirmed="{{true}}" bindtap="decideDiagnosis">确认</button>
-          <button class="secondary diagnosis-button" loading="{{diagnosisDeciding}}" disabled="{{diagnosisDeciding}}" data-confirmed="{{false}}" bindtap="decideDiagnosis">不是</button>
-        </view>
-        <view wx:elif="{{result.errorDiagnosis.status === 'CONFIRMED'}}" class="diagnosis-status">已由你确认</view>
-        <view wx:else class="muted">已记录为不是该错因</view>
-      </view>
-      <view class="section-title change-title">能力变化</view>
-      <view wx:if="{{!result.abilityChanges.length}}" class="muted">本题未关联能力变化。</view>
-      <view wx:for="{{result.abilityChanges}}" wx:key="knowledgePointCode" class="change">
-        <view>{{item.knowledgePointCode}}</view>
-        <view class="muted">掌握 {{item.oldMastery}} → {{item.newMastery}} · 速度 {{item.oldSpeed}} → {{item.newSpeed}}</view>
-      </view>
-      <button class="primary" bindtap="nextQuestion">继续下一题</button>
+      <view class="result-badge">{{result.correct ? '✓' : '!'}}</view><view class="result-title">{{result.correct ? '回答正确' : '回答错误'}}</view><view class="answer-line">正确答案：{{result.correctAnswer}}</view><view class="analysis">{{result.analysis || '暂无解析'}}</view>
+      <view wx:if="{{!result.correct && result.errorDiagnosis}}" class="diagnosis"><view class="ai-label">{{result.errorDiagnosis.aiExplanation ? '真实 AI 错因分析 ✦' : '规则错因候选'}}</view><view class="section-title">系统判断：{{result.errorDiagnosis.suspectedCause}}</view><view class="muted">候选置信度 {{result.errorDiagnosis.confidence}}% · 已出现 {{result.errorDiagnosis.occurrenceCount}} 次</view><view wx:if="{{result.errorDiagnosis.aiExplanation}}" class="ai-explanation">{{result.errorDiagnosis.aiExplanation}}</view><view wx:if="{{result.errorDiagnosis.status === 'PENDING_CONFIRMATION'}}" class="diagnosis-actions"><button class="secondary diagnosis-button" loading="{{diagnosisDeciding}}" disabled="{{diagnosisDeciding}}" data-confirmed="{{true}}" bindtap="decideDiagnosis">确认</button><button class="secondary diagnosis-button" loading="{{diagnosisDeciding}}" disabled="{{diagnosisDeciding}}" data-confirmed="{{false}}" bindtap="decideDiagnosis">不是</button></view></view>
+      <view class="section-title change-title">能力变化</view><view wx:for="{{result.abilityChanges}}" wx:key="knowledgePointCode" class="change"><view>{{item.knowledgePointName}}</view><view class="muted">掌握 {{item.oldMastery}} → {{item.newMastery}} · 速度 {{item.oldSpeed}} → {{item.newSpeed}}</view></view><button class="primary" bindtap="nextQuestion">继续下一题</button>
     </view>
   </block>
 </view>

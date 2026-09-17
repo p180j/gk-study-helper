@@ -18,6 +18,8 @@ public class AbilityProfile {
     private Integer sampleCount;
     private String status;
     private LocalDateTime lastPracticeTime;
+    // 非表字段：掌握度趋势（当前聚合掌握度 - ability_history 上一快照的聚合掌握度），为空表示暂无趋势。
+    private BigDecimal masteryTrend;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -45,4 +47,6 @@ public class AbilityProfile {
     public void setStatus(String status) { this.status = status; }
     public LocalDateTime getLastPracticeTime() { return lastPracticeTime; }
     public void setLastPracticeTime(LocalDateTime lastPracticeTime) { this.lastPracticeTime = lastPracticeTime; }
+    public BigDecimal getMasteryTrend() { return masteryTrend; }
+    public void setMasteryTrend(BigDecimal masteryTrend) { this.masteryTrend = masteryTrend; }
 }

@@ -1,16 +1,24 @@
 const { request } = require('../../utils/request')
+const { purposeLabel } = require('../../utils/display')
 
 Page({
-  data: { loading: true, error: '', problems: [], plan: null },
+  data: { loading: true, error: '', plan: null, overview: null, completedCount: 0, progressPercent: 0, insight: null },
   onShow() { this.load() },
   async load() {
     this.setData({ loading: true, error: '' })
     try {
-      const [problems, plan] = await Promise.all([
-        request({ url: '/api/learning-problems/core', showLoading: false }),
-        request({ url: '/api/plan/today', showLoading: false })
+      const [plan, overview, insight] = await Promise.all([
+        request({ url: '/api/plan/today', showLoading: false }),
+        request({ url: '/api/abilities/overview', showLoading: false }),
+        // 洞察接口失败时回退到“先建立基线”提示，不影响首页加载
+        request({ url: '/api/ai/coach/insight', showLoading: false, silent: true }).catch(() => null)
       ])
-      this.setData({ problems, plan, loading: false })
+      const items = (plan.items || []).map(item => Object.assign({}, item, { purposeLabel: purposeLabel(item.purpose) }))
+      plan.items = items
+      const completedCount = items.filter(item => item.status === 'COMPLETED').length
+      this.setData({ plan, overview, insight, completedCount,
+        progressPercent: items.length ? Math.round(completedCount * 100 / items.length) : 0,
+        loading: false })
     } catch (error) {
       this.setData({ loading: false, error: error.message })
     }

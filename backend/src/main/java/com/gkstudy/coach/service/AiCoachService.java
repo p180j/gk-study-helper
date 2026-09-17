@@ -4,9 +4,11 @@ import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gkstudy.ability.mapper.AbilityMapper;
+import com.gkstudy.ability.model.AbilityProfile;
 import com.gkstudy.ai.AiProvider;
 import com.gkstudy.ai.AiProviderException;
 import com.gkstudy.ai.AiResponse;
+import com.gkstudy.coach.dto.CoachInsight;
 import com.gkstudy.coach.dto.CoachResponse;
 import com.gkstudy.common.BusinessException;
 import com.gkstudy.errordiagnosis.mapper.ErrorDiagnosisMapper;
@@ -14,9 +16,12 @@ import com.gkstudy.errordiagnosis.model.ErrorDiagnosis;
 import com.gkstudy.essay.mapper.EssayEvaluationMapper;
 import com.gkstudy.essay.model.EssayEvaluation;
 import com.gkstudy.learningproblem.mapper.LearningProblemMapper;
+import com.gkstudy.learningproblem.model.LearningProblem;
 import com.gkstudy.plan.model.DailyPlan;
+import com.gkstudy.plan.model.DailyPlanItem;
 import com.gkstudy.plan.service.DailyPlanService;
 import com.gkstudy.practice.mapper.AnswerRecordMapper;
+import com.gkstudy.question.mapper.KnowledgePointMapper;
 import com.gkstudy.reading.mapper.ReadingRecordMapper;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -31,6 +36,7 @@ import java.util.Map;
 public class AiCoachService {
     private static final Logger log = LoggerFactory.getLogger(AiCoachService.class);
     private static final TypeReference<List<String>> LIST_TYPE = new TypeReference<List<String>>() { };
+    private static final TypeReference<Map<String, Object>> MAP_TYPE = new TypeReference<Map<String, Object>>() { };
     private final AiProvider aiProvider;
     private final AbilityMapper abilityMapper;
     private final LearningProblemMapper problemMapper;
@@ -39,16 +45,19 @@ public class AiCoachService {
     private final ReadingRecordMapper readingRecordMapper;
     private final DailyPlanService dailyPlanService;
     private final AnswerRecordMapper answerRecordMapper;
+    private final KnowledgePointMapper knowledgePointMapper;
     private final ObjectMapper objectMapper;
 
     public AiCoachService(AiProvider aiProvider, AbilityMapper abilityMapper, LearningProblemMapper problemMapper,
                           ErrorDiagnosisMapper diagnosisMapper, EssayEvaluationMapper evaluationMapper,
                           ReadingRecordMapper readingRecordMapper, DailyPlanService dailyPlanService,
-                          AnswerRecordMapper answerRecordMapper, ObjectMapper objectMapper) {
+                          AnswerRecordMapper answerRecordMapper, KnowledgePointMapper knowledgePointMapper,
+                          ObjectMapper objectMapper) {
         this.aiProvider = aiProvider; this.abilityMapper = abilityMapper; this.problemMapper = problemMapper;
         this.diagnosisMapper = diagnosisMapper; this.evaluationMapper = evaluationMapper;
         this.readingRecordMapper = readingRecordMapper; this.dailyPlanService = dailyPlanService;
-        this.answerRecordMapper = answerRecordMapper; this.objectMapper = objectMapper;
+        this.answerRecordMapper = answerRecordMapper; this.knowledgePointMapper = knowledgePointMapper;
+        this.objectMapper = objectMapper;
     }
 
     public CoachResponse ask(Long userId, String question) {
@@ -76,6 +85,98 @@ public class AiCoachService {
             throw new BusinessException("AI_COACH_UNAVAILABLE", "AI学习教练暂时不可用，可稍后重试");
         }
     }
+
+    /**
+     * 首页 AI 今日洞察：不调用 AI，只按“已确认错因根因 → 学习问题 → 大类能力 → 基线”的优先级
+     * 从真实数据中选取最具体的一条问题，杜绝 AI 编造根因。
+     */
+    public CoachInsight insight(Long userId) {
+        DailyPlan plan = dailyPlanService.today(userId);
+        for (ErrorDiagnosis diagnosis : diagnosisMapper.findRecentByUser(userId, 10)) {
+            if (!"CONFIRMED".equals(diagnosis.getStatus())) continue;
+            String pointName = knowledgePointMapper.findNameById(diagnosis.getKnowledgePointId());
+            String cause = diagnosis.getAiExplanation() == null || diagnosis.getAiExplanation().trim().isEmpty()
+                    ? diagnosis.getSuspectedCause() : diagnosis.getAiExplanation();
+            List<String> evidence = new ArrayList<>();
+            evidence.add("根因已经你确认，同类错误累计出现 " + count(diagnosis.getOccurrenceCount()) + " 次");
+            return new CoachInsight("ERROR_DIAGNOSIS", pointName, pointName + "：" + cause,
+                    suggestion(plan, diagnosis.getKnowledgePointId(), "今天完成一组针对训练，验证该根因是否改善"), evidence);
+        }
+        for (LearningProblem problem : problemMapper.findByUserId(userId)) {
+            if ("RESOLVED".equals(problem.getStatus())) continue;
+            String text = problem.getRootCause() != null && !problem.getRootCause().trim().isEmpty()
+                    ? problem.getKnowledgePointName() + "：" + problem.getRootCause() : problem.getTitle();
+            if (text == null || text.trim().isEmpty()) text = problem.getKnowledgePointName() + " 需要加强";
+            return new CoachInsight("LEARNING_PROBLEM", problem.getKnowledgePointName(), text,
+                    suggestion(plan, problem.getKnowledgePointId(),
+                            "今天优先完成「" + problem.getKnowledgePointName() + "」的针对训练"),
+                    problemEvidence(problem));
+        }
+        AbilityProfile weakest = null;
+        for (AbilityProfile profile : abilityMapper.findCompleteMap(userId)) {
+            if ("UNASSESSED".equals(profile.getStatus()) || profile.getSampleCount() == null || profile.getSampleCount() <= 0) continue;
+            if (profile.getMasteryScore() == null) continue;
+            if (weakest == null || profile.getMasteryScore().compareTo(weakest.getMasteryScore()) < 0) weakest = profile;
+        }
+        if (weakest != null) {
+            List<String> evidence = new ArrayList<>();
+            evidence.add("掌握度 " + weakest.getMasteryScore() + " · 样本 " + weakest.getSampleCount() + " 题");
+            return new CoachInsight("ABILITY", weakest.getKnowledgePointName(),
+                    weakest.getKnowledgePointName() + "掌握不足",
+                    suggestion(plan, weakest.getKnowledgePointId(),
+                            "今天优先补强" + weakest.getKnowledgePointName() + "相关知识点"), evidence);
+        }
+        List<String> evidence = new ArrayList<>();
+        evidence.add("尚无足够的真实作答数据");
+        return new CoachInsight("BASELINE", null, "先完成摸底测评，建立能力基线",
+                baselineSuggestion(plan), evidence);
+    }
+
+    private String suggestion(DailyPlan plan, Long knowledgePointId, String fallback) {
+        if (plan != null && knowledgePointId != null && plan.getItems() != null) {
+            for (DailyPlanItem item : plan.getItems()) {
+                if (knowledgePointId.equals(item.getKnowledgePointId())
+                        && item.getPlannedMinutes() != null && item.getPlannedMinutes() > 0) {
+                    return "今天完成 " + item.getPlannedMinutes() + " 分钟针对训练";
+                }
+            }
+        }
+        return fallback;
+    }
+
+    private String baselineSuggestion(DailyPlan plan) {
+        if (plan != null && plan.getItems() != null) {
+            for (DailyPlanItem item : plan.getItems()) {
+                if ("ASSESSMENT".equals(item.getPurpose()) && item.getPlannedMinutes() != null && item.getPlannedMinutes() > 0) {
+                    return "今天完成 " + item.getPlannedMinutes() + " 分钟摸底测评";
+                }
+            }
+        }
+        return "完成今日摸底，用真实作答建立能力画像";
+    }
+
+    private List<String> problemEvidence(LearningProblem problem) {
+        List<String> evidence = new ArrayList<>();
+        try {
+            Map<String, Object> value = objectMapper.readValue(problem.getEvidenceJson(), MAP_TYPE);
+            if (value.get("recentCount") != null) {
+                String type = problem.getProblemType();
+                String detail = "SPEED".equals(type) ? "超时 " + value.get("slowCount") + " 题"
+                        : "STABILITY".equals(type) ? "对错切换 " + value.get("transitionCount") + " 次"
+                        : "错 " + value.get("incorrectCount") + " 题";
+                evidence.add("最近 " + value.get("recentCount") + " 题" + detail);
+            } else if (value.get("dimensionName") != null && value.get("score") != null) {
+                evidence.add("「" + value.get("dimensionName") + "」最近得分 " + value.get("score"));
+            } else if (value.get("topicName") != null && value.get("essayMastery") != null) {
+                evidence.add("主题「" + value.get("topicName") + "」掌握度 " + value.get("essayMastery"));
+            }
+            if (value.get("mastery") != null) evidence.add("掌握度 " + value.get("mastery"));
+        } catch (Exception ignore) { }
+        if (evidence.isEmpty()) evidence.add("基于真实作答数据识别");
+        return evidence;
+    }
+
+    private int count(Integer value) { return value == null ? 0 : value; }
 
     Map<String, Object> context(Long userId) {
         DailyPlan plan = dailyPlanService.today(userId);

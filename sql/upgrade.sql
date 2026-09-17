@@ -1,1 +1,1 @@
--- 当前无待执行增量；第八阶段 AI 审计字段已验证并合并至 schema.sql。
+-- 当前无待执行增量；第九阶段后半段（ai_provider_config / content_source / content_staging）已验证并合并至 schema.sql。

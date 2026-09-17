@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+   <meta charset="UTF-8">
+
+   <title>山东省人力资源和社会保障厅</title>
+
+<script type="text/javascript">var embedRootPath = "/gentleCMS";var memberPath="/interact"; var embedRootPath = "/interact";</script>
+<script  type="text/javascript" src="/template/system/jquery/jquery.min.js"></script>
+<link type="text/css" href="/template/system/jquery/jquery-all.css"  rel="stylesheet"/>
+<script src="/template/system/jquery/ajaxfileupload/ajaxfileupload.js" type="text/javascript"></script>
+<script src="/template/system/jquery/jtemplates/jquery-jtemplates.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery.validationEngine.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery-migrate.min.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery.validationEngine-en.js" type="text/javascript"></script>
+<link type="text/css" href="/template/system/jquery/validate/validationEngine.jquery.css"  rel="stylesheet"/>
+
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.dateutil.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.util.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.embed.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.vote.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.gip.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.dynamic.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.cmsmember.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/echarts/echarts.min.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.question.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/echarts.cms.question.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/echarts.cms.vote.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.tamap.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.userlogin.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.weibo.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.weixin.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.pdfresource.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/weixinjs/jweixin-1.4.0.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/weibojs/wbsdk.js" type="text/javascript"></script>
+
+  <script type="text/javascript">var exchangePath = "/interact";</script>
+  <script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.exchange.js" type="text/javascript"></script>
+  <script type="text/javascript" src="/template/system/jquery/cms/jquery.cms.interact.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/template/system/jquery/raty/jquery.raty.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/template/system/login/jsencrypt.js"></script>
+
+
+   <link rel="stylesheet" href="/template/srst/default/css/reset.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/tool.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/communal.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/index.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/pindao.css" type="text/css">
+
+   <link rel="stylesheet" type="text/css" href="/template/srst/default/css/jquery-ui.css" />
+
+   <link href="/template/srst/default/css/jquery.bxslider.css" rel="stylesheet" />
+
+
+
+   <script src="/template/srst/default/images/js/jquery1.min.js"></script> 
+
+   <script src="/template/srst/default/images/js/title.js"></script> 
+
+   <script src="/template/srst/default/images/js/jquery-ui-datepicker.js"></script>
+
+<!-- -->
+
+</head>
+
+<body>
+
+
+
+
+
+<!---识别手机或电脑的js开始--->
+<script language="javascript">
+(function(){
+var url = window.location.href;
+if(url.indexOf(".shtml")==-1){
+	url=url+"/index.shtml";
+}else{
+	url=url.substring(0,url.lastIndexOf(".shtml"))+"mobile"+url.substring(url.lastIndexOf(".shtml"),url.length);
+}
+var res = GetRequest();
+var par = res['index'];
+if(par!='gfan'){
+var ua=navigator.userAgent.toLowerCase();
+var contains=function (a, b){
+if(a.indexOf(b)!=-1){return true;}
+};
+var toMobileVertion = function(){
+window.location.href = url;
+}
+ 
+if(contains(ua,"ipad")||(contains(ua,"rv:1.2.3.4"))||(contains(ua,"0.0.0.0"))||(contains(ua,"8.0.552.237"))){return false}
+if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla")) ||(contains(ua,"android") && contains(ua,"opera"))
+||contains(ua,"ucweb7")||contains(ua,"iphone")){toMobileVertion();}
+}
+})();
+function GetRequest() {
+  var url = location.search; 
+  var theRequest = new Object();
+  if (url.indexOf("?") != -1) {
+     var str = url.substr(1);
+     strs = str.split("&");
+     for(var i = 0; i < strs.length; i ++) {
+        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+     }
+  }
+  return theRequest;
+}</script>
+
+<meta name="SiteName" content="山东省人力资源和社会保障厅">
+<meta name="SiteDomain"  content="/">
+<meta name="SiteIDCode"  content="3700000027">
+<meta name="ColumnName" content="通知公告">
+<meta name="ColumnDescription" content="通知公告">
+<meta name="ColumnKeywords" content="通知公告">
+<meta name="ColumnType" content="通知公告">
+<meta name="ArticleTitle" content="关于做好2019年度职称评审工作的公告">
+<meta name="PubDate" content="2019-08-07 02:19">
+<meta name="ContentSource" content="山东省人力资源和社会保障厅">
+<meta name="Keywords" content="">
+<meta name="Author" content="">
+<meta name="Description" content="">
+<meta name="Image" content="">
+<meta name="Url" content="/articles/ch00330/201908/89e625ad-99fc-46b1-ba6d-36c8b81d4458.shtml">
+<meta name="pagetype" content="1">
+
+<div class="header-box">
+
+
+
+    <div class="container">
+
+        <a class='zx_logo' href="javascript:void(0);">
+
+            
+                    <img src="/resource/srst/202504/93be3432-1d3b-43d8-9da3-a3b042d033c8.png" alt="">
+
+
+        </a>
+
+        <div class="header-tool" style=" margin-top: 43px;">
+
+                <script>
+
+				   function search() {
+
+                            var content = $('#search_content').val();
+
+                            content = utf8_to_b64(content);
+
+                            var url = '/channels/ch05821/';
+
+                            url = url + '?content=' + content;
+
+                            window.open(url);
+
+                        }
+
+					
+
+                        //加密
+
+                        function utf8_to_b64(str) {
+
+                            return window.btoa(unescape(encodeURIComponent(str)));
+
+                        }
+
+                        //解密
+
+                        function b64_to_utf8(str) {
+
+                            return decodeURIComponent(escape(window.atob(str)));
+
+                        }
+
+                    $(document).ready(function() {
+
+                        $("#search_content").keydown(function() {
+
+                            if (event.keyCode == 13) {
+
+                                search();
+
+                            }
+
+                        })
+
+                        $(".searchBtn").click(function() {
+
+                            search()
+
+                        })
+
+                    });
+
+							function searchNew(keyword){
+
+								$('#search_content').attr('value',keyword);
+
+								search()
+
+							}
+
+                 </script>
+
+<span>在整个网站范围内搜索</span>
+
+            <div class="search-box" style="margin-top: 0px;">
+
+                    <input name="content" type="text" id="search_content" value="请输入关键字" onClick="this.value=''" onFocus="if (value =='请输入关键字'){value =''}" onBlur="if (value ==''){value='请输入关键字'}">
+
+                <!-- <input id="serachAll" type="text" placeholder="请输入关键字" /> -->
+
+                <a id="search-new" class="search-btn searchBtn le" ></a>
+
+            </div>
+
+
+
+            <div class="keyword">
+
+                <span>热点：</span>
+
+                <a href="javascript:searchNew('就业')">就业</a>
+
+                <a href="javascript:searchNew('失业')">失业</a>
+
+                <a href="javascript:searchNew('工伤保险')">工伤保险</a>
+
+                <a href="javascript:searchNew('公务员培训')">公务员培训</a>
+
+                <a href="javascript:searchNew('劳动工资')">劳动工资</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--header end-->
+
+<!--nav start-->
+<!--nav start-->
+
+<style>
+.nav-box .nav li {
+
+   width: 11.1%;
+}
+
+</style>
+
+<div class="nav-box">
+
+    <ul class="container nav">
+
+                <li style="width:10%;"><a href="/" >首页</a></li>
+
+                <li style="width:10%;"><a href="/channels/ch00003/" >资讯中心</a></li>
+
+                <li style="width:15%;"><a href="/channels/ch06433/"  target="_blank">政府信息公开</a></li>
+
+    <!--            <li style="width:10%;"><a href="/channels/ch00470/" >政策法规</a></li>-->
+
+                <li style="width:10%;"><a href="/channels/ch00582/" >服务大厅</a></li>
+
+                <li style="width:10%;"><a href="/channels/ch00592/">互动交流</a></li>
+
+               <li style="width:10%;"><a href="/channels/ch06859/">智能咨询</a></li>
+
+				<li style="width:15%;" class="last"><a id="wuzhangai" >无障碍工具</a></li>
+				<!--<li style="width:10%;" class="last"><a href="/channels/ch08014/">长者专区</a></li>-->
+				<li style="width:10%;" class="last"><a id="bfElder" style="cursor: pointer;">关怀版</a></li>
+
+    </ul>
+
+</div>
+
+<!--nav end-->
+
+<!--nav end-->
+<link rel="stylesheet" href="/template/srst/default/css/list.css" type="text/css" />
+
+
+<style>
+address, caption, cite, code, dfn, em, strong, th, var {
+    font-weight: bold;
+}
+
+</style>
+
+<!--nav end-->
+
+<!--body start-->
+
+<div class="list_bei">
+
+    <div class="warp">
+
+        <div class="warp_title">当前位置:     <a href="/" class="">首页</a>>>
+     <a href="/channels/ch00003/" class="">资讯</a>>>
+  <a href="/channels/ch00330/" class="">通知公告</a>
+</div>
+
+        <div class="warp_list">
+
+            <div class="show_title">关于做好2019年度职称评审工作的公告</div>
+
+            <div class="show_center">
+
+                <span></span><span class="pubdatecss">2019-08-07</span>
+
+                <span>字体
+
+                    <a class="bigger" href="javascript:void(0)">大</a>
+
+                    <a class="middle" href="javascript:void(0)">中</a>
+
+                    <a class="smaller" href="javascript:void(0)">小</a>
+
+                </span> </div>
+
+            <div class="show">
+
+                <p><span style="color:white">&nbsp;</span></p><p><span style="color:white">&nbsp;</span></p><p style="text-align:center;line-height:39px"><span style="font-size: 29px;font-family: 方正小标宋简体">山东省人力资源和社会保障厅</span></p><p style="text-align:center;line-height:39px"><span style="font-size: 29px;font-family: 方正小标宋简体">关于做好2019年度职称评审工作的公告</span></p><p><span style="color:white">&nbsp;</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;"><span style="font-family: 仿宋_GB2312;">根据职称评审有关规定，现就</span>2019<span style="font-family: 仿宋_GB2312;">年度我省职称评审工作有关事项公告如下：</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 黑体; font-size: 22px;">一、申报评审时间</span></p><p style="text-indent:42px;background:white"><span style="font-family: 楷体_GB2312; font-size: 22px;">（一）申报时间</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;"><span style="font-size: 22px; font-family: 仿宋_GB2312;">全省各级评委会受理申报材料的时间原则上为</span>8<span style="font-size: 22px; font-family: 仿宋_GB2312;">月至</span>10<span style="font-size: 22px; font-family: 仿宋_GB2312;">月。各级人力资源社会保障部门或职称评委会办事机构确定具体时间和申报呈报等要求，并及时登陆“山东省专业技术人员管理服务平台”（</span>http://hrss.shandong.gov.cn/rsrc<span style="font-size: 22px; font-family: 仿宋_GB2312;">）发布申报评审通知。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 楷体_GB2312; font-size: 22px;">（二）评审时间</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;"><span style="font-size: 22px; font-family: 仿宋_GB2312;">各级职称评委会原则上于</span>12<span style="font-size: 22px; font-family: 仿宋_GB2312;">月底前完成评审工作。高级会计师、高级审计师和高级统计师资格的评审时间，待考试成绩公布后由高级职称评委会办事机构（以下简称高评委办事机构）另行通知。</span>2019<span style="font-size: 22px; font-family: 仿宋_GB2312;">年国家暂不举行高级经济师考试。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 黑体; font-size: 22px;">二、申报评审条件和材料要求</span></p><p style="text-indent:42px;background:white"><span style="font-family: 楷体_GB2312; font-size: 22px;">（一）申报评审条件</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">1<span style="font-size: 22px; font-family: 仿宋_GB2312;">．我省已完成标准条件修订的职称系列，按照新的标准条件执行，标准条件在“山东省专业技术人员管理服务平台”发布。未完成修订的，仍按照国家和省有关规定执行。各行业人才主管部门要按照《山东省人力资源和社会保障厅关于加快推进职称标准条件制定修订工作有关问题的通知》（鲁人社字〔</span>2018<span style="font-size: 22px; font-family: 仿宋_GB2312;">〕</span>307<span style="font-size: 22px; font-family: 仿宋_GB2312;">号）要求，加快推进现行各系列（专业）标准条件的修订工作。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">2<span style="font-size: 22px; font-family: 仿宋_GB2312;">．按照《中共山东省委办公厅山东省人民政府办公厅印发关于进一步提高全省技术工人待遇的通知》（鲁办发〔</span>2019<span style="font-size: 22px; font-family: 仿宋_GB2312;">〕</span>9<span style="font-size: 22px; font-family: 仿宋_GB2312;">号）有关规定，在职称评审中，取得高级工、预备技师职业资格（职业技能等级）的高级技校或技师学院全日制毕业生，分别按照大专和本科毕业生对待；技工学校毕业生，按照普通中专毕业生对待。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">3<span style="font-size: 22px; font-family: 仿宋_GB2312;">．对于参加工作后取得的学历，不再限定年限要求。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">4<span style="font-size: 22px; font-family: 仿宋_GB2312;">．职称外语和计算机应用能力的有关要求，按照《关于职称外语和计算机应用能力考试有关问题的通知》（鲁人社发〔</span>2016<span style="font-size: 22px; font-family: 仿宋_GB2312;">〕</span>29<span style="font-size: 22px; font-family: 仿宋_GB2312;">号）执行。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">5<span style="font-size: 22px; font-family: 仿宋_GB2312;">．继续教育条件，按照《山东省专业技术人员继续教育条例》和相关政策规定，提供近五年以来的继续教育证明材料。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 楷体_GB2312; font-size: 22px;">（二）材料要求</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">2019<span style="font-size: 22px; font-family: 仿宋_GB2312;">年度专业技术职务资格实行网上申报评审，申报人员登录“山东省专业技术人员管理服务平台”的“职称申报评审系统”进行填报。专业技术人员申报评审专业技术职务资格，应实事求是地填写申报材料，按要求提供各种佐证材料和能够反映本人任现职以来专业技术水平、能力、业绩的代表性成果或受奖项目以及近五年参加继续教育情况。淡化论文、奖项数量要求，推行代表作制度，填报的论文（著作、作品等）不超过</span>3<span style="font-size: 22px; font-family: 仿宋_GB2312;">件，科研成果及获奖项目不超过</span>3<span style="font-size: 22px; font-family: 仿宋_GB2312;">项（标准条件另有规定的除外）。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 黑体; font-size: 22px;">三、申报范围和有关政策</span></p><p style="text-indent:42px;background:white"><span style="font-family: 楷体_GB2312; font-size: 22px;">（一）申报范围</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">1<span style="font-size: 22px; font-family: 仿宋_GB2312;">．凡在我省各类企业事业单位、社会中介组织从事专业技术工作，与用人单位确定了人员劳动（聘用）关系的专业技术人员，以及在城市、农村从事专业技术工作但无工作单位的人员，均可按规定的标准条件申报评审相应的职称。城市无工作单位的专业技术从业者和农村从事专业技术工作的人员，由其所在街道社区、村委会或乡镇人力资源社会保障所推荐申报，逐级审核上报。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">2<span style="font-size: 22px; font-family: 仿宋_GB2312;">．在我省就业的港澳台专业技术人才，以及持有外国人永久居留证或海外高层次人才居住证的外籍人员，可按规定参加职称评审。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">3<span style="font-size: 22px; font-family: 仿宋_GB2312;">．公务员（含列入参照公务员法管理的事业单位的在编人员）不得参加职称评审。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 楷体_GB2312; font-size: 22px;">（二）有关政策</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">1<span style="font-size: 22px; font-family: 仿宋_GB2312;">．高层次人才职称评审，按照《山东省人力资源和社会保障厅关于下放职称服务管理权限和建立高层次人才高级职称评审“直通车”制度的通知》（鲁人社字〔</span>2019<span style="font-size: 22px; font-family: 仿宋_GB2312;">〕</span>128<span style="font-size: 22px; font-family: 仿宋_GB2312;">号）执行。省属高校、科研院所、公立医院等各类高层次人才到基层开展服务活动，服务期限视为基层工作经历，可以作为职称评审的依据。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">2<span style="font-size: 22px; font-family: 仿宋_GB2312;">．援藏、援疆、援青的专业技术人才职称评审，按照国家和省有关规定执行。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">3<span style="font-size: 22px; font-family: 仿宋_GB2312;">．非企事业单位（含参公管理单位）的人员交流聘用到企事业单位专业技术岗位上工作，在现工作岗位从事专业技术工作一年以上，经考核符合相应职称条件的，可申报评审相应的职称。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">4<span style="font-size: 22px; font-family: 仿宋_GB2312;">．乡镇专业技术人才，可按照《山东省人力资源和社会保障厅关于印发推进乡村人才振兴若干措施的通知》（鲁人社发〔</span>2018<span style="font-size: 22px; font-family: 仿宋_GB2312;">〕</span>40<span style="font-size: 22px; font-family: 仿宋_GB2312;">号）和《山东省人力资源和社会保障厅关于乡镇专业技术人员职称评聘有关问题的通知》（鲁人社函〔</span>2019<span style="font-size: 22px; font-family: 仿宋_GB2312;">〕</span>17<span style="font-size: 22px; font-family: 仿宋_GB2312;">号）规定享受直评等政策。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">5<span style="font-size: 22px; font-family: 仿宋_GB2312;">．事业单位专业技术人员申报评审职称，由各设区的市和省直部门按照事业单位管理有关规定，结合本地区本部门实际，作出具体要求。经批准兼职或离岗创新创业的专业技术人才申报职称，按照《中共山东省委组织部山东省人力资源和社会保障厅山东省财政厅山东省科技厅山东省教育厅关于支持和鼓励事业单位专业技术人员创新创业的实施意见》（鲁人社规〔</span>2018<span style="font-size: 22px; font-family: 仿宋_GB2312;">〕</span>1<span style="font-size: 22px; font-family: 仿宋_GB2312;">号）有关规定执行。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">6<span style="font-size: 22px; font-family: 仿宋_GB2312;">．鼓励发展复合型人才。已取得一个系列（专业）职称并聘用在相应岗位上的专业技术人员，经所在单位批准，可结合从事工作再申报评审或报考其他系列（专业）同级别的职称，不受所在单位岗位限制。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">7<span style="font-size: 22px; font-family: 仿宋_GB2312;">．专业技术人员因工作岗位调整需要改系列（专业）申报评审与原专业技术职务资格同层级的专业技术职务资格，应在现聘专业技术岗位上工作一年以上，经考核符合相应专业技术职务资格条件的方可推荐申报。未按规定取得相应系列（专业）资格的，不得申报评审高一级专业技术职务资格，国家和省另有规定的除外。其改系列前后的任职年限可累计计算，相关的业绩成果可作为申报高一级专业技术职务资格的依据。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 黑体; font-size: 22px;">四、审核要求</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;"><span style="font-size: 22px; font-family: 仿宋_GB2312;">按照《山东省人力资源和社会保障厅关于进一步简化职称申报评审程序有关问题的通知》（鲁人社字〔</span>2019<span style="font-size: 22px; font-family: 仿宋_GB2312;">〕</span>17<span style="font-size: 22px; font-family: 仿宋_GB2312;">号）要求，各地各部门要提高思想认识、加强部门协作联系</span>,<span style="font-size: 22px; font-family: 仿宋_GB2312;">结合审查需要和工作实际</span>,<span style="font-size: 22px; font-family: 仿宋_GB2312;">改进职称申报评审工作</span>,<span style="font-size: 22px; font-family: 仿宋_GB2312;">提高服务质量</span>,<span style="font-size: 22px; font-family: 仿宋_GB2312;">推进职称管理服务方式转变。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 楷体_GB2312; font-size: 22px;">（一）单位审核</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">1<span style="font-size: 22px; font-family: 仿宋_GB2312;">．专业技术人员所在单位要认真审查申报材料的合法性、真实性、完整性和有效性，组织好申报推荐工作，做好申报前公示并按要求填写单位推荐意见并签名盖章。对不符合申报条件的材料，应及时退回并向申报人说明原因。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">2<span style="font-size: 22px; font-family: 仿宋_GB2312;">．单位要按规定将申报材料和投诉受理部门及电话，在单位显著位置公示，有条件的单位应同时在单位网站首页进行公示，公示时间不少于</span>5<span style="font-size: 22px; font-family: 仿宋_GB2312;">个工作日。其他申报材料可放置在单位会议室等公共场所，以供查验。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 楷体_GB2312; font-size: 22px;">（二）主管部门、呈报部门、评委会办事机构审核</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;"><span style="font-size: 22px; font-family: 仿宋_GB2312;">单位主管部门、呈报部门、评委会办事机构要认真审核申报材料。对不符合申报条件和程序、超出评委会受理范围或违反委托评审程序报送的申报材料，应及时按原报送渠道退回，并请用人单位书面告知申报人。凡有以下情形之一的，不予受理：（</span>1<span style="font-size: 22px; font-family: 仿宋_GB2312;">）不符合评审条件；（</span>2<span style="font-size: 22px; font-family: 仿宋_GB2312;">）不符合填写规范；（</span>3<span style="font-size: 22px; font-family: 仿宋_GB2312;">）不按规定时间、程序报送；（</span>4<span style="font-size: 22px; font-family: 仿宋_GB2312;">）未经或未按规定进行公示；（</span>5<span style="font-size: 22px; font-family: 仿宋_GB2312;">）有弄虚作假行为；（</span>6<span style="font-size: 22px; font-family: 仿宋_GB2312;">）其它不符合职称政策规定的。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 楷体_GB2312; font-size: 22px;">（三）委托评审</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">1<span style="font-size: 22px; font-family: 仿宋_GB2312;">．申报人数较少的系列，我省不再组建相应高评委。相应高评委办事机构审核汇总并联系好委托评审事宜，经我厅出具委托函后统一报送。我省已有的系列（专业）不再委托评审。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">2<span style="font-size: 22px; font-family: 仿宋_GB2312;">．中央驻鲁单位和外省委托我省评审高级职称的，须经有权限的部门开具委托函，高评委办事机构方可受理。评审结束后，及时反馈评审结果给出具委托函的部门（单位），由其按规定核准公布和发放证书。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 黑体; font-size: 22px;">五、评审组织要求</span></p><p style="text-indent:42px;background:white"><span style="font-family: 楷体_GB2312; font-size: 22px;">（一）评委会组建及调整</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">1<span style="font-size: 22px; font-family: 仿宋_GB2312;">．动态调整省级高级评审委员会、办事机构和范围权限，具体高评委会名单见附件。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">2<span style="font-size: 22px; font-family: 仿宋_GB2312;">．按照《山东省人力资源和社会保障厅关于下放职称服务管理权限和建立高层次人才高级职称评审“直通车”制度的通知》（鲁人社字〔</span>2019<span style="font-size: 22px; font-family: 仿宋_GB2312;">〕</span>128<span style="font-size: 22px; font-family: 仿宋_GB2312;">号）要求，向设区的市下放部分系列（专业）副高级职称评审权。继续授权济南、青岛</span>2<span style="font-size: 22px; font-family: 仿宋_GB2312;">市组建卫生系列正高级评审委员会。各市应将本市组建的评委会及时向社会公开。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 楷体_GB2312; font-size: 22px;">（二）评委会评审</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">1<span style="font-size: 22px; font-family: 仿宋_GB2312;">．各评审委员会组建部门应严格按照规定的程序和要求，遴选本系列（专业）或相近系列（专业）专家组建各级评审委员会。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">2<span style="font-size: 22px; font-family: 仿宋_GB2312;">．各系列（专业）评委会要严格执行标准条件，突出业绩贡献和自主创新能力，对申报人员品德、知识、能力和业绩进行综合评价，把拥有自主知识产权、发明专利和转化生产力的能力作为评审的重要依据，注重向基层、企业、非公有制单位和一线专业技术人员倾斜。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">3<span style="font-size: 22px; font-family: 仿宋_GB2312;">．各级评委会应结合实际创新评审评价办法，可采用业务测试、面试答辩、综合评议等多种方式，对申报人员的学术技术水平和能力业绩情况进行全面、科学地评审评价。有条件的评委会可以引入专业性较强、信誉度较高的第三方机构参与评审评价。建立评审专家责任制。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">4<span style="font-size: 22px; font-family: 仿宋_GB2312;">．各评委会办事机构应做好申报材料的审查、整理、分析、汇总工作，制定专业技术职务资格评审委员会评审工作方案，并在评审会议召开</span>5<span style="font-size: 22px; font-family: 仿宋_GB2312;">日前报评委会组建部门审核同意后，认真组织评审。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 黑体; font-size: 22px;">六、评审结果核准公布及发证</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;"><span style="font-size: 22px; font-family: 仿宋_GB2312;">（一）严格执行异议期公示制度。评委会办事机构须将评审通过的人员名单及时通知呈报部门逐级反馈到申报人员所在单位公示，公示期不少于</span>5<span style="font-size: 22px; font-family: 仿宋_GB2312;">个工作日。对评审结果审核、备案过程中发现的问题，评委会办事机构经呈报部门、单位主管部门反馈到专业技术人员所在单位，由所在单位进行具体核实，单位主管部门及呈报部门要进行认真审核，提出明确意见后，及时上报评委会办事机构。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;"><span style="font-size: 22px; font-family: 仿宋_GB2312;">（二）评委会办事机构应在异议期结束的</span>20<span style="font-size: 22px; font-family: 仿宋_GB2312;">个工作日内，向人力资源社会保障部门报送相关的核准备案材料，及时行文公布，并于发文后</span>2<span style="font-size: 22px; font-family: 仿宋_GB2312;">日内在相关网站发布。省人力资源社会保障厅将视评审工作进展定期组织抽查。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;"><span style="font-size: 22px; font-family: 仿宋_GB2312;">（三）职称证书发放工作按照《山东省人力资源和社会保障厅关于印发山东省职称证书管理办法的通知》（鲁人社规〔</span>2018<span style="font-size: 22px; font-family: 仿宋_GB2312;">〕</span>22<span style="font-size: 22px; font-family: 仿宋_GB2312;">号）规定执行，继续扩大电子证书发放范围。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 黑体; font-size: 22px;">七、纪律要求</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;"><span style="font-size: 22px; font-family: 楷体_GB2312;">（一）严肃评审纪律。</span><span style="font-size: 22px; font-family: 仿宋_GB2312;">各市、各部门（单位）要按照我省职称相关政策要求，严肃认真做好本市、本部门（单位）申报工作，要对照资格条件，逐条逐项把好资格审查关。评委会办事机构要切实履行职责，健全评委会的评审会议记录制度，严格评审程序和评审纪律，确保评审质量和评审工作规范有序。受理信访主要由单位人事（职称）管理部门负责，接受单位纪检、监察部门的指导和监督。经查实存在弄虚作假或其它违规行为的申报材料不予报送，并按有关规定处理。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;"><span style="font-size: 22px; font-family: 楷体_GB2312;">（二）加强监督督查。</span><span style="font-size: 22px; font-family: 仿宋_GB2312;">各评委会和用人单位要建立完善内部监督机制，将职称评审工作作为廉政风险防范的重要内容，纪检监察机关要加强监督检查。办事机构要与评委签订遵守评审纪律承诺书，有条件的评委会可邀请人大代表、政协委员等参与监督，建立全程监督机制。对评审过程中发现或群众举报的违规违纪行为要及时认真进行核查，坚决杜绝评委和相关工作人员违纪违法问题的发生。各级人力资源社会保障部门要加强对所属评委会办事机构的检查和指导，督导所属评委会办事机构加强职称评审工作的纪律教育，进一步规范评审工作程序，强化监督和制约机制。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;"><span style="font-size: 22px; font-family: 楷体_GB2312;">（三）强化责任追究。</span><span style="font-size: 22px; font-family: 仿宋_GB2312;">对职称申报、推荐、评审等环节要严格实行“谁审核，谁签名；谁签名，谁负责”的管理责任制，哪个环节、哪个方面出现问题，依法依规追究有关人员的责任。各级评委会办事机构不得擅自扩大、增加或减少受理及评审范围，凡违反评审程序和规定，或随意降低评价标准，导致投诉较多、争议较大，将视情况责令整改。对申报评审专业技术职务资格中弄虚作假、违纪违规的人员，各市、各部门（单位）要严格按照国家和省有关规定予以严肃处理，并按照干部管理权限视情节轻重予以党纪政纪处分。对在职称申报评审中弄虚作假的单位追究有关领导和相关责任人责任。</span></span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;"><span style="font-size: 22px; font-family: 楷体_GB2312;">（四）建立职称诚信制度。</span><span style="font-size: 22px; font-family: 仿宋_GB2312;">按照《山东省公共信用信息管理办法》（山东省人民政府令</span> <span style="font-size: 22px; font-family: 仿宋_GB2312;">第</span>314<span style="font-size: 22px; font-family: 仿宋_GB2312;">号）规定，专业技术人员在职称评定等工作中的弄虚作假行为，将作为失信信息予以记录。信用状况不良的个人、单位或组织，将在行政监管、行政便利、财政资金申请等方面给予一定限制和惩戒。</span></span></p><p style="text-indent:42px;background:white"><span style="font-family: 黑体; font-size: 22px;">八、其他</span></p><p style="text-indent:42px;background:white"><span style="font-family: 仿宋_GB2312; font-size: 22px;">本通知未尽事宜，应按照国家和省现行职称政策执行。工作过程中，如遇其他重大政策调整，按新的政策执行。</span></p><p style="text-indent:42px;background:white"><span style="font-family: 仿宋_GB2312; font-size: 22px;">特此公告。</span></p><p style="text-indent:42px;background:white"><span style="font-size: 22px;">&nbsp;</span></p><p style="text-indent:43px;background:white"><span style="font-size: 22px;"><span style="font-size: 22px; font-family: 仿宋_GB2312;">附件：</span>2019<span style="font-size: 22px; font-family: 仿宋_GB2312;">年度山东省专业技术职务资格省级高级评审</span></span><span style="font-family: 仿宋_GB2312; font-size: 22px;">委员会名单</span></p><p style="text-indent:43px;background:white"><span style="font-family: 仿宋_GB2312; font-size: 22px;"><!--gentleattstart--><a target="_blank" title="点击下载附件" href="/resource/srst/att/201908/04c37810-291c-42d3-aa9f-2a8f0caa4be2.doc"><!--gentleattend-->2019年度山东省专业技术职务资格省级高级评审委员会名单.doc</a></span></p><p style="text-indent:327px;line-height:37px;background:white"><span style="font-size: 22px;">&nbsp;</span></p><p style="text-indent:327px;line-height:37px;background:white"><span style="font-size: 22px;">&nbsp;</span><span style="font-size: 22px; font-family: 仿宋_GB2312;">山东省人力资源和社会保障厅</span></p><p style="text-indent:327px;line-height:37px;background:white"><span style="font-size: 22px;">&nbsp; &nbsp; &nbsp; 2019<span style="font-size: 22px; font-family: 仿宋_GB2312;">年</span>8<span style="font-size: 22px; font-family: 仿宋_GB2312;">月</span>2<span style="font-size: 22px; font-family: 仿宋_GB2312;">日</span></span></p><p><br/></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div style="display:none;">
+
+访问次数 :<span> <script type="text/javascript">
+$.get(embedRootPath+"/do/embedservice/count?method=read&articleId=89e625ad-99fc-46b1-ba6d-36c8b81d4458&channelId=737e4ddf-64f9-4f95-a0da-89dd6446835c&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+ <span id="article_show_count"> </span>
+<script type="text/javascript">
+$.get(embedRootPath+"/do/embedservice/count?method=count&articleId=89e625ad-99fc-46b1-ba6d-36c8b81d4458&channelId=737e4ddf-64f9-4f95-a0da-89dd6446835c&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#article_show_count").empty();
+   $("#article_show_count").append(data.result[0]);
+   }
+}
+);
+</script>
+</span>
+
+</div>
+
+<!--body end-->
+
+<!--footer start-->
+
+<!--footer start-->
+
+<style>
+
+.index_map .cont .item {
+
+    float: left;
+
+    margin: 0 4.8%;
+
+}
+
+</style>
+
+<link rel="stylesheet" href="/template/srst/default/css/nav.css" type="text/css">
+
+<link href="/template/srst/default/css/public.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">var embedRootPath = "/gentleCMS";var memberPath="/gentleCMS";</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //导航
+
+        $(".mainProNav dl dt").click(function () {
+
+            $(".mainProNav dl").removeClass("dlHover");
+
+            $(this).parent().addClass("dlHover");
+
+            $("#of_whole").removeClass("of_whole2");
+
+            $("#of_whole").addClass("of_whole");
+
+        })
+
+        $(".mainProNav").hover(function () {
+
+            $(this).addClass("mainProNavHover");
+
+        }, function () {
+
+            $(this).removeClass("mainProNavHover");
+
+            $(".mainProNav dl").removeClass("dlHover");
+
+            $("#of_whole").removeClass("of_whole");
+
+            $("#of_whole").addClass("of_whole2");
+
+        })
+
+
+
+    });
+
+</script>
+
+
+
+<script type="text/javascript">
+
+    //日历――――――――――――――――――――――――――――――――――――――――――
+
+    $(function () {
+
+
+
+        //绘制月历体――――――――――――――――――――――――――――――――――――――――――
+
+
+
+        for (var i = 0; i < 35; i++) {
+
+            $("<li><span></span></li>").appendTo(".month-body").addClass("month-cell");
+
+        }
+
+
+
+        var today = new Date()
+
+
+
+        var FullYear = today.getFullYear(); //获取年份
+
+        var m = today.getMonth(); //获取月号
+
+        var month = today.getMonth() + 1; //获取月份
+
+
+
+        if (month < 10) {
+
+            month = "0" + month;
+
+        }
+
+        var date = today.getDate(); //获取日期
+
+        var day = today.getDay(); //获取星期
+
+
+
+        var monthsNum = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        var isleapyear = FullYear % 4; //判断闰年
+
+        if (isleapyear == 0) {
+
+            monthsNum[1] = 29;
+
+        }
+
+
+
+        if (day == 0) {
+
+            day = 7;
+
+        }
+
+        var firstDay = day - (date % 7 - 1); //!important 计算月初星期数
+
+
+
+        if (firstDay == 7) { //如果月初为七，归零
+
+            firstDay = 0;
+
+        }
+
+        if (firstDay < 0) { //如果月初为负，加七循环
+
+            firstDay += 7;
+
+        }
+
+
+
+        var f = firstDay;
+
+        for (var j = 1; j <= monthsNum[m]; j++) {
+
+            $("li.month-cell span").eq(f).text(j).parent().addClass("pink");
+
+            f++;
+
+        }
+
+
+
+        $("li.month-cell span").eq(firstDay - 1 + date).parent().addClass("pink_now");
+
+
+
+        $(".month-head span").text(FullYear + "年" + month + "月");
+
+        $("li.month-cell span").mouseover(function () {
+
+            $(this).parent().removeClass("pink");
+
+            $(this).parent().addClass("red");
+
+        });
+
+        $("li.month-cell span").mouseout(function () {
+
+            $(this).parent().removeClass("red");
+
+            $(this).parent().addClass("pink");
+
+        });
+
+        $("li.month-cell span").click(function () {
+
+            var fwrq = null;
+
+            if (parseInt($(this).text()) <= parseInt($("li.month-cell span").eq(firstDay - 1 + date)
+
+                    .text()))
+
+                if ($(this).text() < 10) {
+
+                    fwrq = FullYear + "-" + month + "-" + 0 + $(this).text();
+
+                    //window.location.href = "includes/search_allbyday.html-fwrq=.htm" + fwrq;
+
+                } else {
+
+                    fwrq = FullYear + "-" + month + "-" + $(this).text();
+
+                    //window.location.href = "includes/search_allbyday.html-fwrq=.htm" + fwrq;
+
+                }
+
+        });
+
+
+
+    });
+
+</script>
+
+
+
+<div class="footer-box">
+
+    <style>
+
+        .foot-CRselectBox4 a.foot-CRselectValue4,.foot-CRselectBox2 a.foot-CRselectValue2{width: 160px;padding-right: 30px;white-space: normal;}
+
+ </style>
+
+
+
+    <div class="index_pane4 cont" style="width:1000px;margin-left:auto;margin-right:auto;">
+
+        <!-- 改动 -->
+
+        <div class="ico_nav" > <a style="width:100px;" href="javascript:void(0)">站点地图</a>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+
+    <div class="index_map" style="display: none;">
+
+        <div class="cont" style="width:1050px;margin-left:auto;margin-right:auto;">
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00003/">资讯中心</a></dt>
+
+                    <dd>
+
+                        <ul>
+                            <li><a target="_blank" href="/channels/ch00005/">人社要闻</a></li>
+                            <li><a target="_blank" href="/channels/ch07787/">时政要闻</a></li>
+                            <li><a target="_blank" href="/channels/ch00021/">热点聚焦</a></li>
+                            <li><a target="_blank" href="/channels/ch00330/">通知公告</a></li>
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00332/">政府信息公开</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch06434/">政府信息公开指南</a></li>
+                            <li><a target="_blank" href="/channels/ch00336/">政府信息公开制度</a></li>
+                            <li><a target="_blank" href="/channels/ch06438/">法定主动公开内容</a></li>
+                            <li><a target="_blank" href="/channels/ch06439/">政府信息公开年报</a></li>
+                            <li><a target="_blank" href="http://credit.shandong.gov.cn/creditsearch.publicity.dhtml">双公示信息</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+       <!--     <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00470/">政策法规</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/?wjfl=5rOV5b6L5rOV6KeE6KeE56ug5Y+K6KeE6IyD5oCn5paH5Lu2&title=&wh=&fwrq=">法律法规规章规范性文件</a></li>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/?wjfl=6KeE6IyD5oCn5paH5Lu26I2J5qGI&title=&wh=&fwrq=">规范性文件草案</a></li>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/">政策文件查询</a></li>
+
+                            <li><a target="_blank" href="/channels/ch00580/">政策解读</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>-->
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00582/">服务大厅</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch00586/">通知公告</a></li>
+                            <li><a target="_blank" href="/channels/ch00588/">信息查询</a></li>
+                            <li><a target="_blank" href="/channels/ch00594/">下载中心</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00592/">互动交流</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch00946/">
+							厅长信箱</a></li>
+                            <li><a target="_blank" href="/channels/ch00948/">
+							建言献策</a></li>
+                            <li><a target="_blank" href="/channels/ch00610/">
+							咨询热点回放</a></li>
+
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="/template/srst/default/images/js/public.js"></script>
+
+    <div class="footer-link clearfix" style="background-color: #8fb5d2;" >
+
+        <div class="text-box2" style="width: 1000px;height: auto; margin-left: 0 auto;">
+
+            <div style="display: inline-block;font-size: 16px;color: #fff;">友情链接 >></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.gov.cn/" style="color: #fff;" target="_blank">国务院</a></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.mohrss.gov.cn/" style="color: #fff;" target="_blank">人社部</a></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.shandong.gov.cn/" style="color: #fff;" target="_blank">山东省政府</a></div>
+
+            <select id="select33" size="1" onchange="javascript:window.open(this.options[this.selectedIndex].value);this.selectedIndex=0"
+
+                style="width:27%;border: 0;outline-style: none;margin-left: 30px;font-size: 15px;color: #fff;background: #8fb5d1;">
+
+                <option style="color: #000;background: #fff;" selected="">山东省各地市人力资源和社会保障局</option>
+
+                <option style="color: #000;background: #fff;" value="http://jnhrss.jinan.gov.cn/">济南市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.qingdao.gov.cn/">青岛市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.zibo.gov.cn/">淄博市</option>
+
+                <option style="color: #000;background: #fff;" value="http://zzhrss.zaozhuang.gov.cn/">枣庄市</option>
+
+                <option style="color: #000;background: #fff;" value="http://dylss.dongying.gov.cn/">东营市</option>
+
+                <option style="color: #000;background: #fff;" value="https://rshj.yantai.gov.cn">烟台市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.weifang.gov.cn/">潍坊市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.jining.gov.cn">济宁市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.taian.gov.cn/">泰安市</option>       
+
+                <option style="color: #000;background: #fff;" value="http://rsj.weihai.gov.cn/">威海市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.rizhao.gov.cn/">日照市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.linyi.gov.cn/">临沂市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.dezhou.gov.cn/">德州市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.liaocheng.gov.cn/">聊城市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rs.binzhou.gov.cn/">滨州市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hzrsj.heze.gov.cn/">菏泽市</option>
+
+            </select>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+    <div class="copyright">
+
+        <div class="container" style="height:95px;margin: 0 auto;">
+
+            <div style="float:left;margin-left:100px;width:110px; text-align:center; overflow:hidden;padding-top:12px;">
+
+                <script id="_jiucuo_" sitecode="3700000027" src="https://zfwzgl.www.gov.cn/exposure/jiucuo.js"></script>
+
+            </div>
+
+            <div style="float:left;width:70px;text-align:center;overflow:hidden;">
+
+                <!--<script src="http://dcs.conac.cn/js/16/000/0000/60418909/CA160000000604189090002.js" type="text/javascript"></script>-->
+
+<span id="_ideConac"><a href="//bszs.conac.cn/sitename?method=show&amp;id=08314E66B4BB5B11E053012819AC5237" target="_blank"><img id="imgConac" vspace="0" hspace="0" border="0" src="/template/srst/default/images/dzjg/red.png" data-bd-imgshare-binded="1"></a></span>
+
+            </div>
+
+<!--加入收藏 -->
+
+<script>
+
+function addFavorite2() {
+
+var url = window.location;
+
+var title = document.title;
+
+var ua = navigator.userAgent.toLowerCase();
+
+if (ua.indexOf("360se") > -1) {
+
+alert("由于360浏览器功能限制，请按 Ctrl+D 手动收藏！");
+
+}
+
+else if (ua.indexOf("msie 8") > -1) {
+
+window.external.AddToFavoritesBar(url, title); //IE8
+
+}
+
+else if (document.all) {
+
+try{
+
+window.external.addFavorite(url, title);
+
+}catch(e){
+
+alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+
+}
+
+}
+
+else if (window.sidebar) {
+
+window.sidebar.addPanel(title, url, "");
+
+}
+
+else {
+
+alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+
+}
+
+}
+
+</script>
+
+            <div style="float:left;width:500px; text-align:center; overflow:hidden;">
+
+                <p class="link">
+
+                    <a href="/channels/ch02606/" float:left; margin-left:40px;>联系我们</a>|<a href="javascript:void(0);" onclick="javascript:addFavorite2()"
+
+                        float:left; margin-left:40px;>加入收藏</a>|<a href="https://mail.shandong.cn/" target="_blank" float:left; margin-left:40px;>邮箱登录</a></p>
+
+                <p>主办单位：山东省人力资源和社会保障厅&nbsp;&nbsp;&nbsp;&nbsp;版权所有：山东省人力资源和社会保障厅</p>
+
+                <p>技术支持：山东省社会保险事业中心社会保障卡管理服务处&nbsp;&nbsp;&nbsp;&nbsp;政府网站标识码：3700000027</p><div style="display:none;"> <script type="text/javascript">
+ $.get("/statistics/do/embedservice/count?method=read&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+<span id="site_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#site_show_count").empty();
+   $("#site_show_count").append(data.result[0]);
+	}
+}
+);
+</script>
+</div>
+
+                <p style="margin-left:90px;"><span style="float:left;padding-right:10px;"><a href="https://beian.miit.gov.cn"  target="_blank" style="color:#ffffff;">鲁ICP备10039682号-6</a></span>
+
+                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010202001324"><img
+
+                            src="/template/srst/default/images/batb.png" style="float:left;"><span style="float:left;margin: 0px 0px 0px 5px; color:#ffffff;">鲁公网安备37010202001324号</span></a>
+
+                </p>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--悬浮 start-->
+
+<!--<div class="left-fixed-tool"> <a class="top-a" href="#">索引<br>
+
+ 服务</a> <a class="box-a" href="#">站点<br>
+
+ 日历</a> <a class="box-b" href="#">智能<br>
+
+ 咨询</a> <a class="bottom-a" href="#">渠道<br>
+
+ 媒体</a></div>-->
+
+<!--悬浮 end-->
+
+              <script>
+
+                   function search1() {
+
+                            var content = $('#search_content1').val();
+
+                            content = utf8_to_b64(content);
+
+                            var url = '/channels/ch05821/';
+
+                            url = url + '?content=' + content;
+
+                            window.open(url);
+
+                        }
+
+                    
+
+                        //加密
+
+                        function utf8_to_b64(str) {
+
+                            return window.btoa(unescape(encodeURIComponent(str)));
+
+                        }
+
+                        //解密
+
+                        function b64_to_utf8(str) {
+
+                            return decodeURIComponent(escape(window.atob(str)));
+
+                        }
+
+                    $(document).ready(function() {
+
+                        $("#search_content1").keydown(function() {
+
+                            if (event.keyCode == 13) {
+
+                                search1();
+
+                            }
+
+                        })
+
+                        $(".searchBtn2").click(function() {
+
+                            search1()
+
+                        })
+
+                    });
+
+                            function search2(keyword){
+
+                                $('#search_content1').attr('value',keyword);
+
+                                search1()
+
+                            }
+
+                 </script>
+
+<div id="of_whole" class="of_whole2">
+
+    <!--主体内容区开始-->
+
+    <div id="of_mainBody" class="push_t">
+
+        <!--左侧栏开始-->
+
+        <div class="side_small tag_line float_l">
+
+            <div class="mainProNav">
+
+                <dl class="navM1">
+
+                    <dd style="width:430px;">
+
+
+
+                        <div class="navbox_con1">
+
+                            <!--全文检索-->
+
+                            <div class="navbox_con1_left" style="padding:0!important;">
+
+                                <div class="navbox_con1_left_tit">
+
+                                    <div class="float_left">全文检索</div>
+
+                                </div>
+
+                                 <span>在整个网站范围内搜索</span>
+
+                                <div class="navbox_con1_left_search">
+
+                                        <input  name="content" type="text"  id="search_content1"  value="请输入关键字"
+
+                                            onClick="this.value=''" onFocus="if (value =='请输入关键字'){value =''}" onBlur="if (value ==''){value='请输入关键字'}">
+
+                                    <!-- <input name="" id='serachAllsy' type="text"> -->
+
+                                    <input id="search-button" class="searchBtn2" type="button" value="搜索" >
+
+                                </div>
+
+                                <div class="navbox_con1_left_con">
+
+                                    <a href="javascript:search2('就业')">就业</a><a href="javascript:search2('失业')">失业</a><a
+
+                                        href="javascript:search2('养老')">养老</a>
+
+                                    <a href="javascript:search2('社会保险')">社会保险</a><a href="javascript:search2('人事人才')">人事人才</a><a
+
+                                        href="javascript:search2('收入分配')">收入分配</a>
+
+                                    <a href="javascript:search2('劳动关系')">劳动关系</a><a href="javascript:search2('法律法规')">法律法规</a><a
+
+                                        href="javascript:search2('规范性文件')">规范性文件</a>
+
+                                    <a href="javascript:search2('行政许可')">行政许可</a><a href="javascript:search2('招聘')">招聘</a><a
+
+                                        href="javascript:search2('求职')">求职</a>
+
+                                    <a href="javascript:search2('农业')">农业</a><a href="javascript:search2('工业')">工业</a><a
+
+                                        href="javascript:search2('经济')">经济</a>
+
+                                    <a href="javascript:search2('工伤')">工伤</a><a href="javascript:search2('医疗')">医疗</a><a
+
+                                        href="javascript:search2('服务')">服务</a>
+
+                                    <a href="javascript:search2('政策')">政策</a><a href="javascript:search2('工作')">工作</a><a
+
+                                        href="javascript:search2('人力资源')">人力资源</a></div>
+
+                            </div>
+
+                            <!--网站导航-->
+
+                            
+
+
+
+                        </div>
+
+
+
+                    </dd>
+
+
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="top-a"></div>索引<br>服务
+
+                    </dt>
+
+                </dl>
+
+
+
+                <dl class="navM2">
+
+                    <dd>
+
+
+
+                        <div class="navbox_con2">
+
+                            <!--日历-->
+
+                            <div class="navbox_con2_left">
+
+                                <div class="month-container">
+
+                                    <div class="month-head"><span></span></div>
+
+                                    <ul class="month-body">
+
+                                        <div class="month-cell orange"><span>日</span></div>
+
+                                        <div class="month-cell blue"><span>一</span></div>
+
+                                        <div class="month-cell blue"><span>二</span></div>
+
+                                        <div class="month-cell blue"><span>三</span></div>
+
+                                        <div class="month-cell blue"><span>四</span></div>
+
+                                        <div class="month-cell blue"><span>五</span></div>
+
+                                        <div class="month-cell blue"><span>六</span></div>
+
+                                    </ul>
+
+                                    <div class="clear"></div>
+
+                                </div>
+
+                            </div>
+
+                            <!--最新发布-->
+
+                            <div class="navbox_con2_right">
+
+                                <div class="navbox_con2_right_tit">
+
+                                    <div class="float_left">最新发布</div>
+
+                                </div>
+
+                                <div class="navbox_con2_right_con">
+
+                                    <div class="navbox_con2_right_con" style="float:left;">
+
+                                        <ul class="news-list" style="float:left;margin-left:0px;padding:0px;margin-top:0px;">
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch08631/202609/f6c043c4-b29f-4cf4-be71-800e85634834.shtml" title="山东九月培训计划和“乐业山东”技能培训加油站活动信息新鲜出炉，快来邂逅你的“技”遇"
+
+                                                                        target="_blank">
+
+
+                                                        山东九月培训计划和“乐业山东”技能培训加油站活动...</a>
+
+                                                    </span><span class="span2">2026-09-01</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch08631/202608/0e6a8ac1-d44f-4d86-82dc-de74ac68a5f9.shtml" title="全省第一批“乐业山东”技能培训加油站名录"
+
+                                                                        target="_blank">
+
+
+                                                        全省第一批“乐业山东”技能培训加油站名录</a>
+
+                                                    </span><span class="span2">2026-08-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                            <a href="http://hrss.shandong.gov.cn/articles/ch06434/202012/edca2b7f-e279-4db1-a0c2-cdea970c7b14.shtml" title="推进政务公开  建设阳光政府" target="_blank">
+
+
+                                                        推进政务公开  建设阳光政府</a>
+
+                                                    </span><span class="span2">2022-01-05</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/f3637d87-4071-4230-bdcd-063718e6b525.shtml" title="省人力资源社会保障厅党组理论学习中心组开展集中学习研讨"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅党组理论学习中心组开展集中学...</a>
+
+                                                    </span><span class="span2">2023-09-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/ea8a3044-4edc-431b-99d6-a7976e132695.shtml" title="张涛一行赴山东技师学院调研校企合作"
+
+                                                                        target="_blank">
+
+
+                                                        张涛一行赴山东技师学院调研校企合作</a>
+
+                                                    </span><span class="span2">2023-09-08</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/79ef6f17-ec65-47ed-9307-ef5f40b19bd8.shtml" title="全省人力资源社会保障重点工作推进会召开"
+
+                                                                        target="_blank">
+
+
+                                                        全省人力资源社会保障重点工作推进会召开</a>
+
+                                                    </span><span class="span2">2023-09-05</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202308/3663b7f4-db23-452c-bfdc-f9b74befb4ed.shtml" title="省人力资源社会保障厅召开党组会传达学习习近平总书记重要讲话精神"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅召开党组会传达学习习近平总书...</a>
+
+                                                    </span><span class="span2">2023-08-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202308/0f11cfa3-1a28-427d-b51c-5a70a1ae829c.shtml" title="省人力资源社会保障厅党组中心组开展集中学习研讨"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅党组中心组开展集中学习研讨</a>
+
+                                                    </span><span class="span2">2023-08-23</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00314/201808/65496.shtml" title="第十届海内外高端人才交流会"
+
+                                                                        target="_blank">
+
+
+                                                        第十届海内外高端人才交流会</a>
+
+                                                    </span><span class="span2">2018-08-28</span></li>
+
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="box-a"></div>站点<br>日历
+
+                    </dt>
+
+                </dl>
+
+                <dl class="navM3">
+
+                    <dd>
+
+                        <div class="navbox_con3"><a href="/channels/ch06859/" target="_blank"><img src="/template/srst/default/images/navbox_con3.jpg"></a></div>
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="box-b"></div>智能<br>咨询
+
+                    </dt>
+
+                </dl>
+<style>
+
+.navbox_con4_center_btn a {
+    line-height: 20px;
+}
+</style>
+                <dl class="navM4">
+
+                    <dd style="width: 655px;">
+
+                        <div class="navbox_con4" >
+
+                            <!--ico-->
+
+                            <div class="navbox_con4_left">
+
+                                <div class="navbox_con4_left_ico">
+
+                                   
+
+                                    <div class="navbox_con4_left_btn"><img src="/template/srst/default/images/gwyicon.png"><a href="http://www.gov.cn/public/yidongkehuduan.htm" target="_blank">国务院</a></div>
+
+                                    <div class="navbox_con4_left_code"><img src="/template/srst/default/images/gwy.png" width="100" height="93"></div>
+
+                               
+
+                                </div>
+
+                                <div class="navbox_con4_left_ico">
+
+                                    <div class="navbox_con4_left_btn"><img src="/template/srst/default/images/wechat.png"><a href="">山东人社</a></div>
+
+                                    <div class="navbox_con4_left_code"><img src="/template/srst/default/images/sdrs_wx.png" width="100" height="93"></div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="navbox_con4_center">
+
+                                <div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/gwyicon.png"><a href="http://www.gov.cn/guowuyuan/gwykhdxcx/xiaochengxu.html" target="_blank">国务院客户端小程序</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/gwyxcx2023.png" width="100" height="93"></div>
+
+                                </div>
+								
+								<div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/20231206dy.png"><a href="">“山东人社”<br />抖音号</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/20231206.jpg" width="100" height="93"></div>
+
+                                </div>
+
+                               
+
+                            </div>
+							
+							<div class="navbox_con4_center">
+
+                                <div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/zs_12333icon.png"><a href="http://www.12333.gov.cn/ggfwstatic/download/app.html" target="_blank">人社部12333app</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/zs_12333.jpg" width="100" height="93"></div>
+
+                                </div>
+								
+								<div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/wechat.png"><a href="">山东人社杂志</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/rszz.jpg" width="100" height="93"></div>
+
+                                </div>
+								
+								
+
+                               
+
+                            </div>
+
+                            <!--人社APP
+
+                            <div class="navbox_con4_right"> <img src="/template/srst/default/images/navbox_con4_right.png"> </div>-->
+
+
+
+                        </div>
+
+
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="bottom-a"></div>渠道<br>媒体
+
+                    </dt>
+
+                </dl>
+
+
+
+            </div><!-- mainProNav end -->
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--footer end-->
+
+
+
+<script src="/template/srst/default/images/js/jquery.placehold.min.js"></script>
+
+<script src="/template/srst/default/images/js/switchable.js"></script>
+
+<script src="/template/srst/default/images/js/forweb.js"></script>
+
+<script src="/template/srst/default/images/js/sdrs.js"></script>
+
+<div style="display:none">
+
+<!--今日访问量：<span id="site_today_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e&today=true",
+function(data){
+	if(data.success){
+   $("#site_today_show_count").empty(); 
+   $("#site_today_show_count").append(data.result[0]);
+	}
+}
+); 
+</script>
+<br>
+
+总访问量： <script type="text/javascript">
+ $.get("/statistics/do/embedservice/count?method=read&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+<span id="site_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#site_show_count").empty();
+   $("#site_show_count").append(data.result[0]);
+	}
+}
+);
+</script>
+-->
+
+</div>
+
+
+
+
+
+<!--无障碍-->
+<link href="/indeci/assets/css1/bf/barrierfree.css" rel="stylesheet" type="text/css" />
+<!--<script src="http://hrss.shandong.gov.cn/indeci/assets/js/jquery-1.12.4.min.js"></script>-->
+<script src="/indeci/assets/js/iframe.js" id="barrierFree" data="sn=00BA70FA0C66666406857D7D95415F64DDFE095C3F999B519710480B7876C508&rcode=F03AAE6D55B0B46A87F426F827D7C49F2BA26A9FCBC4310D78CDAE41E28334EAA3D0610CE8492C14D5629C162B0C021B8801FB1C343AC2C2E3976946431E58B6AC854C44D12EE9335702E64F7045C926E1F15AC3B43BEC073E8F5008F5727EF6A6CB129A29DF06037AB2DFAEBC06C2F33AB0354C48193E8029BDE39EA18477AD"></script>
+<script>
+$(document).ready(function(){
+
+	
+	if ($('div').hasClass('index-main')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.index-main', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('ejcontent')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.ejcontent', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('list_bei')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.list_bei', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])	
+};
+	if ($('div').hasClass('zhengce_top')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.zhengce_top', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('fuwu_warp')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.fuwu_warp', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+})
+</script>
+<!--无障碍-->
+
+<!--登录显示-->
+	<script >
+function getMyCookie(key){
+		var val = "";	
+		// 对cookie操作
+		var cookies = document.cookie;
+			
+		cookies = cookies.replace(/\s+/g,"");
+//console.log("cookies 000:"+cookies );
+		var cookie_array = cookies.split(";");
+		for(i=0;i<cookie_array.length;i++){
+			var cookie = cookie_array[i];
+			var array = cookie.split("=");
+			if(array[0]==key){
+				val = array[1];
+			}
+		}
+		
+		return val;
+	}
+
+function denglu(){ 
+
+if(!navigator.cookieEnabled){
+alert('浏览器cookie已被禁用，请开启！');
+}
+
+        var sdid = getMyCookie("sdid");
+		if(sdid!=null&&sdid!=''){
+					 $.ajax({
+			  url : "/interact/oauthclient/getUserJson.do",
+			  dataType : "json",
+			  type : "post",
+			  async : true,
+			  success : function(data) { 
+			personname=decodeURIComponent(data.name);
+			/*console.log(personname);*/
+			/*仅显示*/
+			document.getElementById("xsname").innerText=personname;
+
+			 /*名字星号*/
+                var huifuname = document.getElementById("xsname").innerText;
+					var huifuname1 = huifuname.substr(0,1) + new Array(huifuname.length).join('*');
+                    document.getElementById('xsname').innerText = huifuname1;
+			/*显示*/		
+			document.getElementById("denglu").style.display='block';
+			document.getElementById("weidenglu").style.display='none';	
+			}
+					
+		 })
+			
+			}else{		
+	
+						 $.ajax({
+				
+						      url : "/interact/oauthclient/getUser.do",//请求地址
+						      dataType : "json",//数据格式 
+						      type : "post",//请求方式
+						      async : true,//是否异步请求
+						      success : function(data) {   //如果发送成功
+
+										if(data.flag=="true"){
+										document.getElementById("personname").value=decodeURIComponent(data.name);
+									      }else{
+			document.getElementById("denglu").style.display='none';
+			document.getElementById("weidenglu").style.display='';
+												//	 if(window.confirm('请先登录！')){
+												//	 window.parent.location.href="http://hrss.shandong.gov.cn/gentleCMS/oauthclient/toLogin.do?sitedomain=hrss";
+												//	 return true;
+												//  }else{
+												//	 return false;
+												// }
+													
+									       }
+										}
+										
+						 })
+						
+			 
+				}
+                
+	}
+$(function(){denglu();})
+function clearCookie(){
+document.cookie = "sdid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.shandong.gov.cn";
+
+ $.ajax({
+				
+						      url : "/interact/oauthclient/Out.do",//请求地址
+						      dataType : "json",//数据格式 
+						      type : "post",//请求方式
+						      async : true,//是否异步请求
+						      success : function() {   //如果发送成功
+                                                                  location.reload(true);
+										
+										},
+								error: function(){
+								alert('操作失败');}
+										
+						 })
+						
+	}
+</script>
+<div id="denglu" style="position: absolute; top: 10px; left: 85%; width: 150px; z-index:999; display:none;">
+        <table class="wyts_Class" width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>
+					<a href="/channels/ch08303/"><span id="xsname"></span></a>
+					<input type="text" id="personname" name="personname" class="validate[,required,minSize[0],maxSize[30]]"
+                            size="30" maxlength="30" readonly="readonly" style="display:none;">
+                    </td>
+                    <td>
+					<a href="javascript:clearCookie();">[退出]</a>
+                    </td>
+                </tr>                                            
+            </tbody>
+        </table>
+</div>
+<div id="weidenglu" style="position: absolute; top: 10px; left: 85%; width: 150px; z-index:999;">
+        <table class="wyts_Class" width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>
+					<a href="/channels/ch08303/">用户中心</a>					
+                    </td>
+					<td>
+					<a href="/interact/oauthclient/toLogin.do?sitedomain=hrss">[登录]</a>
+					</td>
+                </tr>                                            
+            </tbody>
+        </table>
+</div>
+<!--登录显示end-->
+</body>
+
+
+
+</html>
+

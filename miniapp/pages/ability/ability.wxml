@@ -1,27 +1,36 @@
 <view class="page">
-  <view class="hero"><view class="hero-title">能力来自每一次真实作答</view><view class="hero-subtitle">分数由后端统一计算，小程序只负责呈现</view></view>
+  <view class="hero row"><view><view class="hero-title">我的能力画像</view><view class="hero-subtitle">基于真实作答数据持续更新</view></view><button class="coach-button" size="mini" bindtap="openCoach">✦ 问 AI 教练</button></view>
   <view wx:if="{{loading}}" class="state">正在读取能力数据…</view>
   <view wx:elif="{{error}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="load">重新加载</button></view>
   <block wx:else>
-    <view class="section-title">知识点能力</view>
-    <view wx:if="{{!abilities.length}}" class="card muted">暂无能力数据，完成训练后这里会显示变化。</view>
-    <view class="card ability" wx:for="{{abilities}}" wx:key="id">
-      <view class="row"><view class="ability-name">{{item.knowledgePointName || item.knowledgePointCode}}</view><text class="tag">{{item.status}}</text></view>
-      <view class="metrics">
-        <view><text>{{item.masteryScore}}</text><label>掌握</label></view>
-        <view><text>{{item.speedScore}}</text><label>速度</label></view>
-        <view><text>{{item.stabilityScore}}</text><label>稳定</label></view>
-        <view><text>{{item.confidenceScore}}</text><label>可信度</label></view>
+    <view class="coverage-grid">
+      <view class="card coverage-card"><view class="section-title">能力画像建立度</view><view class="coverage-line"><text>{{overview.evaluatedCount}}</text> / {{overview.totalCount}}</view><view class="progress-track"><view class="progress-fill" style="width: {{overview.coveragePercent}}%"></view></view><view class="muted">数据可信度随真实训练逐步提升</view></view>
+      <view class="card trend-card"><view class="trend-icon">↗</view><view class="trend-title">持续建立中</view><view class="muted">每次练习都让画像更准确</view></view>
+    </view>
+    <view class="section-tabs"><view class="section-tab {{section === tab.value ? 'selected' : ''}}" wx:for="{{sectionTabs}}" wx:key="value" wx:for-item="tab" data-value="{{tab.value}}" bindtap="selectSection">{{tab.label}}</view></view>
+    <view class="section-title ability-heading">{{section === 'SHENLUN' ? '申论能力' : section === 'XINGCE' ? '行测能力' : '公务员核心能力'}}</view>
+    <view class="card ability-list">
+      <view class="ability-row {{item.rowClass}}" wx:for="{{visibleAbilities}}" wx:key="knowledgePointId">
+        <view class="ability-icon {{item.examSection}}">{{item.examSection === 'SHENLUN' ? '申' : '行'}}</view>
+        <view class="ability-main">
+          <view class="row">
+            <view class="ability-name">{{item.knowledgePointName}}</view>
+            <view class="score-wrap">
+              <text wx:if="{{item.trendText}}" class="trend {{item.trendClass}}">{{item.trendText}}</text>
+              <text class="score {{item.scoreClass}}">{{item.scoreText}}</text>
+            </view>
+          </view>
+          <view class="ability-track"><view wx:if="{{!item.unassessed}}" class="ability-fill {{item.weak ? 'weak' : ''}}" style="width: {{item.masteryScore}}%"></view></view>
+          <view class="ability-meta" wx:if="{{!item.unassessed}}">
+            <text class="metric-copy">速度 {{item.speedScore}} · 稳定 {{item.stabilityScore}} · 可信度 {{item.confidenceScore}} · 样本 {{item.sampleCount}}</text>
+            <text wx:if="{{item.weak}}" class="weak-tag">薄弱</text>
+          </view>
+          <view class="muted metric-copy" wx:else>完成摸底后生成真实能力数据</view>
+        </view>
       </view>
-      <view class="muted">样本 {{item.sampleCount}} · 最近训练 {{item.lastPracticeTime}}</view>
     </view>
-    <view class="section-title problems-title">学习问题</view>
-    <view wx:if="{{!problems.length}}" class="card muted">当前没有学习问题。</view>
-    <view class="card" wx:for="{{problems}}" wx:key="id">
-      <view class="row"><view>{{item.knowledgePointName}}</view><text class="tag">{{item.status}}</text></view>
-      <view class="muted">{{item.problemTypeText}} · 严重度 {{item.severity}}</view>
-      <view wx:if="{{item.rootCause}}" class="evidence">主要根因：{{item.rootCause}}</view>
-      <view class="evidence">{{item.evidenceText}}</view>
-    </view>
+    <view class="section-title problem-heading">主要问题与根因</view>
+    <view wx:if="{{!problems.length}}" class="card empty-problem"><view class="empty-icon">✓</view><view><view class="empty-title">暂未确认学习问题</view><view class="muted">未测评不代表能力差，先完成摸底建立基线。</view></view></view>
+    <view class="card problem-card" wx:for="{{problems}}" wx:key="id"><view class="row"><view class="problem-title">{{item.knowledgePointName}} · {{item.problemTypeText}}</view><text class="tag">{{item.statusLabel}}</text></view><view wx:if="{{item.rootCause}}" class="root-cause">主要根因：{{item.rootCause}}</view><view class="muted evidence">{{item.evidenceText}}</view><button class="train-button" size="mini" bindtap="startTraining">针对训练 〉</button></view>
   </block>
 </view>

@@ -33,7 +33,12 @@ public class DailyPlanService {
     @Transactional
     public DailyPlan today(Long userId) {
         LocalDate today = LocalDate.now(); DailyPlan existing = planMapper.findForUpdate(userId, today);
-        if (existing != null) return loadItems(existing);
+        if (existing != null) {
+            DailyPlan loaded = loadItems(existing);
+            if (!loaded.getItems().isEmpty()) return loaded;
+            int plannedMinutes = existing.getPlannedMinutes() > 0 ? existing.getPlannedMinutes() : 45;
+            return generate(userId, today, plannedMinutes, true);
+        }
         return generate(userId, today, 45, false);
     }
 

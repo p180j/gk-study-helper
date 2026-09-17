@@ -122,3 +122,60 @@
 - [x] 使用 DeepSeek `deepseek-flash` 完成申论评分、错因深挖、政治阅读结构化、AI Coach 四条真实外部调用验收
 - [x] 验证 REAL_AI 审计、置信度百分制兼容、证据约束、失败降级和核心数据保护
 - [x] 第八阶段真实 AI 能力验收通过（Key 仅用于运行环境，未写入仓库）
+
+## 第九阶段第一检查点：新用户初始化、摸底计划与小程序核心体验
+
+- [x] 新用户无需预写 ability_profile 即返回 13 项完整公务员核心能力地图，全部显示“未测评”
+- [x] 未测评能力的 mastery / speed / stability / confidence / sampleCount 均为 0，且不会产生 LearningProblem
+- [x] 已有用户能力数据保持不变，提供已评估能力数、总能力数和覆盖率
+- [x] 新用户自动生成 ASSESSMENT 摸底计划，并根据考试重要度、未测评程度、可信度、题库可用性和计划时长选题
+- [x] DailyPlan purpose 支持 ASSESSMENT / TRAINING / VALIDATION / MAINTENANCE，已有有效当天计划继续保持幂等
+- [x] 修复历史空计划阻止新用户生成摸底任务的问题，仅对零任务无效计划自动重建
+- [x] 新增 5 道正式摸底题，覆盖言语、判断、数量、资料和常识，空库初始化后即可学习
+- [x] 按 UI 参考图重构首页、学习、能力、做题结果、申论批改、政治阅读和 AI Coach
+- [x] 用户可见的任务目的、能力代码和问题状态统一显示中文，不再暴露内部英文枚举
+- [x] 微信开发者工具真实运行并截图验证全新用户首页、已有数据首页、学习页、能力页、错题真实 AI、申论真实 AI、政治阅读和 AI Coach
+- [x] Java 11 下后端自动测试 139 项全部通过，前端脚本语法和模拟器控制台错误检查通过
+- [x] 独立空库仅执行 schema.sql、init_data.sql，验证 20 张表、51 个知识点、5 道题和 20 个选项
+
+## 第九阶段第一检查点：小程序视觉精修（洞察与层级）
+
+- [x] display.js 补全任务目的、问题状态、能力状态、评测者、能力代码全套中文映射
+- [x] AI Coach 页改为三层结构：结论 / 关键证据 / 下一步建议，完整 AI 分析默认折叠可展开
+- [x] 申论 AI 批改首屏精修：综合评分突出 + 能力评分 + 各区块最多 3 条，其余经“查看完整批改”展开
+- [x] 能力页视觉层级：趋势 ↑/↓ 着色、薄弱项柔和橙提示、改善项绿色、未测评灰色
+- [x] 后端新增 GET /api/ai/coach/insight：按“已确认错因根因 → 学习问题 → 最弱能力 → 基线”优先级取真实数据，不经过 AI 生成
+- [x] 后端能力趋势：AbilityProfile 增加 masteryTrend 非表字段（对比 ability_history 上一快照聚合），overview 接口返回
+- [x] 首页 AI 今日洞察改为“一行具体问题 + 一行简短建议”，洞察接口失败静默回退基线提示
+- [x] Java 11 下后端自动测试 178 项全部通过；修改的 5 个前端脚本 node --check 通过；wxml 扫描无英文枚举直接展示
+- [ ] 微信开发者工具截图与参考图比对验收（NOT VERIFIED：本次会话无法运行微信开发者工具，待补）
+
+## 第九阶段后半部分：多 AI Provider + 内容自动化
+
+### 多 AI Provider
+
+- [x] AiProvider 接口扩展 providerCode / currentModel，五家 Provider 正式支持：DeepSeek、Gemini、GLM / 智谱、GPT / OpenAI、Qwen / 通义千问
+- [x] OpenAI 兼容协议统一 OpenAiCompatibleClient，Gemini 独立协议实现；厂商判断只允许出现在 ProviderRegistry，业务模块零厂商分支
+- [x] ProviderRegistry 按数据库默认配置动态构建客户端，配置变更自动重建；未配置时回退环境变量（兼容第八阶段部署）
+- [x] AiProviderConfigMapper / AdminAiProviderService / AdminAiProviderController：配置保存、启用停用、默认唯一、测试连接（保存前可用表单值直接测试）
+- [x] API Key AES-256-GCM 加密存储（AI_CONFIG_MASTER_KEY），任何接口只返回 maskedKey（如 sk-****abcd），掩码值复用被拒绝，修改必须重输完整 Key
+- [x] 测试连接真实区分七种状态（成功 / Key 无效 / 模型不存在 / 超时 / 限流 / 额度不足 / 网络或 Provider 异常），全部中文展示并记录耗时
+- [x] 每家提供默认模型列表 + 自定义模型名 + Base URL 高级选项，模型更新无需发版
+- [x] 管理控台 AI 设置页：五家配置状态 / 启用状态 / 当前模型 / 最后测试结果与时间、Key 输入、测试连接、保存、设为默认
+- [x] 真实验证测试连接链路：DeepSeek / GLM / Qwen 无效 Key 均真实请求远端并正确返回“API Key 无效”（185–264ms）；Gemini / OpenAI 在当前网络环境正确返回“请求超时”
+- [ ] 两家 Provider 真实 AI 调用成功切换验收（NOT VERIFIED：本次会话无真实 API Key；链路与状态机已验证，待配置 Key 后在管理控台完成）
+
+### 内容自动化 / 爬虫
+
+- [x] content_source 来源配置表：name / baseUrl / sourceType / examType / trustLevel / enabled / crawlStrategy / lastCrawlTime / status，配置进数据库不加 YAML
+- [x] content_staging 暂存表 + 原始附件本地保存（sourceUrl、发布单位、发布/抓取时间、原文件名、mimeType、fileHash、原始文件路径）
+- [x] 状态机 DISCOVERED → DOWNLOADED → PARSED → DEDUPED → READY → IMPORTED / NEEDS_REVIEW / FAILED，管理页统一中文显示，单条失败只标记自身不影响批次
+- [x] 抓取管线：发现 → 下载 → 解析 → 去重 → 分类 → 入库；jsoup 实现，只抓公开页面，不绕过登录 / 验证码 / 付费 / 访问控制
+- [x] 三重规则去重（文件 hash → 规范化内容 hash → URL 唯一），AI 不参与删除决策，原始文件全部保留
+- [x] trustLevel S / A 自动入库为阅读材料，B / C / D 强制进入“需要人工检查”，低可信内容不参与核心能力测量
+- [x] 真实公开来源（人社部门户）完整跑通：388 个链接全部处理，362 条自动入库，26 条进入人工检查，0 条失败
+- [x] 第二次抓取相同来源：已存在 URL 全部跳过，无重复入库
+- [x] 人工处理路径验证：需要检查条目可查看 / 入库 / 丢弃，状态流转正确
+- [x] 管理控台内容管理：内容来源、抓取任务、Staging 分页与筛选、异常处理、内容库存（按知识点统计未使用高质量题）
+- [x] 新增 31 项单元测试（Key 加解密 / 掩码 / 默认唯一 / 抓取管线 / 去重 / 状态隔离 / 人工处理），Java 11 下全量 178 项全部通过
+- [x] 三表增量合并 schema.sql，upgrade.sql 清理恢复注释；独立空库仅执行 schema.sql、init_data.sql 后 Spring Boot 启动成功

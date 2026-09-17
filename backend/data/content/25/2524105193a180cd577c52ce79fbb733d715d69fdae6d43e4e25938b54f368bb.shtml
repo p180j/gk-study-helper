@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+   <meta charset="UTF-8">
+
+   <title>山东省人力资源和社会保障厅</title>
+
+<script type="text/javascript">var embedRootPath = "/gentleCMS";var memberPath="/interact"; var embedRootPath = "/interact";</script>
+<script  type="text/javascript" src="/template/system/jquery/jquery.min.js"></script>
+<link type="text/css" href="/template/system/jquery/jquery-all.css"  rel="stylesheet"/>
+<script src="/template/system/jquery/ajaxfileupload/ajaxfileupload.js" type="text/javascript"></script>
+<script src="/template/system/jquery/jtemplates/jquery-jtemplates.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery.validationEngine.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery-migrate.min.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery.validationEngine-en.js" type="text/javascript"></script>
+<link type="text/css" href="/template/system/jquery/validate/validationEngine.jquery.css"  rel="stylesheet"/>
+
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.dateutil.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.util.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.embed.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.vote.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.gip.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.dynamic.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.cmsmember.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/echarts/echarts.min.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.question.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/echarts.cms.question.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/echarts.cms.vote.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.tamap.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.userlogin.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.weibo.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.weixin.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.pdfresource.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/weixinjs/jweixin-1.4.0.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/weibojs/wbsdk.js" type="text/javascript"></script>
+
+  <script type="text/javascript">var exchangePath = "/interact";</script>
+  <script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.exchange.js" type="text/javascript"></script>
+  <script type="text/javascript" src="/template/system/jquery/cms/jquery.cms.interact.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/template/system/jquery/raty/jquery.raty.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/template/system/login/jsencrypt.js"></script>
+
+
+   <link rel="stylesheet" href="/template/srst/default/css/reset.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/tool.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/communal.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/index.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/pindao.css" type="text/css">
+
+   <link rel="stylesheet" type="text/css" href="/template/srst/default/css/jquery-ui.css" />
+
+   <link href="/template/srst/default/css/jquery.bxslider.css" rel="stylesheet" />
+
+
+
+   <script src="/template/srst/default/images/js/jquery1.min.js"></script> 
+
+   <script src="/template/srst/default/images/js/title.js"></script> 
+
+   <script src="/template/srst/default/images/js/jquery-ui-datepicker.js"></script>
+
+<!-- -->
+
+</head>
+
+<body>
+
+
+
+
+
+<!---识别手机或电脑的js开始--->
+<script language="javascript">
+(function(){
+var url = window.location.href;
+if(url.indexOf(".shtml")==-1){
+	url=url+"/index.shtml";
+}else{
+	url=url.substring(0,url.lastIndexOf(".shtml"))+"mobile"+url.substring(url.lastIndexOf(".shtml"),url.length);
+}
+var res = GetRequest();
+var par = res['index'];
+if(par!='gfan'){
+var ua=navigator.userAgent.toLowerCase();
+var contains=function (a, b){
+if(a.indexOf(b)!=-1){return true;}
+};
+var toMobileVertion = function(){
+window.location.href = url;
+}
+ 
+if(contains(ua,"ipad")||(contains(ua,"rv:1.2.3.4"))||(contains(ua,"0.0.0.0"))||(contains(ua,"8.0.552.237"))){return false}
+if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla")) ||(contains(ua,"android") && contains(ua,"opera"))
+||contains(ua,"ucweb7")||contains(ua,"iphone")){toMobileVertion();}
+}
+})();
+function GetRequest() {
+  var url = location.search; 
+  var theRequest = new Object();
+  if (url.indexOf("?") != -1) {
+     var str = url.substr(1);
+     strs = str.split("&");
+     for(var i = 0; i < strs.length; i ++) {
+        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+     }
+  }
+  return theRequest;
+}</script>
+
+<meta name="SiteName" content="山东省人力资源和社会保障厅">
+<meta name="SiteDomain"  content="/">
+<meta name="SiteIDCode"  content="3700000027">
+<meta name="ColumnName" content="通知公告">
+<meta name="ColumnDescription" content="通知公告">
+<meta name="ColumnKeywords" content="通知公告">
+<meta name="ColumnType" content="通知公告">
+<meta name="ArticleTitle" content="2022年山东省高校毕业生“三支一扶”计划招募公告">
+<meta name="PubDate" content="2022-06-22 06:06">
+<meta name="ContentSource" content="山东省人力资源和社会保障厅">
+<meta name="Keywords" content="">
+<meta name="Author" content="">
+<meta name="Description" content="">
+<meta name="Image" content="">
+<meta name="Url" content="/articles/ch00330/202206/dd4d56fd-c8e4-4a49-947c-aa6627df94b1.shtml">
+<meta name="pagetype" content="1">
+
+<div class="header-box">
+
+
+
+    <div class="container">
+
+        <a class='zx_logo' href="javascript:void(0);">
+
+            
+                    <img src="/resource/srst/202504/93be3432-1d3b-43d8-9da3-a3b042d033c8.png" alt="">
+
+
+        </a>
+
+        <div class="header-tool" style=" margin-top: 43px;">
+
+                <script>
+
+				   function search() {
+
+                            var content = $('#search_content').val();
+
+                            content = utf8_to_b64(content);
+
+                            var url = '/channels/ch05821/';
+
+                            url = url + '?content=' + content;
+
+                            window.open(url);
+
+                        }
+
+					
+
+                        //加密
+
+                        function utf8_to_b64(str) {
+
+                            return window.btoa(unescape(encodeURIComponent(str)));
+
+                        }
+
+                        //解密
+
+                        function b64_to_utf8(str) {
+
+                            return decodeURIComponent(escape(window.atob(str)));
+
+                        }
+
+                    $(document).ready(function() {
+
+                        $("#search_content").keydown(function() {
+
+                            if (event.keyCode == 13) {
+
+                                search();
+
+                            }
+
+                        })
+
+                        $(".searchBtn").click(function() {
+
+                            search()
+
+                        })
+
+                    });
+
+							function searchNew(keyword){
+
+								$('#search_content').attr('value',keyword);
+
+								search()
+
+							}
+
+                 </script>
+
+<span>在整个网站范围内搜索</span>
+
+            <div class="search-box" style="margin-top: 0px;">
+
+                    <input name="content" type="text" id="search_content" value="请输入关键字" onClick="this.value=''" onFocus="if (value =='请输入关键字'){value =''}" onBlur="if (value ==''){value='请输入关键字'}">
+
+                <!-- <input id="serachAll" type="text" placeholder="请输入关键字" /> -->
+
+                <a id="search-new" class="search-btn searchBtn le" ></a>
+
+            </div>
+
+
+
+            <div class="keyword">
+
+                <span>热点：</span>
+
+                <a href="javascript:searchNew('就业')">就业</a>
+
+                <a href="javascript:searchNew('失业')">失业</a>
+
+                <a href="javascript:searchNew('工伤保险')">工伤保险</a>
+
+                <a href="javascript:searchNew('公务员培训')">公务员培训</a>
+
+                <a href="javascript:searchNew('劳动工资')">劳动工资</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--header end-->
+
+<!--nav start-->
+<!--nav start-->
+
+<style>
+.nav-box .nav li {
+
+   width: 11.1%;
+}
+
+</style>
+
+<div class="nav-box">
+
+    <ul class="container nav">
+
+                <li style="width:10%;"><a href="/" >首页</a></li>
+
+                <li style="width:10%;"><a href="/channels/ch00003/" >资讯中心</a></li>
+
+                <li style="width:15%;"><a href="/channels/ch06433/"  target="_blank">政府信息公开</a></li>
+
+    <!--            <li style="width:10%;"><a href="/channels/ch00470/" >政策法规</a></li>-->
+
+                <li style="width:10%;"><a href="/channels/ch00582/" >服务大厅</a></li>
+
+                <li style="width:10%;"><a href="/channels/ch00592/">互动交流</a></li>
+
+               <li style="width:10%;"><a href="/channels/ch06859/">智能咨询</a></li>
+
+				<li style="width:15%;" class="last"><a id="wuzhangai" >无障碍工具</a></li>
+				<!--<li style="width:10%;" class="last"><a href="/channels/ch08014/">长者专区</a></li>-->
+				<li style="width:10%;" class="last"><a id="bfElder" style="cursor: pointer;">关怀版</a></li>
+
+    </ul>
+
+</div>
+
+<!--nav end-->
+
+<!--nav end-->
+<link rel="stylesheet" href="/template/srst/default/css/list.css" type="text/css" />
+
+
+<style>
+address, caption, cite, code, dfn, em, strong, th, var {
+    font-weight: bold;
+}
+
+</style>
+
+<!--nav end-->
+
+<!--body start-->
+
+<div class="list_bei">
+
+    <div class="warp">
+
+        <div class="warp_title">当前位置:     <a href="/" class="">首页</a>>>
+     <a href="/channels/ch00003/" class="">资讯</a>>>
+  <a href="/channels/ch00330/" class="">通知公告</a>
+</div>
+
+        <div class="warp_list">
+
+            <div class="show_title">2022年山东省高校毕业生“三支一扶”计划招募公告</div>
+
+            <div class="show_center">
+
+                <span></span><span class="pubdatecss">2022-06-22</span>
+
+                <span>字体
+
+                    <a class="bigger" href="javascript:void(0)">大</a>
+
+                    <a class="middle" href="javascript:void(0)">中</a>
+
+                    <a class="smaller" href="javascript:void(0)">小</a>
+
+                </span> </div>
+
+            <div class="show">
+
+                <p style=";line-height:37px"><br/></p><p style=";line-height:37px"><span style="color: rgb(255, 255, 255);font-size: 21px">&nbsp;</span></p><p style=";line-height:37px"><span style="color: rgb(255, 255, 255);font-size: 21px">&nbsp;</span></p><p style=";text-autospace:ideograph-numeric;text-align:center;line-height:37px"><span style="font-family: 方正小标宋简体;font-size: 29px">202</span><span style="font-family: 方正小标宋简体;font-size: 29px">2</span><span style="font-family: 方正小标宋简体;font-size: 29px"><span style="font-family:方正小标宋简体">年山东省高校毕业生</span>“三支一扶”</span></p><p style=";text-autospace:ideograph-numeric;text-align:center;line-height:37px"><span style="font-family: 方正小标宋简体;font-size: 29px"><span style="font-family:方正小标宋简体">计划招募</span></span><span style="font-family: 方正小标宋简体;font-size: 29px"><span style="font-family:方正小标宋简体">公告</span></span></p><p style=";line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">为深入贯彻习近平总书记关于引导高校毕业生到基层工作的重要指示精神，落实</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">省委</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">、</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">省政府</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">做好高校毕业生就业创业工作的决策部署</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">组织实施</span>202</span><span style=";font-family:仿宋_GB2312;font-size:21px">2</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">年高校毕业生</span>“三支一扶”</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（支教、支农、支医和帮扶乡村振兴）</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">计划招募工作。现</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">将有关事项公告如下</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">：</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">一、招募数量和范围</span></span></p><p style="text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（一）招募数量。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">全省共计划招募</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">“三支一扶”人员</span><span style=";font-family:仿宋_GB2312;font-size:21px">1953</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">名，详见《</span>202</span><span style=";font-family:仿宋_GB2312;font-size:21px">2</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">年高校毕业生</span>“三支一扶”计划招募岗位表》（附件1）。</span></p><p style="text-indent:41px;text-autospace:ideograph-numeric;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（二）招募范围。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">28周岁以下</span><span style=";font-family:仿宋_GB2312;font-size:21px">(199</span><span style=";font-family:仿宋_GB2312;font-size:21px">4</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">年</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">6</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">月</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">23</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">日以后出生</span>)</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">省</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">内普通高校全日制大学本科及以上学历毕业生，以及省外普通高校和国家承认学历的海外高校全日制大学本科及以上学历的山东户籍毕业生（含</span>2017年以后的非全日制研究生和年龄超过28周岁的2020-2022届毕业生）。各市可根据岗位特点和基层实际需求适当将部分岗位学历要求放宽到专科、适当放宽专业条件、降低或不设开考比例。对于省委组织部等11部门《关于鼓励引导人才向基层流动的若干意见》（鲁组字〔2019〕32号）明确的重点扶持区域和乡村振兴重点帮扶县，可按不超过50%的比例面向具有本地户籍或本地生源高校毕业生招募。高级技工学校、技师学院全日制毕业生，毕业时取得高级工、预备技师（含技师）职业资格的，可以按照</span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">有关规定应聘符合条件的岗位。</span></span></p><p style="text-indent:41px;text-autospace:ideograph-numeric;line-height:37px"><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">东营市、</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">日照市、德州市支医岗位具体招募方式，按照</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px">202</span><span style="font-family: 仿宋_GB2312;font-size: 21px">2</span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">年</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">东营市、</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">日照市、</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">德州市</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">高校毕业生</span>“三支一扶”计划招募补充公告实施。</span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">二、招募条件</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（一）理想信念坚定，对党忠诚</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">、</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">品德优良</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">、</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">遵纪守法</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">、</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">作风踏实，组织纪律观念强；志愿到基层工作，服务乡村振兴，服从组织安排。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（二）专业知识扎实，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">具有</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">相应学制的毕业证书和学位证书；组织协调能力、分析解决问题能力和语言文字表达能力较强，有发展潜力，综合表现比较突出。</span></span></p><p style="margin-left:41px;text-indent:0;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（三）具有中华人民共和国国籍，年满</span>18周岁</span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">（</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px">2004</span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">年</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px">6</span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">月</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px">23</span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">日以前出生）</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。</span></span></p><p style="margin-left:41px;text-indent:0;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">四</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">）身</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">体</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">健康，符合</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">相关</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">体检标准。</span></span></p><p style="margin-left:41px;text-indent:0;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">五</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">）具有下列情况之一的人员，不得报考：</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">1</span><span style=";font-family:仿宋_GB2312;font-size:21px">.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">曾受过刑事处罚和曾被开除公职的人员；</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">2</span><span style=";font-family:仿宋_GB2312;font-size:21px">.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">在读全日制普通高校非应届毕业生；</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">3</span><span style=";font-family:仿宋_GB2312;font-size:21px">.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">现役军人；</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">4</span><span style=";font-family:仿宋_GB2312;font-size:21px">.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">曾被</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">“三支一扶”计划</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">录取过的人员；</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">5.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">具有法律法规规定不得被聘用为事业单位人员的其他情形的。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（六）其他事项</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">1.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">最高</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">学历学位高于岗位条件要求，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">相应</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">专业条件符合岗位规定的可以报考。在读全日制普通高校非应届毕业生不得用已取得的学历学位作为条件报考。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">2</span><span style=";font-family:仿宋_GB2312;font-size:21px">.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">报考</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">人员不得报考有《事业单位人事管理回避规定》（人社部规〔</span>2019〕1号）规定情形的岗位。</span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">3</span><span style=";font-family:仿宋_GB2312;font-size:21px">.符合各市对岗位需求、专业及其他条件作出的补充</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">公告</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。考生专业情况以毕业证书上注明的专业为准。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">4</span><span style=";font-family:仿宋_GB2312;font-size:21px">.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">报考</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">人员报考前须认真阅读本公告及各市补充规定。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">5</span><span style=";font-family:仿宋_GB2312;font-size:21px">.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">报考</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">人员填报相关表格、信息等必须真实、全面、准确。主要信息填报不实的，按弄虚作假处理；因信息填报不全、错误等导致未通过资格复审的，责任由</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">报考</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">人员负</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">责</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。对招募过程中存在不诚信情形的</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">报考</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">人员，纳入诚信档案库。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">三、招募程序</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（一）</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">网上报名</span></span></p><p style="text-indent:41px;line-height:37px"><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">报名时间：</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px">2022年6月23日9:00—6月27日16:00</span></p><p style="text-indent:41px;line-height:37px"><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">查询时间：</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px">2022年6月23日11:00—6月28日16:00</span></p><p style="text-indent:41px;text-autospace:ideograph-numeric;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">报名人员登录山东人事考试信息网（</span>http://hrss.shandong.gov.cn/rsks</span><span style=";font-family:仿宋_GB2312;font-size:21px">/</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">）</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">或在微信中搜索</span>“山东人事考试网上报名平台”小程序进入报名系统</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">进行报名。报名人员在报名系统内完成注册、上传照片后，根据系统提示依次进行阅读报名须知和诚信承诺书、填写报名信息、选择岗位、报名信息确认的操作后，进入待审核状态，等待资格初审。每人限报一个岗位。报名与考试时使用的本人有效</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">居民</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">身份证必须一致。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">报名时，报名人员要仔细阅读报名系统有关要求和诚信承诺书，提交的报名申请材料必须真实、准确、完整，能够体现岗位条件</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">和招募条件要求</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。报名人员提供虚假报考申请材料的，一经查实，即取消报名资格。对伪造、编造有关证件、材料、信息，骗取考试资格的，将按照有关规定严肃处理。有恶意注册报名信息、扰乱报名秩序等行为的，查实后取消其本次报名资格。报名人员在</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">招募</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">期间的表现，将作为公开</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">招募</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">考察的重要内容之一。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">在</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">6月27日</span><span style=";font-family:仿宋_GB2312;font-size:21px">16:00前，</span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">未通过</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">资格初审的，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">可以更改、补充报名信息，也可以申请改报其他岗位。其中，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">审核单位</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">要</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">求补充信息的，应当及时完整地补充报名信息。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">6月27日</span><span style=";font-family:仿宋_GB2312;font-size:21px">16:00以后，</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">将</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">不能更改、补充报名信息，也不能申请改报其他岗位。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（二）</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">各市资格初审</span></span></p><p style="text-indent:41px;line-height:37px"><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">初审时间：</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px">2022年6月23日11:00—6月28日16:00</span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各市指定专人负责资格初审工作（节假日不休息），及时查看本市网上报名情况，认真进行资格审查，确认初审结果。对未通过初审的，要说明理由；对提交材料不全的，应注明缺少的内容，退回报名人员，再行补充。未通过资格初审人员，可在</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px">2022年6月27日</span><span style="font-family: 仿宋_GB2312;font-size: 21px">16:00前</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">改报其他岗位。网上报名期间，各市应安排专人接听咨询电话，提供咨询服务。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（三）</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">个人报名确认</span></span></p><p style="text-indent:41px;line-height:37px"><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">确认时间：</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px">2022年6月23日11:00—6月29日16:00</span></p><p style="text-indent:41px;line-height:37px"><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">通过资格初审的人员，在规定时间内登录报名</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">系统</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">进行报名确认。报名确认后，方为报名成功；逾期未进行报名确认的，视为放弃报名。报名不收取考务费。</span></span></p><p style="text-indent:41px;line-height:37px"><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">报名确认成功人员，应于</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px">2022年7月12日9</span><span style="font-family: 仿宋_GB2312;font-size: 21px">:</span><span style="font-family: 仿宋_GB2312;font-size: 21px">00-7月16日9:30</span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">登录报名</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">系统</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">打印笔试准考证以及《</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px">2022</span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">年山东省高校毕业生</span>“三支一扶”计划报名表》（以下简称《报名表》）、《</span><span style="font-family: 仿宋_GB2312;font-size: 21px">2022</span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">年山东省高校毕业生</span>“三支一扶”计划诚信承诺书》（以下简称《诚信承诺书》）（</span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">以上材料</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">参加</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">资格复审或</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">面试时使用）。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">本次考试的所有岗位不设开考比例。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">报名结束后，对</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">无人报考的岗位予以保留，用于后期调剂。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（四）</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">笔试</span></span></p><p style="text-indent:41px;line-height:37px"><strong><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">时间：</span></span></strong><strong><span style="font-family: 仿宋_GB2312;font-size: 21px">2022年7月16日9:00-11:30</span></strong></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">笔试采取全省统一考试的方式进行，科目为公共基础知识。为保证新进人员基本素质，将根据招募计划和笔试情况，确定笔试成绩最低合格分数线。</span></span></p><p style="text-indent:41px;line-height:37px"><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">笔试在全省各市设置考点。报考人员在报名时自行选择考点城市</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">，</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">凭准考</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">证和本人有效居民身份证（与报名时一致）参加考试。对于考试中的违纪违规行为，将参照《事业单位公开招聘违纪违规行为处理规定》（人力资源和社会保障部令第</span>35号）的有关规定处理。</span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">笔试组织根据考点城市新冠肺炎常态化疫情防控有关规定执行。请广大考生近期注意做好自我健康管理，以免影响考试。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（五）</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">资格复审</span></span></p><p style="text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">根据笔试成绩，在笔试最低合格分数线以上，按照招募计划</span>1:3的比例，由各市从高分到低分依次确定</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各岗位</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">面试人选，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">报省</span>“三支一扶”办公室审定后</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">在</span>“山东人事考试信息网”（</span><span style=";font-family:仿宋_GB2312;font-size:21px">http://</span><span style=";font-family:仿宋_GB2312;font-size:21px">hrss.shandong.gov.cn/rsks/）“山东高校毕业生就业信息网”（</span><span style=";font-family:仿宋_GB2312;font-size:21px">http://</span><span style=";font-family:仿宋_GB2312;font-size:21px">www.sdgxbys.cn/）予以公布。</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">考生</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">需在规定的时间，向报考单位所在的市</span>“三支一扶”办公室提交相关证明材料（原件及复印件，复印件由审核单位留存）。相关证明材料主要包括：</span></p><p style="margin-left:0;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;1.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">全日制普通高校毕业生需提供：《报名表》《诚信承诺书》</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">、</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">身份证、毕业证、学位证；省外院校毕业生还需提供户口簿；</span></span></p><p style="margin-left:0;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;2.</span><span style=";font-family:仿宋_GB2312;font-size:21px">2017年以后的</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">非全日制研究生</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">需提供</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">：</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">《报名表》《诚信承诺书》、身份证、毕业证、学位证；省外院校毕业生还需提供户口簿；</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">3.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">海外高校山东户籍毕业生需提供：《报名表》《诚信承诺书》、身份证、户口簿以及</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">国家教育部门的学历学位认证</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">材料</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">。</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">应聘</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">人员可登</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">录</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">教育部留学服务中心网站（</span>http://www.cscse.edu.cn<span style="font-family:仿宋_GB2312">）查询认证的有关要求和程序</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">；</span></span></p><p style="text-indent:0;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;4.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">高级技工学校</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">或</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">技师学院全日制毕业生需提供：《报名表》、《诚信承诺书》、毕业证、身份证、高级工职业资格证书</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">或</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">预备技师证书</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">含技师</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">）</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">等；省外高级技工学校</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">或</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">技师学院毕业生还需提供户口簿；</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">5.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">在职人员报考的，还需提交有用人权限部门或单位出具的同意报考介绍信（经报考单位同意，也可在体检时提供）</span>;</span></p><p style="text-indent:0;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;6.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">报考岗位要求的其他证明材料。</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各市</span>“三支一扶”办公室严格按照岗位要求组织资格复审。因弃权或取消资格造成的面试人员空缺，按笔试成绩依次递补。达不到招募比例的，按实有合格人数确定面试人选。</span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（六）</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">面试</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各市统一组织面试。面试考场设旁听席进行全程监督。根据笔试、面试各占</span>50％的比例，按百分制计算考生的综合成绩。面试后，根据考生总成绩，等额确定体检人选，如考试总成绩相同，按笔试成绩从高到低确定体检人选。体检人选的面试成绩不得低于60分。</span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（七）</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">调剂</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">面试结束</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">至确定体检人员之前</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">所有</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">出现空缺</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">的</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">岗位，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各市按照规定进行调剂。调剂原则：可从同类岗位（支农、支教、支医和帮扶乡村振兴等）、相近专业的考试成绩合格的人员中进行调剂。需调剂的岗位应在</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各市官方网站</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">公示不少于</span>3个工作日，考生按调剂岗位的要求申报，一个考生限报一个调剂岗位。具体调剂程序和方式由各市自行确定，力争无岗位空缺。</span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（八）</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">体检</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各市</span>“三支一扶”办公室组织在</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">二级以上综合性医院</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">进行体检，体检标准和项目参照公务员录用体检标准及操作手册执行，国家另有规定的从其规定。报考人员不按规定时间、地点参加体检的，视作放弃。对按规定需要复检的，不得在原体检医院进行，复检只能进行</span>1次，结果以复检结论为准。对体检不合格或放弃者，从报考该岗位的考生中按总成绩进行依次等额递补。</span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（九）</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">确定招募人员名单</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">经考试、体检</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">、档案审查</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">等合格的人员作为拟招募对象，由各市等额确定报省</span>“三支一扶”办公室审定后，</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">统一在</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">“</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">山东高校毕业生就业信息网</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">”</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">等网站进行公示</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">，公示期为</span>5个工作日</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。经公示无异议的，作为</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">招募</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">对象</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">。</span></span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">拟招募人员名单公示后不再递补。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">资格审查贯穿招募工作全过程。发现报考人员有弄虚作假等违纪违规行为的，随时取消招募资格。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">四、其他事宜</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（一）</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">“三支一扶”人员服务期为2年，各市“三支一扶”办公室负责组织拟招募的“三支一扶”人员签订服务协议。“三支一扶”人员的人事档案统一转至服务单位所在的县级人事部门管理，党团组织关系转至服务单位。日常管理、年度考核等由基层服务单位负责，乡镇党委、政府负责提供必要的工作生活条件。“三支一扶”人员到岗服务视为参加工作，其参加工作时间按其到基层报到之日起算，其在基层服务年限按照《关于印发参加农村基层服务项目的高校毕业生被机关事业单位录（聘）用后工资待遇确定办法的通知》（鲁人社发〔2010〕55号）规定计算工龄。</span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（二）</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">“三支一扶”人员享有服务协议规定的各项权利，要履行服务协议的各项义务，不得单方中止协议或擅自离岗。如因不可抗力因素或其他特殊原因不能继续服务的，要提出申请，经市“三支一扶”办公室同意并报省“三支一扶”办公室批准后，终止服务协议。</span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（三）</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">本次招募的</span>“三支一扶”人员服务满2年且考核合格的，采取考核考察的方式公开招聘为</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">原</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">乡镇</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">(街道)</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">事业单位工作人员，在聘用合同中约定</span>5年的最低服务期限（含“三支一扶”计划服务年限）。考核</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">不合格的，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">取消聘用资格</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">，解除服务协议。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">本次招募的相关信息在</span>“山东人事考试信息网”（http://hrss.shandong.gov.cn/rsks/）“山东高校毕业生就业信息网”（http://www.sdgxbys.cn/）和“山东省教育厅高校毕业生就业网”（http://gxjy.sdei.edu.cn/）发布，考试报名</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">、</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">准考证打印</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">及成绩查询</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">在</span>“山东人事考试信息网”上具体实施。本次考试不指定考试辅导用书，不举办也不授权或委托任何机构举办考试辅导培训班。本公告有关问题由省“三支一扶”工作协调管理办公室负责解释。</span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">监督电话：</span>0531-</span><span style=";font-family:仿宋_GB2312;font-size:21px">51788058</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">51788162</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">；</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">网上报名</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">技术咨询</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">电话</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">：</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">0531-88597886</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。</span></span></p><p style="text-indent:41px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style="text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">附件</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">：</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">1.<!--gentleattstart--><a target="_blank" title="点击下载附件" href="/resource/srst/att/202206/068cdd09-e8e3-4790-a73e-5386c103f318.xls"><!--gentleattend-->2022年高校毕业“三支一扶”计划招募岗位表.xls</a></span></p><p style="text-indent:104px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">2.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各市</span>“三支一扶”办公室咨询电话</span></p><p style="text-indent:104px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">3.</span><span style=";font-family:仿宋_GB2312;font-size:21px">2022</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">年</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">山东省</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">高校毕业生</span>“三支一扶”计划报名表</span></p><p style="margin-left:0;text-indent:104px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">4.</span><span style=";font-family:仿宋_GB2312;font-size:21px">2022</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">年</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">山东省</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">高校毕业生</span>“三支一扶”计划招募<span style="font-family: 仿宋_GB2312; font-size: 21px; text-align: justify; text-indent: 104px;">考试诚信承诺书</span></span></p><p style="text-indent: 124px;line-height: 37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style="text-indent: 124px;line-height: 37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style="text-indent: 41px; text-align: left; line-height: 37px;"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;山东省</span>“三支一扶”工作协调管理办公室</span></p><p style="text-indent:311px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2022</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">年</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">6</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">月</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">22</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">日</span></span></p><p><span style=";font-family:黑体;font-size:21px"><br clear="all" style="page-break-before:always"/></span> </p><p style="line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">附件</span>2</span></p><p style="text-align:center;line-height:31px"><span style=";font-family:方正小标宋简体;font-size:24px">&nbsp;</span></p><h1 style="text-align:center"><span style=";font-family:方正小标宋简体;font-size:29px"><span style="font-family:方正小标宋简体">各市</span>“三支一扶”办公室咨询电话</span></h1><p style="line-height:36px"><span style=";font-family:&#39;Times New Roman&#39;;font-size:19px">&nbsp;</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">济南市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0531-870816</span><span style=";font-family:仿宋_GB2312;font-size:21px">29</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">青岛市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0532-66711835</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">淄博市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0533-2</span><span style=";font-family:仿宋_GB2312;font-size:21px">7</span><span style=";font-family:仿宋_GB2312;font-size:21px">91855</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">枣庄市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0632-3341282</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">东营市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0546-6378978</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">烟台市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0535-678505</span><span style=";font-family:仿宋_GB2312;font-size:21px">3</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">潍坊市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0536-8269393</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">济宁市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0537-2967915</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">泰安市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0538-6991256</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">威海市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0631-5190826</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">日照市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0633-8866212</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">临沂市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0539-8609920</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">德州市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0534-2347339</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">聊城市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0635-2189065</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">滨州市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0543-8173661</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">菏泽市</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0530-5310446</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style="text-indent:42px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">山东省</span>“三支一扶”办公室 &nbsp;&nbsp;&nbsp;&nbsp;0531-</span><span style=";font-family:仿宋_GB2312;font-size:21px">51788162</span></p><p style="line-height:37px"><span style=";font-family:楷体_GB2312;font-size:19px"><br clear="all" style="page-break-before:always"/></span><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">附件</span>3</span></p><p style="text-align:center;line-height:37px"><strong><span style="font-family: 方正小标宋简体;font-size: 24px">&nbsp;</span></strong></p><h1 style="text-align:center"><span style=";font-family:方正小标宋简体;font-size:29px">2022</span><span style=";font-family:方正小标宋简体;font-size:29px"><span style="font-family:方正小标宋简体">年</span></span><span style=";font-family:方正小标宋简体;font-size:29px"><span style="font-family:方正小标宋简体">山东省</span></span><span style=";font-family:方正小标宋简体;font-size:29px"><span style="font-family:方正小标宋简体">高校毕业生</span>“三支一扶”计划</span></h1><h1 style="text-align:center"><span style=";font-family:方正小标宋简体;font-size:29px"><span style="font-family:方正小标宋简体">报名表</span></span></h1><p style="text-align:center;line-height:37px"><strong><span style="font-family: 方正小标宋简体;font-size: 24px">&nbsp;</span></strong></p><table cellspacing="0" width="604"><tbody><tr style="height:40px;page-break-inside:avoid" class="firstRow"><td width="158" valign="center" style="padding: 0px 7px; border-width: 1px; border-color: windowtext;"><p style="text-align:center;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">姓 &nbsp;名</span></p></td><td width="123" valign="center" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top-width: 1px; border-top-color: windowtext; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td><td width="104" valign="center" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top-width: 1px; border-top-color: windowtext; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">性 别</span></p></td><td width="123" valign="center" colspan="2" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top-width: 1px; border-top-color: windowtext; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td><td width="96" valign="top" rowspan="3" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top-width: 1px; border-top-color: windowtext; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style="font-family:仿宋_GB2312;font-size:16px">&nbsp;</span></p><p style="line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">照 &nbsp;片</span></p></td></tr><tr style="height:27px;page-break-inside:avoid"><td width="158" valign="center" style="padding: 0px 7px; border-left-width: 1px; border-left-color: windowtext; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">民 &nbsp;族</span></p></td><td width="123" valign="center" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td><td width="104" valign="center" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">出生年月</span></p></td><td width="123" valign="center" colspan="2" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td></tr><tr style="height:37px;page-break-inside:avoid"><td width="158" valign="center" style="padding: 0px 7px; border-left-width: 1px; border-left-color: windowtext; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">政治面貌</span></p></td><td width="123" valign="center" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td><td width="104" valign="center" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style="font-family: 仿宋_GB2312;font-size: 16px">健康状况</span></p></td><td width="123" valign="center" colspan="2" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td></tr><tr style="height:32px;page-break-inside:avoid"><td width="158" valign="center" style="padding: 0px 7px; border-left-width: 1px; border-left-color: windowtext; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">身份证号</span></p></td><td width="446" valign="top" colspan="5" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td></tr><tr style="height:31px;page-break-inside:avoid"><td width="158" valign="center" style="padding: 0px 7px; border-left-width: 1px; border-left-color: windowtext; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style="font-family: 仿宋_GB2312;font-size: 16px">毕业院校</span></p></td><td width="123" valign="center" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td><td width="132" valign="center" colspan="2" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top-width: 1px; border-top-color: windowtext; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style="font-family: 仿宋_GB2312;font-size: 16px">院校所在省市</span></p></td><td width="190" valign="top" colspan="2" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top-width: 1px; border-top-color: windowtext; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td></tr><tr style="height:41px;page-break-inside:avoid"><td width="158" valign="center" style="padding: 0px 7px; border-left-width: 1px; border-left-color: windowtext; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">学 &nbsp;历</span></p></td><td width="123" valign="center" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td><td width="132" valign="center" colspan="2" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">&nbsp;院（系）专 &nbsp;业</span></p></td><td width="190" valign="top" colspan="2" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td></tr><tr style="height:42px;page-break-inside:avoid"><td width="158" valign="center" style="padding: 0px 7px; border-left-width: 1px; border-left-color: windowtext; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">户籍所在地</span></p></td><td width="446" valign="top" colspan="5" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td></tr><tr style="height:40px;page-break-inside:avoid"><td width="158" valign="center" style="padding: 0px 7px; border-left-width: 1px; border-left-color: windowtext; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">联系电话</span></p></td><td width="123" valign="center" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td><td width="132" valign="center" colspan="2" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top-width: 1px; border-top-color: windowtext; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">电子邮箱</span></p></td><td width="190" valign="top" colspan="2" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top-width: 1px; border-top-color: windowtext; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td></tr><tr style="height:89px;page-break-inside:avoid"><td width="158" valign="center" style="padding: 0px 7px; border-left-width: 1px; border-left-color: windowtext; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:27px"><span style=";font-family:仿宋_GB2312;font-size:16px">原工作单位意见（或人事代理机构意见）</span></p></td><td width="446" valign="center" colspan="5" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:27px"><span style=";font-family:仿宋_GB2312;font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;（盖章）</span></p><p style="line-height:27px"><span style=";font-family:仿宋_GB2312;font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;年 &nbsp;&nbsp;月 &nbsp;&nbsp;日</span></p></td></tr><tr style="height:59px;page-break-inside:avoid"><td width="158" valign="center" style="padding: 0px 7px; border-left-width: 1px; border-left-color: windowtext; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:27px"><span style=";font-family:仿宋_GB2312;font-size:16px">学习工作简历</span></p><p style="text-align:center;line-height:27px"><strong><span style="font-family: 仿宋_GB2312;font-size: 16px">（自高中填起）</span></strong></p></td><td width="446" valign="center" colspan="5" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td></tr><tr style="height:57px;page-break-inside:avoid"><td width="158" valign="center" style="padding: 0px 7px; border-left-width: 1px; border-left-color: windowtext; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:27px"><span style=";font-family:仿宋_GB2312;font-size:16px">报考类型</span></p></td><td width="446" valign="center" colspan="5" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="line-height:27px"><span style=";font-family:仿宋_GB2312;font-size:16px">□ 支农 &nbsp;□ 支教 &nbsp;&nbsp;□ 支医 &nbsp;□ 水利 &nbsp;□ </span><span style=";font-family:仿宋_GB2312;font-size:16px">帮扶乡村振兴</span><span style=";font-family:仿宋_GB2312;font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;</span></p><p style="line-height:27px"><span style=";font-family:仿宋_GB2312;font-size:16px">□ 就业和社会保障服务平台 &nbsp;□ </span><span style=";font-family:仿宋_GB2312;font-size:16px">林草</span><span style=";font-family:仿宋_GB2312;font-size:16px">&nbsp;&nbsp;</span><span style="font-family:&#39;Wingdings 2&#39;;font-size:16px">￡</span><span style=";font-family:仿宋_GB2312;font-size:16px">&nbsp;其他 &nbsp;（限选一项）</span></p></td></tr><tr style="height:55px;page-break-inside:avoid"><td width="158" valign="center" style="padding: 0px 7px; border-left-width: 1px; border-left-color: windowtext; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:27px"><span style=";font-family:仿宋_GB2312;font-size:16px">报考单位</span></p><p style="text-align:center;line-height:27px"><span style=";font-family:仿宋_GB2312;font-size:16px">（服务地、服务单位）</span></p></td><td width="446" valign="top" colspan="5" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td></tr><tr style="height:27px;page-break-inside:avoid"><td width="158" valign="center" style="padding: 0px 7px; border-left-width: 1px; border-left-color: windowtext; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><p style="text-align:center;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">备注</span></p></td><td width="446" valign="top" colspan="5" style="padding: 0px 7px; border-left: none; border-right-width: 1px; border-right-color: windowtext; border-top: none; border-bottom-width: 1px; border-bottom-color: windowtext;"><br/></td></tr></tbody></table><p style="line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:16px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=";font-family:楷体_GB2312;font-size:16px"><span style="font-family:楷体_GB2312">山东省</span>“三支一扶”工作协调管理办公室 制</span></p><p style="line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">附件</span>4</span></p><p style="line-height:37px"><span style=";font-family:黑体;font-size:21px">&nbsp;</span></p><h1 style="text-align:center"><span style=";font-family:方正小标宋简体;font-size:29px">2022</span><span style=";font-family:方正小标宋简体;font-size:29px"><span style="font-family:方正小标宋简体">年</span></span><span style=";font-family:方正小标宋简体;font-size:29px"><span style="font-family:方正小标宋简体">山东省</span></span><span style=";font-family:方正小标宋简体;font-size:29px"><span style="font-family:方正小标宋简体">高校毕业生</span>“三支一扶”</span></h1><h1 style="text-align:center"><span style=";font-family:方正小标宋简体;font-size:29px"><span style="font-family:方正小标宋简体">计划招募考试诚信承诺书</span></span></h1><p style="text-indent:37px"><span style=";font-family:仿宋_GB2312;font-size:19px">&nbsp;</span></p><p style="text-indent:42px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">我已认真阅读《</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">2022</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">年山东省高校毕业生</span>“三支一扶”计划招募公告》、相关政策和违纪违规处理规定，清楚并理解其内容。我承诺：本人所提供的个人信息、证明资料、证件等，真实、准确，并自觉遵守此次招募考试的各项规定，诚实守信，严守纪律，认真履行报考人员义务。对因提供有关信息、证件不实或违反有关纪律规定所造成的后果，本人自愿承担相应的责任。</span></p><p style="text-indent:42px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style="text-indent:42px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style="text-indent:42px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style="text-indent:316px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">报考人签名：</span></span></p><p style="text-indent:42px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style="text-indent:0"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">年</span> &nbsp;&nbsp;<span style="font-family:仿宋_GB2312">月</span> &nbsp;&nbsp;<span style="font-family:仿宋_GB2312">日</span></span></p><p style="text-align:center;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:19px">&nbsp;</span></p><p><span style="font-size: 21px">&nbsp;</span></p><p><span style="font-size: 21px">&nbsp;</span></p><p><span style="font-size: 21px">&nbsp;</span></p><p><br/></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div style="display:none;">
+
+访问次数 :<span> <script type="text/javascript">
+$.get(embedRootPath+"/do/embedservice/count?method=read&articleId=dd4d56fd-c8e4-4a49-947c-aa6627df94b1&channelId=737e4ddf-64f9-4f95-a0da-89dd6446835c&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+ <span id="article_show_count"> </span>
+<script type="text/javascript">
+$.get(embedRootPath+"/do/embedservice/count?method=count&articleId=dd4d56fd-c8e4-4a49-947c-aa6627df94b1&channelId=737e4ddf-64f9-4f95-a0da-89dd6446835c&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#article_show_count").empty();
+   $("#article_show_count").append(data.result[0]);
+   }
+}
+);
+</script>
+</span>
+
+</div>
+
+<!--body end-->
+
+<!--footer start-->
+
+<!--footer start-->
+
+<style>
+
+.index_map .cont .item {
+
+    float: left;
+
+    margin: 0 4.8%;
+
+}
+
+</style>
+
+<link rel="stylesheet" href="/template/srst/default/css/nav.css" type="text/css">
+
+<link href="/template/srst/default/css/public.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">var embedRootPath = "/gentleCMS";var memberPath="/gentleCMS";</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //导航
+
+        $(".mainProNav dl dt").click(function () {
+
+            $(".mainProNav dl").removeClass("dlHover");
+
+            $(this).parent().addClass("dlHover");
+
+            $("#of_whole").removeClass("of_whole2");
+
+            $("#of_whole").addClass("of_whole");
+
+        })
+
+        $(".mainProNav").hover(function () {
+
+            $(this).addClass("mainProNavHover");
+
+        }, function () {
+
+            $(this).removeClass("mainProNavHover");
+
+            $(".mainProNav dl").removeClass("dlHover");
+
+            $("#of_whole").removeClass("of_whole");
+
+            $("#of_whole").addClass("of_whole2");
+
+        })
+
+
+
+    });
+
+</script>
+
+
+
+<script type="text/javascript">
+
+    //日历――――――――――――――――――――――――――――――――――――――――――
+
+    $(function () {
+
+
+
+        //绘制月历体――――――――――――――――――――――――――――――――――――――――――
+
+
+
+        for (var i = 0; i < 35; i++) {
+
+            $("<li><span></span></li>").appendTo(".month-body").addClass("month-cell");
+
+        }
+
+
+
+        var today = new Date()
+
+
+
+        var FullYear = today.getFullYear(); //获取年份
+
+        var m = today.getMonth(); //获取月号
+
+        var month = today.getMonth() + 1; //获取月份
+
+
+
+        if (month < 10) {
+
+            month = "0" + month;
+
+        }
+
+        var date = today.getDate(); //获取日期
+
+        var day = today.getDay(); //获取星期
+
+
+
+        var monthsNum = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        var isleapyear = FullYear % 4; //判断闰年
+
+        if (isleapyear == 0) {
+
+            monthsNum[1] = 29;
+
+        }
+
+
+
+        if (day == 0) {
+
+            day = 7;
+
+        }
+
+        var firstDay = day - (date % 7 - 1); //!important 计算月初星期数
+
+
+
+        if (firstDay == 7) { //如果月初为七，归零
+
+            firstDay = 0;
+
+        }
+
+        if (firstDay < 0) { //如果月初为负，加七循环
+
+            firstDay += 7;
+
+        }
+
+
+
+        var f = firstDay;
+
+        for (var j = 1; j <= monthsNum[m]; j++) {
+
+            $("li.month-cell span").eq(f).text(j).parent().addClass("pink");
+
+            f++;
+
+        }
+
+
+
+        $("li.month-cell span").eq(firstDay - 1 + date).parent().addClass("pink_now");
+
+
+
+        $(".month-head span").text(FullYear + "年" + month + "月");
+
+        $("li.month-cell span").mouseover(function () {
+
+            $(this).parent().removeClass("pink");
+
+            $(this).parent().addClass("red");
+
+        });
+
+        $("li.month-cell span").mouseout(function () {
+
+            $(this).parent().removeClass("red");
+
+            $(this).parent().addClass("pink");
+
+        });
+
+        $("li.month-cell span").click(function () {
+
+            var fwrq = null;
+
+            if (parseInt($(this).text()) <= parseInt($("li.month-cell span").eq(firstDay - 1 + date)
+
+                    .text()))
+
+                if ($(this).text() < 10) {
+
+                    fwrq = FullYear + "-" + month + "-" + 0 + $(this).text();
+
+                    //window.location.href = "includes/search_allbyday.html-fwrq=.htm" + fwrq;
+
+                } else {
+
+                    fwrq = FullYear + "-" + month + "-" + $(this).text();
+
+                    //window.location.href = "includes/search_allbyday.html-fwrq=.htm" + fwrq;
+
+                }
+
+        });
+
+
+
+    });
+
+</script>
+
+
+
+<div class="footer-box">
+
+    <style>
+
+        .foot-CRselectBox4 a.foot-CRselectValue4,.foot-CRselectBox2 a.foot-CRselectValue2{width: 160px;padding-right: 30px;white-space: normal;}
+
+ </style>
+
+
+
+    <div class="index_pane4 cont" style="width:1000px;margin-left:auto;margin-right:auto;">
+
+        <!-- 改动 -->
+
+        <div class="ico_nav" > <a style="width:100px;" href="javascript:void(0)">站点地图</a>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+
+    <div class="index_map" style="display: none;">
+
+        <div class="cont" style="width:1050px;margin-left:auto;margin-right:auto;">
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00003/">资讯中心</a></dt>
+
+                    <dd>
+
+                        <ul>
+                            <li><a target="_blank" href="/channels/ch00005/">人社要闻</a></li>
+                            <li><a target="_blank" href="/channels/ch07787/">时政要闻</a></li>
+                            <li><a target="_blank" href="/channels/ch00021/">热点聚焦</a></li>
+                            <li><a target="_blank" href="/channels/ch00330/">通知公告</a></li>
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00332/">政府信息公开</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch06434/">政府信息公开指南</a></li>
+                            <li><a target="_blank" href="/channels/ch00336/">政府信息公开制度</a></li>
+                            <li><a target="_blank" href="/channels/ch06438/">法定主动公开内容</a></li>
+                            <li><a target="_blank" href="/channels/ch06439/">政府信息公开年报</a></li>
+                            <li><a target="_blank" href="http://credit.shandong.gov.cn/creditsearch.publicity.dhtml">双公示信息</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+       <!--     <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00470/">政策法规</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/?wjfl=5rOV5b6L5rOV6KeE6KeE56ug5Y+K6KeE6IyD5oCn5paH5Lu2&title=&wh=&fwrq=">法律法规规章规范性文件</a></li>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/?wjfl=6KeE6IyD5oCn5paH5Lu26I2J5qGI&title=&wh=&fwrq=">规范性文件草案</a></li>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/">政策文件查询</a></li>
+
+                            <li><a target="_blank" href="/channels/ch00580/">政策解读</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>-->
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00582/">服务大厅</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch00586/">通知公告</a></li>
+                            <li><a target="_blank" href="/channels/ch00588/">信息查询</a></li>
+                            <li><a target="_blank" href="/channels/ch00594/">下载中心</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00592/">互动交流</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch00946/">
+							厅长信箱</a></li>
+                            <li><a target="_blank" href="/channels/ch00948/">
+							建言献策</a></li>
+                            <li><a target="_blank" href="/channels/ch00610/">
+							咨询热点回放</a></li>
+
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="/template/srst/default/images/js/public.js"></script>
+
+    <div class="footer-link clearfix" style="background-color: #8fb5d2;" >
+
+        <div class="text-box2" style="width: 1000px;height: auto; margin-left: 0 auto;">
+
+            <div style="display: inline-block;font-size: 16px;color: #fff;">友情链接 >></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.gov.cn/" style="color: #fff;" target="_blank">国务院</a></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.mohrss.gov.cn/" style="color: #fff;" target="_blank">人社部</a></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.shandong.gov.cn/" style="color: #fff;" target="_blank">山东省政府</a></div>
+
+            <select id="select33" size="1" onchange="javascript:window.open(this.options[this.selectedIndex].value);this.selectedIndex=0"
+
+                style="width:27%;border: 0;outline-style: none;margin-left: 30px;font-size: 15px;color: #fff;background: #8fb5d1;">
+
+                <option style="color: #000;background: #fff;" selected="">山东省各地市人力资源和社会保障局</option>
+
+                <option style="color: #000;background: #fff;" value="http://jnhrss.jinan.gov.cn/">济南市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.qingdao.gov.cn/">青岛市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.zibo.gov.cn/">淄博市</option>
+
+                <option style="color: #000;background: #fff;" value="http://zzhrss.zaozhuang.gov.cn/">枣庄市</option>
+
+                <option style="color: #000;background: #fff;" value="http://dylss.dongying.gov.cn/">东营市</option>
+
+                <option style="color: #000;background: #fff;" value="https://rshj.yantai.gov.cn">烟台市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.weifang.gov.cn/">潍坊市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.jining.gov.cn">济宁市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.taian.gov.cn/">泰安市</option>       
+
+                <option style="color: #000;background: #fff;" value="http://rsj.weihai.gov.cn/">威海市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.rizhao.gov.cn/">日照市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.linyi.gov.cn/">临沂市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.dezhou.gov.cn/">德州市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.liaocheng.gov.cn/">聊城市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rs.binzhou.gov.cn/">滨州市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hzrsj.heze.gov.cn/">菏泽市</option>
+
+            </select>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+    <div class="copyright">
+
+        <div class="container" style="height:95px;margin: 0 auto;">
+
+            <div style="float:left;margin-left:100px;width:110px; text-align:center; overflow:hidden;padding-top:12px;">
+
+                <script id="_jiucuo_" sitecode="3700000027" src="https://zfwzgl.www.gov.cn/exposure/jiucuo.js"></script>
+
+            </div>
+
+            <div style="float:left;width:70px;text-align:center;overflow:hidden;">
+
+                <!--<script src="http://dcs.conac.cn/js/16/000/0000/60418909/CA160000000604189090002.js" type="text/javascript"></script>-->
+
+<span id="_ideConac"><a href="//bszs.conac.cn/sitename?method=show&amp;id=08314E66B4BB5B11E053012819AC5237" target="_blank"><img id="imgConac" vspace="0" hspace="0" border="0" src="/template/srst/default/images/dzjg/red.png" data-bd-imgshare-binded="1"></a></span>
+
+            </div>
+
+<!--加入收藏 -->
+
+<script>
+
+function addFavorite2() {
+
+var url = window.location;
+
+var title = document.title;
+
+var ua = navigator.userAgent.toLowerCase();
+
+if (ua.indexOf("360se") > -1) {
+
+alert("由于360浏览器功能限制，请按 Ctrl+D 手动收藏！");
+
+}
+
+else if (ua.indexOf("msie 8") > -1) {
+
+window.external.AddToFavoritesBar(url, title); //IE8
+
+}
+
+else if (document.all) {
+
+try{
+
+window.external.addFavorite(url, title);
+
+}catch(e){
+
+alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+
+}
+
+}
+
+else if (window.sidebar) {
+
+window.sidebar.addPanel(title, url, "");
+
+}
+
+else {
+
+alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+
+}
+
+}
+
+</script>
+
+            <div style="float:left;width:500px; text-align:center; overflow:hidden;">
+
+                <p class="link">
+
+                    <a href="/channels/ch02606/" float:left; margin-left:40px;>联系我们</a>|<a href="javascript:void(0);" onclick="javascript:addFavorite2()"
+
+                        float:left; margin-left:40px;>加入收藏</a>|<a href="https://mail.shandong.cn/" target="_blank" float:left; margin-left:40px;>邮箱登录</a></p>
+
+                <p>主办单位：山东省人力资源和社会保障厅&nbsp;&nbsp;&nbsp;&nbsp;版权所有：山东省人力资源和社会保障厅</p>
+
+                <p>技术支持：山东省社会保险事业中心社会保障卡管理服务处&nbsp;&nbsp;&nbsp;&nbsp;政府网站标识码：3700000027</p><div style="display:none;"> <script type="text/javascript">
+ $.get("/statistics/do/embedservice/count?method=read&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+<span id="site_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#site_show_count").empty();
+   $("#site_show_count").append(data.result[0]);
+	}
+}
+);
+</script>
+</div>
+
+                <p style="margin-left:90px;"><span style="float:left;padding-right:10px;"><a href="https://beian.miit.gov.cn"  target="_blank" style="color:#ffffff;">鲁ICP备10039682号-6</a></span>
+
+                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010202001324"><img
+
+                            src="/template/srst/default/images/batb.png" style="float:left;"><span style="float:left;margin: 0px 0px 0px 5px; color:#ffffff;">鲁公网安备37010202001324号</span></a>
+
+                </p>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--悬浮 start-->
+
+<!--<div class="left-fixed-tool"> <a class="top-a" href="#">索引<br>
+
+ 服务</a> <a class="box-a" href="#">站点<br>
+
+ 日历</a> <a class="box-b" href="#">智能<br>
+
+ 咨询</a> <a class="bottom-a" href="#">渠道<br>
+
+ 媒体</a></div>-->
+
+<!--悬浮 end-->
+
+              <script>
+
+                   function search1() {
+
+                            var content = $('#search_content1').val();
+
+                            content = utf8_to_b64(content);
+
+                            var url = '/channels/ch05821/';
+
+                            url = url + '?content=' + content;
+
+                            window.open(url);
+
+                        }
+
+                    
+
+                        //加密
+
+                        function utf8_to_b64(str) {
+
+                            return window.btoa(unescape(encodeURIComponent(str)));
+
+                        }
+
+                        //解密
+
+                        function b64_to_utf8(str) {
+
+                            return decodeURIComponent(escape(window.atob(str)));
+
+                        }
+
+                    $(document).ready(function() {
+
+                        $("#search_content1").keydown(function() {
+
+                            if (event.keyCode == 13) {
+
+                                search1();
+
+                            }
+
+                        })
+
+                        $(".searchBtn2").click(function() {
+
+                            search1()
+
+                        })
+
+                    });
+
+                            function search2(keyword){
+
+                                $('#search_content1').attr('value',keyword);
+
+                                search1()
+
+                            }
+
+                 </script>
+
+<div id="of_whole" class="of_whole2">
+
+    <!--主体内容区开始-->
+
+    <div id="of_mainBody" class="push_t">
+
+        <!--左侧栏开始-->
+
+        <div class="side_small tag_line float_l">
+
+            <div class="mainProNav">
+
+                <dl class="navM1">
+
+                    <dd style="width:430px;">
+
+
+
+                        <div class="navbox_con1">
+
+                            <!--全文检索-->
+
+                            <div class="navbox_con1_left" style="padding:0!important;">
+
+                                <div class="navbox_con1_left_tit">
+
+                                    <div class="float_left">全文检索</div>
+
+                                </div>
+
+                                 <span>在整个网站范围内搜索</span>
+
+                                <div class="navbox_con1_left_search">
+
+                                        <input  name="content" type="text"  id="search_content1"  value="请输入关键字"
+
+                                            onClick="this.value=''" onFocus="if (value =='请输入关键字'){value =''}" onBlur="if (value ==''){value='请输入关键字'}">
+
+                                    <!-- <input name="" id='serachAllsy' type="text"> -->
+
+                                    <input id="search-button" class="searchBtn2" type="button" value="搜索" >
+
+                                </div>
+
+                                <div class="navbox_con1_left_con">
+
+                                    <a href="javascript:search2('就业')">就业</a><a href="javascript:search2('失业')">失业</a><a
+
+                                        href="javascript:search2('养老')">养老</a>
+
+                                    <a href="javascript:search2('社会保险')">社会保险</a><a href="javascript:search2('人事人才')">人事人才</a><a
+
+                                        href="javascript:search2('收入分配')">收入分配</a>
+
+                                    <a href="javascript:search2('劳动关系')">劳动关系</a><a href="javascript:search2('法律法规')">法律法规</a><a
+
+                                        href="javascript:search2('规范性文件')">规范性文件</a>
+
+                                    <a href="javascript:search2('行政许可')">行政许可</a><a href="javascript:search2('招聘')">招聘</a><a
+
+                                        href="javascript:search2('求职')">求职</a>
+
+                                    <a href="javascript:search2('农业')">农业</a><a href="javascript:search2('工业')">工业</a><a
+
+                                        href="javascript:search2('经济')">经济</a>
+
+                                    <a href="javascript:search2('工伤')">工伤</a><a href="javascript:search2('医疗')">医疗</a><a
+
+                                        href="javascript:search2('服务')">服务</a>
+
+                                    <a href="javascript:search2('政策')">政策</a><a href="javascript:search2('工作')">工作</a><a
+
+                                        href="javascript:search2('人力资源')">人力资源</a></div>
+
+                            </div>
+
+                            <!--网站导航-->
+
+                            
+
+
+
+                        </div>
+
+
+
+                    </dd>
+
+
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="top-a"></div>索引<br>服务
+
+                    </dt>
+
+                </dl>
+
+
+
+                <dl class="navM2">
+
+                    <dd>
+
+
+
+                        <div class="navbox_con2">
+
+                            <!--日历-->
+
+                            <div class="navbox_con2_left">
+
+                                <div class="month-container">
+
+                                    <div class="month-head"><span></span></div>
+
+                                    <ul class="month-body">
+
+                                        <div class="month-cell orange"><span>日</span></div>
+
+                                        <div class="month-cell blue"><span>一</span></div>
+
+                                        <div class="month-cell blue"><span>二</span></div>
+
+                                        <div class="month-cell blue"><span>三</span></div>
+
+                                        <div class="month-cell blue"><span>四</span></div>
+
+                                        <div class="month-cell blue"><span>五</span></div>
+
+                                        <div class="month-cell blue"><span>六</span></div>
+
+                                    </ul>
+
+                                    <div class="clear"></div>
+
+                                </div>
+
+                            </div>
+
+                            <!--最新发布-->
+
+                            <div class="navbox_con2_right">
+
+                                <div class="navbox_con2_right_tit">
+
+                                    <div class="float_left">最新发布</div>
+
+                                </div>
+
+                                <div class="navbox_con2_right_con">
+
+                                    <div class="navbox_con2_right_con" style="float:left;">
+
+                                        <ul class="news-list" style="float:left;margin-left:0px;padding:0px;margin-top:0px;">
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch08631/202609/f6c043c4-b29f-4cf4-be71-800e85634834.shtml" title="山东九月培训计划和“乐业山东”技能培训加油站活动信息新鲜出炉，快来邂逅你的“技”遇"
+
+                                                                        target="_blank">
+
+
+                                                        山东九月培训计划和“乐业山东”技能培训加油站活动...</a>
+
+                                                    </span><span class="span2">2026-09-01</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch08631/202608/0e6a8ac1-d44f-4d86-82dc-de74ac68a5f9.shtml" title="全省第一批“乐业山东”技能培训加油站名录"
+
+                                                                        target="_blank">
+
+
+                                                        全省第一批“乐业山东”技能培训加油站名录</a>
+
+                                                    </span><span class="span2">2026-08-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                            <a href="http://hrss.shandong.gov.cn/articles/ch06434/202012/edca2b7f-e279-4db1-a0c2-cdea970c7b14.shtml" title="推进政务公开  建设阳光政府" target="_blank">
+
+
+                                                        推进政务公开  建设阳光政府</a>
+
+                                                    </span><span class="span2">2022-01-05</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/f3637d87-4071-4230-bdcd-063718e6b525.shtml" title="省人力资源社会保障厅党组理论学习中心组开展集中学习研讨"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅党组理论学习中心组开展集中学...</a>
+
+                                                    </span><span class="span2">2023-09-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/ea8a3044-4edc-431b-99d6-a7976e132695.shtml" title="张涛一行赴山东技师学院调研校企合作"
+
+                                                                        target="_blank">
+
+
+                                                        张涛一行赴山东技师学院调研校企合作</a>
+
+                                                    </span><span class="span2">2023-09-08</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/79ef6f17-ec65-47ed-9307-ef5f40b19bd8.shtml" title="全省人力资源社会保障重点工作推进会召开"
+
+                                                                        target="_blank">
+
+
+                                                        全省人力资源社会保障重点工作推进会召开</a>
+
+                                                    </span><span class="span2">2023-09-05</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202308/3663b7f4-db23-452c-bfdc-f9b74befb4ed.shtml" title="省人力资源社会保障厅召开党组会传达学习习近平总书记重要讲话精神"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅召开党组会传达学习习近平总书...</a>
+
+                                                    </span><span class="span2">2023-08-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202308/0f11cfa3-1a28-427d-b51c-5a70a1ae829c.shtml" title="省人力资源社会保障厅党组中心组开展集中学习研讨"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅党组中心组开展集中学习研讨</a>
+
+                                                    </span><span class="span2">2023-08-23</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00314/201808/65496.shtml" title="第十届海内外高端人才交流会"
+
+                                                                        target="_blank">
+
+
+                                                        第十届海内外高端人才交流会</a>
+
+                                                    </span><span class="span2">2018-08-28</span></li>
+
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="box-a"></div>站点<br>日历
+
+                    </dt>
+
+                </dl>
+
+                <dl class="navM3">
+
+                    <dd>
+
+                        <div class="navbox_con3"><a href="/channels/ch06859/" target="_blank"><img src="/template/srst/default/images/navbox_con3.jpg"></a></div>
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="box-b"></div>智能<br>咨询
+
+                    </dt>
+
+                </dl>
+<style>
+
+.navbox_con4_center_btn a {
+    line-height: 20px;
+}
+</style>
+                <dl class="navM4">
+
+                    <dd style="width: 655px;">
+
+                        <div class="navbox_con4" >
+
+                            <!--ico-->
+
+                            <div class="navbox_con4_left">
+
+                                <div class="navbox_con4_left_ico">
+
+                                   
+
+                                    <div class="navbox_con4_left_btn"><img src="/template/srst/default/images/gwyicon.png"><a href="http://www.gov.cn/public/yidongkehuduan.htm" target="_blank">国务院</a></div>
+
+                                    <div class="navbox_con4_left_code"><img src="/template/srst/default/images/gwy.png" width="100" height="93"></div>
+
+                               
+
+                                </div>
+
+                                <div class="navbox_con4_left_ico">
+
+                                    <div class="navbox_con4_left_btn"><img src="/template/srst/default/images/wechat.png"><a href="">山东人社</a></div>
+
+                                    <div class="navbox_con4_left_code"><img src="/template/srst/default/images/sdrs_wx.png" width="100" height="93"></div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="navbox_con4_center">
+
+                                <div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/gwyicon.png"><a href="http://www.gov.cn/guowuyuan/gwykhdxcx/xiaochengxu.html" target="_blank">国务院客户端小程序</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/gwyxcx2023.png" width="100" height="93"></div>
+
+                                </div>
+								
+								<div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/20231206dy.png"><a href="">“山东人社”<br />抖音号</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/20231206.jpg" width="100" height="93"></div>
+
+                                </div>
+
+                               
+
+                            </div>
+							
+							<div class="navbox_con4_center">
+
+                                <div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/zs_12333icon.png"><a href="http://www.12333.gov.cn/ggfwstatic/download/app.html" target="_blank">人社部12333app</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/zs_12333.jpg" width="100" height="93"></div>
+
+                                </div>
+								
+								<div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/wechat.png"><a href="">山东人社杂志</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/rszz.jpg" width="100" height="93"></div>
+
+                                </div>
+								
+								
+
+                               
+
+                            </div>
+
+                            <!--人社APP
+
+                            <div class="navbox_con4_right"> <img src="/template/srst/default/images/navbox_con4_right.png"> </div>-->
+
+
+
+                        </div>
+
+
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="bottom-a"></div>渠道<br>媒体
+
+                    </dt>
+
+                </dl>
+
+
+
+            </div><!-- mainProNav end -->
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--footer end-->
+
+
+
+<script src="/template/srst/default/images/js/jquery.placehold.min.js"></script>
+
+<script src="/template/srst/default/images/js/switchable.js"></script>
+
+<script src="/template/srst/default/images/js/forweb.js"></script>
+
+<script src="/template/srst/default/images/js/sdrs.js"></script>
+
+<div style="display:none">
+
+<!--今日访问量：<span id="site_today_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e&today=true",
+function(data){
+	if(data.success){
+   $("#site_today_show_count").empty(); 
+   $("#site_today_show_count").append(data.result[0]);
+	}
+}
+); 
+</script>
+<br>
+
+总访问量： <script type="text/javascript">
+ $.get("/statistics/do/embedservice/count?method=read&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+<span id="site_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#site_show_count").empty();
+   $("#site_show_count").append(data.result[0]);
+	}
+}
+);
+</script>
+-->
+
+</div>
+
+
+
+
+
+<!--无障碍-->
+<link href="/indeci/assets/css1/bf/barrierfree.css" rel="stylesheet" type="text/css" />
+<!--<script src="http://hrss.shandong.gov.cn/indeci/assets/js/jquery-1.12.4.min.js"></script>-->
+<script src="/indeci/assets/js/iframe.js" id="barrierFree" data="sn=00BA70FA0C66666406857D7D95415F64DDFE095C3F999B519710480B7876C508&rcode=F03AAE6D55B0B46A87F426F827D7C49F2BA26A9FCBC4310D78CDAE41E28334EAA3D0610CE8492C14D5629C162B0C021B8801FB1C343AC2C2E3976946431E58B6AC854C44D12EE9335702E64F7045C926E1F15AC3B43BEC073E8F5008F5727EF6A6CB129A29DF06037AB2DFAEBC06C2F33AB0354C48193E8029BDE39EA18477AD"></script>
+<script>
+$(document).ready(function(){
+
+	
+	if ($('div').hasClass('index-main')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.index-main', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('ejcontent')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.ejcontent', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('list_bei')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.list_bei', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])	
+};
+	if ($('div').hasClass('zhengce_top')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.zhengce_top', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('fuwu_warp')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.fuwu_warp', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+})
+</script>
+<!--无障碍-->
+
+<!--登录显示-->
+	<script >
+function getMyCookie(key){
+		var val = "";	
+		// 对cookie操作
+		var cookies = document.cookie;
+			
+		cookies = cookies.replace(/\s+/g,"");
+//console.log("cookies 000:"+cookies );
+		var cookie_array = cookies.split(";");
+		for(i=0;i<cookie_array.length;i++){
+			var cookie = cookie_array[i];
+			var array = cookie.split("=");
+			if(array[0]==key){
+				val = array[1];
+			}
+		}
+		
+		return val;
+	}
+
+function denglu(){ 
+
+if(!navigator.cookieEnabled){
+alert('浏览器cookie已被禁用，请开启！');
+}
+
+        var sdid = getMyCookie("sdid");
+		if(sdid!=null&&sdid!=''){
+					 $.ajax({
+			  url : "/interact/oauthclient/getUserJson.do",
+			  dataType : "json",
+			  type : "post",
+			  async : true,
+			  success : function(data) { 
+			personname=decodeURIComponent(data.name);
+			/*console.log(personname);*/
+			/*仅显示*/
+			document.getElementById("xsname").innerText=personname;
+
+			 /*名字星号*/
+                var huifuname = document.getElementById("xsname").innerText;
+					var huifuname1 = huifuname.substr(0,1) + new Array(huifuname.length).join('*');
+                    document.getElementById('xsname').innerText = huifuname1;
+			/*显示*/		
+			document.getElementById("denglu").style.display='block';
+			document.getElementById("weidenglu").style.display='none';	
+			}
+					
+		 })
+			
+			}else{		
+	
+						 $.ajax({
+				
+						      url : "/interact/oauthclient/getUser.do",//请求地址
+						      dataType : "json",//数据格式 
+						      type : "post",//请求方式
+						      async : true,//是否异步请求
+						      success : function(data) {   //如果发送成功
+
+										if(data.flag=="true"){
+										document.getElementById("personname").value=decodeURIComponent(data.name);
+									      }else{
+			document.getElementById("denglu").style.display='none';
+			document.getElementById("weidenglu").style.display='';
+												//	 if(window.confirm('请先登录！')){
+												//	 window.parent.location.href="http://hrss.shandong.gov.cn/gentleCMS/oauthclient/toLogin.do?sitedomain=hrss";
+												//	 return true;
+												//  }else{
+												//	 return false;
+												// }
+													
+									       }
+										}
+										
+						 })
+						
+			 
+				}
+                
+	}
+$(function(){denglu();})
+function clearCookie(){
+document.cookie = "sdid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.shandong.gov.cn";
+
+ $.ajax({
+				
+						      url : "/interact/oauthclient/Out.do",//请求地址
+						      dataType : "json",//数据格式 
+						      type : "post",//请求方式
+						      async : true,//是否异步请求
+						      success : function() {   //如果发送成功
+                                                                  location.reload(true);
+										
+										},
+								error: function(){
+								alert('操作失败');}
+										
+						 })
+						
+	}
+</script>
+<div id="denglu" style="position: absolute; top: 10px; left: 85%; width: 150px; z-index:999; display:none;">
+        <table class="wyts_Class" width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>
+					<a href="/channels/ch08303/"><span id="xsname"></span></a>
+					<input type="text" id="personname" name="personname" class="validate[,required,minSize[0],maxSize[30]]"
+                            size="30" maxlength="30" readonly="readonly" style="display:none;">
+                    </td>
+                    <td>
+					<a href="javascript:clearCookie();">[退出]</a>
+                    </td>
+                </tr>                                            
+            </tbody>
+        </table>
+</div>
+<div id="weidenglu" style="position: absolute; top: 10px; left: 85%; width: 150px; z-index:999;">
+        <table class="wyts_Class" width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>
+					<a href="/channels/ch08303/">用户中心</a>					
+                    </td>
+					<td>
+					<a href="/interact/oauthclient/toLogin.do?sitedomain=hrss">[登录]</a>
+					</td>
+                </tr>                                            
+            </tbody>
+        </table>
+</div>
+<!--登录显示end-->
+</body>
+
+
+
+</html>
+

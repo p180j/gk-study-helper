@@ -99,12 +99,12 @@ public class DailyPlanEngine {
     }
 
     private DailyPlanItem maintenanceItem(MaintenanceCandidate candidate) {
-        boolean exploration = "TRAINING".equals(candidate.getPurpose());
-        DailyPlanItem item = new DailyPlanItem(); item.setItemType(exploration ? "QUESTION_SET" : "REVIEW"); item.setTargetType("KNOWLEDGE_POINT");
+        boolean assessment = "ASSESSMENT".equals(candidate.getPurpose());
+        DailyPlanItem item = new DailyPlanItem(); item.setItemType(assessment ? "QUESTION_SET" : "REVIEW"); item.setTargetType("KNOWLEDGE_POINT");
         item.setTargetId(candidate.getKnowledgePointId()); item.setKnowledgePointId(candidate.getKnowledgePointId());
         item.setKnowledgePointCode(candidate.getKnowledgePointCode()); item.setKnowledgePointName(candidate.getKnowledgePointName());
-        item.setPurpose(exploration ? "TRAINING" : "REVIEW"); item.setStatus("PENDING");
-        item.setReason(exploration ? "完成" + candidate.getKnowledgePointName() + "初始训练以积累真实能力样本" : "保持" + candidate.getKnowledgePointName() + "已掌握能力");
+        item.setPurpose(assessment ? "ASSESSMENT" : "MAINTENANCE"); item.setStatus("PENDING");
+        item.setReason(assessment ? "优先摸底" + candidate.getKnowledgePointName() + "，建立真实能力基线" : "保持" + candidate.getKnowledgePointName() + "已掌握能力");
         return item;
     }
 

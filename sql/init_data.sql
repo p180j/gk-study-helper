@@ -54,3 +54,34 @@ INSERT INTO knowledge_point(parent_id,code,name,exam_type,level,sort_no,importan
 -- 政治阅读初始专题，knowledge_point_id 关联同 code 的主题知识点，用于申论-阅读联动。
 INSERT INTO political_topic(code,name,knowledge_point_id,description,sort_no)
 SELECT k.code,k.name,k.id,'政治阅读与申论联动主题',k.sort_no FROM knowledge_point k WHERE k.parent_id=(SELECT id FROM knowledge_point WHERE code='ESSAY_THEMES');
+
+-- 第九阶段：新用户摸底题。正式初始内容，用于全新用户在无历史能力数据时建立能力基线。
+INSERT INTO question(question_type,stem,answer,analysis,difficulty_expected,standard_time_seconds,source_type,source_name,usage_type,status,version,content_hash)
+VALUES('SINGLE','下列成语使用恰当的是：','A','“循序渐进”表示按照一定步骤逐渐深入或提高，使用恰当。',45,60,'MANUAL','新用户摸底题','VALIDATION','ACTIVE',1,'9010000000000000000000000000000000000000000000000000000000000001');
+SET @q=LAST_INSERT_ID();
+INSERT INTO question_option(question_id,option_key,option_text,sort_no) VALUES(@q,'A','学习应当循序渐进',1),(@q,'B','他做事总是首当其冲地逃避',2),(@q,'C','这件小事令人叹为观止地担忧',3),(@q,'D','大家对错误充耳不闻地观看',4);
+INSERT INTO question_knowledge(question_id,knowledge_point_id,relation_type,weight) SELECT @q,id,'PRIMARY',1.00 FROM knowledge_point WHERE code='VERBAL';
+
+INSERT INTO question(question_type,stem,answer,analysis,difficulty_expected,standard_time_seconds,source_type,source_name,usage_type,status,version,content_hash)
+VALUES('SINGLE','所有参加培训的人都通过了测试，小李参加了培训。可以推出：','B','根据充分条件关系，小李参加培训，因此通过测试。',45,70,'MANUAL','新用户摸底题','VALIDATION','ACTIVE',1,'9010000000000000000000000000000000000000000000000000000000000002');
+SET @q=LAST_INSERT_ID();
+INSERT INTO question_option(question_id,option_key,option_text,sort_no) VALUES(@q,'A','小李没有通过测试',1),(@q,'B','小李通过了测试',2),(@q,'C','通过测试的人都参加了培训',3),(@q,'D','无法判断',4);
+INSERT INTO question_knowledge(question_id,knowledge_point_id,relation_type,weight) SELECT @q,id,'PRIMARY',1.00 FROM knowledge_point WHERE code='JUDGEMENT';
+
+INSERT INTO question(question_type,stem,answer,analysis,difficulty_expected,standard_time_seconds,source_type,source_name,usage_type,status,version,content_hash)
+VALUES('SINGLE','某商品原价100元，先涨价20%，再降价20%，现价是多少元？','B','100×1.2×0.8=96元。',50,70,'MANUAL','新用户摸底题','VALIDATION','ACTIVE',1,'9010000000000000000000000000000000000000000000000000000000000003');
+SET @q=LAST_INSERT_ID();
+INSERT INTO question_option(question_id,option_key,option_text,sort_no) VALUES(@q,'A','80',1),(@q,'B','96',2),(@q,'C','100',3),(@q,'D','120',4);
+INSERT INTO question_knowledge(question_id,knowledge_point_id,relation_type,weight) SELECT @q,id,'PRIMARY',1.00 FROM knowledge_point WHERE code='QUANTITY';
+
+INSERT INTO question(question_type,stem,answer,analysis,difficulty_expected,standard_time_seconds,source_type,source_name,usage_type,status,version,content_hash)
+VALUES('SINGLE','某地去年产值为200亿元，今年增长10%，今年产值为多少亿元？','C','200×(1+10%)=220亿元。',40,60,'MANUAL','新用户摸底题','VALIDATION','ACTIVE',1,'9010000000000000000000000000000000000000000000000000000000000004');
+SET @q=LAST_INSERT_ID();
+INSERT INTO question_option(question_id,option_key,option_text,sort_no) VALUES(@q,'A','200',1),(@q,'B','210',2),(@q,'C','220',3),(@q,'D','240',4);
+INSERT INTO question_knowledge(question_id,knowledge_point_id,relation_type,weight) SELECT @q,id,'PRIMARY',1.00 FROM knowledge_point WHERE code='DATA_ANALYSIS';
+
+INSERT INTO question(question_type,stem,answer,analysis,difficulty_expected,standard_time_seconds,source_type,source_name,usage_type,status,version,content_hash)
+VALUES('SINGLE','我国的根本政治制度是：','D','人民代表大会制度是我国的根本政治制度。',35,45,'MANUAL','新用户摸底题','VALIDATION','ACTIVE',1,'9010000000000000000000000000000000000000000000000000000000000005');
+SET @q=LAST_INSERT_ID();
+INSERT INTO question_option(question_id,option_key,option_text,sort_no) VALUES(@q,'A','基层群众自治制度',1),(@q,'B','民族区域自治制度',2),(@q,'C','多党合作和政治协商制度',3),(@q,'D','人民代表大会制度',4);
+INSERT INTO question_knowledge(question_id,knowledge_point_id,relation_type,weight) SELECT @q,id,'PRIMARY',1.00 FROM knowledge_point WHERE code='COMMON_SENSE';

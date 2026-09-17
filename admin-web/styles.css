@@ -80,3 +80,22 @@ button.secondary { border: 1px solid #cfdad4; border-radius: 9px; padding: 10px 
 button.mini { border: 1px solid #cfdad4; border-radius: 8px; padding: 5px 11px; background: #fff; color: #34614f; cursor: pointer; font-size: 12px; }
 .dialog-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 26px; }
 .table-meta { margin: 12px 2px 0; color: #78827d; font-size: 13px; }
+
+/* AI 设置 / 内容管理视图 */
+.provider-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 16px; }
+.provider-card { padding: 20px 22px; background: #fff; border: 1px solid #e3e8e5; border-radius: 15px; box-shadow: 0 8px 26px rgba(32, 61, 49, .05); cursor: pointer; transition: border-color .15s; }
+.provider-card:hover { border-color: #9db2a8; }
+.provider-head { display: flex; justify-content: space-between; align-items: flex-start; gap: 10px; }
+.provider-head h3 { margin: 0; font-size: 17px; }
+.pill-group { display: flex; flex-wrap: wrap; gap: 5px; justify-content: flex-end; }
+.provider-meta { display: grid; grid-template-columns: 76px 1fr; gap: 8px 12px; margin: 16px 0 0; font-size: 13px; }
+.provider-meta dt { color: #78827d; }
+.provider-meta dd { margin: 0; word-break: break-all; line-height: 1.55; }
+.card-hint { margin-top: 14px; color: #9aa5a0; font-size: 12px; }
+.form-tip { margin: 10px 0 0; color: #78827d; font-size: 13px; }
+label.check { display: flex; align-items: center; gap: 8px; font-size: 14px; color: #34614f; }
+label.check input { width: auto; }
+td.low-stock { background: #fdf3e7; color: #a2611c; font-weight: 700; }
+.pager { display: flex; align-items: center; gap: 12px; margin: 12px 2px 0; }
+.pager .table-meta { margin: 0; }
+.detail-text { max-height: 320px; overflow: auto; background: #f7f9f7; border-radius: 10px; padding: 14px; }

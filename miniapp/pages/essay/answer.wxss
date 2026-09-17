@@ -1,20 +1,23 @@
-.material-toggle { margin: 24rpx 0 14rpx; color: #1f6f55; font-size: 26rpx; }
-.material { height: 560rpx; background: #f5f7f5; border-radius: 14rpx; padding: 20rpx; font-size: 27rpx; line-height: 1.8; box-sizing: border-box; }
+.material-toggle { margin: 24rpx 0 14rpx; color: #1677ff; font-size: 26rpx; }
+.material { height: 560rpx; background: #f3f8ff; border-radius: 18rpx; padding: 20rpx; font-size: 27rpx; line-height: 1.8; box-sizing: border-box; }
 .label { margin: 0 0 14rpx; font-weight: 600; }
 .prompt { font-size: 30rpx; line-height: 1.7; }
 .word-limit { margin-top: 16rpx; }
-.answer-input { width: 100%; height: 420rpx; background: #f5f7f5; border-radius: 14rpx; padding: 20rpx; font-size: 28rpx; line-height: 1.7; box-sizing: border-box; margin-bottom: 28rpx; }
-.result { border-left: 8rpx solid #1f6f55; }
+.answer-input { width: 100%; height: 420rpx; background: #f3f8ff; border: 1rpx solid #dce8f7; border-radius: 18rpx; padding: 20rpx; font-size: 28rpx; line-height: 1.7; box-sizing: border-box; margin-bottom: 28rpx; }
+.result { border-top: 7rpx solid #18b99e; }
 .result-title { font-size: 36rpx; font-weight: 700; }
 .warn-tag { background: #fdf3e3; color: #b0742a; }
-.score-wrap { margin: 26rpx 0 16rpx; display: flex; align-items: baseline; gap: 10rpx; }
-.total-score { font-size: 84rpx; font-weight: 700; color: #1f6f55; }
+.score-wrap { margin: 26rpx 0 16rpx; display: flex; align-items: baseline; justify-content: center; gap: 10rpx; }
+.total-score { font-size: 84rpx; font-weight: 750; color: #1677ff; }
 .score-unit { color: #68716c; }
-.score-bar { height: 12rpx; background: #edf0ed; border-radius: 999rpx; overflow: hidden; }
-.score-bar-inner { height: 100%; background: #1f6f55; border-radius: 999rpx; }
+.score-bar { height: 12rpx; background: #dfe8f5; border-radius: 999rpx; overflow: hidden; }
+.score-bar-inner { height: 100%; background: linear-gradient(90deg,#1677ff,#18c4b0); border-radius: 999rpx; }
 .dim-title { margin-top: 30rpx; }
 .dimension { margin-bottom: 18rpx; }
-.dimension-score { font-weight: 700; color: #1f6f55; }
+.dimension-score { font-weight: 700; color: #1677ff; }
 .dimension .score-bar { margin-top: 10rpx; }
-.point { line-height: 1.7; font-size: 27rpx; color: #3b4640; margin-bottom: 8rpx; }
+.point { line-height: 1.7; font-size: 27rpx; color: #405673; margin-bottom: 8rpx; }
 .change { margin-bottom: 15rpx; }
+.more-hint { margin-top: 18rpx; text-align: center; color: #8a9ab0; font-size: 23rpx; }
+.confidence-line { margin-top: 20rpx; text-align: center; }
+.full-toggle { margin-top: 26rpx; margin-bottom: 6rpx; }

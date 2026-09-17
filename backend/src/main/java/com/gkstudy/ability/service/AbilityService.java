@@ -3,6 +3,7 @@ package com.gkstudy.ability.service;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.gkstudy.ability.dto.AbilityChange;
+import com.gkstudy.ability.dto.AbilityOverview;
 import com.gkstudy.ability.engine.AbilityConstants;
 import com.gkstudy.ability.engine.AbilityEngine;
 import com.gkstudy.ability.engine.AbilityEvent;
@@ -14,6 +15,7 @@ import com.gkstudy.question.model.KnowledgePointRef;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.*;
 
 @Service
@@ -54,7 +56,25 @@ public class AbilityService {
         return changes;
     }
 
-    public List<AbilityProfile> profiles(Long userId) { return abilityMapper.findByUserId(userId); }
+    public List<AbilityProfile> profiles(Long userId) { return abilityMapper.findCompleteMap(userId); }
+
+    public AbilityOverview overview(Long userId) {
+        List<AbilityProfile> abilities = profiles(userId);
+        int evaluated = 0;
+        for (AbilityProfile profile : abilities) if (!"UNASSESSED".equals(profile.getStatus()) && profile.getSampleCount() > 0) evaluated++;
+        applyTrends(abilities, abilityMapper.findMasteryTrends(userId));
+        return new AbilityOverview(evaluated, abilities.size(), abilities);
+    }
+
+    private void applyTrends(List<AbilityProfile> abilities, List<AbilityProfile> trends) {
+        if (trends == null || trends.isEmpty()) return;
+        Map<Long, BigDecimal> trendByPoint = new HashMap<>();
+        for (AbilityProfile trend : trends) trendByPoint.put(trend.getKnowledgePointId(), trend.getMasteryTrend());
+        for (AbilityProfile profile : abilities) {
+            BigDecimal trend = trendByPoint.get(profile.getKnowledgePointId());
+            if (trend != null) profile.setMasteryTrend(trend.setScale(1, RoundingMode.HALF_UP));
+        }
+    }
 
     private AbilityEvent buildEvent(AnswerRecord current, KnowledgePointRef knowledge, List<AnswerRecord> allRecords) {
         List<AnswerRecord> matching = new ArrayList<>();

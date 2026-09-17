@@ -10,12 +10,21 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 class LearningProblemEngineTest {
     private final LearningProblemEngine engine = new LearningProblemEngine();
+
+    @Test
+    void unassessedAbilityNeverCreatesProblem() {
+        AbilityProfile profile = profile(0, 0, 0, 0, 0); profile.setStatus("UNASSESSED");
+        assertNull(engine.evaluate("MASTERY", null, profile, Collections.emptyList()));
+        assertNull(engine.evaluate("SPEED", null, profile, Collections.emptyList()));
+        assertNull(engine.evaluate("STABILITY", null, profile, Collections.emptyList()));
+    }
 
     @Test
     void insufficientSamplesStayObserving() {

@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+   <meta charset="UTF-8">
+
+   <title>山东省人力资源和社会保障厅</title>
+
+<script type="text/javascript">var embedRootPath = "/gentleCMS";var memberPath="/interact"; var embedRootPath = "/interact";</script>
+<script  type="text/javascript" src="/template/system/jquery/jquery.min.js"></script>
+<link type="text/css" href="/template/system/jquery/jquery-all.css"  rel="stylesheet"/>
+<script src="/template/system/jquery/ajaxfileupload/ajaxfileupload.js" type="text/javascript"></script>
+<script src="/template/system/jquery/jtemplates/jquery-jtemplates.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery.validationEngine.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery-migrate.min.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery.validationEngine-en.js" type="text/javascript"></script>
+<link type="text/css" href="/template/system/jquery/validate/validationEngine.jquery.css"  rel="stylesheet"/>
+
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.dateutil.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.util.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.embed.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.vote.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.gip.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.dynamic.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.cmsmember.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/echarts/echarts.min.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.question.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/echarts.cms.question.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/echarts.cms.vote.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.tamap.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.userlogin.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.weibo.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.weixin.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.pdfresource.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/weixinjs/jweixin-1.4.0.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/weibojs/wbsdk.js" type="text/javascript"></script>
+
+  <script type="text/javascript">var exchangePath = "/interact";</script>
+  <script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.exchange.js" type="text/javascript"></script>
+  <script type="text/javascript" src="/template/system/jquery/cms/jquery.cms.interact.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/template/system/jquery/raty/jquery.raty.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/template/system/login/jsencrypt.js"></script>
+
+
+   <link rel="stylesheet" href="/template/srst/default/css/reset.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/tool.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/communal.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/index.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/pindao.css" type="text/css">
+
+   <link rel="stylesheet" type="text/css" href="/template/srst/default/css/jquery-ui.css" />
+
+   <link href="/template/srst/default/css/jquery.bxslider.css" rel="stylesheet" />
+
+
+
+   <script src="/template/srst/default/images/js/jquery1.min.js"></script> 
+
+   <script src="/template/srst/default/images/js/title.js"></script> 
+
+   <script src="/template/srst/default/images/js/jquery-ui-datepicker.js"></script>
+
+<!-- -->
+
+</head>
+
+<body>
+
+
+
+
+
+<!---识别手机或电脑的js开始--->
+<script language="javascript">
+(function(){
+var url = window.location.href;
+if(url.indexOf(".shtml")==-1){
+	url=url+"/index.shtml";
+}else{
+	url=url.substring(0,url.lastIndexOf(".shtml"))+"mobile"+url.substring(url.lastIndexOf(".shtml"),url.length);
+}
+var res = GetRequest();
+var par = res['index'];
+if(par!='gfan'){
+var ua=navigator.userAgent.toLowerCase();
+var contains=function (a, b){
+if(a.indexOf(b)!=-1){return true;}
+};
+var toMobileVertion = function(){
+window.location.href = url;
+}
+ 
+if(contains(ua,"ipad")||(contains(ua,"rv:1.2.3.4"))||(contains(ua,"0.0.0.0"))||(contains(ua,"8.0.552.237"))){return false}
+if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla")) ||(contains(ua,"android") && contains(ua,"opera"))
+||contains(ua,"ucweb7")||contains(ua,"iphone")){toMobileVertion();}
+}
+})();
+function GetRequest() {
+  var url = location.search; 
+  var theRequest = new Object();
+  if (url.indexOf("?") != -1) {
+     var str = url.substr(1);
+     strs = str.split("&");
+     for(var i = 0; i < strs.length; i ++) {
+        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+     }
+  }
+  return theRequest;
+}</script>
+
+<meta name="SiteName" content="山东省人力资源和社会保障厅">
+<meta name="SiteDomain"  content="/">
+<meta name="SiteIDCode"  content="3700000027">
+<meta name="ColumnName" content="通知公告">
+<meta name="ColumnDescription" content="通知公告">
+<meta name="ColumnKeywords" content="通知公告">
+<meta name="ColumnType" content="通知公告">
+<meta name="ArticleTitle" content="山东省人力和资源社会保障厅 山东省民政厅山东省退役军人事务厅 山东省总工会 山东省工商联关于开展2022年金秋招聘月活动的通知">
+<meta name="PubDate" content="2022-09-08 11:11">
+<meta name="ContentSource" content="山东省人力资源和社会保障厅">
+<meta name="Keywords" content="">
+<meta name="Author" content="">
+<meta name="Description" content="">
+<meta name="Image" content="">
+<meta name="Url" content="/articles/ch00330/202209/77a064fd-4037-4c5a-8177-7b8b01bb7f66.shtml">
+<meta name="pagetype" content="1">
+
+<div class="header-box">
+
+
+
+    <div class="container">
+
+        <a class='zx_logo' href="javascript:void(0);">
+
+            
+                    <img src="/resource/srst/202504/93be3432-1d3b-43d8-9da3-a3b042d033c8.png" alt="">
+
+
+        </a>
+
+        <div class="header-tool" style=" margin-top: 43px;">
+
+                <script>
+
+				   function search() {
+
+                            var content = $('#search_content').val();
+
+                            content = utf8_to_b64(content);
+
+                            var url = '/channels/ch05821/';
+
+                            url = url + '?content=' + content;
+
+                            window.open(url);
+
+                        }
+
+					
+
+                        //加密
+
+                        function utf8_to_b64(str) {
+
+                            return window.btoa(unescape(encodeURIComponent(str)));
+
+                        }
+
+                        //解密
+
+                        function b64_to_utf8(str) {
+
+                            return decodeURIComponent(escape(window.atob(str)));
+
+                        }
+
+                    $(document).ready(function() {
+
+                        $("#search_content").keydown(function() {
+
+                            if (event.keyCode == 13) {
+
+                                search();
+
+                            }
+
+                        })
+
+                        $(".searchBtn").click(function() {
+
+                            search()
+
+                        })
+
+                    });
+
+							function searchNew(keyword){
+
+								$('#search_content').attr('value',keyword);
+
+								search()
+
+							}
+
+                 </script>
+
+<span>在整个网站范围内搜索</span>
+
+            <div class="search-box" style="margin-top: 0px;">
+
+                    <input name="content" type="text" id="search_content" value="请输入关键字" onClick="this.value=''" onFocus="if (value =='请输入关键字'){value =''}" onBlur="if (value ==''){value='请输入关键字'}">
+
+                <!-- <input id="serachAll" type="text" placeholder="请输入关键字" /> -->
+
+                <a id="search-new" class="search-btn searchBtn le" ></a>
+
+            </div>
+
+
+
+            <div class="keyword">
+
+                <span>热点：</span>
+
+                <a href="javascript:searchNew('就业')">就业</a>
+
+                <a href="javascript:searchNew('失业')">失业</a>
+
+                <a href="javascript:searchNew('工伤保险')">工伤保险</a>
+
+                <a href="javascript:searchNew('公务员培训')">公务员培训</a>
+
+                <a href="javascript:searchNew('劳动工资')">劳动工资</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--header end-->
+
+<!--nav start-->
+<!--nav start-->
+
+<style>
+.nav-box .nav li {
+
+   width: 11.1%;
+}
+
+</style>
+
+<div class="nav-box">
+
+    <ul class="container nav">
+
+                <li style="width:10%;"><a href="/" >首页</a></li>
+
+                <li style="width:10%;"><a href="/channels/ch00003/" >资讯中心</a></li>
+
+                <li style="width:15%;"><a href="/channels/ch06433/"  target="_blank">政府信息公开</a></li>
+
+    <!--            <li style="width:10%;"><a href="/channels/ch00470/" >政策法规</a></li>-->
+
+                <li style="width:10%;"><a href="/channels/ch00582/" >服务大厅</a></li>
+
+                <li style="width:10%;"><a href="/channels/ch00592/">互动交流</a></li>
+
+               <li style="width:10%;"><a href="/channels/ch06859/">智能咨询</a></li>
+
+				<li style="width:15%;" class="last"><a id="wuzhangai" >无障碍工具</a></li>
+				<!--<li style="width:10%;" class="last"><a href="/channels/ch08014/">长者专区</a></li>-->
+				<li style="width:10%;" class="last"><a id="bfElder" style="cursor: pointer;">关怀版</a></li>
+
+    </ul>
+
+</div>
+
+<!--nav end-->
+
+<!--nav end-->
+<link rel="stylesheet" href="/template/srst/default/css/list.css" type="text/css" />
+
+
+<style>
+address, caption, cite, code, dfn, em, strong, th, var {
+    font-weight: bold;
+}
+
+</style>
+
+<!--nav end-->
+
+<!--body start-->
+
+<div class="list_bei">
+
+    <div class="warp">
+
+        <div class="warp_title">当前位置:     <a href="/" class="">首页</a>>>
+     <a href="/channels/ch00003/" class="">资讯</a>>>
+  <a href="/channels/ch00330/" class="">通知公告</a>
+</div>
+
+        <div class="warp_list">
+
+            <div class="show_title">山东省人力和资源社会保障厅 山东省民政厅山东省退役军人事务厅 山东省总工会 山东省工商联关于开展2022年金秋招聘月活动的通知</div>
+
+            <div class="show_center">
+
+                <span></span><span class="pubdatecss">2022-09-08</span>
+
+                <span>字体
+
+                    <a class="bigger" href="javascript:void(0)">大</a>
+
+                    <a class="middle" href="javascript:void(0)">中</a>
+
+                    <a class="smaller" href="javascript:void(0)">小</a>
+
+                </span> </div>
+
+            <div class="show">
+
+                <p style=";line-height:37px"><br/></p><p style=";line-height:37px"><span style=";font-family:华文中宋;letter-spacing:-1px;font-size:29px">&nbsp;</span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:方正小标宋简体;letter-spacing:0;font-size:29px"><span style="font-family:方正小标宋简体">山东省人力</span></span><span style=";font-family:方正小标宋简体;letter-spacing:0;font-size:29px"><span style="font-family:方正小标宋简体">和</span></span><span style=";font-family:方正小标宋简体;letter-spacing:0;font-size:29px"><span style="font-family:方正小标宋简体">资源社会保障厅</span> <span style="font-family:方正小标宋简体">山东省民政厅</span></span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:方正小标宋简体;letter-spacing:0;font-size:29px"><span style="font-family:方正小标宋简体">山东省退役军人事务厅</span></span><span style=";font-family:方正小标宋简体;letter-spacing:0;font-size:29px">&nbsp;</span><span style=";font-family:方正小标宋简体;letter-spacing:0;font-size:29px"><span style="font-family:方正小标宋简体">山东省总工会</span></span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:方正小标宋简体;letter-spacing:0;font-size:29px">&nbsp;&nbsp;<span style="font-family:方正小标宋简体">山东省工商联关于开展</span></span><span style=";font-family:方正小标宋简体;letter-spacing:0;font-size:29px"><span style="font-family:方正小标宋简体">2022</span></span><span style=";font-family:方正小标宋简体;letter-spacing:0;font-size:29px"><span style="font-family:方正小标宋简体">年</span></span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:方正小标宋简体;letter-spacing:0;font-size:29px"><span style="font-family:方正小标宋简体">金秋招聘月活动的通知</span></span></p><p style=";line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style=";line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各市人力资源社会保障局、民政局、退役军人局、总工会、工商联：</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">为帮助企业缓解招工稳工难题，促进人力资源供需匹配对接，按照《</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">人力资源社会保障部民政部退役军人事务部全国总工会全国工商联</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">关于开展</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">2022</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">年金秋招聘月活动的通知</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">》（人社部函</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">〔</span><span style="font-family:Times New Roman">2022</span><span style="font-family:仿宋_GB2312">〕</span><span style="font-family:Times New Roman">118</span><span style="font-family:仿宋_GB2312">号）</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">要求，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">定于</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">9<span style="font-family:仿宋_GB2312">月份</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">在全省范围内</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">开展</span>202</span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">2</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">年</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">金秋招聘月活动（以下简称</span><span style="font-family:仿宋_GB2312">“招聘月活动”）。现就有关事项通知如下：</span></span></p><p style=";line-height:37px"><span style=";font-family:黑体;font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family:黑体">一、活动时间</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">2022<span style="font-family:仿宋_GB2312">年</span><span style="font-family:Times New Roman">9</span><span style="font-family:仿宋_GB2312">月</span><span style="font-family:Times New Roman">6</span><span style="font-family:仿宋_GB2312">日至</span><span style="font-family:Times New Roman">9</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">月</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">30<span style="font-family:仿宋_GB2312">日</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">二、活动主题</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">“</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋_GB2312">就</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">”</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">在</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">金秋，</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">“</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋_GB2312">职</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">”</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">面未来</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">三、服务对象</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">一</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">）</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">以</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">登记失业人员、离校未就业高校毕业生、自主就业退役军人、农民工、重点行业转岗待岗职工、灵活就业人员</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">等为重点，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">同时面向</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各类求职群体；</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">二</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">）以民营企业、中小微企业、制造业等领域企业为重点，同时面向各类企事业单位和社会组织、个体工商户。</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">四、活动内容</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（一）开展</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">全方位情况</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">摸底。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">人力资源社会保障部门要</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">通过窗口服务、上门服务</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">、</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">联系对接等</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">，</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">摸清</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">辖区企业</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">特别是制造业企业</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">用工需求</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">，动态更新招聘信息台账</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。人力资源社会保障</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">、</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">民政</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">、退役军人事务、工会部门</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">要</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">充分利用各级公共就业和人才服务机构、社会组织等各方力量，通过电话访谈、登门走访等，掌握登记失业人员、离校未就业毕业生、退役军人等群体最新就业信息，了解其</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">就业</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">状态、求职意愿、</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">培训需求</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">等。</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">二</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">）</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">打造全天候</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">线上</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">服务</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">常态化举办线上活动，开设</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">金秋招聘月</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">线上专场</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">，设立制造业等重点行业重点企业招聘</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">专区，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">实现线上招聘不停歇。广泛开展</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">直播带岗、远程</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">招聘</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">等</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">线上活动</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">同步指导企业做好岗位需求特征描述和企业文化、环境宣介，提高供需对接精准度和匹配有效性。筛选适合的政策和岗位信息，通过短信、微信、</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">APP</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">等方式，</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">“</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">点对点</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">”</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">向</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">登记失业人员、离校未就业毕业生、退役军人</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">定向推送。</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">三</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">）</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">举办定制式现场招聘。</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">聚焦不同群体、不同类型企业需求，提供分时段、差异化服务，</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">推动现场招聘进社区，聚焦失业人员需求，设立常态化</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">“</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">招聘驿站</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">”</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">，高频次举办定制化</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">招聘</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">活动。推动现场招聘进乡村，围绕农村转移劳动力特别是返乡农民工求职特点，通过开出</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">“</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋_GB2312">就业大篷车</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">”</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">、</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">乡村招聘大集等，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">分工种提供就业岗位</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">推动现场招聘进园区，根据园区企业需求，广泛</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">开展行业、企业专场招聘，积极组织求职人员参加</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。推动</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">靠前服务，针对受疫情影响严重的餐饮、零售、旅游、民航、公路水路铁路运输等特困行业，常态化开展</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">专项</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">招聘</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">四</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">）</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">提供针对性职业指导</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">开展</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">“</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">指导上门</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">”</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">行动，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">对</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">长期登记失业人员和</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">失业青年开展</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">针对性心理疏导、职业生涯规划等职业指导，提出针对性解决方案和建议</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">组织职业指导师等专业力量，为就业援助对象开展个性化职业指导，制定</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">“</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">一对一</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">”</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">援助计划，实施差异化帮扶举措。重点走访</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">长期缺工企业，指导其了解劳动力供需状况，科学开展招聘，依法合规用工，强化人文关怀，引导其理性招聘、科学用工。</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（五）实施便利化政策办理</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">通过官网发布、官微推送、集中宣讲等途径，主动向企业、个体工商户等推送政策，告知受理条件、补贴内容、流程渠道。深化企业吸纳就业社保补贴政策</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">“</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">直补快办</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">”</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">行动，加强数据比对，主动筛选确定符合条件的企业和劳动者，推进政策找人、无感智办、直补快办，提升政策落实便利度。加强创业培训机构、金融机构、创业载体等业务合作，推动政策咨询、宣传、受理窗口前移，为有创业需求的创业企业和创业者提供支持。</span></span></p><p style="line-height:37px"><strong><span style=";font-family:仿宋_GB2312;font-weight:bold;font-size:24px">&nbsp;&nbsp;&nbsp;</span></strong><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（六）强化零工快速对接服务</span></span><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">。</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">及时了解收集各类企业和个体工商户零工岗位需求，纳入公共就业信息服务范围，依托各级公共就业服务机构</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">、零工市场设立零工信息快速发布通道，促进供需匹配对接。</span></span><span style=";font-family:仿宋;font-size:21px"><span style="font-family:仿宋">要充分利用公共就业服务机构场地资源，提早服务大厅开放时间，为零工人员与用工主体、职业中介机构当面对接洽谈提供免费场地。组织灵活就业人员与用工主体分职业（工种、岗位）开展对接洽谈，提供信息发布、现场对接、即时确认、当日到岗等快速服务。</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">五、工作要求</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（一）加强组织领导。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各市要充分认识本次招聘月活动对做好稳就业</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">保就业工作</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">的重要意义，</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">坚持专项服务与日常服务相结合，</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">明确</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">工作</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">职责，加强协调配合，</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">精心组织实施</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">，</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">将招聘月打造成为宣传就业政策、强化就业服务的品牌活动。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各市人力资源社会保障部门要做好招聘月活动的组织协调工作，及时汇总招聘活动和岗位信息，通过多渠道广泛发布。</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">省</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">人力资源社会保障</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">厅</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">将在</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">山东</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">公共招聘网（</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">www.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">sdggzp</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">.cn</span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">）设立</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">“</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">202</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">2</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">年金秋招聘月活动</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">”招聘专区</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">，</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">各市要积极动员本地企业和求职者登陆网站报名参加专区活动</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">各市民政部门要组织动员社会组织提供岗位信息，积极参加招聘月活动，充分发挥社区工作者作用，协助人力资源社会保障部门摸清辖区内登记失业人员就业需求。各市退役军人事务部门要建立退役军人就业台账，摸清退役军人就业需求，</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">引导退役军人参加各类招聘活动</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。各市工会组织要发挥桥梁纽带作用，积极协调企业与职工双方关系，做好权益维护和法律援助工作。各市工商联要动员民营企业积极参与活动。</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:楷体_GB2312">（二）规范招聘市场秩序</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:楷体_GB2312">。</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">各市要</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">持续开展招聘市场秩序专项治理，清除虚假和违法招聘信息，为劳动者求职就业提供良好市场环境。规范互联网招聘服务，运用大数据等信息化技术手段，推行非现场</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">巡检</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">模式</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">强化招聘信息管理，确保岗位真实性、有效性，依法查处发布虚假招聘信息、签订不实就业协议等违法违规行为，坚决防止和纠正性别、民族、年龄、学历等就业歧视行为。</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:楷体_GB2312">（三）广泛开展宣传报道。</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">各市要通过各种媒体、各类渠道做好招聘月活动的宣传，提前发布活动预告及活动安排等信息，</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">营造良好的舆论氛围，</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">提高活动知晓度。</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">活动期间，要持续</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">跟踪报道招聘月活动进展情况</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">，做好线上线下宣传工作</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">。</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">要注重典型做法总结，及时推广宣传典型案例，</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">及时将相关材料报省人力资源社会保障厅。</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:楷体_GB2312">（四）落实疫情防控要求。</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">各市要严格遵守国务院应对新型冠状病毒肺炎疫情联防联控机制和当地疫情防控指挥部门要求，分区分级安全有序举办现场招聘活动。要落实线下招聘活动疫情防控工作指南要求，制定活动现场疫情防护工作方案和应急预案，确保一旦发生疫情快速有效启动应急机制，及时控制疫情风险。</span></span></p><p style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-indent:42px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px"><span style="font-family:楷体_GB2312">（五）加强业务系统应用。</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">要将金秋招聘活动中</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">“</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">12333</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">式就业服务</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">”、</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">就业创业补贴发放等内容及时录入省公共就业人才服务信息系统，落实各项政策措施。同时要利用信息系统留存金秋招聘活动中服务实名制数据，做到</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">“</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">情况清、底数明、数据准</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">”</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">。</span></span></p><p style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-indent:42px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">请各市</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">安排专人负责，</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">活动预告、招聘安排、专场动态等信息要及时报送</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">省</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">人力资源社会保障</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">厅（邮箱附后）。活动结束后</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">，</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">及时汇总情况，总结经验做法，分析存在的问题，</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">提出改进措施。</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">活动总结和</span><span style="font-family:仿宋_GB2312">“</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">202</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">2</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">年金秋招聘月活动情况统计表</span><span style="font-family:仿宋_GB2312">”（见附件）</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">于</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">10</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">月</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">12</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">日</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">前报省人力资源社会保障厅。</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">六、联系方式</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">（一）省人力资源社会保障厅</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">联系人：</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">曲岩</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">电话：</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">0</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">531</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">-</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">51788376</span><span style="font-family:仿宋_GB2312">（兼传真）</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">邮箱：</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">quyrst</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">@</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">shandong</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">.</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">cn</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">（二）省民政厅</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">联系人：康宁</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">电话：</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">0531</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">-51781315<span style="font-family:仿宋_GB2312">，</span><span style="font-family:Times New Roman">86153642</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">（传真）</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">邮箱：</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">sdsgzh@shandong.cn</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">（三）省退役军人事务厅</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">联系人：魏振</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">电话：</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">0531</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">-51787698</span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">（兼传真）</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">邮箱：</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">sdstyjrswtjycy@shandong.cn </span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">（四）省总工会</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p><p style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-indent:42px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">联系人：</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">马长征</span></span></p><p style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-indent:42px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">电话：</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">0531</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">-</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">51771368</span><span style="font-family:仿宋_GB2312">，</span><span style="font-family:Times New Roman">51771380</span><span style="font-family:仿宋_GB2312">（传真）</span></span></p><p style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-indent:42px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">邮箱：</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">sdghqybzb@shandong.cn</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">（五）省工商联</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></p><p style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-indent:42px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">联系人：李昕阳</span></span></p><p style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-indent:42px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">电话：</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">0531</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">-</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">86097951</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">（</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">兼</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">传真）</span></span></p><p style="margin-top:0;margin-right:0;margin-bottom:0;margin-left:0;text-indent:42px;text-align:justify;text-justify:inter-ideograph;line-height:37px"><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px"><span style="font-family:仿宋_GB2312">邮箱：</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">sd86097951@163.com</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px">&nbsp;</span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">附件：</span></span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">202</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">2</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">年金秋招聘月活动情况统计表</span></span></p><p style=";text-autospace:none;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style=";text-autospace:none;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><table cellspacing="0"><tbody><tr class="firstRow"><td style="padding: 0px 7px; border-color: currentcolor; border-style: none; border-width: medium;" width="201" valign="center"><p style=";text-autospace:none;text-align:center;line-height:37px"><span style="font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">山东省人力资源和</span></span></p><p style=";text-autospace:none;text-align:center;line-height:37px"><span style="font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">社会保障厅</span></span></p></td><td style="padding: 0px 7px; border-color: currentcolor; border-style: none; border-width: medium;" width="201" valign="center"><p style=";text-autospace:none;text-align:center;line-height:37px"><span style="font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">山东省民政厅</span></span></p></td><td style="padding: 0px 7px; border-color: currentcolor; border-style: none; border-width: medium;" width="201" valign="center"><p style=";text-autospace:none;text-align:center;line-height:37px"><span style="font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">山东省退役军人</span></span></p><p style=";text-autospace:none;text-align:center;line-height:37px"><span style="font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">事务厅</span></span></p></td></tr></tbody></table><p style=";text-autospace:none;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style=";text-autospace:none;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style=";text-autospace:none;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><table cellspacing="0"><tbody><tr class="firstRow"><td style="padding: 0px 7px; border-color: currentcolor; border-style: none; border-width: medium;" width="302" valign="center"><p style=";text-autospace:none;text-align:center;line-height:37px"><span style="font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">山东省总工会</span></span></p></td><td style="padding: 0px 7px; border-color: currentcolor; border-style: none; border-width: medium;" width="302" valign="center"><p style=";text-autospace:none;text-align:center;line-height:37px"><span style="font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">山东省工商业联合会</span></span></p></td></tr></tbody></table><p style="text-indent:337px;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px">&nbsp;</span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px">&nbsp;&nbsp;</span><span style=";font-family:&#39;Times New Roman&#39;;font-size:21px">202</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">2</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">年</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">9</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">月</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:Times New Roman">5</span></span><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><span style="font-family:仿宋_GB2312">日</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style="line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px">&nbsp;&nbsp;&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">（此件主动公开）</span></span></p><p style="text-indent:42px;line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);letter-spacing:-0;font-size:21px"><span style="font-family:仿宋_GB2312">（联系单位：省就业人才中心人力资源市场服务处）</span></span></p><p style="line-height:37px"><span style=";font-family:仿宋_GB2312;color:rgb(0,0,0);font-size:21px"><br style="page-break-before:always" clear="all"/>&nbsp;&nbsp;&nbsp; 文件下载：<!--gentleattstart--><a target="_blank" title="点击下载附件" href="/resource/srst/att/202209/0a029ca0-49ab-436f-ab72-e890b1d1cc57.doc"><!--gentleattend-->关于开展2022金秋招聘月活动的通知</a></span></p><p><br/></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div style="display:none;">
+
+访问次数 :<span> <script type="text/javascript">
+$.get(embedRootPath+"/do/embedservice/count?method=read&articleId=77a064fd-4037-4c5a-8177-7b8b01bb7f66&channelId=737e4ddf-64f9-4f95-a0da-89dd6446835c&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+ <span id="article_show_count"> </span>
+<script type="text/javascript">
+$.get(embedRootPath+"/do/embedservice/count?method=count&articleId=77a064fd-4037-4c5a-8177-7b8b01bb7f66&channelId=737e4ddf-64f9-4f95-a0da-89dd6446835c&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#article_show_count").empty();
+   $("#article_show_count").append(data.result[0]);
+   }
+}
+);
+</script>
+</span>
+
+</div>
+
+<!--body end-->
+
+<!--footer start-->
+
+<!--footer start-->
+
+<style>
+
+.index_map .cont .item {
+
+    float: left;
+
+    margin: 0 4.8%;
+
+}
+
+</style>
+
+<link rel="stylesheet" href="/template/srst/default/css/nav.css" type="text/css">
+
+<link href="/template/srst/default/css/public.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">var embedRootPath = "/gentleCMS";var memberPath="/gentleCMS";</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //导航
+
+        $(".mainProNav dl dt").click(function () {
+
+            $(".mainProNav dl").removeClass("dlHover");
+
+            $(this).parent().addClass("dlHover");
+
+            $("#of_whole").removeClass("of_whole2");
+
+            $("#of_whole").addClass("of_whole");
+
+        })
+
+        $(".mainProNav").hover(function () {
+
+            $(this).addClass("mainProNavHover");
+
+        }, function () {
+
+            $(this).removeClass("mainProNavHover");
+
+            $(".mainProNav dl").removeClass("dlHover");
+
+            $("#of_whole").removeClass("of_whole");
+
+            $("#of_whole").addClass("of_whole2");
+
+        })
+
+
+
+    });
+
+</script>
+
+
+
+<script type="text/javascript">
+
+    //日历――――――――――――――――――――――――――――――――――――――――――
+
+    $(function () {
+
+
+
+        //绘制月历体――――――――――――――――――――――――――――――――――――――――――
+
+
+
+        for (var i = 0; i < 35; i++) {
+
+            $("<li><span></span></li>").appendTo(".month-body").addClass("month-cell");
+
+        }
+
+
+
+        var today = new Date()
+
+
+
+        var FullYear = today.getFullYear(); //获取年份
+
+        var m = today.getMonth(); //获取月号
+
+        var month = today.getMonth() + 1; //获取月份
+
+
+
+        if (month < 10) {
+
+            month = "0" + month;
+
+        }
+
+        var date = today.getDate(); //获取日期
+
+        var day = today.getDay(); //获取星期
+
+
+
+        var monthsNum = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        var isleapyear = FullYear % 4; //判断闰年
+
+        if (isleapyear == 0) {
+
+            monthsNum[1] = 29;
+
+        }
+
+
+
+        if (day == 0) {
+
+            day = 7;
+
+        }
+
+        var firstDay = day - (date % 7 - 1); //!important 计算月初星期数
+
+
+
+        if (firstDay == 7) { //如果月初为七，归零
+
+            firstDay = 0;
+
+        }
+
+        if (firstDay < 0) { //如果月初为负，加七循环
+
+            firstDay += 7;
+
+        }
+
+
+
+        var f = firstDay;
+
+        for (var j = 1; j <= monthsNum[m]; j++) {
+
+            $("li.month-cell span").eq(f).text(j).parent().addClass("pink");
+
+            f++;
+
+        }
+
+
+
+        $("li.month-cell span").eq(firstDay - 1 + date).parent().addClass("pink_now");
+
+
+
+        $(".month-head span").text(FullYear + "年" + month + "月");
+
+        $("li.month-cell span").mouseover(function () {
+
+            $(this).parent().removeClass("pink");
+
+            $(this).parent().addClass("red");
+
+        });
+
+        $("li.month-cell span").mouseout(function () {
+
+            $(this).parent().removeClass("red");
+
+            $(this).parent().addClass("pink");
+
+        });
+
+        $("li.month-cell span").click(function () {
+
+            var fwrq = null;
+
+            if (parseInt($(this).text()) <= parseInt($("li.month-cell span").eq(firstDay - 1 + date)
+
+                    .text()))
+
+                if ($(this).text() < 10) {
+
+                    fwrq = FullYear + "-" + month + "-" + 0 + $(this).text();
+
+                    //window.location.href = "includes/search_allbyday.html-fwrq=.htm" + fwrq;
+
+                } else {
+
+                    fwrq = FullYear + "-" + month + "-" + $(this).text();
+
+                    //window.location.href = "includes/search_allbyday.html-fwrq=.htm" + fwrq;
+
+                }
+
+        });
+
+
+
+    });
+
+</script>
+
+
+
+<div class="footer-box">
+
+    <style>
+
+        .foot-CRselectBox4 a.foot-CRselectValue4,.foot-CRselectBox2 a.foot-CRselectValue2{width: 160px;padding-right: 30px;white-space: normal;}
+
+ </style>
+
+
+
+    <div class="index_pane4 cont" style="width:1000px;margin-left:auto;margin-right:auto;">
+
+        <!-- 改动 -->
+
+        <div class="ico_nav" > <a style="width:100px;" href="javascript:void(0)">站点地图</a>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+
+    <div class="index_map" style="display: none;">
+
+        <div class="cont" style="width:1050px;margin-left:auto;margin-right:auto;">
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00003/">资讯中心</a></dt>
+
+                    <dd>
+
+                        <ul>
+                            <li><a target="_blank" href="/channels/ch00005/">人社要闻</a></li>
+                            <li><a target="_blank" href="/channels/ch07787/">时政要闻</a></li>
+                            <li><a target="_blank" href="/channels/ch00021/">热点聚焦</a></li>
+                            <li><a target="_blank" href="/channels/ch00330/">通知公告</a></li>
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00332/">政府信息公开</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch06434/">政府信息公开指南</a></li>
+                            <li><a target="_blank" href="/channels/ch00336/">政府信息公开制度</a></li>
+                            <li><a target="_blank" href="/channels/ch06438/">法定主动公开内容</a></li>
+                            <li><a target="_blank" href="/channels/ch06439/">政府信息公开年报</a></li>
+                            <li><a target="_blank" href="http://credit.shandong.gov.cn/creditsearch.publicity.dhtml">双公示信息</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+       <!--     <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00470/">政策法规</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/?wjfl=5rOV5b6L5rOV6KeE6KeE56ug5Y+K6KeE6IyD5oCn5paH5Lu2&title=&wh=&fwrq=">法律法规规章规范性文件</a></li>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/?wjfl=6KeE6IyD5oCn5paH5Lu26I2J5qGI&title=&wh=&fwrq=">规范性文件草案</a></li>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/">政策文件查询</a></li>
+
+                            <li><a target="_blank" href="/channels/ch00580/">政策解读</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>-->
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00582/">服务大厅</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch00586/">通知公告</a></li>
+                            <li><a target="_blank" href="/channels/ch00588/">信息查询</a></li>
+                            <li><a target="_blank" href="/channels/ch00594/">下载中心</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00592/">互动交流</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch00946/">
+							厅长信箱</a></li>
+                            <li><a target="_blank" href="/channels/ch00948/">
+							建言献策</a></li>
+                            <li><a target="_blank" href="/channels/ch00610/">
+							咨询热点回放</a></li>
+
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="/template/srst/default/images/js/public.js"></script>
+
+    <div class="footer-link clearfix" style="background-color: #8fb5d2;" >
+
+        <div class="text-box2" style="width: 1000px;height: auto; margin-left: 0 auto;">
+
+            <div style="display: inline-block;font-size: 16px;color: #fff;">友情链接 >></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.gov.cn/" style="color: #fff;" target="_blank">国务院</a></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.mohrss.gov.cn/" style="color: #fff;" target="_blank">人社部</a></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.shandong.gov.cn/" style="color: #fff;" target="_blank">山东省政府</a></div>
+
+            <select id="select33" size="1" onchange="javascript:window.open(this.options[this.selectedIndex].value);this.selectedIndex=0"
+
+                style="width:27%;border: 0;outline-style: none;margin-left: 30px;font-size: 15px;color: #fff;background: #8fb5d1;">
+
+                <option style="color: #000;background: #fff;" selected="">山东省各地市人力资源和社会保障局</option>
+
+                <option style="color: #000;background: #fff;" value="http://jnhrss.jinan.gov.cn/">济南市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.qingdao.gov.cn/">青岛市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.zibo.gov.cn/">淄博市</option>
+
+                <option style="color: #000;background: #fff;" value="http://zzhrss.zaozhuang.gov.cn/">枣庄市</option>
+
+                <option style="color: #000;background: #fff;" value="http://dylss.dongying.gov.cn/">东营市</option>
+
+                <option style="color: #000;background: #fff;" value="https://rshj.yantai.gov.cn">烟台市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.weifang.gov.cn/">潍坊市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.jining.gov.cn">济宁市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.taian.gov.cn/">泰安市</option>       
+
+                <option style="color: #000;background: #fff;" value="http://rsj.weihai.gov.cn/">威海市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.rizhao.gov.cn/">日照市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.linyi.gov.cn/">临沂市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.dezhou.gov.cn/">德州市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.liaocheng.gov.cn/">聊城市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rs.binzhou.gov.cn/">滨州市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hzrsj.heze.gov.cn/">菏泽市</option>
+
+            </select>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+    <div class="copyright">
+
+        <div class="container" style="height:95px;margin: 0 auto;">
+
+            <div style="float:left;margin-left:100px;width:110px; text-align:center; overflow:hidden;padding-top:12px;">
+
+                <script id="_jiucuo_" sitecode="3700000027" src="https://zfwzgl.www.gov.cn/exposure/jiucuo.js"></script>
+
+            </div>
+
+            <div style="float:left;width:70px;text-align:center;overflow:hidden;">
+
+                <!--<script src="http://dcs.conac.cn/js/16/000/0000/60418909/CA160000000604189090002.js" type="text/javascript"></script>-->
+
+<span id="_ideConac"><a href="//bszs.conac.cn/sitename?method=show&amp;id=08314E66B4BB5B11E053012819AC5237" target="_blank"><img id="imgConac" vspace="0" hspace="0" border="0" src="/template/srst/default/images/dzjg/red.png" data-bd-imgshare-binded="1"></a></span>
+
+            </div>
+
+<!--加入收藏 -->
+
+<script>
+
+function addFavorite2() {
+
+var url = window.location;
+
+var title = document.title;
+
+var ua = navigator.userAgent.toLowerCase();
+
+if (ua.indexOf("360se") > -1) {
+
+alert("由于360浏览器功能限制，请按 Ctrl+D 手动收藏！");
+
+}
+
+else if (ua.indexOf("msie 8") > -1) {
+
+window.external.AddToFavoritesBar(url, title); //IE8
+
+}
+
+else if (document.all) {
+
+try{
+
+window.external.addFavorite(url, title);
+
+}catch(e){
+
+alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+
+}
+
+}
+
+else if (window.sidebar) {
+
+window.sidebar.addPanel(title, url, "");
+
+}
+
+else {
+
+alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+
+}
+
+}
+
+</script>
+
+            <div style="float:left;width:500px; text-align:center; overflow:hidden;">
+
+                <p class="link">
+
+                    <a href="/channels/ch02606/" float:left; margin-left:40px;>联系我们</a>|<a href="javascript:void(0);" onclick="javascript:addFavorite2()"
+
+                        float:left; margin-left:40px;>加入收藏</a>|<a href="https://mail.shandong.cn/" target="_blank" float:left; margin-left:40px;>邮箱登录</a></p>
+
+                <p>主办单位：山东省人力资源和社会保障厅&nbsp;&nbsp;&nbsp;&nbsp;版权所有：山东省人力资源和社会保障厅</p>
+
+                <p>技术支持：山东省社会保险事业中心社会保障卡管理服务处&nbsp;&nbsp;&nbsp;&nbsp;政府网站标识码：3700000027</p><div style="display:none;"> <script type="text/javascript">
+ $.get("/statistics/do/embedservice/count?method=read&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+<span id="site_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#site_show_count").empty();
+   $("#site_show_count").append(data.result[0]);
+	}
+}
+);
+</script>
+</div>
+
+                <p style="margin-left:90px;"><span style="float:left;padding-right:10px;"><a href="https://beian.miit.gov.cn"  target="_blank" style="color:#ffffff;">鲁ICP备10039682号-6</a></span>
+
+                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010202001324"><img
+
+                            src="/template/srst/default/images/batb.png" style="float:left;"><span style="float:left;margin: 0px 0px 0px 5px; color:#ffffff;">鲁公网安备37010202001324号</span></a>
+
+                </p>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--悬浮 start-->
+
+<!--<div class="left-fixed-tool"> <a class="top-a" href="#">索引<br>
+
+ 服务</a> <a class="box-a" href="#">站点<br>
+
+ 日历</a> <a class="box-b" href="#">智能<br>
+
+ 咨询</a> <a class="bottom-a" href="#">渠道<br>
+
+ 媒体</a></div>-->
+
+<!--悬浮 end-->
+
+              <script>
+
+                   function search1() {
+
+                            var content = $('#search_content1').val();
+
+                            content = utf8_to_b64(content);
+
+                            var url = '/channels/ch05821/';
+
+                            url = url + '?content=' + content;
+
+                            window.open(url);
+
+                        }
+
+                    
+
+                        //加密
+
+                        function utf8_to_b64(str) {
+
+                            return window.btoa(unescape(encodeURIComponent(str)));
+
+                        }
+
+                        //解密
+
+                        function b64_to_utf8(str) {
+
+                            return decodeURIComponent(escape(window.atob(str)));
+
+                        }
+
+                    $(document).ready(function() {
+
+                        $("#search_content1").keydown(function() {
+
+                            if (event.keyCode == 13) {
+
+                                search1();
+
+                            }
+
+                        })
+
+                        $(".searchBtn2").click(function() {
+
+                            search1()
+
+                        })
+
+                    });
+
+                            function search2(keyword){
+
+                                $('#search_content1').attr('value',keyword);
+
+                                search1()
+
+                            }
+
+                 </script>
+
+<div id="of_whole" class="of_whole2">
+
+    <!--主体内容区开始-->
+
+    <div id="of_mainBody" class="push_t">
+
+        <!--左侧栏开始-->
+
+        <div class="side_small tag_line float_l">
+
+            <div class="mainProNav">
+
+                <dl class="navM1">
+
+                    <dd style="width:430px;">
+
+
+
+                        <div class="navbox_con1">
+
+                            <!--全文检索-->
+
+                            <div class="navbox_con1_left" style="padding:0!important;">
+
+                                <div class="navbox_con1_left_tit">
+
+                                    <div class="float_left">全文检索</div>
+
+                                </div>
+
+                                 <span>在整个网站范围内搜索</span>
+
+                                <div class="navbox_con1_left_search">
+
+                                        <input  name="content" type="text"  id="search_content1"  value="请输入关键字"
+
+                                            onClick="this.value=''" onFocus="if (value =='请输入关键字'){value =''}" onBlur="if (value ==''){value='请输入关键字'}">
+
+                                    <!-- <input name="" id='serachAllsy' type="text"> -->
+
+                                    <input id="search-button" class="searchBtn2" type="button" value="搜索" >
+
+                                </div>
+
+                                <div class="navbox_con1_left_con">
+
+                                    <a href="javascript:search2('就业')">就业</a><a href="javascript:search2('失业')">失业</a><a
+
+                                        href="javascript:search2('养老')">养老</a>
+
+                                    <a href="javascript:search2('社会保险')">社会保险</a><a href="javascript:search2('人事人才')">人事人才</a><a
+
+                                        href="javascript:search2('收入分配')">收入分配</a>
+
+                                    <a href="javascript:search2('劳动关系')">劳动关系</a><a href="javascript:search2('法律法规')">法律法规</a><a
+
+                                        href="javascript:search2('规范性文件')">规范性文件</a>
+
+                                    <a href="javascript:search2('行政许可')">行政许可</a><a href="javascript:search2('招聘')">招聘</a><a
+
+                                        href="javascript:search2('求职')">求职</a>
+
+                                    <a href="javascript:search2('农业')">农业</a><a href="javascript:search2('工业')">工业</a><a
+
+                                        href="javascript:search2('经济')">经济</a>
+
+                                    <a href="javascript:search2('工伤')">工伤</a><a href="javascript:search2('医疗')">医疗</a><a
+
+                                        href="javascript:search2('服务')">服务</a>
+
+                                    <a href="javascript:search2('政策')">政策</a><a href="javascript:search2('工作')">工作</a><a
+
+                                        href="javascript:search2('人力资源')">人力资源</a></div>
+
+                            </div>
+
+                            <!--网站导航-->
+
+                            
+
+
+
+                        </div>
+
+
+
+                    </dd>
+
+
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="top-a"></div>索引<br>服务
+
+                    </dt>
+
+                </dl>
+
+
+
+                <dl class="navM2">
+
+                    <dd>
+
+
+
+                        <div class="navbox_con2">
+
+                            <!--日历-->
+
+                            <div class="navbox_con2_left">
+
+                                <div class="month-container">
+
+                                    <div class="month-head"><span></span></div>
+
+                                    <ul class="month-body">
+
+                                        <div class="month-cell orange"><span>日</span></div>
+
+                                        <div class="month-cell blue"><span>一</span></div>
+
+                                        <div class="month-cell blue"><span>二</span></div>
+
+                                        <div class="month-cell blue"><span>三</span></div>
+
+                                        <div class="month-cell blue"><span>四</span></div>
+
+                                        <div class="month-cell blue"><span>五</span></div>
+
+                                        <div class="month-cell blue"><span>六</span></div>
+
+                                    </ul>
+
+                                    <div class="clear"></div>
+
+                                </div>
+
+                            </div>
+
+                            <!--最新发布-->
+
+                            <div class="navbox_con2_right">
+
+                                <div class="navbox_con2_right_tit">
+
+                                    <div class="float_left">最新发布</div>
+
+                                </div>
+
+                                <div class="navbox_con2_right_con">
+
+                                    <div class="navbox_con2_right_con" style="float:left;">
+
+                                        <ul class="news-list" style="float:left;margin-left:0px;padding:0px;margin-top:0px;">
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch08631/202609/f6c043c4-b29f-4cf4-be71-800e85634834.shtml" title="山东九月培训计划和“乐业山东”技能培训加油站活动信息新鲜出炉，快来邂逅你的“技”遇"
+
+                                                                        target="_blank">
+
+
+                                                        山东九月培训计划和“乐业山东”技能培训加油站活动...</a>
+
+                                                    </span><span class="span2">2026-09-01</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch08631/202608/0e6a8ac1-d44f-4d86-82dc-de74ac68a5f9.shtml" title="全省第一批“乐业山东”技能培训加油站名录"
+
+                                                                        target="_blank">
+
+
+                                                        全省第一批“乐业山东”技能培训加油站名录</a>
+
+                                                    </span><span class="span2">2026-08-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                            <a href="http://hrss.shandong.gov.cn/articles/ch06434/202012/edca2b7f-e279-4db1-a0c2-cdea970c7b14.shtml" title="推进政务公开  建设阳光政府" target="_blank">
+
+
+                                                        推进政务公开  建设阳光政府</a>
+
+                                                    </span><span class="span2">2022-01-05</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/f3637d87-4071-4230-bdcd-063718e6b525.shtml" title="省人力资源社会保障厅党组理论学习中心组开展集中学习研讨"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅党组理论学习中心组开展集中学...</a>
+
+                                                    </span><span class="span2">2023-09-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/ea8a3044-4edc-431b-99d6-a7976e132695.shtml" title="张涛一行赴山东技师学院调研校企合作"
+
+                                                                        target="_blank">
+
+
+                                                        张涛一行赴山东技师学院调研校企合作</a>
+
+                                                    </span><span class="span2">2023-09-08</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/79ef6f17-ec65-47ed-9307-ef5f40b19bd8.shtml" title="全省人力资源社会保障重点工作推进会召开"
+
+                                                                        target="_blank">
+
+
+                                                        全省人力资源社会保障重点工作推进会召开</a>
+
+                                                    </span><span class="span2">2023-09-05</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202308/3663b7f4-db23-452c-bfdc-f9b74befb4ed.shtml" title="省人力资源社会保障厅召开党组会传达学习习近平总书记重要讲话精神"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅召开党组会传达学习习近平总书...</a>
+
+                                                    </span><span class="span2">2023-08-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202308/0f11cfa3-1a28-427d-b51c-5a70a1ae829c.shtml" title="省人力资源社会保障厅党组中心组开展集中学习研讨"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅党组中心组开展集中学习研讨</a>
+
+                                                    </span><span class="span2">2023-08-23</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00314/201808/65496.shtml" title="第十届海内外高端人才交流会"
+
+                                                                        target="_blank">
+
+
+                                                        第十届海内外高端人才交流会</a>
+
+                                                    </span><span class="span2">2018-08-28</span></li>
+
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="box-a"></div>站点<br>日历
+
+                    </dt>
+
+                </dl>
+
+                <dl class="navM3">
+
+                    <dd>
+
+                        <div class="navbox_con3"><a href="/channels/ch06859/" target="_blank"><img src="/template/srst/default/images/navbox_con3.jpg"></a></div>
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="box-b"></div>智能<br>咨询
+
+                    </dt>
+
+                </dl>
+<style>
+
+.navbox_con4_center_btn a {
+    line-height: 20px;
+}
+</style>
+                <dl class="navM4">
+
+                    <dd style="width: 655px;">
+
+                        <div class="navbox_con4" >
+
+                            <!--ico-->
+
+                            <div class="navbox_con4_left">
+
+                                <div class="navbox_con4_left_ico">
+
+                                   
+
+                                    <div class="navbox_con4_left_btn"><img src="/template/srst/default/images/gwyicon.png"><a href="http://www.gov.cn/public/yidongkehuduan.htm" target="_blank">国务院</a></div>
+
+                                    <div class="navbox_con4_left_code"><img src="/template/srst/default/images/gwy.png" width="100" height="93"></div>
+
+                               
+
+                                </div>
+
+                                <div class="navbox_con4_left_ico">
+
+                                    <div class="navbox_con4_left_btn"><img src="/template/srst/default/images/wechat.png"><a href="">山东人社</a></div>
+
+                                    <div class="navbox_con4_left_code"><img src="/template/srst/default/images/sdrs_wx.png" width="100" height="93"></div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="navbox_con4_center">
+
+                                <div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/gwyicon.png"><a href="http://www.gov.cn/guowuyuan/gwykhdxcx/xiaochengxu.html" target="_blank">国务院客户端小程序</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/gwyxcx2023.png" width="100" height="93"></div>
+
+                                </div>
+								
+								<div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/20231206dy.png"><a href="">“山东人社”<br />抖音号</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/20231206.jpg" width="100" height="93"></div>
+
+                                </div>
+
+                               
+
+                            </div>
+							
+							<div class="navbox_con4_center">
+
+                                <div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/zs_12333icon.png"><a href="http://www.12333.gov.cn/ggfwstatic/download/app.html" target="_blank">人社部12333app</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/zs_12333.jpg" width="100" height="93"></div>
+
+                                </div>
+								
+								<div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/wechat.png"><a href="">山东人社杂志</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/rszz.jpg" width="100" height="93"></div>
+
+                                </div>
+								
+								
+
+                               
+
+                            </div>
+
+                            <!--人社APP
+
+                            <div class="navbox_con4_right"> <img src="/template/srst/default/images/navbox_con4_right.png"> </div>-->
+
+
+
+                        </div>
+
+
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="bottom-a"></div>渠道<br>媒体
+
+                    </dt>
+
+                </dl>
+
+
+
+            </div><!-- mainProNav end -->
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--footer end-->
+
+
+
+<script src="/template/srst/default/images/js/jquery.placehold.min.js"></script>
+
+<script src="/template/srst/default/images/js/switchable.js"></script>
+
+<script src="/template/srst/default/images/js/forweb.js"></script>
+
+<script src="/template/srst/default/images/js/sdrs.js"></script>
+
+<div style="display:none">
+
+<!--今日访问量：<span id="site_today_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e&today=true",
+function(data){
+	if(data.success){
+   $("#site_today_show_count").empty(); 
+   $("#site_today_show_count").append(data.result[0]);
+	}
+}
+); 
+</script>
+<br>
+
+总访问量： <script type="text/javascript">
+ $.get("/statistics/do/embedservice/count?method=read&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+<span id="site_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#site_show_count").empty();
+   $("#site_show_count").append(data.result[0]);
+	}
+}
+);
+</script>
+-->
+
+</div>
+
+
+
+
+
+<!--无障碍-->
+<link href="/indeci/assets/css1/bf/barrierfree.css" rel="stylesheet" type="text/css" />
+<!--<script src="http://hrss.shandong.gov.cn/indeci/assets/js/jquery-1.12.4.min.js"></script>-->
+<script src="/indeci/assets/js/iframe.js" id="barrierFree" data="sn=00BA70FA0C66666406857D7D95415F64DDFE095C3F999B519710480B7876C508&rcode=F03AAE6D55B0B46A87F426F827D7C49F2BA26A9FCBC4310D78CDAE41E28334EAA3D0610CE8492C14D5629C162B0C021B8801FB1C343AC2C2E3976946431E58B6AC854C44D12EE9335702E64F7045C926E1F15AC3B43BEC073E8F5008F5727EF6A6CB129A29DF06037AB2DFAEBC06C2F33AB0354C48193E8029BDE39EA18477AD"></script>
+<script>
+$(document).ready(function(){
+
+	
+	if ($('div').hasClass('index-main')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.index-main', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('ejcontent')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.ejcontent', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('list_bei')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.list_bei', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])	
+};
+	if ($('div').hasClass('zhengce_top')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.zhengce_top', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('fuwu_warp')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.fuwu_warp', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+})
+</script>
+<!--无障碍-->
+
+<!--登录显示-->
+	<script >
+function getMyCookie(key){
+		var val = "";	
+		// 对cookie操作
+		var cookies = document.cookie;
+			
+		cookies = cookies.replace(/\s+/g,"");
+//console.log("cookies 000:"+cookies );
+		var cookie_array = cookies.split(";");
+		for(i=0;i<cookie_array.length;i++){
+			var cookie = cookie_array[i];
+			var array = cookie.split("=");
+			if(array[0]==key){
+				val = array[1];
+			}
+		}
+		
+		return val;
+	}
+
+function denglu(){ 
+
+if(!navigator.cookieEnabled){
+alert('浏览器cookie已被禁用，请开启！');
+}
+
+        var sdid = getMyCookie("sdid");
+		if(sdid!=null&&sdid!=''){
+					 $.ajax({
+			  url : "/interact/oauthclient/getUserJson.do",
+			  dataType : "json",
+			  type : "post",
+			  async : true,
+			  success : function(data) { 
+			personname=decodeURIComponent(data.name);
+			/*console.log(personname);*/
+			/*仅显示*/
+			document.getElementById("xsname").innerText=personname;
+
+			 /*名字星号*/
+                var huifuname = document.getElementById("xsname").innerText;
+					var huifuname1 = huifuname.substr(0,1) + new Array(huifuname.length).join('*');
+                    document.getElementById('xsname').innerText = huifuname1;
+			/*显示*/		
+			document.getElementById("denglu").style.display='block';
+			document.getElementById("weidenglu").style.display='none';	
+			}
+					
+		 })
+			
+			}else{		
+	
+						 $.ajax({
+				
+						      url : "/interact/oauthclient/getUser.do",//请求地址
+						      dataType : "json",//数据格式 
+						      type : "post",//请求方式
+						      async : true,//是否异步请求
+						      success : function(data) {   //如果发送成功
+
+										if(data.flag=="true"){
+										document.getElementById("personname").value=decodeURIComponent(data.name);
+									      }else{
+			document.getElementById("denglu").style.display='none';
+			document.getElementById("weidenglu").style.display='';
+												//	 if(window.confirm('请先登录！')){
+												//	 window.parent.location.href="http://hrss.shandong.gov.cn/gentleCMS/oauthclient/toLogin.do?sitedomain=hrss";
+												//	 return true;
+												//  }else{
+												//	 return false;
+												// }
+													
+									       }
+										}
+										
+						 })
+						
+			 
+				}
+                
+	}
+$(function(){denglu();})
+function clearCookie(){
+document.cookie = "sdid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.shandong.gov.cn";
+
+ $.ajax({
+				
+						      url : "/interact/oauthclient/Out.do",//请求地址
+						      dataType : "json",//数据格式 
+						      type : "post",//请求方式
+						      async : true,//是否异步请求
+						      success : function() {   //如果发送成功
+                                                                  location.reload(true);
+										
+										},
+								error: function(){
+								alert('操作失败');}
+										
+						 })
+						
+	}
+</script>
+<div id="denglu" style="position: absolute; top: 10px; left: 85%; width: 150px; z-index:999; display:none;">
+        <table class="wyts_Class" width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>
+					<a href="/channels/ch08303/"><span id="xsname"></span></a>
+					<input type="text" id="personname" name="personname" class="validate[,required,minSize[0],maxSize[30]]"
+                            size="30" maxlength="30" readonly="readonly" style="display:none;">
+                    </td>
+                    <td>
+					<a href="javascript:clearCookie();">[退出]</a>
+                    </td>
+                </tr>                                            
+            </tbody>
+        </table>
+</div>
+<div id="weidenglu" style="position: absolute; top: 10px; left: 85%; width: 150px; z-index:999;">
+        <table class="wyts_Class" width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>
+					<a href="/channels/ch08303/">用户中心</a>					
+                    </td>
+					<td>
+					<a href="/interact/oauthclient/toLogin.do?sitedomain=hrss">[登录]</a>
+					</td>
+                </tr>                                            
+            </tbody>
+        </table>
+</div>
+<!--登录显示end-->
+</body>
+
+
+
+</html>
+

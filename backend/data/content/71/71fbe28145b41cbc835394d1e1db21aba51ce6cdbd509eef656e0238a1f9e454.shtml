@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+   <meta charset="UTF-8">
+
+   <title>山东省人力资源和社会保障厅</title>
+
+<script type="text/javascript">var embedRootPath = "/gentleCMS";var memberPath="/interact"; var embedRootPath = "/interact";</script>
+<script  type="text/javascript" src="/template/system/jquery/jquery.min.js"></script>
+<link type="text/css" href="/template/system/jquery/jquery-all.css"  rel="stylesheet"/>
+<script src="/template/system/jquery/ajaxfileupload/ajaxfileupload.js" type="text/javascript"></script>
+<script src="/template/system/jquery/jtemplates/jquery-jtemplates.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery.validationEngine.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery-migrate.min.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery.validationEngine-en.js" type="text/javascript"></script>
+<link type="text/css" href="/template/system/jquery/validate/validationEngine.jquery.css"  rel="stylesheet"/>
+
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.dateutil.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.util.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.embed.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.vote.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.gip.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.dynamic.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.cmsmember.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/echarts/echarts.min.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.question.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/echarts.cms.question.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/echarts.cms.vote.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.tamap.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.userlogin.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.weibo.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.weixin.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.pdfresource.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/weixinjs/jweixin-1.4.0.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/weibojs/wbsdk.js" type="text/javascript"></script>
+
+  <script type="text/javascript">var exchangePath = "/interact";</script>
+  <script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.exchange.js" type="text/javascript"></script>
+  <script type="text/javascript" src="/template/system/jquery/cms/jquery.cms.interact.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/template/system/jquery/raty/jquery.raty.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/template/system/login/jsencrypt.js"></script>
+
+
+   <link rel="stylesheet" href="/template/srst/default/css/reset.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/tool.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/communal.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/index.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/pindao.css" type="text/css">
+
+   <link rel="stylesheet" type="text/css" href="/template/srst/default/css/jquery-ui.css" />
+
+   <link href="/template/srst/default/css/jquery.bxslider.css" rel="stylesheet" />
+
+
+
+   <script src="/template/srst/default/images/js/jquery1.min.js"></script> 
+
+   <script src="/template/srst/default/images/js/title.js"></script> 
+
+   <script src="/template/srst/default/images/js/jquery-ui-datepicker.js"></script>
+
+<!-- -->
+
+</head>
+
+<body>
+
+
+
+
+
+<!---识别手机或电脑的js开始--->
+<script language="javascript">
+(function(){
+var url = window.location.href;
+if(url.indexOf(".shtml")==-1){
+	url=url+"/index.shtml";
+}else{
+	url=url.substring(0,url.lastIndexOf(".shtml"))+"mobile"+url.substring(url.lastIndexOf(".shtml"),url.length);
+}
+var res = GetRequest();
+var par = res['index'];
+if(par!='gfan'){
+var ua=navigator.userAgent.toLowerCase();
+var contains=function (a, b){
+if(a.indexOf(b)!=-1){return true;}
+};
+var toMobileVertion = function(){
+window.location.href = url;
+}
+ 
+if(contains(ua,"ipad")||(contains(ua,"rv:1.2.3.4"))||(contains(ua,"0.0.0.0"))||(contains(ua,"8.0.552.237"))){return false}
+if((contains(ua,"android") && contains(ua,"mobile"))||(contains(ua,"android") && contains(ua,"mozilla")) ||(contains(ua,"android") && contains(ua,"opera"))
+||contains(ua,"ucweb7")||contains(ua,"iphone")){toMobileVertion();}
+}
+})();
+function GetRequest() {
+  var url = location.search; 
+  var theRequest = new Object();
+  if (url.indexOf("?") != -1) {
+     var str = url.substr(1);
+     strs = str.split("&");
+     for(var i = 0; i < strs.length; i ++) {
+        theRequest[strs[i].split("=")[0]]=unescape(strs[i].split("=")[1]);
+     }
+  }
+  return theRequest;
+}</script>
+
+<meta name="SiteName" content="山东省人力资源和社会保障厅">
+<meta name="SiteDomain"  content="/">
+<meta name="SiteIDCode"  content="3700000027">
+<meta name="ColumnName" content="通知公告">
+<meta name="ColumnDescription" content="通知公告">
+<meta name="ColumnKeywords" content="通知公告">
+<meta name="ColumnType" content="通知公告">
+<meta name="ArticleTitle" content="关于对《山东省博士后管理工作办法（征求意见稿）》公开征求意见的公告">
+<meta name="PubDate" content="2021-10-20 04:31">
+<meta name="ContentSource" content="山东省人力资源和社会保障厅">
+<meta name="Keywords" content="">
+<meta name="Author" content="">
+<meta name="Description" content="">
+<meta name="Image" content="">
+<meta name="Url" content="/articles/ch00330/202111/b97bc3e5-532e-49ae-ba44-aa7aa17ed073.shtml">
+<meta name="pagetype" content="1">
+
+<div class="header-box">
+
+
+
+    <div class="container">
+
+        <a class='zx_logo' href="javascript:void(0);">
+
+            
+                    <img src="/resource/srst/202504/93be3432-1d3b-43d8-9da3-a3b042d033c8.png" alt="">
+
+
+        </a>
+
+        <div class="header-tool" style=" margin-top: 43px;">
+
+                <script>
+
+				   function search() {
+
+                            var content = $('#search_content').val();
+
+                            content = utf8_to_b64(content);
+
+                            var url = '/channels/ch05821/';
+
+                            url = url + '?content=' + content;
+
+                            window.open(url);
+
+                        }
+
+					
+
+                        //加密
+
+                        function utf8_to_b64(str) {
+
+                            return window.btoa(unescape(encodeURIComponent(str)));
+
+                        }
+
+                        //解密
+
+                        function b64_to_utf8(str) {
+
+                            return decodeURIComponent(escape(window.atob(str)));
+
+                        }
+
+                    $(document).ready(function() {
+
+                        $("#search_content").keydown(function() {
+
+                            if (event.keyCode == 13) {
+
+                                search();
+
+                            }
+
+                        })
+
+                        $(".searchBtn").click(function() {
+
+                            search()
+
+                        })
+
+                    });
+
+							function searchNew(keyword){
+
+								$('#search_content').attr('value',keyword);
+
+								search()
+
+							}
+
+                 </script>
+
+<span>在整个网站范围内搜索</span>
+
+            <div class="search-box" style="margin-top: 0px;">
+
+                    <input name="content" type="text" id="search_content" value="请输入关键字" onClick="this.value=''" onFocus="if (value =='请输入关键字'){value =''}" onBlur="if (value ==''){value='请输入关键字'}">
+
+                <!-- <input id="serachAll" type="text" placeholder="请输入关键字" /> -->
+
+                <a id="search-new" class="search-btn searchBtn le" ></a>
+
+            </div>
+
+
+
+            <div class="keyword">
+
+                <span>热点：</span>
+
+                <a href="javascript:searchNew('就业')">就业</a>
+
+                <a href="javascript:searchNew('失业')">失业</a>
+
+                <a href="javascript:searchNew('工伤保险')">工伤保险</a>
+
+                <a href="javascript:searchNew('公务员培训')">公务员培训</a>
+
+                <a href="javascript:searchNew('劳动工资')">劳动工资</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--header end-->
+
+<!--nav start-->
+<!--nav start-->
+
+<style>
+.nav-box .nav li {
+
+   width: 11.1%;
+}
+
+</style>
+
+<div class="nav-box">
+
+    <ul class="container nav">
+
+                <li style="width:10%;"><a href="/" >首页</a></li>
+
+                <li style="width:10%;"><a href="/channels/ch00003/" >资讯中心</a></li>
+
+                <li style="width:15%;"><a href="/channels/ch06433/"  target="_blank">政府信息公开</a></li>
+
+    <!--            <li style="width:10%;"><a href="/channels/ch00470/" >政策法规</a></li>-->
+
+                <li style="width:10%;"><a href="/channels/ch00582/" >服务大厅</a></li>
+
+                <li style="width:10%;"><a href="/channels/ch00592/">互动交流</a></li>
+
+               <li style="width:10%;"><a href="/channels/ch06859/">智能咨询</a></li>
+
+				<li style="width:15%;" class="last"><a id="wuzhangai" >无障碍工具</a></li>
+				<!--<li style="width:10%;" class="last"><a href="/channels/ch08014/">长者专区</a></li>-->
+				<li style="width:10%;" class="last"><a id="bfElder" style="cursor: pointer;">关怀版</a></li>
+
+    </ul>
+
+</div>
+
+<!--nav end-->
+
+<!--nav end-->
+<link rel="stylesheet" href="/template/srst/default/css/list.css" type="text/css" />
+
+
+<style>
+address, caption, cite, code, dfn, em, strong, th, var {
+    font-weight: bold;
+}
+
+</style>
+
+<!--nav end-->
+
+<!--body start-->
+
+<div class="list_bei">
+
+    <div class="warp">
+
+        <div class="warp_title">当前位置:     <a href="/" class="">首页</a>>>
+     <a href="/channels/ch00003/" class="">资讯</a>>>
+  <a href="/channels/ch00330/" class="">通知公告</a>
+</div>
+
+        <div class="warp_list">
+
+            <div class="show_title">关于对《山东省博士后管理工作办法（征求意见稿）》公开征求意见的公告</div>
+
+            <div class="show_center">
+
+                <span></span><span class="pubdatecss">2021-10-20</span>
+
+                <span>字体
+
+                    <a class="bigger" href="javascript:void(0)">大</a>
+
+                    <a class="middle" href="javascript:void(0)">中</a>
+
+                    <a class="smaller" href="javascript:void(0)">小</a>
+
+                </span> </div>
+
+            <div class="show">
+
+                <p style="margin-top: 0px; margin-bottom: 0px; text-indent: 59px; text-align: center; line-height: 37px; background: rgb(255, 255, 255);"><span style="font-family: 方正小标宋简体;color: rgb(51, 51, 51);font-size: 29px"><span style="font-family:方正小标宋简体">关于对《</span><a name="_Hlk86261806"></a><span style="font-family:方正小标宋简体">山东省</span></span><span style="font-family: 方正小标宋简体;color: rgb(51, 51, 51);font-size: 29px"><span style="font-family:方正小标宋简体">博士后管理工作办法</span></span><span style="font-family: 方正小标宋简体; color: rgb(51, 51, 51); font-size: 29px;">（征求意见稿）》</span></p><p style="margin-top: 0px; margin-bottom: 0px; text-indent: 59px; line-height: 37px; background: rgb(255, 255, 255); text-align: center;"><span style="font-family: 方正小标宋简体; color: rgb(51, 51, 51); font-size: 29px;">公开征求意见的公告</span></p><p style="margin-top:0;margin-bottom:0;text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">&nbsp;</span></p><p style="margin-top:0;margin-bottom:0;text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">为深入实施创新驱动发展战略和人才兴鲁战略，进一步创新完善符合博士后研究人员特点的管理制度</span>,规范和提升我省博士后管理工作水平,按照人力资源社会保障部改革完善博士后制度的最新要求，我厅在广泛开展调查研究的基础上，组织对《山东省博士后管理工作暂行办法》（鲁人〔1</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">999</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">〕</span>3</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">8</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">号）进行了修订，起草了《</span></span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">山东省博士后管理工作办法</span></span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">（初稿）》，并广泛征求各市、省直有关部门（单位）、各博士后科研流动站、工作站、创新实践基地设站单位意见建议。经研究，对征求的意见建议进行吸收采纳，同时结合中央人才工作会议对青年人才工作的最新要求，进一步完善形成了《</span></span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">山东省博士后管理工作</span></span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">办法（征求意见稿）》（以下简称《办法》，见附件）。</span></span></p><p style="margin-top:0;margin-bottom:0;text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">《办法》包括九章，分别是</span>“总则”“管理机构”“流动站、工作站和基地的设立”“博士后的招收、引进”“博士后在站管理和服务”“博士后出站管理和服务”“经费管理”“博士后工作评估”“附则”等，具体内容4</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">7</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">条，基本覆盖了博士后管理和服务工作的各个环节。</span></span></p><p style="margin-top:0;margin-bottom:0;text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">按照《山东省重大行政决策程序规定》要求，现向社会公开征求意见。因工作需要，公开征求意见时间为</span>2021年</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">10</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">月20</span></span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">日至</span></span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">11</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">月21</span></span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">日。征求意见期间，社会各界可通过邮寄、电子邮件或传真等方式向我厅反馈意见和建议（以单位名义反馈的修改意见需加盖单位公章，以个人名义反馈的修改意见需签署真实姓名，并备注联系方式）。在《办法》正式出台实施前，我厅暂不接受相关政策咨询，敬请谅解。</span></span></p><p style="margin-top:0;margin-bottom:0;text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">地</span> &nbsp;&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">址：山东省济南市历下区解放东路</span>16号</span></p><p style="margin-top:0;margin-bottom:0;text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">邮</span> &nbsp;&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">编：</span>250014</span></p><p style="margin-top:0;margin-bottom:0;text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">电子邮箱：</span>csm</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">rst</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">@shandong.cn</span></p><p style="margin-top:0;margin-bottom:0;text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">联系电话：</span>0531-</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">82958876</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">（传真）</span></span></p><p style="margin-top:0;margin-bottom:0;text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">&nbsp;</span></p><p style="margin-top:0;margin-bottom:0;text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">附件：</span></span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">山东省博士后管理工作办法</span></span><a href="http://hrss.shandong.gov.cn/resource/srst/att/202105/2bbe4797-ca49-47e8-971d-1764adf1c64f.doc" title="点击下载附件"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">（征求意见稿）</span></span></a></p><p style="margin-top:0;margin-bottom:0;text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">&nbsp;</span></p><p style="margin-top:0;margin-bottom:0;text-indent:41px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">&nbsp;</span></p><p style="margin-top:0;margin-bottom:0;text-indent:269px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 山东省人力资源和社会保障厅</span></span></p><p style="margin-top:0;margin-bottom:0;text-indent:331px;text-align:justify;text-justify:inter-ideograph;line-height:37px;background:rgb(255,255,255)"><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2021年10</span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">月20</span></span><span style="font-family: 仿宋_GB2312;color: rgb(51, 51, 51);font-size: 21px"><span style="font-family:仿宋_GB2312">日</span>&nbsp;</span></p><p style="text-indent:28px;line-height:37px"><br/></p><p style="text-indent:28px;line-height:37px"><span style=";font-family:Calibri;font-size:14px">&nbsp;</span></p><p style="line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">附件</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px">&nbsp;</span></p><p style="text-align:center;line-height:37px"><span style=";font-family:方正小标宋简体;font-size:29px"><span style="font-family:方正小标宋简体">山东省博士后管理工作办法</span></span></p><p style="text-align:center;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px">(征求意见稿）</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:楷体_GB2312;font-size:21px">&nbsp;</span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第一章</span> <span style="font-family:黑体">总则</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第一条</span> </span><span style=";font-family:黑体;font-size:21px">&nbsp;</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">为深入实施创新驱动发展战略和人才兴鲁战略，贯彻落实《国务院办公厅关于改革完善博士后制度的意见》（国办发〔</span>2015〕87号）和《人力资源社会保障部 全国博士后管理委员会关于贯彻落实〈国务院办公厅关于改革完善博士后制度的意见〉有关问题的通知》（人社部发〔2017〕20号）精神，积极推进简政放权、放管服改革，进一步提升博士后管理服务的规范化、科学化水平，充分发挥博士后制度在培养高层次创新型青年人才工作中的重要作用，制定本办法。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第二条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">本办法适用于全省各级博士后工作管理部门，博士后科研流动站（以下简称</span>“流动站”）、博士后科研工作站（以下简称“工作站”）、省博士后创新实践基地（以下简称“基地”）的设立和管理，以及博士后研究人员（以下简称“博士后”）的招收、培养、服务和管理。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第二章</span> <span style="font-family:黑体">管理机构</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第三条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">山东省人力资源和社会保障厅（以下简称</span>“省人力资源社会保障厅”）是省级博士后工作管理部门，具体承担以下职责：制定全省博士后工作政策措施和管理办法，建立博士后工作管理协调机制；指导和监督设有流动站、工作站、基地的单位（以下简称“设站单位”）贯彻落实国家和省有关博士后工作的方针政策，做好博士后工作；办理我省博士后设站申报、基地设立认定、博士后工作评估、博士后日常管理服务等事宜；指导我省博士后学术交流工作；承担我省博士后经费资助、博士后表彰、博士后公寓管理工作；协调处理我省博士后管理工作的其它事务。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第四条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">各市人力资源社会保障部门作为市级博士后工作管理部门，负责制定符合本市特点的博士后工作发展规划和配套政策、措施并组织实施；检查、指导本地区博士后管理制度落实情况，指导博士后设站单位开展博士后工作，做好本市工作站、基地申报推荐、备案、更名、增设分站、注销、独立招收申请和博士后的日常服务管理工作。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第五条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">设站单位是博士后培养管理责任主体，负责本单位博士后的招收、培养、考核和管理、服务等具体工作。应制定具体管理办法，配备专门的管理人员，明确进站（基地）条件，规范进站（基地）程序，加强过程评价，严格中期考核和出站（基地）考核，切实履行管理责任。建立考核制度应综合考虑博士后的学科领域、研究类型，建立以实施科研项目计划书为主要内容的分类评价绩效考核评价体系，并体现创新性科研成果作为核心评价标准的要求。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第三章</span> <span style="font-family:黑体">流动站、工作站和基地的设立</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第六条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">流动站是指在高等院校或科研院所具有博士学位授予权的一级学科内，经批准可以招收博士后的组织。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">工作站是指在具备独立法人资格的企业等机构（含企业、从事科学研究和技术开发的事业单位、省级以上高新技术开发区、经济技术开发区和留学人员创业园区）内，经批准可以招收博士后的组织。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">基地是指具备独立法人资格的企业等机构（含企业、从事科学研究和技术开发的事业单位、设区的市级以上高新技术开发区、经济技术开发区和留学人员创业园区），具备一定条件</span>,未设立流动站和工作站的，经省人力资源社会保障厅授权、依托流动站代为招收博士后、开展技术创新实践活动的省级博士后工作平台。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第七条</span> </span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;<span style="font-family:仿宋_GB2312">国家人力资源和社会保障部（以下简称</span>“人力资源社会保障部”）、全国博士后管理委员会（以下简称“全国博士后管委会”）规定流动站、工作站设立的条件和程序，并对设立工作进行部署。省人力资源社会保障厅受理设立流动站、工作站的申请，提出推荐意见后，报人力资源社会保障部、全国博士后管委会批准。园区类工作站设立、注销分站，由省人力资源社会保障厅核准后，报全国博士后管委会办公室（以下简称“全国博管办”）备案。符合条件的工作站经省人力资源社会保障厅推荐、全国博管办核准，可独立招收博士后。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">基地设立工作</span>“随时申报、随时办理”。拟设立基地的单位提出备案申请，设区的市人力资源社会保障部门进行复核、实地考察，对符合条件的予以备案并公布备案结果。备案单位招收首位博士后且办结进基地手续后,通过设区的市人力资源社会保障部门向省人力资源社会保障厅提交设立基地申请，省人力资源社会保障厅进行认定审核、公示并公布设立的基地名单。基地设立条件，以及基地招收、管理博士后等依据《山东省博士后创新实践基地管理办法》（鲁人社字〔2020〕91号）规定执行。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;</span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第四章</span> <span style="font-family:黑体">博士后的招收、引进</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第八条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后进、在、出（退）站的管理采取线上线下相结合的方式进行。申请人须在博士后办公系统中注册填报信息，完成网上备案。设站单位应切实履行职责，严格审核资格条件，确保材料的真实性、完整性和合法性。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第九条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">品学兼优，身体健康，年龄在</span>35周岁以下，取得博士学位一般不超过3年的海内外人员，可申请进入省内博士后站（含流动站、工作站、基地，下同）从事博士后研究工作。除基本条件外，拟进站的博士还应满足设站单位规定的专业、技能和其他招收要求。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第十条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士毕业人员应全时进站从事博士后研究，定向委培、在职人员以及现役军人身份的博士应脱产从事博士后研究。以在职人员身份进站的博士后，应以高校、科研院所具有博士学位的青年教学、科研人员为主。不得招收在职的党政机关领导干部进站从事博士后研究工作。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第十一条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">设站单位一般应面向社会公开招收博士后，根据开展科研工作需求对申请入站博士的科研能力、学术水平和已取得科研成果，采取考核、考试、答辩等多种形式择优招收。对特别优秀的博士，可不受招收形式限制。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第十二条</span> </span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;<span style="font-family:仿宋_GB2312">流动站可自主招收博士后。申请进入人文社会科学领域、人才紧缺的自然科学领域或医学领域流动站的人员，经设站单位同意，年龄可适当放宽。流动站招收时，应严格控制招收本单位同一一级学科、超龄、在职的博士后比例。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第十三条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">工作站一般应与国内流动站联合招收博士后，双方单位签订博士后联合培养协议，明确权利和义务。联合招收的博士后，科研日常管理工作以工作站为主，流动站及时向工作站提供科研立项、科研平台等支持和指导。工作站招收时，一般不受本单位同一一级学科、超龄、在职比例的限制；申请进入工作站的人员，经设站单位同意，年龄可放宽至</span>40周岁。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">经核准具备独立招收资格的工作站，可根据需要自主招收或与流动站联合招收博士后。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第十四条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后入站时，设站单位应按单位性质与博士后签订事业单位聘用合同或企业劳动合同，在职博士后签订工作协议或工作合同，结合博士后研究课题制定科研项目计划书，明确双方的权利、义务以及工作目标、课题要求、在站时间安排、年度考核和中期、出站考核、工资福利待遇、产权成果归属、成果转化收益、违约责任等内容。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第十五条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后入站时，设站单位应为其配备合作导师，提供在站期间课题研究的指导和培养。博士后合作导师一般从设站单位（用人单位）的正式职工中产生；确有需要并具备条件的，可引进或聘用国内外专家学者担任合作导师，柔性引进或聘用的合作导师应确保能够承担完成科研指导和培养任务。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">流动站自主招收、工作站独立招收的博士后，一般应配备</span>1名合作导师；联合招收的博士后，一般应实行“双导师制”，由联合招收的流动站、工作站（基地）各配备1名导师。流动站的合作导师应具有博士生指导教师资格或正高级职称，工作站（基地）的合作导师应具有副高级及以上职称。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第十六条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">设站单位应加强博士后合作导师队伍建设，通过完善责任考核、激励奖惩等制度，充分发挥其在博士后招收、培养、考核、管理等方面的重要指导作用。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第十七条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">设站单位应为进站博士后建立博士后档案，按照国家档案管理的法规制度，做好博士后在站期间的档案管理。</span></span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px">&nbsp;</span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第五章</span> <span style="font-family:黑体">博士后在站管理和服务</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第十八条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后在站工作时间一般为</span>2-4年，具体时间由设站单位、合作导师、博士后本人根据工作需要共同协商、科学确定，并在合同或协议中明确。定向委培、在职人员以及现役军人身份入站的博士后，在站时间应征得原工作单位同意。在站博士后完成任务或工作期满后应按时出站。博士后出站后可选择其它博士后站继续从事博士后研究工作，累计在站时间（含多次进站、出国研修等）不得超过6年。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第十九条</span> </span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;<span style="font-family:仿宋_GB2312">博士后进站开题，应在博士后办理进站手续后的</span>1个月内开始，完成时间一般不超过</span><span style=";font-family:仿宋_GB2312;font-size:21px">3</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">个月。进站开题，主要是由博士后合作导师对博士后研究课题的可行性、研究计划、预期成效等进行考评、完善，并形成科学完整的科研项目计划书。科研项目计划书应报设站单位、省人力资源社会保障厅备案。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第二十条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后在站期间，应及时总结科研项目计划书执行情况，定期报告科研项目进展情况，为完成中期考核和出站考核提供基础素材。合作导师应及时了解博士后项目进展情况，并给予充分指导。设站单位应跟踪了解博士后科研项目进展情况，并会同合作导师及时作出评价。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第二十一条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">科研项目进展中期考核一般每一年组织一次，可结合年度考核进行，直至博士后出站为止。当年度进站时间不满</span>3个月的，可合并至下一年度考核。中期考核内容应包括研究方法与路线、任务完成进度、取得的科研成果等，以定性和定量的方式对科研进展情况进行评价，书面出具考核结果。中期考核结果应按时收入博士后档案，并作为博士后年度考核和调整兑现工资福利待遇的重要依据。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第二十二条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">博士后在站期间，设站单位应对博士后开展科研创新项目提供相应经费支持，鼓励支持博士后推动科研成果转化。省、市人力资源社会保障部门会同有关部门设立博士后创新人才、创新项目等支持计划，有针对性的对在站博士后提供相应经费支持。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">博士后按规定享受国家和省支持科技人员创新创业的激励政策及科研成果转化收益。博士后在站期间的研究成果归属应当按照签订的合同或协议约定，约定不明确的依照国家有关知识产权法律法规办理。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第二十三条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后在站期间，根据项目研究及工作需要，经设站单位同意，可以到国（境）外开展合作研究、参加国际学术会议和进行短期学术交流，时间一般不超过三个月，经设站单位批准，可根据项目情况适当延长。申报国家、省公派出国留学等项目的，经设站单位同意，出国时间按照项目有关规定执行。</span><a name="_Hlk66967606"></a><span style="font-family:仿宋_GB2312">定向委培、在职人员以及现役军人身份博士后</span><span style="font-family:仿宋_GB2312">申请出国的，由原工作单位根据工作需要，在参考设站单位意见基础上，按规定权限和程序审核报批。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">设站单位应全面加强博士后出国参加学术会议、开展学术交流、留学研修的管理，建立按程序审核批准和绩效考核机制，确保出国的质量和效益。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第二十四条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后在站期间，可按照省高层次人才高级职称评审</span>“直通车”制度规定直接申报副高级职称。国家及省级博士后创新人才支持计划、国（境）外交流项目引进人选留（来）鲁工作的，纳入“山东惠才卡”发放范围，其他博士后由各市制定遴选办法，有序纳入市级高层次人才服务范围。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第二十五条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">全职博士后在站期间享受设站单位职工待遇，其福利待遇、成果转化奖励等按照合同或协议执行，并计算工作年限。设站单位应按规定为博士后缴纳社会保险费。进站前无工作经历的博士后参加工作时间从进站之日起计算。定向委培、在职人员以及现役军人身份博士后，在站期间的待遇、福利及成果转化奖励政策，由原工作单位与在站单位协商确定，并在进站工作合同或协议中明确。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第二十六条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">人事关系转至设站单位的博士后，可在设站单位所在地落常住户口，随迁子女可在设站单位所在地办理入托入学等手续，享受当地常住户口居民的同等待遇。鼓励各市、设站单位通过购买社会化服务、货币补助或统筹利用公租房、人才公寓等多种方式解决博士后周转房问题。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第二十七条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">外籍博士后按照签订合同或协议确定的在站时间申请办理签证、工作许可和居留手续。外籍博士后在站期间，按照与国内博士后相同政策进行管理和服务。涉及外事管理事务的，由设站单位按照外籍人员在华工作、居住的有关规定执行。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第二十八条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后在站期间，经设站单位同意，可根据博士后管理有关规定调整研究项目、更换合作导师、延长在站时间、变更进站身份等。在站期间因工作调整等原因变更进站身份的，设站单位须在变更后</span>3个月内报省人力资源社会保障厅备案。申请延长在站时间（含累计在站时间）超过5年的，应通过设站单位报省人力资源社会保障厅批准同意。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第二十九条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">按规定对在站博士后实行年度考核。考核内容由组织年度考核的单位确定，一般应在每年年末或者次年年初进行，主要是对博士后在站期间的德、能、勤、绩、廉等进行评价考核，并按照优秀、合格、基本合格、不合格确定等次。考核结果作为博士后在站期间工资晋升、兑现待遇的重要依据，年度考核表应及时归入博士后人事档案。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">全职进站博士后的年度考核由设站单位组织；定向委培、在职人员以及现役军人身份博士后的年度考核由原工作单位组织，可重点参考博士后中期考核、出站考核的有关情况及结论进行，设站单位应科学、公正提供年度考核所需的相关证明、资料。</span></span></p><p style="text-indent:43px;line-height:37px;background:rgb(255,255,255)"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第三十条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">博士后在站期间，具有下列情形之一的，设站单位（用人单位）在书面告知本人或在博士后本人应知悉的范围内公告后予以退站：</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">1.进站半年后仍未取得国家承认的博士学位证书的；</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">2.提供虚假材料获得进站资格的；</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">3.中期或出站考核不合格的；</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">4.严重违反学术道德，弄虚作假，影响恶劣的；</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">5.被处以刑事处罚的；</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">6.因旷工等行为违反所在单位劳动纪律规定，符合解除劳动（聘用）合同情形的；</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">7.因患病等原因难以完成研究工作的；</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">8.未经批准同意出国或出国逾期不归超过30天的；</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">9.合同（协议）期满，无正当理由不办理出站手续或在站时间超过6年的；</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px">10.其他情况应予退站的。</span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">退站的博士后不享受国家、省对期满出站博士后规定的相关政策，设站单位（用人单位）应及时与退站的博士后按合同或协议的规定办理博士后工作关系解除或终止手续。</span></span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px">&nbsp;</span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第六章</span> &nbsp;<span style="font-family:黑体">博士后出站管理和服务</span></span></p><p style="text-indent:43px;line-height:37px;background:rgb(255,255,255)"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第三十一条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后工作期满，完成科研项目计划书规定的职责任务，完成并提交博士后研究报告，通过设站单位的出站考核，经设站单位同意后出站。完成出站手续的博士后可在全国博士后办公系统中自行打印《博士后证书》。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第三十二条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">出站考核为博士后出站前的全面综合考核，考核内容主要是科研项目计划书的完成情况、科研创新成果数量与质量等。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">提出出站申请时，博士后应提交博士后研究报告，博士后研究报告须按照《博士后研究报告编写规则》编写。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">设站单位应组织合作导师对申请出站博士后进行出站考核，参考中期考核结果、根据博士后研究报告作出书面评价，并给予优秀、良好、合格、不合格的综合评价等级评定。考核优秀的博士后，可给予表扬和奖励；考核不合格的博士后，予以退站并解除协议。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">出站考核结果和博士后研究报告为博士后出站后评定职称和聘任专业技术职务的重要依据。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第三十三条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后工作期满出站的，除有协议外，实行自主择业、双向选择。用人单位急需、紧缺的优秀博士后，意愿到省内高等院校、科研机构、医疗卫生等事业单位工作的，用人单位可简化招聘程序，采取考察的方式招聘；事业单位相应岗位无空缺的，可不受单位岗位限制，通过申请特设岗位的方式予以聘用。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第三十四条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">出站博士后本人可在就业单位所在地落常住户口，与其共同居住生活的配偶、未婚子女、父母可以随迁户口。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第三十五条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">符合条件的留（来）鲁工作的出站博士后，可按照省高层次人才高级职称评审</span>“直通车”制度规定直接申报正高级或副高级职称。出站前未参加职称评审的，设站单位可根据其在站期间的科研能力、学术水平、工作成果等提出专业技术职称评定建议。</span></p><p style="text-indent:43px;line-height:37px;background:rgb(255,255,255)"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第三十六条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后出（退）站后未就业的，其人事档案按规定转至其户籍所在地县（市、区）或原用人单位同级的公共就业和人才服务机构；其户口按规定转至其进站前常住户口所在地，可凭省人力资源社会保障厅出具的户口迁移介绍信、《调动人员情况登记表》等落户证明材料，到落户所在地按照规定办理落户。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px">&nbsp;</span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第七章</span> &nbsp;<span style="font-family:黑体">经费管理</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第三十七条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后专项经费根据有关政策规定设立，分为国家、省、市（含区县）博士后财政专项经费和设站单位自筹经费。财政专项经费按照有关规定管理使用；自筹经费由设站单位自行管理使用。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第三十八条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">各市、有关部门（单位）应对流动站、工作站、基地予以相应资金支持。鼓励有条件的市设立博士后创新创业基金。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第三十九条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">设站单位对国家、省和市（含区县）各级财政划拨的博士后经费必须单独核算，专款专用，强化进度执行和监督管理，提高使用效益，严禁虚报、提成、截留、挪用经费。对违法违规行为，依照《中华人民共和国预算法》《中华人民共和国公务员法》《中华人民共和国监察法》《财政违法行为处罚处分条例》等有关规定追究相应责任；涉嫌犯罪的，移送监察、司法机关处理。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第四十条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">除国家、省、市（含区县）等各级财政划拨经费外，设站单位应自筹必要的经费支持博士后日常生活和日常公用。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第四十一条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">根据有关规定，国家、省、市（含区县）财政科研项目和资金中，博士后的劳务性费用可在直接费用中列支。参照当地科学研究和技术服务业从业人员平均工资水平，以及其在项目研究中承担的工作任务确定开支标准。博士后社会保险补助纳入劳务费科目开支，不设比例限制。</span></span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px">&nbsp;</span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第八章</span> <span style="font-family:黑体">博士后工作评估</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第四十二条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">博士后工作评估</span></span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">遵循客观、公正、科学、简便的原则，依照规范的标准、程序、方法进行。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第四十三条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">流动站、工作站评估由人力资源社会保障部组织，省人力资源社会保障厅负责全省评估工作。人力资源社会保障部、全国博士后管委会根据评估结果，对获优秀等次的流动站、工作站予以表彰或表扬，对不合格等次的予以警告、限期整改或予以撤销设站资格。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第四十四条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;</span><span style="font-family: 仿宋_GB2312;font-size: 21px"><span style="font-family:仿宋_GB2312">基地实行动态管理，授牌后连续两年无在站博士后研究人员的，由省人力资源社会保障厅取消其基地资格，两年后方可再次备案；设区的市人力资源社会保障部门负责收回其</span>“山东省博士后创新实践基地”牌匾。基地获批设立工作站后，其基地资格自动注销。</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">省人力资源社会保障厅参照对流动站、工作站评估办法不定期组织对基地的评估。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第四十五条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">流动站、工作站丧失设站条件或严重违反博士后工作有关规定的，可由相应设区的市人力资源社会保障部门或主管部门向省人力资源社会保障厅提出建议，报全国博管办注销。基地需要注销的</span>,由所在设区的市人力资源社会保障部门提出注销建议，报省人力资源社会保障厅注销。</span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px">&nbsp;</span></p><p style=";text-align:center;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第九章</span> <span style="font-family:黑体">附则</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第四十六条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">本办法由省人力资源社会保障厅负责解释。</span></span></p><p style="text-indent:43px;line-height:37px"><span style=";font-family:黑体;font-size:21px"><span style="font-family:黑体">第四十七条</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;<span style="font-family:仿宋_GB2312">本办法自</span>2022年</span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">月</span> &nbsp;<span style="font-family:仿宋_GB2312">日起施行，有效期至年</span></span><span style=";font-family:仿宋_GB2312;font-size:21px">&nbsp;&nbsp;</span><span style=";font-family:仿宋_GB2312;font-size:21px"><span style="font-family:仿宋_GB2312">月</span> &nbsp;<span style="font-family:仿宋_GB2312">日，施行期间如国家和省有新规定的，从其规定。</span>1999年5月19日起施行的《山东省博士后管理工作暂行办法》同时废止。</span></p><p style="text-indent:28px;line-height:37px"><span style="font-size: 14px">&nbsp;</span></p><p><br/></p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<div style="display:none;">
+
+访问次数 :<span> <script type="text/javascript">
+$.get(embedRootPath+"/do/embedservice/count?method=read&articleId=b97bc3e5-532e-49ae-ba44-aa7aa17ed073&channelId=737e4ddf-64f9-4f95-a0da-89dd6446835c&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+ <span id="article_show_count"> </span>
+<script type="text/javascript">
+$.get(embedRootPath+"/do/embedservice/count?method=count&articleId=b97bc3e5-532e-49ae-ba44-aa7aa17ed073&channelId=737e4ddf-64f9-4f95-a0da-89dd6446835c&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#article_show_count").empty();
+   $("#article_show_count").append(data.result[0]);
+   }
+}
+);
+</script>
+</span>
+
+</div>
+
+<!--body end-->
+
+<!--footer start-->
+
+<!--footer start-->
+
+<style>
+
+.index_map .cont .item {
+
+    float: left;
+
+    margin: 0 4.8%;
+
+}
+
+</style>
+
+<link rel="stylesheet" href="/template/srst/default/css/nav.css" type="text/css">
+
+<link href="/template/srst/default/css/public.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">var embedRootPath = "/gentleCMS";var memberPath="/gentleCMS";</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //导航
+
+        $(".mainProNav dl dt").click(function () {
+
+            $(".mainProNav dl").removeClass("dlHover");
+
+            $(this).parent().addClass("dlHover");
+
+            $("#of_whole").removeClass("of_whole2");
+
+            $("#of_whole").addClass("of_whole");
+
+        })
+
+        $(".mainProNav").hover(function () {
+
+            $(this).addClass("mainProNavHover");
+
+        }, function () {
+
+            $(this).removeClass("mainProNavHover");
+
+            $(".mainProNav dl").removeClass("dlHover");
+
+            $("#of_whole").removeClass("of_whole");
+
+            $("#of_whole").addClass("of_whole2");
+
+        })
+
+
+
+    });
+
+</script>
+
+
+
+<script type="text/javascript">
+
+    //日历――――――――――――――――――――――――――――――――――――――――――
+
+    $(function () {
+
+
+
+        //绘制月历体――――――――――――――――――――――――――――――――――――――――――
+
+
+
+        for (var i = 0; i < 35; i++) {
+
+            $("<li><span></span></li>").appendTo(".month-body").addClass("month-cell");
+
+        }
+
+
+
+        var today = new Date()
+
+
+
+        var FullYear = today.getFullYear(); //获取年份
+
+        var m = today.getMonth(); //获取月号
+
+        var month = today.getMonth() + 1; //获取月份
+
+
+
+        if (month < 10) {
+
+            month = "0" + month;
+
+        }
+
+        var date = today.getDate(); //获取日期
+
+        var day = today.getDay(); //获取星期
+
+
+
+        var monthsNum = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        var isleapyear = FullYear % 4; //判断闰年
+
+        if (isleapyear == 0) {
+
+            monthsNum[1] = 29;
+
+        }
+
+
+
+        if (day == 0) {
+
+            day = 7;
+
+        }
+
+        var firstDay = day - (date % 7 - 1); //!important 计算月初星期数
+
+
+
+        if (firstDay == 7) { //如果月初为七，归零
+
+            firstDay = 0;
+
+        }
+
+        if (firstDay < 0) { //如果月初为负，加七循环
+
+            firstDay += 7;
+
+        }
+
+
+
+        var f = firstDay;
+
+        for (var j = 1; j <= monthsNum[m]; j++) {
+
+            $("li.month-cell span").eq(f).text(j).parent().addClass("pink");
+
+            f++;
+
+        }
+
+
+
+        $("li.month-cell span").eq(firstDay - 1 + date).parent().addClass("pink_now");
+
+
+
+        $(".month-head span").text(FullYear + "年" + month + "月");
+
+        $("li.month-cell span").mouseover(function () {
+
+            $(this).parent().removeClass("pink");
+
+            $(this).parent().addClass("red");
+
+        });
+
+        $("li.month-cell span").mouseout(function () {
+
+            $(this).parent().removeClass("red");
+
+            $(this).parent().addClass("pink");
+
+        });
+
+        $("li.month-cell span").click(function () {
+
+            var fwrq = null;
+
+            if (parseInt($(this).text()) <= parseInt($("li.month-cell span").eq(firstDay - 1 + date)
+
+                    .text()))
+
+                if ($(this).text() < 10) {
+
+                    fwrq = FullYear + "-" + month + "-" + 0 + $(this).text();
+
+                    //window.location.href = "includes/search_allbyday.html-fwrq=.htm" + fwrq;
+
+                } else {
+
+                    fwrq = FullYear + "-" + month + "-" + $(this).text();
+
+                    //window.location.href = "includes/search_allbyday.html-fwrq=.htm" + fwrq;
+
+                }
+
+        });
+
+
+
+    });
+
+</script>
+
+
+
+<div class="footer-box">
+
+    <style>
+
+        .foot-CRselectBox4 a.foot-CRselectValue4,.foot-CRselectBox2 a.foot-CRselectValue2{width: 160px;padding-right: 30px;white-space: normal;}
+
+ </style>
+
+
+
+    <div class="index_pane4 cont" style="width:1000px;margin-left:auto;margin-right:auto;">
+
+        <!-- 改动 -->
+
+        <div class="ico_nav" > <a style="width:100px;" href="javascript:void(0)">站点地图</a>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+
+    <div class="index_map" style="display: none;">
+
+        <div class="cont" style="width:1050px;margin-left:auto;margin-right:auto;">
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00003/">资讯中心</a></dt>
+
+                    <dd>
+
+                        <ul>
+                            <li><a target="_blank" href="/channels/ch00005/">人社要闻</a></li>
+                            <li><a target="_blank" href="/channels/ch07787/">时政要闻</a></li>
+                            <li><a target="_blank" href="/channels/ch00021/">热点聚焦</a></li>
+                            <li><a target="_blank" href="/channels/ch00330/">通知公告</a></li>
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00332/">政府信息公开</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch06434/">政府信息公开指南</a></li>
+                            <li><a target="_blank" href="/channels/ch00336/">政府信息公开制度</a></li>
+                            <li><a target="_blank" href="/channels/ch06438/">法定主动公开内容</a></li>
+                            <li><a target="_blank" href="/channels/ch06439/">政府信息公开年报</a></li>
+                            <li><a target="_blank" href="http://credit.shandong.gov.cn/creditsearch.publicity.dhtml">双公示信息</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+       <!--     <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00470/">政策法规</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/?wjfl=5rOV5b6L5rOV6KeE6KeE56ug5Y+K6KeE6IyD5oCn5paH5Lu2&title=&wh=&fwrq=">法律法规规章规范性文件</a></li>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/?wjfl=6KeE6IyD5oCn5paH5Lu26I2J5qGI&title=&wh=&fwrq=">规范性文件草案</a></li>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/">政策文件查询</a></li>
+
+                            <li><a target="_blank" href="/channels/ch00580/">政策解读</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>-->
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00582/">服务大厅</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch00586/">通知公告</a></li>
+                            <li><a target="_blank" href="/channels/ch00588/">信息查询</a></li>
+                            <li><a target="_blank" href="/channels/ch00594/">下载中心</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00592/">互动交流</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch00946/">
+							厅长信箱</a></li>
+                            <li><a target="_blank" href="/channels/ch00948/">
+							建言献策</a></li>
+                            <li><a target="_blank" href="/channels/ch00610/">
+							咨询热点回放</a></li>
+
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="/template/srst/default/images/js/public.js"></script>
+
+    <div class="footer-link clearfix" style="background-color: #8fb5d2;" >
+
+        <div class="text-box2" style="width: 1000px;height: auto; margin-left: 0 auto;">
+
+            <div style="display: inline-block;font-size: 16px;color: #fff;">友情链接 >></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.gov.cn/" style="color: #fff;" target="_blank">国务院</a></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.mohrss.gov.cn/" style="color: #fff;" target="_blank">人社部</a></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.shandong.gov.cn/" style="color: #fff;" target="_blank">山东省政府</a></div>
+
+            <select id="select33" size="1" onchange="javascript:window.open(this.options[this.selectedIndex].value);this.selectedIndex=0"
+
+                style="width:27%;border: 0;outline-style: none;margin-left: 30px;font-size: 15px;color: #fff;background: #8fb5d1;">
+
+                <option style="color: #000;background: #fff;" selected="">山东省各地市人力资源和社会保障局</option>
+
+                <option style="color: #000;background: #fff;" value="http://jnhrss.jinan.gov.cn/">济南市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.qingdao.gov.cn/">青岛市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.zibo.gov.cn/">淄博市</option>
+
+                <option style="color: #000;background: #fff;" value="http://zzhrss.zaozhuang.gov.cn/">枣庄市</option>
+
+                <option style="color: #000;background: #fff;" value="http://dylss.dongying.gov.cn/">东营市</option>
+
+                <option style="color: #000;background: #fff;" value="https://rshj.yantai.gov.cn">烟台市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.weifang.gov.cn/">潍坊市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.jining.gov.cn">济宁市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.taian.gov.cn/">泰安市</option>       
+
+                <option style="color: #000;background: #fff;" value="http://rsj.weihai.gov.cn/">威海市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.rizhao.gov.cn/">日照市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.linyi.gov.cn/">临沂市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.dezhou.gov.cn/">德州市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.liaocheng.gov.cn/">聊城市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rs.binzhou.gov.cn/">滨州市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hzrsj.heze.gov.cn/">菏泽市</option>
+
+            </select>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+    <div class="copyright">
+
+        <div class="container" style="height:95px;margin: 0 auto;">
+
+            <div style="float:left;margin-left:100px;width:110px; text-align:center; overflow:hidden;padding-top:12px;">
+
+                <script id="_jiucuo_" sitecode="3700000027" src="https://zfwzgl.www.gov.cn/exposure/jiucuo.js"></script>
+
+            </div>
+
+            <div style="float:left;width:70px;text-align:center;overflow:hidden;">
+
+                <!--<script src="http://dcs.conac.cn/js/16/000/0000/60418909/CA160000000604189090002.js" type="text/javascript"></script>-->
+
+<span id="_ideConac"><a href="//bszs.conac.cn/sitename?method=show&amp;id=08314E66B4BB5B11E053012819AC5237" target="_blank"><img id="imgConac" vspace="0" hspace="0" border="0" src="/template/srst/default/images/dzjg/red.png" data-bd-imgshare-binded="1"></a></span>
+
+            </div>
+
+<!--加入收藏 -->
+
+<script>
+
+function addFavorite2() {
+
+var url = window.location;
+
+var title = document.title;
+
+var ua = navigator.userAgent.toLowerCase();
+
+if (ua.indexOf("360se") > -1) {
+
+alert("由于360浏览器功能限制，请按 Ctrl+D 手动收藏！");
+
+}
+
+else if (ua.indexOf("msie 8") > -1) {
+
+window.external.AddToFavoritesBar(url, title); //IE8
+
+}
+
+else if (document.all) {
+
+try{
+
+window.external.addFavorite(url, title);
+
+}catch(e){
+
+alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+
+}
+
+}
+
+else if (window.sidebar) {
+
+window.sidebar.addPanel(title, url, "");
+
+}
+
+else {
+
+alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+
+}
+
+}
+
+</script>
+
+            <div style="float:left;width:500px; text-align:center; overflow:hidden;">
+
+                <p class="link">
+
+                    <a href="/channels/ch02606/" float:left; margin-left:40px;>联系我们</a>|<a href="javascript:void(0);" onclick="javascript:addFavorite2()"
+
+                        float:left; margin-left:40px;>加入收藏</a>|<a href="https://mail.shandong.cn/" target="_blank" float:left; margin-left:40px;>邮箱登录</a></p>
+
+                <p>主办单位：山东省人力资源和社会保障厅&nbsp;&nbsp;&nbsp;&nbsp;版权所有：山东省人力资源和社会保障厅</p>
+
+                <p>技术支持：山东省社会保险事业中心社会保障卡管理服务处&nbsp;&nbsp;&nbsp;&nbsp;政府网站标识码：3700000027</p><div style="display:none;"> <script type="text/javascript">
+ $.get("/statistics/do/embedservice/count?method=read&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+<span id="site_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#site_show_count").empty();
+   $("#site_show_count").append(data.result[0]);
+	}
+}
+);
+</script>
+</div>
+
+                <p style="margin-left:90px;"><span style="float:left;padding-right:10px;"><a href="https://beian.miit.gov.cn"  target="_blank" style="color:#ffffff;">鲁ICP备10039682号-6</a></span>
+
+                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010202001324"><img
+
+                            src="/template/srst/default/images/batb.png" style="float:left;"><span style="float:left;margin: 0px 0px 0px 5px; color:#ffffff;">鲁公网安备37010202001324号</span></a>
+
+                </p>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--悬浮 start-->
+
+<!--<div class="left-fixed-tool"> <a class="top-a" href="#">索引<br>
+
+ 服务</a> <a class="box-a" href="#">站点<br>
+
+ 日历</a> <a class="box-b" href="#">智能<br>
+
+ 咨询</a> <a class="bottom-a" href="#">渠道<br>
+
+ 媒体</a></div>-->
+
+<!--悬浮 end-->
+
+              <script>
+
+                   function search1() {
+
+                            var content = $('#search_content1').val();
+
+                            content = utf8_to_b64(content);
+
+                            var url = '/channels/ch05821/';
+
+                            url = url + '?content=' + content;
+
+                            window.open(url);
+
+                        }
+
+                    
+
+                        //加密
+
+                        function utf8_to_b64(str) {
+
+                            return window.btoa(unescape(encodeURIComponent(str)));
+
+                        }
+
+                        //解密
+
+                        function b64_to_utf8(str) {
+
+                            return decodeURIComponent(escape(window.atob(str)));
+
+                        }
+
+                    $(document).ready(function() {
+
+                        $("#search_content1").keydown(function() {
+
+                            if (event.keyCode == 13) {
+
+                                search1();
+
+                            }
+
+                        })
+
+                        $(".searchBtn2").click(function() {
+
+                            search1()
+
+                        })
+
+                    });
+
+                            function search2(keyword){
+
+                                $('#search_content1').attr('value',keyword);
+
+                                search1()
+
+                            }
+
+                 </script>
+
+<div id="of_whole" class="of_whole2">
+
+    <!--主体内容区开始-->
+
+    <div id="of_mainBody" class="push_t">
+
+        <!--左侧栏开始-->
+
+        <div class="side_small tag_line float_l">
+
+            <div class="mainProNav">
+
+                <dl class="navM1">
+
+                    <dd style="width:430px;">
+
+
+
+                        <div class="navbox_con1">
+
+                            <!--全文检索-->
+
+                            <div class="navbox_con1_left" style="padding:0!important;">
+
+                                <div class="navbox_con1_left_tit">
+
+                                    <div class="float_left">全文检索</div>
+
+                                </div>
+
+                                 <span>在整个网站范围内搜索</span>
+
+                                <div class="navbox_con1_left_search">
+
+                                        <input  name="content" type="text"  id="search_content1"  value="请输入关键字"
+
+                                            onClick="this.value=''" onFocus="if (value =='请输入关键字'){value =''}" onBlur="if (value ==''){value='请输入关键字'}">
+
+                                    <!-- <input name="" id='serachAllsy' type="text"> -->
+
+                                    <input id="search-button" class="searchBtn2" type="button" value="搜索" >
+
+                                </div>
+
+                                <div class="navbox_con1_left_con">
+
+                                    <a href="javascript:search2('就业')">就业</a><a href="javascript:search2('失业')">失业</a><a
+
+                                        href="javascript:search2('养老')">养老</a>
+
+                                    <a href="javascript:search2('社会保险')">社会保险</a><a href="javascript:search2('人事人才')">人事人才</a><a
+
+                                        href="javascript:search2('收入分配')">收入分配</a>
+
+                                    <a href="javascript:search2('劳动关系')">劳动关系</a><a href="javascript:search2('法律法规')">法律法规</a><a
+
+                                        href="javascript:search2('规范性文件')">规范性文件</a>
+
+                                    <a href="javascript:search2('行政许可')">行政许可</a><a href="javascript:search2('招聘')">招聘</a><a
+
+                                        href="javascript:search2('求职')">求职</a>
+
+                                    <a href="javascript:search2('农业')">农业</a><a href="javascript:search2('工业')">工业</a><a
+
+                                        href="javascript:search2('经济')">经济</a>
+
+                                    <a href="javascript:search2('工伤')">工伤</a><a href="javascript:search2('医疗')">医疗</a><a
+
+                                        href="javascript:search2('服务')">服务</a>
+
+                                    <a href="javascript:search2('政策')">政策</a><a href="javascript:search2('工作')">工作</a><a
+
+                                        href="javascript:search2('人力资源')">人力资源</a></div>
+
+                            </div>
+
+                            <!--网站导航-->
+
+                            
+
+
+
+                        </div>
+
+
+
+                    </dd>
+
+
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="top-a"></div>索引<br>服务
+
+                    </dt>
+
+                </dl>
+
+
+
+                <dl class="navM2">
+
+                    <dd>
+
+
+
+                        <div class="navbox_con2">
+
+                            <!--日历-->
+
+                            <div class="navbox_con2_left">
+
+                                <div class="month-container">
+
+                                    <div class="month-head"><span></span></div>
+
+                                    <ul class="month-body">
+
+                                        <div class="month-cell orange"><span>日</span></div>
+
+                                        <div class="month-cell blue"><span>一</span></div>
+
+                                        <div class="month-cell blue"><span>二</span></div>
+
+                                        <div class="month-cell blue"><span>三</span></div>
+
+                                        <div class="month-cell blue"><span>四</span></div>
+
+                                        <div class="month-cell blue"><span>五</span></div>
+
+                                        <div class="month-cell blue"><span>六</span></div>
+
+                                    </ul>
+
+                                    <div class="clear"></div>
+
+                                </div>
+
+                            </div>
+
+                            <!--最新发布-->
+
+                            <div class="navbox_con2_right">
+
+                                <div class="navbox_con2_right_tit">
+
+                                    <div class="float_left">最新发布</div>
+
+                                </div>
+
+                                <div class="navbox_con2_right_con">
+
+                                    <div class="navbox_con2_right_con" style="float:left;">
+
+                                        <ul class="news-list" style="float:left;margin-left:0px;padding:0px;margin-top:0px;">
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch08631/202609/f6c043c4-b29f-4cf4-be71-800e85634834.shtml" title="山东九月培训计划和“乐业山东”技能培训加油站活动信息新鲜出炉，快来邂逅你的“技”遇"
+
+                                                                        target="_blank">
+
+
+                                                        山东九月培训计划和“乐业山东”技能培训加油站活动...</a>
+
+                                                    </span><span class="span2">2026-09-01</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch08631/202608/0e6a8ac1-d44f-4d86-82dc-de74ac68a5f9.shtml" title="全省第一批“乐业山东”技能培训加油站名录"
+
+                                                                        target="_blank">
+
+
+                                                        全省第一批“乐业山东”技能培训加油站名录</a>
+
+                                                    </span><span class="span2">2026-08-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                            <a href="http://hrss.shandong.gov.cn/articles/ch06434/202012/edca2b7f-e279-4db1-a0c2-cdea970c7b14.shtml" title="推进政务公开  建设阳光政府" target="_blank">
+
+
+                                                        推进政务公开  建设阳光政府</a>
+
+                                                    </span><span class="span2">2022-01-05</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/f3637d87-4071-4230-bdcd-063718e6b525.shtml" title="省人力资源社会保障厅党组理论学习中心组开展集中学习研讨"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅党组理论学习中心组开展集中学...</a>
+
+                                                    </span><span class="span2">2023-09-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/ea8a3044-4edc-431b-99d6-a7976e132695.shtml" title="张涛一行赴山东技师学院调研校企合作"
+
+                                                                        target="_blank">
+
+
+                                                        张涛一行赴山东技师学院调研校企合作</a>
+
+                                                    </span><span class="span2">2023-09-08</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/79ef6f17-ec65-47ed-9307-ef5f40b19bd8.shtml" title="全省人力资源社会保障重点工作推进会召开"
+
+                                                                        target="_blank">
+
+
+                                                        全省人力资源社会保障重点工作推进会召开</a>
+
+                                                    </span><span class="span2">2023-09-05</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202308/3663b7f4-db23-452c-bfdc-f9b74befb4ed.shtml" title="省人力资源社会保障厅召开党组会传达学习习近平总书记重要讲话精神"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅召开党组会传达学习习近平总书...</a>
+
+                                                    </span><span class="span2">2023-08-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202308/0f11cfa3-1a28-427d-b51c-5a70a1ae829c.shtml" title="省人力资源社会保障厅党组中心组开展集中学习研讨"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅党组中心组开展集中学习研讨</a>
+
+                                                    </span><span class="span2">2023-08-23</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00314/201808/65496.shtml" title="第十届海内外高端人才交流会"
+
+                                                                        target="_blank">
+
+
+                                                        第十届海内外高端人才交流会</a>
+
+                                                    </span><span class="span2">2018-08-28</span></li>
+
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="box-a"></div>站点<br>日历
+
+                    </dt>
+
+                </dl>
+
+                <dl class="navM3">
+
+                    <dd>
+
+                        <div class="navbox_con3"><a href="/channels/ch06859/" target="_blank"><img src="/template/srst/default/images/navbox_con3.jpg"></a></div>
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="box-b"></div>智能<br>咨询
+
+                    </dt>
+
+                </dl>
+<style>
+
+.navbox_con4_center_btn a {
+    line-height: 20px;
+}
+</style>
+                <dl class="navM4">
+
+                    <dd style="width: 655px;">
+
+                        <div class="navbox_con4" >
+
+                            <!--ico-->
+
+                            <div class="navbox_con4_left">
+
+                                <div class="navbox_con4_left_ico">
+
+                                   
+
+                                    <div class="navbox_con4_left_btn"><img src="/template/srst/default/images/gwyicon.png"><a href="http://www.gov.cn/public/yidongkehuduan.htm" target="_blank">国务院</a></div>
+
+                                    <div class="navbox_con4_left_code"><img src="/template/srst/default/images/gwy.png" width="100" height="93"></div>
+
+                               
+
+                                </div>
+
+                                <div class="navbox_con4_left_ico">
+
+                                    <div class="navbox_con4_left_btn"><img src="/template/srst/default/images/wechat.png"><a href="">山东人社</a></div>
+
+                                    <div class="navbox_con4_left_code"><img src="/template/srst/default/images/sdrs_wx.png" width="100" height="93"></div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="navbox_con4_center">
+
+                                <div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/gwyicon.png"><a href="http://www.gov.cn/guowuyuan/gwykhdxcx/xiaochengxu.html" target="_blank">国务院客户端小程序</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/gwyxcx2023.png" width="100" height="93"></div>
+
+                                </div>
+								
+								<div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/20231206dy.png"><a href="">“山东人社”<br />抖音号</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/20231206.jpg" width="100" height="93"></div>
+
+                                </div>
+
+                               
+
+                            </div>
+							
+							<div class="navbox_con4_center">
+
+                                <div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/zs_12333icon.png"><a href="http://www.12333.gov.cn/ggfwstatic/download/app.html" target="_blank">人社部12333app</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/zs_12333.jpg" width="100" height="93"></div>
+
+                                </div>
+								
+								<div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/wechat.png"><a href="">山东人社杂志</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/rszz.jpg" width="100" height="93"></div>
+
+                                </div>
+								
+								
+
+                               
+
+                            </div>
+
+                            <!--人社APP
+
+                            <div class="navbox_con4_right"> <img src="/template/srst/default/images/navbox_con4_right.png"> </div>-->
+
+
+
+                        </div>
+
+
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="bottom-a"></div>渠道<br>媒体
+
+                    </dt>
+
+                </dl>
+
+
+
+            </div><!-- mainProNav end -->
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--footer end-->
+
+
+
+<script src="/template/srst/default/images/js/jquery.placehold.min.js"></script>
+
+<script src="/template/srst/default/images/js/switchable.js"></script>
+
+<script src="/template/srst/default/images/js/forweb.js"></script>
+
+<script src="/template/srst/default/images/js/sdrs.js"></script>
+
+<div style="display:none">
+
+<!--今日访问量：<span id="site_today_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e&today=true",
+function(data){
+	if(data.success){
+   $("#site_today_show_count").empty(); 
+   $("#site_today_show_count").append(data.result[0]);
+	}
+}
+); 
+</script>
+<br>
+
+总访问量： <script type="text/javascript">
+ $.get("/statistics/do/embedservice/count?method=read&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+<span id="site_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#site_show_count").empty();
+   $("#site_show_count").append(data.result[0]);
+	}
+}
+);
+</script>
+-->
+
+</div>
+
+
+
+
+
+<!--无障碍-->
+<link href="/indeci/assets/css1/bf/barrierfree.css" rel="stylesheet" type="text/css" />
+<!--<script src="http://hrss.shandong.gov.cn/indeci/assets/js/jquery-1.12.4.min.js"></script>-->
+<script src="/indeci/assets/js/iframe.js" id="barrierFree" data="sn=00BA70FA0C66666406857D7D95415F64DDFE095C3F999B519710480B7876C508&rcode=F03AAE6D55B0B46A87F426F827D7C49F2BA26A9FCBC4310D78CDAE41E28334EAA3D0610CE8492C14D5629C162B0C021B8801FB1C343AC2C2E3976946431E58B6AC854C44D12EE9335702E64F7045C926E1F15AC3B43BEC073E8F5008F5727EF6A6CB129A29DF06037AB2DFAEBC06C2F33AB0354C48193E8029BDE39EA18477AD"></script>
+<script>
+$(document).ready(function(){
+
+	
+	if ($('div').hasClass('index-main')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.index-main', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('ejcontent')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.ejcontent', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('list_bei')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.list_bei', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])	
+};
+	if ($('div').hasClass('zhengce_top')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.zhengce_top', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('fuwu_warp')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.fuwu_warp', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+})
+</script>
+<!--无障碍-->
+
+<!--登录显示-->
+	<script >
+function getMyCookie(key){
+		var val = "";	
+		// 对cookie操作
+		var cookies = document.cookie;
+			
+		cookies = cookies.replace(/\s+/g,"");
+//console.log("cookies 000:"+cookies );
+		var cookie_array = cookies.split(";");
+		for(i=0;i<cookie_array.length;i++){
+			var cookie = cookie_array[i];
+			var array = cookie.split("=");
+			if(array[0]==key){
+				val = array[1];
+			}
+		}
+		
+		return val;
+	}
+
+function denglu(){ 
+
+if(!navigator.cookieEnabled){
+alert('浏览器cookie已被禁用，请开启！');
+}
+
+        var sdid = getMyCookie("sdid");
+		if(sdid!=null&&sdid!=''){
+					 $.ajax({
+			  url : "/interact/oauthclient/getUserJson.do",
+			  dataType : "json",
+			  type : "post",
+			  async : true,
+			  success : function(data) { 
+			personname=decodeURIComponent(data.name);
+			/*console.log(personname);*/
+			/*仅显示*/
+			document.getElementById("xsname").innerText=personname;
+
+			 /*名字星号*/
+                var huifuname = document.getElementById("xsname").innerText;
+					var huifuname1 = huifuname.substr(0,1) + new Array(huifuname.length).join('*');
+                    document.getElementById('xsname').innerText = huifuname1;
+			/*显示*/		
+			document.getElementById("denglu").style.display='block';
+			document.getElementById("weidenglu").style.display='none';	
+			}
+					
+		 })
+			
+			}else{		
+	
+						 $.ajax({
+				
+						      url : "/interact/oauthclient/getUser.do",//请求地址
+						      dataType : "json",//数据格式 
+						      type : "post",//请求方式
+						      async : true,//是否异步请求
+						      success : function(data) {   //如果发送成功
+
+										if(data.flag=="true"){
+										document.getElementById("personname").value=decodeURIComponent(data.name);
+									      }else{
+			document.getElementById("denglu").style.display='none';
+			document.getElementById("weidenglu").style.display='';
+												//	 if(window.confirm('请先登录！')){
+												//	 window.parent.location.href="http://hrss.shandong.gov.cn/gentleCMS/oauthclient/toLogin.do?sitedomain=hrss";
+												//	 return true;
+												//  }else{
+												//	 return false;
+												// }
+													
+									       }
+										}
+										
+						 })
+						
+			 
+				}
+                
+	}
+$(function(){denglu();})
+function clearCookie(){
+document.cookie = "sdid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.shandong.gov.cn";
+
+ $.ajax({
+				
+						      url : "/interact/oauthclient/Out.do",//请求地址
+						      dataType : "json",//数据格式 
+						      type : "post",//请求方式
+						      async : true,//是否异步请求
+						      success : function() {   //如果发送成功
+                                                                  location.reload(true);
+										
+										},
+								error: function(){
+								alert('操作失败');}
+										
+						 })
+						
+	}
+</script>
+<div id="denglu" style="position: absolute; top: 10px; left: 85%; width: 150px; z-index:999; display:none;">
+        <table class="wyts_Class" width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>
+					<a href="/channels/ch08303/"><span id="xsname"></span></a>
+					<input type="text" id="personname" name="personname" class="validate[,required,minSize[0],maxSize[30]]"
+                            size="30" maxlength="30" readonly="readonly" style="display:none;">
+                    </td>
+                    <td>
+					<a href="javascript:clearCookie();">[退出]</a>
+                    </td>
+                </tr>                                            
+            </tbody>
+        </table>
+</div>
+<div id="weidenglu" style="position: absolute; top: 10px; left: 85%; width: 150px; z-index:999;">
+        <table class="wyts_Class" width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>
+					<a href="/channels/ch08303/">用户中心</a>					
+                    </td>
+					<td>
+					<a href="/interact/oauthclient/toLogin.do?sitedomain=hrss">[登录]</a>
+					</td>
+                </tr>                                            
+            </tbody>
+        </table>
+</div>
+<!--登录显示end-->
+</body>
+
+
+
+</html>
+

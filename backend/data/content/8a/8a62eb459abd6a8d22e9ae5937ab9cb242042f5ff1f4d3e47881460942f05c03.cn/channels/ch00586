@@ -1,0 +1,3931 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+   <meta charset="UTF-8">
+
+
+
+   <title>山东省人力资源和社会保障厅</title>
+
+
+
+<script type="text/javascript">var embedRootPath = "/gentleCMS";var memberPath="/interact"; var embedRootPath = "/interact";</script>
+<script  type="text/javascript" src="/template/system/jquery/jquery.min.js"></script>
+<link type="text/css" href="/template/system/jquery/jquery-all.css"  rel="stylesheet"/>
+<script src="/template/system/jquery/ajaxfileupload/ajaxfileupload.js" type="text/javascript"></script>
+<script src="/template/system/jquery/jtemplates/jquery-jtemplates.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/My97DatePicker/WdatePicker.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery.validationEngine.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery-migrate.min.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/validate/jquery.validationEngine-en.js" type="text/javascript"></script>
+<link type="text/css" href="/template/system/jquery/validate/validationEngine.jquery.css"  rel="stylesheet"/>
+
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.dateutil.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.util.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.embed.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.vote.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.gip.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.dynamic.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.cmsmember.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/echarts/echarts.min.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.question.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/echarts.cms.question.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/echarts.cms.vote.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.tamap.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.userlogin.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.weibo.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.weixin.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.pdfresource.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/weixinjs/jweixin-1.4.0.js" type="text/javascript"></script>
+<script charset="utf-8" src="/template/system/weibojs/wbsdk.js" type="text/javascript"></script>
+
+
+
+  <script type="text/javascript">var exchangePath = "/interact";</script>
+  <script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.exchange.js" type="text/javascript"></script>
+  <script type="text/javascript" src="/template/system/jquery/cms/jquery.cms.interact.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/template/system/jquery/raty/jquery.raty.min.js" charset="utf-8"></script>
+  <script type="text/javascript" src="/template/system/login/jsencrypt.js"></script>
+
+
+
+   <link rel="stylesheet" href="/template/srst/default/css/reset.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/tool.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/communal.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/index.css" type="text/css">
+
+   <link rel="stylesheet" href="/template/srst/default/css/pindao.css" type="text/css">
+
+   <link rel="stylesheet" type="text/css" href="/template/srst/default/css/jquery-ui.css" />
+
+   <link href="/template/srst/default/css/jquery.bxslider.css" rel="stylesheet" />
+
+
+
+   <script src="/template/srst/default/images/js/jquery1.min.js"></script> 
+
+   <script src="/template/srst/default/images/js/title.js"></script> 
+
+   <script src="/template/srst/default/images/js/jquery-ui-datepicker.js"></script>
+
+
+
+</head>
+
+<body>
+
+
+
+
+
+<meta name="SiteName" content="山东省人力资源和社会保障厅">
+<meta name="SiteDomain"  content="/">
+<meta name="SiteIDCode"  content="3700000027">
+<meta name="ColumnName" content="通知公告">
+<meta name="ColumnDescription" content="通知公告">
+<meta name="ColumnKeywords" content="通知公告">
+<meta name="ColumnType" content="通知公告">
+<meta name="pagetype" content="2">
+
+<div class="header-box">
+
+
+
+    <div class="container">
+
+        <a class='zx_logo' href="javascript:void(0);">
+
+            
+                    <img src="/resource/srst/202101/e834db2e-f7d6-4f30-8da5-ab7ee8e56361.png" alt="">
+
+
+        </a>
+
+        <div class="header-tool" style=" margin-top: 43px;">
+
+                <script>
+
+				   function search() {
+
+                            var content = $('#search_content').val();
+
+                            content = utf8_to_b64(content);
+
+                            var url = '/channels/ch05821/';
+
+                            url = url + '?content=' + content;
+
+                            window.open(url);
+
+                        }
+
+					
+
+                        //加密
+
+                        function utf8_to_b64(str) {
+
+                            return window.btoa(unescape(encodeURIComponent(str)));
+
+                        }
+
+                        //解密
+
+                        function b64_to_utf8(str) {
+
+                            return decodeURIComponent(escape(window.atob(str)));
+
+                        }
+
+                    $(document).ready(function() {
+
+                        $("#search_content").keydown(function() {
+
+                            if (event.keyCode == 13) {
+
+                                search();
+
+                            }
+
+                        })
+
+                        $(".searchBtn").click(function() {
+
+                            search()
+
+                        })
+
+                    });
+
+							function searchNew(keyword){
+
+								$('#search_content').attr('value',keyword);
+
+								search()
+
+							}
+
+                 </script>
+
+<span>在整个网站范围内搜索</span>
+
+            <div class="search-box" style="margin-top: 0px;">
+
+                    <input name="content" type="text" id="search_content" value="请输入关键字" onClick="this.value=''" onFocus="if (value =='请输入关键字'){value =''}" onBlur="if (value ==''){value='请输入关键字'}">
+
+                <!-- <input id="serachAll" type="text" placeholder="请输入关键字" /> -->
+
+                <a id="search-new" class="search-btn searchBtn le" ></a>
+
+            </div>
+
+
+
+            <div class="keyword">
+
+                <span>热点：</span>
+
+                <a href="javascript:searchNew('就业')">就业</a>
+
+                <a href="javascript:searchNew('失业')">失业</a>
+
+                <a href="javascript:searchNew('工伤保险')">工伤保险</a>
+
+                <a href="javascript:searchNew('公务员培训')">公务员培训</a>
+
+                <a href="javascript:searchNew('劳动工资')">劳动工资</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--header end-->
+
+<!--nav start-->
+<!--nav start-->
+
+<style>
+.nav-box .nav li {
+
+   width: 11.1%;
+}
+
+</style>
+
+<div class="nav-box">
+
+    <ul class="container nav">
+
+                <li style="width:10%;"><a href="/" >首页</a></li>
+
+                <li style="width:10%;"><a href="/channels/ch00003/" >资讯中心</a></li>
+
+                <li style="width:15%;"><a href="/channels/ch06433/"  target="_blank">政府信息公开</a></li>
+
+    <!--            <li style="width:10%;"><a href="/channels/ch00470/" >政策法规</a></li>-->
+
+                <li style="width:10%;"><a href="/channels/ch00582/" >服务大厅</a></li>
+
+                <li style="width:10%;"><a href="/channels/ch00592/">互动交流</a></li>
+
+               <li style="width:10%;"><a href="/channels/ch06859/">智能咨询</a></li>
+
+				<li style="width:15%;" class="last"><a id="wuzhangai" >无障碍工具</a></li>
+				<!--<li style="width:10%;" class="last"><a href="/channels/ch08014/">长者专区</a></li>-->
+				<li style="width:10%;" class="last"><a id="bfElder" style="cursor: pointer;">关怀版</a></li>
+
+    </ul>
+
+</div>
+
+<!--nav end-->
+
+<!--nav end-->
+
+  <script charset="utf-8" src="/template/system/jquery/cms/jquery.cms.util.js" type="text/javascript"></script>
+
+<link rel="stylesheet" href="/template/srst/default/css/list.css" type="text/css" />
+<!--nav end--> 
+<!--body start-->
+<div class="list_bei">
+  <div class="warp">
+    <div class="warp_title">当前位置:      <a href="/" class="">首页</a>>>
+     <a href="/channels/ch00582/" class="">服务</a>>>
+  <a href="/channels/ch00586/" class="">通知公告</a>
+</div>
+    <div class="warp_list">
+      <div class="list_list">
+      <ul >
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202604/3474e5cd-6fb5-4b5f-8e97-7bb72e32e367.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅劳动节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅劳动节放假的通知</a></p>
+              <p class="list_more_one">2026-04-30</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202604/7b6eede8-4e4d-49ff-b6ba-297a87c48381.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅清明节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅清明节放假的通知</a></p>
+              <p class="list_more_one">2026-04-03</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202602/f611ea51-b582-46dc-ada6-b8c96dd1c80a.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅春节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅春节放假的通知</a></p>
+              <p class="list_more_one">2026-02-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202512/de429738-1595-496d-a4c5-fc998baacbfb.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅元旦放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅元旦放假的通知</a></p>
+              <p class="list_more_one">2025-12-31</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202509/37d8b04f-88cb-425b-8815-883b49c55f5d.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅中秋节和国庆节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅中秋节和国庆节放假的通知</a></p>
+              <p class="list_more_one">2025-09-17</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202505/b1040856-fb2a-4679-afa7-90ca9da0909a.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅端午节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅端午节放假的通知</a></p>
+              <p class="list_more_one">2025-05-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202504/3724a50c-e116-4afe-ad04-29d036be1709.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅劳动节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅劳动节放假的通知</a></p>
+              <p class="list_more_one">2025-04-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202503/1e0ca2d2-ad28-4cd6-8755-3dea0cd9db6b.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅清明节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅清明节放假的通知</a></p>
+              <p class="list_more_one">2025-03-31</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202501/23571d15-60f4-489d-a7ca-d34b757aee1b.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅春节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅春节放假的通知</a></p>
+              <p class="list_more_one">2025-01-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202412/6a7320a9-1c1e-4ebb-af37-b5a363479ac6.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅元旦放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅元旦放假的通知</a></p>
+              <p class="list_more_one">2024-12-30</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202409/315b81b9-3236-478d-81ac-362f8bb669b8.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅国庆节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅国庆节放假的通知</a></p>
+              <p class="list_more_one">2024-09-23</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202409/275f73f8-e02f-4356-a75a-b8dbcc5aa5cd.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅中秋节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅中秋节放假的通知</a></p>
+              <p class="list_more_one">2024-09-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202407/a0708252-1037-4cf4-8f46-7b993a0411e7.shtml" title="关于进驻省级人社政务服务大厅服务事项的公告" target="_blank">
+            关于进驻省级人社政务服务大厅服务事项的公告</a></p>
+              <p class="list_more_one">2024-07-09</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202406/77a56efe-294f-42f1-bde4-f67d611aa979.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅端午节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅端午节放假的通知</a></p>
+              <p class="list_more_one">2024-06-03</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202404/69459b9a-49b3-4130-9dd0-c1f0808939dc.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅劳动节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅劳动节放假的通知</a></p>
+              <p class="list_more_one">2024-04-23</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202404/41b49a17-d95a-40b0-97a9-edea10314e8d.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅清明节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅清明节放假的通知</a></p>
+              <p class="list_more_one">2024-04-01</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202401/20a8c43e-4d4f-4db5-adcf-dbff84cffe1f.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅春节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅春节放假的通知</a></p>
+              <p class="list_more_one">2024-01-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202312/ed1a1435-3715-4e6d-b7cc-d87df01af20e.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅元旦放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅元旦放假的通知</a></p>
+              <p class="list_more_one">2023-12-26</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202309/c4ebd70c-d105-4e59-b59b-8a412b75ad1e.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅国庆节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅国庆节放假的通知</a></p>
+              <p class="list_more_one">2023-09-25</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202306/563e842d-1090-4cd6-bb49-6c7f0b06c29f.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅端午节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅端午节放假的通知</a></p>
+              <p class="list_more_one">2023-06-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202304/842edbf2-3003-461f-97d6-2711da196a3a.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅劳动节放的假通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅劳动节放的假通知</a></p>
+              <p class="list_more_one">2023-04-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202301/52188981-8082-4172-829d-2ce4227b501b.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅春节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅春节放假的通知</a></p>
+              <p class="list_more_one">2023-01-19</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202209/baedbcd2-6553-41b7-9825-b9c546a63853.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅国庆节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅国庆节放假的通知</a></p>
+              <p class="list_more_one">2022-09-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202209/52e61147-ed95-4378-b14c-8d43ba1ea436.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅中秋节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅中秋节放假的通知</a></p>
+              <p class="list_more_one">2022-09-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202206/1ade913a-25ad-4aed-9de4-e569f6f1467d.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅端午节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅端午节放假的通知</a></p>
+              <p class="list_more_one">2022-06-02</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202204/2d80480b-808d-40a7-b566-45469766c675.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅劳动节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅劳动节放假的通知</a></p>
+              <p class="list_more_one">2022-04-27</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202204/64e1d0f9-1d4f-4ba9-9f20-84bcff7fd8e6.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅清明节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅清明节放假的通知</a></p>
+              <p class="list_more_one">2022-04-02</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202201/88e7f775-bb6a-4b49-a2fb-9c1e723efe63.shtml" title="关于山东省人力资源和社会保障厅政务服务大厅春节放假的通知" target="_blank">
+            关于山东省人力资源和社会保障厅政务服务大厅春节放假的通知</a></p>
+              <p class="list_more_one">2022-01-25</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202107/2c4b3080-1669-48a4-b0fa-1c8b89a732a5.shtml" title="临时调整山东省人力资源和社会保障厅政务服务大厅工作时间的通知" target="_blank">
+            临时调整山东省人力资源和社会保障厅政务服务大厅工作时间的通知</a></p>
+              <p class="list_more_one">2021-07-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202006/712c5622-7f77-4492-b061-4844914f135e.shtml" title="国务院公开征集“六稳”“六保”问题线索！" target="_blank">
+            国务院公开征集“六稳”“六保”问题线索！</a></p>
+              <p class="list_more_one">2020-06-02</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202004/16cb2046-e40d-4239-8e59-b5375c0e0242.shtml" title="省人社厅召开12345热线、山东政务服务网“一线一网”省级政务服务事项办理工作会议" target="_blank">
+            省人社厅召开12345热线、山东政务服务网“一线一网”省级政务服务事项办理工作会议</a></p>
+              <p class="list_more_one">2020-04-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/202003/cd10ca9b-74db-4975-92d2-727469b91d10.shtml" title="省人社、医保政务服务大厅
+关于提倡网上办、自助办、快速办、帮办代办
+做好新型冠状病毒感染的肺炎疫情防控工作的倡议书" target="_blank">
+            省人社、医保政务服务大厅
+关于提倡网上办、自助办、快速办、帮办代办
+做好新型冠状病毒感染的肺炎疫情防控工作的倡议书</a></p>
+              <p class="list_more_one">2020-03-16</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                <a href="http://www.mohrss.gov.cn/SYrlzyhshbzb/fwyd/sykaoshi/zyjsryzyzgkshgbz/201911/t20191125_343425.html" title="关于2019年度注册设备监理师资格考试合格标准有关事项的通告" target="_blank">
+关于2019年度注册设备监理师资格考试合格标准有关事项的通告</a></p>
+              <p class="list_more_one">2019-11-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                <a href="http://www.mohrss.gov.cn/SYrlzyhshbzb/fwyd/sykaoshi/zyjsryzyzgkshgbz/201911/t20191125_343422.html" title="关于2019年度注册核安全工程师资格考试合格标准有关事项的通告" target="_blank">
+关于2019年度注册核安全工程师资格考试合格标准有关事项的通告</a></p>
+              <p class="list_more_one">2019-11-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201911/db842f6d-d8ea-42ec-96c2-74630e9dac47.shtml" title="关于组织开展2019年度省级人力资源服务业发展扶持资金项目申报工作的通知" target="_blank">
+            关于组织开展2019年度省级人力资源服务业发展扶持资金项目申报工作的通知</a></p>
+              <p class="list_more_one">2019-11-27</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201911/a90f1a08-1020-45dc-b795-1b32513e99e3.shtml" title="关于对新泰市贵和职业培训学校拟入选2019年度山东省家庭服务职业培训省级示范基地的公示" target="_blank">
+            关于对新泰市贵和职业培训学校拟入选2019年度山东省家庭服务职业培训省级示范基地的公示</a></p>
+              <p class="list_more_one">2019-11-25</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201911/b7b00e4b-a66b-45c7-b24a-fe049cc36111.shtml" title="关于对2019年山东省有突出贡献的中青年专家公示考察人选进行公示和考察的通知" target="_blank">
+            关于对2019年山东省有突出贡献的中青年专家公示考察人选进行公示和考察的通知</a></p>
+              <p class="list_more_one">2019-11-06</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201910/2fb02aac-8b06-4661-bcfd-cd7070420bfd.shtml" title="关于组织2019年度省“千名博士挂职企业科技副总”行动的通知" target="_blank">
+            关于组织2019年度省“千名博士挂职企业科技副总”行动的通知</a></p>
+              <p class="list_more_one">2019-10-31</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201910/f22c1380-dec7-40fb-ace8-58253f447be3.shtml" title="关于组织推荐2019年度基层人才挂职研修人选的通知" target="_blank">
+            关于组织推荐2019年度基层人才挂职研修人选的通知</a></p>
+              <p class="list_more_one">2019-10-25</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201910/fe810ba5-666d-440b-9516-6dfaf88c8447.shtml" title="中国博士后创新创业成果大赛入围决赛名单公布" target="_blank">
+            中国博士后创新创业成果大赛入围决赛名单公布</a></p>
+              <p class="list_more_one">2019-10-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201910/30a4929b-a7ae-4184-beba-beb067d241e8.shtml" title="关于暂停部分人社公共服务信息系统的公告" target="_blank">
+            关于暂停部分人社公共服务信息系统的公告</a></p>
+              <p class="list_more_one">2019-10-16</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201910/7f245c9c-8761-4c79-9b10-bcee994b4636.shtml" title="关于公布全省2019年第三批重大劳动保障违法行为的公告" target="_blank">
+            关于公布全省2019年第三批重大劳动保障违法行为的公告</a></p>
+              <p class="list_more_one">2019-10-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201910/7aae41b0-fd89-4ba1-a49e-37b085f138ce.shtml" title="关于举办山东省“技能兴鲁”职业技能大赛——全国新能源汽车关键技术技能大赛山东省选拔赛的通知" target="_blank">
+            关于举办山东省“技能兴鲁”职业技能大赛——全国新能源汽车关键技术技能大赛山东省选拔赛的通知</a></p>
+              <p class="list_more_one">2019-10-14</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201910/2562de32-8504-43f8-b972-ac318e12579a.shtml" title="关于做好2019年度山东省博士后有关资助项目申报工作的通知" target="_blank">
+            关于做好2019年度山东省博士后有关资助项目申报工作的通知</a></p>
+              <p class="list_more_one">2019-10-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201910/25446093-da61-4bd5-a3ef-dbe7682d5cde.shtml" title="关于全省2019年度二级注册计量师资格考试合格标准的公告" target="_blank">
+            关于全省2019年度二级注册计量师资格考试合格标准的公告</a></p>
+              <p class="list_more_one">2019-10-11</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201910/03010669-03d9-41a1-bae9-d003ca1a3c98.shtml" title="关于推荐2019年国家留学基金委日本政府（文部科学省）青年领导者奖学金项目候选人的公示" target="_blank">
+            关于推荐2019年国家留学基金委日本政府（文部科学省）青年领导者奖学金项目候选人的公示</a></p>
+              <p class="list_more_one">2019-10-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                <a href="http://www.mohrss.gov.cn/SYrlzyhshbzb/fwyd/sykaoshi/zyjsryzyzgkshgbz/201909/t20190929_335654.html?from=singlemessage&isappinstalled=0" title="关于2019年度注册建筑师资格考试合格标准有关事项的通告" target="_blank">
+关于2019年度注册建筑师资格考试合格标准有关事项的通告</a></p>
+              <p class="list_more_one">2019-10-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201910/61cb2fda-563a-4a49-bb40-42e3a4e15d86.shtml" title="关于补录2019年度省博士后创新项目拟资助项目的公示" target="_blank">
+            关于补录2019年度省博士后创新项目拟资助项目的公示</a></p>
+              <p class="list_more_one">2019-10-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201910/9b6feee3-4c90-45b6-afa8-f921f1da22ce.shtml" title="关于对拟入选2019年度山东省家庭服务职业培训省级示范基地名单的公示" target="_blank">
+            关于对拟入选2019年度山东省家庭服务职业培训省级示范基地名单的公示</a></p>
+              <p class="list_more_one">2019-10-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201909/098e4f05-f2a7-4417-8625-8f2ef73a22fb.shtml" title="关于推荐评选全国人力资源社会保障系统2017-2019年度优质服务窗口和优质服务先进个人的公示" target="_blank">
+            关于推荐评选全国人力资源社会保障系统2017-2019年度优质服务窗口和优质服务先进个人的公示</a></p>
+              <p class="list_more_one">2019-09-30</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201909/0f85e06f-8e2b-4441-b44c-6710b604140f.shtml" title="山东省各市劳动保障监察举报投诉方式" target="_blank">
+            山东省各市劳动保障监察举报投诉方式</a></p>
+              <p class="list_more_one">2019-09-27</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201909/4e484fd6-9c9e-4ac5-96df-5593c413666f.shtml" title="关于2019年度省博士后创新项目拟资助项目的公示" target="_blank">
+            关于2019年度省博士后创新项目拟资助项目的公示</a></p>
+              <p class="list_more_one">2019-09-25</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201909/193cbdfa-e15a-4bdf-b133-8904d9183acb.shtml" title="关于开展2019年度山东省博士后创新人才支持计划申报工作的通知" target="_blank">
+            关于开展2019年度山东省博士后创新人才支持计划申报工作的通知</a></p>
+              <p class="list_more_one">2019-09-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201909/3abb5d87-d488-42dd-80aa-d7f0a818744b.shtml" title="关于举办2019年下半年“山东—名校人才直通车”活动的通知" target="_blank">
+            关于举办2019年下半年“山东—名校人才直通车”活动的通知</a></p>
+              <p class="list_more_one">2019-09-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201909/b251b872-cf51-4413-940f-5aed1b157d45.shtml" title="推荐参选“全国人力资源诚信服务示范机构”情况公示" target="_blank">
+            推荐参选“全国人力资源诚信服务示范机构”情况公示</a></p>
+              <p class="list_more_one">2019-09-06</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201909/e7bd821c-6cfb-4e3c-a6ae-3ff26d585225.shtml" title="第五届（2018年度）山东省人力资源社会保障优秀科研成果评审结果公示" target="_blank">
+            第五届（2018年度）山东省人力资源社会保障优秀科研成果评审结果公示</a></p>
+              <p class="list_more_one">2019-09-05</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                <a href="http://www.mohrss.gov.cn/SYrlzyhshbzb/fwyd/sykaoshi/zyjsryzyzgkshgbz/201909/t20190904_332755.html" title="关于2019年度一级注册计量师资格考试合格标准有关事项的通告" target="_blank">
+关于2019年度一级注册计量师资格考试合格标准有关事项的通告</a></p>
+              <p class="list_more_one">2019-09-05</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                <a href="http://www.mohrss.gov.cn/SYrlzyhshbzb/fwyd/sykaoshi/zyjsryzyzgkshgbz/201909/t20190903_332619.html" title="关于2019年上半年翻译专业资格（水平）考试合格标准有关事项的通告" target="_blank">
+关于2019年上半年翻译专业资格（水平）考试合格标准有关事项的通告</a></p>
+              <p class="list_more_one">2019-09-05</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                <a href="http://www.mohrss.gov.cn/SYrlzyhshbzb/fwyd/sykaoshi/zyjsryzyzgkshgbz/201909/t20190904_332756.html" title="关于2019年度助理社会工作师、社会工作师职业水平考试合格标准有关事项的通告" target="_blank">
+关于2019年度助理社会工作师、社会工作师职业水平考试合格标准有关事项的通告</a></p>
+              <p class="list_more_one">2019-09-05</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201908/40fa1df5-05f3-490b-9301-18825ea71304.shtml" title="关于在省本级开展证明事项告知承诺制试点工作的通知" target="_blank">
+            关于在省本级开展证明事项告知承诺制试点工作的通知</a></p>
+              <p class="list_more_one">2019-08-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201908/978ecc0c-8965-4590-9499-4a07d3b892cb.shtml" title="关于实施省管用人单位遵守劳动保障法律法规情况随机抽查的通知" target="_blank">
+            关于实施省管用人单位遵守劳动保障法律法规情况随机抽查的通知</a></p>
+              <p class="list_more_one">2019-08-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201908/fd729670-e022-4ca5-8475-c2db4108d1a6.shtml" title="关于举办“全国重大生物灾害应急机制与绿色防控前沿技术”国家级高级研修班的函" target="_blank">
+            关于举办“全国重大生物灾害应急机制与绿色防控前沿技术”国家级高级研修班的函</a></p>
+              <p class="list_more_one">2019-08-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201908/9c7725d9-6f45-4e73-9a38-0e7cdb481167.shtml" title="关于开展省级专业技术人员继续教育基地申报工作的通知" target="_blank">
+            关于开展省级专业技术人员继续教育基地申报工作的通知</a></p>
+              <p class="list_more_one">2019-08-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201908/89e625ad-99fc-46b1-ba6d-36c8b81d4458.shtml" title="关于做好2019年度职称评审工作的公告" target="_blank">
+            关于做好2019年度职称评审工作的公告</a></p>
+              <p class="list_more_one">2019-08-07</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                <a href="http://paper.dzwww.com/dzrb/content/20190806/Articel03005MT.htm?tdsourcetag=s_pcqq_aiomsg" title="山东省人才发展条例草案征求意见" target="_blank">
+山东省人才发展条例草案征求意见</a></p>
+              <p class="list_more_one">2019-08-06</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201908/456605e0-d87f-460b-bfe9-e4f28e580a58.shtml" title="政府购买服务定向委托项目结果公告" target="_blank">
+            政府购买服务定向委托项目结果公告</a></p>
+              <p class="list_more_one">2019-08-06</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201907/065362ca-391c-4c11-b407-b9a3a32fc355.shtml" title="关于调整非教育系统政府公派出国留学项目部分类别外语水平要求标准的通知" target="_blank">
+            关于调整非教育系统政府公派出国留学项目部分类别外语水平要求标准的通知</a></p>
+              <p class="list_more_one">2019-07-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                <a href="http://www.mohrss.gov.cn/zyjsrygls/ZYJSRYGLSgongzuodongtai/201907/t20190723_326164.html" title="关于2019年度环境影响评价工程师职业资格考试合格标准有关事项的通告" target="_blank">
+关于2019年度环境影响评价工程师职业资格考试合格标准有关事项的通告</a></p>
+              <p class="list_more_one">2019-07-27</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201907/fe585729-f41d-49bf-9f7d-75eff7f420e3.shtml" title="关于向社会公布全省2019年第二批重大劳动保障违法行为的公告" target="_blank">
+            关于向社会公布全省2019年第二批重大劳动保障违法行为的公告</a></p>
+              <p class="list_more_one">2019-07-25</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201907/8a9a7877-e79f-4e50-90e1-2d050905afb2.shtml" title="声  明" target="_blank">
+            声  明</a></p>
+              <p class="list_more_one">2019-07-23</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201907/a4da7d14-8e96-4e07-a939-beb52248beb1.shtml" title="关于举办“高效轻简化绿色植棉技术”国家级高级研修班的函" target="_blank">
+            关于举办“高效轻简化绿色植棉技术”国家级高级研修班的函</a></p>
+              <p class="list_more_one">2019-07-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201907/1993d663-89f5-4037-b8b5-7b4767f2e008.shtml" title="山东省劳动保障监察总队变更登记的公告" target="_blank">
+            山东省劳动保障监察总队变更登记的公告</a></p>
+              <p class="list_more_one">2019-07-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201907/29c0d90f-23e3-41ef-a2cb-18349fe27174.shtml" title="关于举办“全国农村饮用水安全智能化技术与装备”国家级高级研修班的函" target="_blank">
+            关于举办“全国农村饮用水安全智能化技术与装备”国家级高级研修班的函</a></p>
+              <p class="list_more_one">2019-07-01</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201906/6bed4fa9-27e8-46d0-bdba-081eeb8b7b53.shtml" title="关于开展2019年全国人才与人事研究论文征集活动的通知" target="_blank">
+            关于开展2019年全国人才与人事研究论文征集活动的通知</a></p>
+              <p class="list_more_one">2019-06-25</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201906/bf66b4a8-dad9-4281-b818-febc70ee3ea1.shtml" title="“山东省新旧动能转换过程中提高劳动生产率的路径和方法”课题研究采购变更公告" target="_blank">
+            “山东省新旧动能转换过程中提高劳动生产率的路径和方法”课题研究采购变更公告</a></p>
+              <p class="list_more_one">2019-06-24</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201906/d938cbf3-4e6c-49c7-a903-da71fb369743.shtml" title="关于举办“高效生态农业生产模式与技术”国家级高级研修班的函" target="_blank">
+            关于举办“高效生态农业生产模式与技术”国家级高级研修班的函</a></p>
+              <p class="list_more_one">2019-06-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201906/61896fd7-52b6-4bf4-91c6-348029954206.shtml" title="公告" target="_blank">
+            公告</a></p>
+              <p class="list_more_one">2019-06-19</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201906/4941e423-8709-41a2-befa-a6315bda489e.shtml" title="关于发布全省流动人员人事档案管理服务机构信息情况的公告" target="_blank">
+            关于发布全省流动人员人事档案管理服务机构信息情况的公告</a></p>
+              <p class="list_more_one">2019-06-19</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201906/77cd7973-d96c-47d5-8447-323267367caa.shtml" title="关于山东省第三批省级“四型就业社区”认定名单的公示" target="_blank">
+            关于山东省第三批省级“四型就业社区”认定名单的公示</a></p>
+              <p class="list_more_one">2019-06-18</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201906/728eff7f-9faf-4fd6-8cbc-8576eb5cf95c.shtml" title="“山东省新旧动能转换过程中提高劳动生产率的路径和方法”课题研究竞争性磋商公告" target="_blank">
+            “山东省新旧动能转换过程中提高劳动生产率的路径和方法”课题研究竞争性磋商公告</a></p>
+              <p class="list_more_one">2019-06-17</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201906/026aab17-fd22-4f48-b962-ea8a2c4c4cd2.shtml" title="关于做好2019年度山东省有突出贡献的中青年专家推荐选拔工作的通知" target="_blank">
+            关于做好2019年度山东省有突出贡献的中青年专家推荐选拔工作的通知</a></p>
+              <p class="list_more_one">2019-06-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201906/d6f25d81-6bc9-4d93-9919-29eb106853a9.shtml" title="关于开展2019年度省博士后创新项目申报工作的通知" target="_blank">
+            关于开展2019年度省博士后创新项目申报工作的通知</a></p>
+              <p class="list_more_one">2019-06-04</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201906/466a3fb5-e7fe-491b-a71f-d35d3fa72916.shtml" title="关于暂停部分人社业务的通告" target="_blank">
+            关于暂停部分人社业务的通告</a></p>
+              <p class="list_more_one">2019-06-03</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201905/fc788567-8db7-480e-9f8a-6092699481d7.shtml" title="山东省2019年度博士后公开招聘简章" target="_blank">
+            山东省2019年度博士后公开招聘简章</a></p>
+              <p class="list_more_one">2019-05-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201905/057e133d-5a44-497a-ba2b-08bba2562570.shtml" title="关于领取社保补贴短信为诈骗信息的公告" target="_blank">
+            关于领取社保补贴短信为诈骗信息的公告</a></p>
+              <p class="list_more_one">2019-05-07</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201904/df0bea21-61f8-4bfb-92f9-1f3884890aee.shtml" title="关于组织开展2019年度社会力量引进高层次人才奖励申报工作的通知" target="_blank">
+            关于组织开展2019年度社会力量引进高层次人才奖励申报工作的通知</a></p>
+              <p class="list_more_one">2019-04-23</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201904/dbd7f7cf-dc8e-476c-871c-448db691f31b.shtml" title="关于选派2019年度山东省非教育系统政府公派出国留学人员的通知" target="_blank">
+            关于选派2019年度山东省非教育系统政府公派出国留学人员的通知</a></p>
+              <p class="list_more_one">2019-04-19</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201904/db87c2bd-85bc-494e-b40d-fb385b427383.shtml" title="关于开展省管用人单位劳动保障书面审查工作的通知" target="_blank">
+            关于开展省管用人单位劳动保障书面审查工作的通知</a></p>
+              <p class="list_more_one">2019-04-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201904/8a73d771-c95e-4434-84aa-10b9bb25657a.shtml" title="关于向社会公布全省2019年第一批重大劳动保障违法行为的公告" target="_blank">
+            关于向社会公布全省2019年第一批重大劳动保障违法行为的公告</a></p>
+              <p class="list_more_one">2019-04-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201904/97c82bd2-0fba-44d6-a92d-aaa21aec72d1.shtml" title="公     告" target="_blank">
+            公     告</a></p>
+              <p class="list_more_one">2019-04-02</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201903/3e4b2447-a78d-486f-adff-fdfdd4a313c7.shtml" title="关于开展2019年度专业技术人员继续教育公需科目学习的通知" target="_blank">
+            关于开展2019年度专业技术人员继续教育公需科目学习的通知</a></p>
+              <p class="list_more_one">2019-03-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201903/b3f9514f-717a-4397-8277-9f756fc60233.shtml" title="关于公布2018年度一级注册消防工程师资格考试合格标准的通告" target="_blank">
+            关于公布2018年度一级注册消防工程师资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-03-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201903/037059e7-3925-4180-9f52-29091160d2b8.shtml" title="关于开展第五届（2018年度）山东省人力资源社会保障优秀科研成果申报工作的通知" target="_blank">
+            关于开展第五届（2018年度）山东省人力资源社会保障优秀科研成果申报工作的通知</a></p>
+              <p class="list_more_one">2019-03-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201903/2b39f7aa-2686-4b70-b2f3-9b3aeb7fb564.shtml" title="关于开展“中国农民工发展研讨会”论文征集活动的通知" target="_blank">
+            关于开展“中国农民工发展研讨会”论文征集活动的通知</a></p>
+              <p class="list_more_one">2019-03-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201903/bf7138ad-2636-4a87-8ef6-d41fd5bb5673.shtml" title="关于报送2019年度博士后招聘计划的通知" target="_blank">
+            关于报送2019年度博士后招聘计划的通知</a></p>
+              <p class="list_more_one">2019-03-14</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201903/2e221428-2776-4431-9b7a-f5a716ddf84f.shtml" title="关于公布2018年度招标师职业资格收尾考试合格标准的通告" target="_blank">
+            关于公布2018年度招标师职业资格收尾考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-03-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201903/e203175a-de8a-48e3-a929-3ef63537bf11.shtml" title="关于公布2018年下半年翻译专业资格（水平）考试合格标准的通告" target="_blank">
+            关于公布2018年下半年翻译专业资格（水平）考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-03-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201903/f8a0db06-8413-4684-aff6-2e57159ebb2a.shtml" title="关于公布2018年度勘察设计注册工程师资格考试合格标准的通告" target="_blank">
+            关于公布2018年度勘察设计注册工程师资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-03-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201903/b1b9a22e-fe33-4ec2-be8c-709dbec190fd.shtml" title="山东省创新创业典型经验高校暨参评全国创新创业典型经验高校推荐名单公示" target="_blank">
+            山东省创新创业典型经验高校暨参评全国创新创业典型经验高校推荐名单公示</a></p>
+              <p class="list_more_one">2019-03-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201903/ae1c5940-1692-45f9-98f5-2a8c160ed803.shtml" title="关于全国创业培训师山东省初选推荐人员的公示" target="_blank">
+            关于全国创业培训师山东省初选推荐人员的公示</a></p>
+              <p class="list_more_one">2019-03-07</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201903/2acc5e97-e4c0-4285-adbb-9b50d1dd4ca2.shtml" title="关于公布2018年度注册安全工程师执业资格考试合格标准的通告" target="_blank">
+            关于公布2018年度注册安全工程师执业资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-03-05</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201902/27ef228c-3711-4f11-8a81-71b0245c9f29.shtml" title="关于2018年度法治政府建设情况的报告" target="_blank">
+            关于2018年度法治政府建设情况的报告</a></p>
+              <p class="list_more_one">2019-02-26</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201902/9decde2e-3572-4b15-a224-0d7eacdb5d92.shtml" title="关于征集我省专业技术人才知识更新工程2019年高级研修项目选题的通知" target="_blank">
+            关于征集我省专业技术人才知识更新工程2019年高级研修项目选题的通知</a></p>
+              <p class="list_more_one">2019-02-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201902/8ba70974-1d43-4ee5-9d5e-9297f29a72aa.shtml" title="关于公布2018年度注册验船师（船舶和海上设施类）资格考试合格标准的通告" target="_blank">
+            关于公布2018年度注册验船师（船舶和海上设施类）资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-02-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201901/40f69f3b-42de-4bd9-a95b-4360157a25b6.shtml" title="关于公布2018年下半年计算机技术与软件专业技术资格（水平）考试合格标准的通告" target="_blank">
+            关于公布2018年下半年计算机技术与软件专业技术资格（水平）考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-01-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201901/06536fbe-a7c4-4189-893c-028016db687b.shtml" title="关于公布2018年度执业药师资格考试合格标准的通告" target="_blank">
+            关于公布2018年度执业药师资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-01-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201901/0e9cf3c5-371f-4ca1-a59b-fc9a73f9cec6.shtml" title="关于公布2018年度注册核安全工程师资格考试合格标准的通告" target="_blank">
+            关于公布2018年度注册核安全工程师资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-01-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201901/9edcb6f1-d5ca-4656-a80e-24cd25ad9907.shtml" title="关于公布2018年度一级造价工程师资格考试合格标准的通告" target="_blank">
+            关于公布2018年度一级造价工程师资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-01-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201901/c86e230f-0d32-48d7-909e-123573c20f95.shtml" title="关于公布2018年度注册城乡规划师资格考试合格标准的通告" target="_blank">
+            关于公布2018年度注册城乡规划师资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-01-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201901/c8eacf07-d075-4719-abc2-221097a6c936.shtml" title="2018年度就业目标责任考核社会抽样调查成交公示" target="_blank">
+            2018年度就业目标责任考核社会抽样调查成交公示</a></p>
+              <p class="list_more_one">2019-01-18</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201901/00e8fc6c-3a5c-4675-9828-b7e65587e8f6.shtml" title="2018年度就业目标责任考核社会抽样调查竞争性磋商公告" target="_blank">
+            2018年度就业目标责任考核社会抽样调查竞争性磋商公告</a></p>
+              <p class="list_more_one">2019-01-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201901/d7b736e3-9cf2-4a64-8871-fac7b94f1d0a.shtml" title="关于公布2018年度注册测绘师资格考试合格标准的通告" target="_blank">
+            关于公布2018年度注册测绘师资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-01-04</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201901/7bd7c0a2-178c-4d28-b828-a3c447a95ca8.shtml" title="关于公布2018年度审计专业技术资格考试合格标准的通告" target="_blank">
+            关于公布2018年度审计专业技术资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-01-04</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201901/2427d1a7-1e9a-445a-9514-e6490b56473a.shtml" title="关于公布2018年度通信专业技术人员职业水平考试合格标准的通告" target="_blank">
+            关于公布2018年度通信专业技术人员职业水平考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-01-04</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201901/cd9c73f6-f6a0-4089-aaa5-71c313b24463.shtml" title="关于公布2018年度经济专业技术资格考试合格标准的通告" target="_blank">
+            关于公布2018年度经济专业技术资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2019-01-04</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201812/fcda1917-7b6d-4d33-99d2-6ffaac49a36c.shtml" title="关于山东省机关事业单位职业年金投资管理人评选结果的公告" target="_blank">
+            关于山东省机关事业单位职业年金投资管理人评选结果的公告</a></p>
+              <p class="list_more_one">2018-12-26</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201812/fbc26b87-0560-4c87-b5ad-a38442082474.shtml" title="关于授予林栋等119名同志山东省有突出贡献的中青年专家荣誉称号的通报" target="_blank">
+            关于授予林栋等119名同志山东省有突出贡献的中青年专家荣誉称号的通报</a></p>
+              <p class="list_more_one">2018-12-19</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201812/b54d8e84-fadc-4cd6-a2cf-9b14f26b08cb.shtml" title="关于公布2018年度注册设备监理师资格考试合格标准的通告" target="_blank">
+            关于公布2018年度注册设备监理师资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2018-12-18</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201812/ec0a0282-b820-4606-9695-b34748f1852f.shtml" title="关于公布2018年度统计专业技术资格考试合格标准的通告" target="_blank">
+            关于公布2018年度统计专业技术资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2018-12-18</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201812/c803f2ef-8204-4b88-9d46-acc4deda92da.shtml" title="山东省人力资源和社会保障厅2017年度预算执行和其他财政财务收支情况审计整改结果公告" target="_blank">
+            山东省人力资源和社会保障厅2017年度预算执行和其他财政财务收支情况审计整改结果公告</a></p>
+              <p class="list_more_one">2018-12-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201812/efb39e3c-6281-450f-af31-2333d177b730.shtml" title="关于变更考试录用公务员有关信息发布网址的公告" target="_blank">
+            关于变更考试录用公务员有关信息发布网址的公告</a></p>
+              <p class="list_more_one">2018-12-07</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201811/b9058078-d99a-4052-a7c3-bf2362c335a5.shtml" title="关于公布2018年度注册建筑师资格考试合格标准的通告" target="_blank">
+            关于公布2018年度注册建筑师资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2018-11-30</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201811/96bb6063-2a0a-459b-ad58-fddbe49e1920.shtml" title="关于山东人社公共服务系统云迁移期间暂停对外提供服务的公告" target="_blank">
+            关于山东人社公共服务系统云迁移期间暂停对外提供服务的公告</a></p>
+              <p class="list_more_one">2018-11-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201811/ab4f50d6-199b-448a-9b07-602bc2952c78.shtml" title="关于山东省机关事业单位职业年金托管人评选结果的公告" target="_blank">
+            关于山东省机关事业单位职业年金托管人评选结果的公告</a></p>
+              <p class="list_more_one">2018-11-27</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201811/83f16ceb-e7d4-495d-a108-0780234a81f2.shtml" title="2018年省管用人单位遵守劳动保障法律法规随机抽查情况通报" target="_blank">
+            2018年省管用人单位遵守劳动保障法律法规随机抽查情况通报</a></p>
+              <p class="list_more_one">2018-11-26</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201811/be522c2b-5b58-4aa2-9cdc-ec09442b041f.shtml" title="2018年度留学人员来鲁创业启动支持计划入选名单公示" target="_blank">
+            2018年度留学人员来鲁创业启动支持计划入选名单公示</a></p>
+              <p class="list_more_one">2018-11-23</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201811/bcb779ba-8796-4e72-b8ad-8dbdb3426537.shtml" title="关于对全省就业工作先进集体和先进个人拟表扬奖励名单的公示" target="_blank">
+            关于对全省就业工作先进集体和先进个人拟表扬奖励名单的公示</a></p>
+              <p class="list_more_one">2018-11-13</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201811/0dbac9c3-127e-4cf0-83de-47de07341aaf.shtml" title="关于公布证明事项清理目录的公告" target="_blank">
+            关于公布证明事项清理目录的公告</a></p>
+              <p class="list_more_one">2018-11-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201811/6c424165-d281-4bc7-9443-72b7b0388027.shtml" title="关于公布2018年度一级注册计量师资格考试合格标准的通告" target="_blank">
+            关于公布2018年度一级注册计量师资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2018-11-09</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201811/bd0b6a38-03d8-4e28-a95e-412dfa17655d.shtml" title="关于公布2018年度会计专业技术中级资格考试合格标准的通告" target="_blank">
+            关于公布2018年度会计专业技术中级资格考试合格标准的通告</a></p>
+              <p class="list_more_one">2018-11-09</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201811/c9fc0ac9-08ea-4b05-9a70-d925bbd717e8.shtml" title="2018年新疆生产建设兵团面向内地部分省（市）招录公务员公告" target="_blank">
+            2018年新疆生产建设兵团面向内地部分省（市）招录公务员公告</a></p>
+              <p class="list_more_one">2018-11-09</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201811/9458676f-ae60-4c3f-81ca-75c86cdded4e.shtml" title="关于组织2018年度非教育系统政府公派出国留学项目政府高级管理人才培养计划人员遴选的通知" target="_blank">
+            关于组织2018年度非教育系统政府公派出国留学项目政府高级管理人才培养计划人员遴选的通知</a></p>
+              <p class="list_more_one">2018-11-05</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201811/668044f9-4c87-4789-80db-f2dce427be47.shtml" title="新版门户网站迁移上线公告" target="_blank">
+            新版门户网站迁移上线公告</a></p>
+              <p class="list_more_one">2018-11-01</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201810/9286a8ea-17ae-4da6-8428-07337dd50226.shtml" title="省直医疗保险2018年度拟新增协议管理医疗机构公示" target="_blank">
+            省直医疗保险2018年度拟新增协议管理医疗机构公示</a></p>
+              <p class="list_more_one">2018-10-24</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201810/e9ef9a5b-6d0f-415b-a734-32a0ad7e6d2d.shtml" title="关于公布2018年度机动车检测维修专业技术人员职业水平考试合格标准的通告" target="_blank">
+            关于公布2018年度机动车检测维修专业技术人员职业水平考试合格标准的通告</a></p>
+              <p class="list_more_one">2018-09-27</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201810/1965288d-9481-4e04-bb91-514d39c1cec8.shtml" title="2018年度省级专家休假考察活动成交公告" target="_blank">
+            2018年度省级专家休假考察活动成交公告</a></p>
+              <p class="list_more_one">2018-09-19</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201810/65654612-4997-400c-9a8b-2a1f3fc3ab24.shtml" title="第四届（2017年度）山东省人力资源社会保障优秀科研成果评审结果公示" target="_blank">
+            第四届（2017年度）山东省人力资源社会保障优秀科研成果评审结果公示</a></p>
+              <p class="list_more_one">2018-09-17</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201810/8946dfa0-680e-424e-8158-136585a05331.shtml" title="关于公布2018年上半年翻译专业资格（水平）考试合格标准的通告" target="_blank">
+            关于公布2018年上半年翻译专业资格（水平）考试合格标准的通告</a></p>
+              <p class="list_more_one">2018-09-17</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201810/909800cb-da86-47ea-900e-c1e464fbd8e1.shtml" title="关于公布2018年度社会工作者职业水平考试合格标准的通告" target="_blank">
+            关于公布2018年度社会工作者职业水平考试合格标准的通告</a></p>
+              <p class="list_more_one">2018-09-17</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201809/65650.shtml" title="关于济南邦得人力资源有限公司和山东浩然人力资源管理有限公司代办申报退休等社会保险相关业务的通告" target="_blank">
+            关于济南邦得人力资源有限公司和山东浩然人力资源管理有限公司代办申报退休等社会保险相关业务的通告</a></p>
+              <p class="list_more_one">2018-09-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201809/65623.shtml" title="2018年度省级专家休假考察活动竞争性磋商公告" target="_blank">
+            2018年度省级专家休假考察活动竞争性磋商公告</a></p>
+              <p class="list_more_one">2018-09-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201809/65576.shtml" title="2018年泰山产业领军人才工程科技创业类（海外）会评通过初步人选公示" target="_blank">
+            2018年泰山产业领军人才工程科技创业类（海外）会评通过初步人选公示</a></p>
+              <p class="list_more_one">2018-09-05</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201809/65575.shtml" title="2018年泰山产业领军人才工程产业技能类会评通过初步人选公示" target="_blank">
+            2018年泰山产业领军人才工程产业技能类会评通过初步人选公示</a></p>
+              <p class="list_more_one">2018-09-05</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201809/65574.shtml" title="外地调入人员专业技术职务资格确认行政权力事项调整公告" target="_blank">
+            外地调入人员专业技术职务资格确认行政权力事项调整公告</a></p>
+              <p class="list_more_one">2018-09-05</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65500.shtml" title="关于2018年度省级创业示范平台评估认定情况的公示" target="_blank">
+            关于2018年度省级创业示范平台评估认定情况的公示</a></p>
+              <p class="list_more_one">2018-08-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65500.shtml" title="关于2018年度省级创业示范平台评估认定情况的公示" target="_blank">
+            关于2018年度省级创业示范平台评估认定情况的公示</a></p>
+              <p class="list_more_one">2018-08-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65493.shtml" title="全国模范劳动关系和谐企业与工业园区拟推荐名单公示" target="_blank">
+            全国模范劳动关系和谐企业与工业园区拟推荐名单公示</a></p>
+              <p class="list_more_one">2018-08-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65493.shtml" title="全国模范劳动关系和谐企业与工业园区拟推荐名单公示" target="_blank">
+            全国模范劳动关系和谐企业与工业园区拟推荐名单公示</a></p>
+              <p class="list_more_one">2018-08-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65449.shtml" title="关于事业单位法人拟申请注销的公告" target="_blank">
+            关于事业单位法人拟申请注销的公告</a></p>
+              <p class="list_more_one">2018-08-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65449.shtml" title="关于事业单位法人拟申请注销的公告" target="_blank">
+            关于事业单位法人拟申请注销的公告</a></p>
+              <p class="list_more_one">2018-08-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65434.shtml" title="关于公示山东省第四届创业大赛决赛结果的通知" target="_blank">
+            关于公示山东省第四届创业大赛决赛结果的通知</a></p>
+              <p class="list_more_one">2018-08-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65434.shtml" title="关于公示山东省第四届创业大赛决赛结果的通知" target="_blank">
+            关于公示山东省第四届创业大赛决赛结果的通知</a></p>
+              <p class="list_more_one">2018-08-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65335.shtml" title="关于公布“一次办好”事项清单（第二批公布）的公告" target="_blank">
+            关于公布“一次办好”事项清单（第二批公布）的公告</a></p>
+              <p class="list_more_one">2018-08-16</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65327.shtml" title="中央环保察查反馈意见（序号4）整改情况公示" target="_blank">
+            中央环保察查反馈意见（序号4）整改情况公示</a></p>
+              <p class="list_more_one">2018-08-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65327.shtml" title="中央环保察查反馈意见（序号4）整改情况公示" target="_blank">
+            中央环保察查反馈意见（序号4）整改情况公示</a></p>
+              <p class="list_more_one">2018-08-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65326.shtml" title="中央环保督察反馈意见（序号2）整改情况公示" target="_blank">
+            中央环保督察反馈意见（序号2）整改情况公示</a></p>
+              <p class="list_more_one">2018-08-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65326.shtml" title="中央环保督察反馈意见（序号2）整改情况公示" target="_blank">
+            中央环保督察反馈意见（序号2）整改情况公示</a></p>
+              <p class="list_more_one">2018-08-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65323.shtml" title="关于建立中外合作职业培训机构设立审批（告知承诺制）事中事后监管制度的公告" target="_blank">
+            关于建立中外合作职业培训机构设立审批（告知承诺制）事中事后监管制度的公告</a></p>
+              <p class="list_more_one">2018-08-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65323.shtml" title="关于建立中外合作职业培训机构设立审批（告知承诺制）事中事后监管制度的公告" target="_blank">
+            关于建立中外合作职业培训机构设立审批（告知承诺制）事中事后监管制度的公告</a></p>
+              <p class="list_more_one">2018-08-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65270.shtml" title="关于事业单位法人拟申请注销的公告" target="_blank">
+            关于事业单位法人拟申请注销的公告</a></p>
+              <p class="list_more_one">2018-08-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65268.shtml" title="关于公示“齐鲁银行杯”山东省第四届创业大赛晋级决赛名单的通知" target="_blank">
+            关于公示“齐鲁银行杯”山东省第四届创业大赛晋级决赛名单的通知</a></p>
+              <p class="list_more_one">2018-08-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65207.shtml" title="“山东人社服务”短信平台正式上线启用公告" target="_blank">
+            “山东人社服务”短信平台正式上线启用公告</a></p>
+              <p class="list_more_one">2018-08-03</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65190.shtml" title="关于2018年度齐鲁首席技师人选的公示公告" target="_blank">
+            关于2018年度齐鲁首席技师人选的公示公告</a></p>
+              <p class="list_more_one">2018-08-02</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201808/65175.shtml" title="关于公布“一次办好”事项清单（第一批公布）的公告" target="_blank">
+            关于公布“一次办好”事项清单（第一批公布）的公告</a></p>
+              <p class="list_more_one">2018-08-01</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201807/65122.shtml" title="关于山东省2018年享受国务院颁发政府特殊津贴人员拟推荐人选的再次公示" target="_blank">
+            关于山东省2018年享受国务院颁发政府特殊津贴人员拟推荐人选的再次公示</a></p>
+              <p class="list_more_one">2018-07-26</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201807/65094.shtml" title="事业单位法人注销登记公告" target="_blank">
+            事业单位法人注销登记公告</a></p>
+              <p class="list_more_one">2018-07-26</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201807/65067.shtml" title="2018年省级创业示范平台评估认定实地评审入围名单" target="_blank">
+            2018年省级创业示范平台评估认定实地评审入围名单</a></p>
+              <p class="list_more_one">2018-07-23</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201807/65049.shtml" title="关于报送2018年度省直医疗保险新增协议管理医疗机构申请材料的通知" target="_blank">
+            关于报送2018年度省直医疗保险新增协议管理医疗机构申请材料的通知</a></p>
+              <p class="list_more_one">2018-07-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201807/64921.shtml" title="关于邀请人力资源服务公司报名参加代办退休申报业务资格评审的公告" target="_blank">
+            关于邀请人力资源服务公司报名参加代办退休申报业务资格评审的公告</a></p>
+              <p class="list_more_one">2018-07-09</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201807/64834.shtml" title="关于山东省2018年享受国务院颁发政府特殊津贴人员拟推荐人选的公示" target="_blank">
+            关于山东省2018年享受国务院颁发政府特殊津贴人员拟推荐人选的公示</a></p>
+              <p class="list_more_one">2018-07-04</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201807/64798.shtml" title="喀什地区面向山东招录人才干部公告" target="_blank">
+            喀什地区面向山东招录人才干部公告</a></p>
+              <p class="list_more_one">2018-07-02</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201806/64783.shtml" title="山东省机关事业单位职业年金计划受托机构公示" target="_blank">
+            山东省机关事业单位职业年金计划受托机构公示</a></p>
+              <p class="list_more_one">2018-06-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201806/64724.shtml" title="2018年度省级创业示范平台评估认定采购成交公示" target="_blank">
+            2018年度省级创业示范平台评估认定采购成交公示</a></p>
+              <p class="list_more_one">2018-06-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201806/64638.shtml" title="资格审查通知" target="_blank">
+            资格审查通知</a></p>
+              <p class="list_more_one">2018-06-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201806/64637.shtml" title="山东省省级创业型城市（县区）和创业型街道（乡镇）名单公示" target="_blank">
+            山东省省级创业型城市（县区）和创业型街道（乡镇）名单公示</a></p>
+              <p class="list_more_one">2018-06-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201806/64598.shtml" title="2018年度省级创业示范平台评估认定采购竞争性磋商公告" target="_blank">
+            2018年度省级创业示范平台评估认定采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2018-06-01</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201805/64540.shtml" title="关于山东省世界技能大赛集训基地建设项目候选单位的公示" target="_blank">
+            关于山东省世界技能大赛集训基地建设项目候选单位的公示</a></p>
+              <p class="list_more_one">2018-05-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201805/64447.shtml" title="省直医保拟新增协议管理零售药店公示" target="_blank">
+            省直医保拟新增协议管理零售药店公示</a></p>
+              <p class="list_more_one">2018-05-17</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201805/64355.shtml" title="关于变更省直单位“吃空饷”问题举报邮箱的公告" target="_blank">
+            关于变更省直单位“吃空饷”问题举报邮箱的公告</a></p>
+              <p class="list_more_one">2018-05-09</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201805/64353.shtml" title="关于2017年度省博士后创新人才支持计划人选的公示" target="_blank">
+            关于2017年度省博士后创新人才支持计划人选的公示</a></p>
+              <p class="list_more_one">2018-05-09</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201805/64282.shtml" title="2018年第一批重大劳动保障违法行为" target="_blank">
+            2018年第一批重大劳动保障违法行为</a></p>
+              <p class="list_more_one">2018-05-03</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201804/63954.shtml" title="山东省人力资源和社会保障厅关于开展省管用人单位劳动保障书面审查工作的通知" target="_blank">
+            山东省人力资源和社会保障厅关于开展省管用人单位劳动保障书面审查工作的通知</a></p>
+              <p class="list_more_one">2018-04-13</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201804/63867.shtml" title="关于对中外合作职业培训机构设立审批全面实行告知承诺制试点的公告" target="_blank">
+            关于对中外合作职业培训机构设立审批全面实行告知承诺制试点的公告</a></p>
+              <p class="list_more_one">2018-04-13</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201804/63849.shtml" title="关于邀请参加山东省大病保险特殊药品谈判的公告" target="_blank">
+            关于邀请参加山东省大病保险特殊药品谈判的公告</a></p>
+              <p class="list_more_one">2018-04-13</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201804/63842.shtml" title="全省人社系统2017年度十大“山东人社先锋”人选公示公告" target="_blank">
+            全省人社系统2017年度十大“山东人社先锋”人选公示公告</a></p>
+              <p class="list_more_one">2018-04-13</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201804/63841.shtml" title="山东省省本级职业年金基金归集账户托管银行中标公示" target="_blank">
+            山东省省本级职业年金基金归集账户托管银行中标公示</a></p>
+              <p class="list_more_one">2018-04-13</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201804/63956.shtml" title="山东省人力资源和社会保障厅关于公布2017年度省管用人单位劳动保障守法诚信等级评价结果的通知" target="_blank">
+            山东省人力资源和社会保障厅关于公布2017年度省管用人单位劳动保障守法诚信等级评价结果的通知</a></p>
+              <p class="list_more_one">2018-03-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201801/63785.shtml" title="2017年度就业目标责任考核社会抽样调查采购竞争性磋商公告" target="_blank">
+            2017年度就业目标责任考核社会抽样调查采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2018-01-04</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201801/63766.shtml" title="第三批全省人力资源社会保障系统月度十大“山东人社先锋”推选结果通报" target="_blank">
+            第三批全省人力资源社会保障系统月度十大“山东人社先锋”推选结果通报</a></p>
+              <p class="list_more_one">2018-01-03</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201712/63639.shtml" title="山东省人力资源和社会保障厅公布2017拖欠劳动报酬案件" target="_blank">
+            山东省人力资源和社会保障厅公布2017拖欠劳动报酬案件</a></p>
+              <p class="list_more_one">2017-12-25</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201712/63634.shtml" title="关于公布人力资源社会保障系统中介服务项目和证明材料清单的公告" target="_blank">
+            关于公布人力资源社会保障系统中介服务项目和证明材料清单的公告</a></p>
+              <p class="list_more_one">2017-12-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201712/63631.shtml" title="2017年度技工学校教师系列中初级评审委员会、厅属单位工程技术系列中级评审委员会评审结果公示" target="_blank">
+            2017年度技工学校教师系列中初级评审委员会、厅属单位工程技术系列中级评审委员会评审结果公示</a></p>
+              <p class="list_more_one">2017-12-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201711/63333.shtml" title="关于2017年度省博士后创新项目专项资金拟资助项目的公示公告" target="_blank">
+            关于2017年度省博士后创新项目专项资金拟资助项目的公示公告</a></p>
+              <p class="list_more_one">2017-11-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201711/63236.shtml" title="关于2017年省管用人单位遵守劳动保障法律法规情况随机抽查结果的通报" target="_blank">
+            关于2017年省管用人单位遵守劳动保障法律法规情况随机抽查结果的通报</a></p>
+              <p class="list_more_one">2017-11-13</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201711/63232.shtml" title="关于对我省在第44届世界技能大赛中作出突出贡献的个人及单位进行记功奖励的公示" target="_blank">
+            关于对我省在第44届世界技能大赛中作出突出贡献的个人及单位进行记功奖励的公示</a></p>
+              <p class="list_more_one">2017-11-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201710/63018.shtml" title="第一批“零跑腿”和“只跑一次”事项清单" target="_blank">
+            第一批“零跑腿”和“只跑一次”事项清单</a></p>
+              <p class="list_more_one">2017-10-19</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201710/62969.shtml" title="关于2017年度省级创业示范平台评估认定情况的公示" target="_blank">
+            关于2017年度省级创业示范平台评估认定情况的公示</a></p>
+              <p class="list_more_one">2017-10-11</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201710/62943.shtml" title="关于引入第三方机构开发山东省公共就业和人才服务中心流动人员人事档案数字化项目预中标结果公告" target="_blank">
+            关于引入第三方机构开发山东省公共就业和人才服务中心流动人员人事档案数字化项目预中标结果公告</a></p>
+              <p class="list_more_one">2017-10-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201710/62943.shtml" title="关于引入第三方机构开发山东省公共就业和人才服务中心流动人员人事档案数字化项目预中标结果公告" target="_blank">
+            关于引入第三方机构开发山东省公共就业和人才服务中心流动人员人事档案数字化项目预中标结果公告</a></p>
+              <p class="list_more_one">2017-10-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201710/62942.shtml" title="关于报送省直基本医疗保险新增协议管理医药机构申请材料的通知" target="_blank">
+            关于报送省直基本医疗保险新增协议管理医药机构申请材料的通知</a></p>
+              <p class="list_more_one">2017-10-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201710/62942.shtml" title="关于报送省直基本医疗保险新增协议管理医药机构申请材料的通知" target="_blank">
+            关于报送省直基本医疗保险新增协议管理医药机构申请材料的通知</a></p>
+              <p class="list_more_one">2017-10-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201709/62755.shtml" title="关于发布《关于全省中级职称评审委员会目录清单的公示》的通知" target="_blank">
+            关于发布《关于全省中级职称评审委员会目录清单的公示》的通知</a></p>
+              <p class="list_more_one">2017-09-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201709/62755.shtml" title="关于发布《关于全省中级职称评审委员会目录清单的公示》的通知" target="_blank">
+            关于发布《关于全省中级职称评审委员会目录清单的公示》的通知</a></p>
+              <p class="list_more_one">2017-09-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201709/62643.shtml" title="山东省公共就业和人才服务中心流动人员人事档案数字化项目采购竞争性磋商公告" target="_blank">
+            山东省公共就业和人才服务中心流动人员人事档案数字化项目采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2017-09-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201709/62643.shtml" title="山东省公共就业和人才服务中心流动人员人事档案数字化项目采购竞争性磋商公告" target="_blank">
+            山东省公共就业和人才服务中心流动人员人事档案数字化项目采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2017-09-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201709/62636.shtml" title="关于申报2017年度聘任院士经费的通知" target="_blank">
+            关于申报2017年度聘任院士经费的通知</a></p>
+              <p class="list_more_one">2017-09-11</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201709/62636.shtml" title="关于申报2017年度聘任院士经费的通知" target="_blank">
+            关于申报2017年度聘任院士经费的通知</a></p>
+              <p class="list_more_one">2017-09-11</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201709/62599.shtml" title="关于引入第三方机构开发山东省《就业创业证》与社会保障卡“证卡合一”潍坊试点项目预中标结果公告" target="_blank">
+            关于引入第三方机构开发山东省《就业创业证》与社会保障卡“证卡合一”潍坊试点项目预中标结果公告</a></p>
+              <p class="list_more_one">2017-09-05</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201709/62599.shtml" title="关于引入第三方机构开发山东省《就业创业证》与社会保障卡“证卡合一”潍坊试点项目预中标结果公告" target="_blank">
+            关于引入第三方机构开发山东省《就业创业证》与社会保障卡“证卡合一”潍坊试点项目预中标结果公告</a></p>
+              <p class="list_more_one">2017-09-05</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62560.shtml" title="关于2017年度职称申报业务附件问题的公告" target="_blank">
+            关于2017年度职称申报业务附件问题的公告</a></p>
+              <p class="list_more_one">2017-08-30</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62560.shtml" title="关于2017年度职称申报业务附件问题的公告" target="_blank">
+            关于2017年度职称申报业务附件问题的公告</a></p>
+              <p class="list_more_one">2017-08-30</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62556.shtml" title="关于2017年度齐鲁首席技师人选的公示公告" target="_blank">
+            关于2017年度齐鲁首席技师人选的公示公告</a></p>
+              <p class="list_more_one">2017-08-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62556.shtml" title="关于2017年度齐鲁首席技师人选的公示公告" target="_blank">
+            关于2017年度齐鲁首席技师人选的公示公告</a></p>
+              <p class="list_more_one">2017-08-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62550.shtml" title="山东省《就业创业证》与社会保障卡“证卡合一”潍坊试点项目采购竞争性磋商公告" target="_blank">
+            山东省《就业创业证》与社会保障卡“证卡合一”潍坊试点项目采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2017-08-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62550.shtml" title="山东省《就业创业证》与社会保障卡“证卡合一”潍坊试点项目采购竞争性磋商公告" target="_blank">
+            山东省《就业创业证》与社会保障卡“证卡合一”潍坊试点项目采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2017-08-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62549.shtml" title="关于对2017年山东省事业单位专业技术二级岗位人选评审委员会评审通过人选公示的通知" target="_blank">
+            关于对2017年山东省事业单位专业技术二级岗位人选评审委员会评审通过人选公示的通知</a></p>
+              <p class="list_more_one">2017-08-25</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62536.shtml" title="关于山东省公共就业和人才服务中心2017年度大学生百强企业高端就业引领行动项目预中标结果公告" target="_blank">
+            关于山东省公共就业和人才服务中心2017年度大学生百强企业高端就业引领行动项目预中标结果公告</a></p>
+              <p class="list_more_one">2017-08-25</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62518.shtml" title="推荐参选“全国人力资源诚信服务示范机构”情况公示" target="_blank">
+            推荐参选“全国人力资源诚信服务示范机构”情况公示</a></p>
+              <p class="list_more_one">2017-08-24</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62516.shtml" title="关于补充申报2017年度山东省引进外国专家项目计划的通知" target="_blank">
+            关于补充申报2017年度山东省引进外国专家项目计划的通知</a></p>
+              <p class="list_more_one">2017-08-24</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62468.shtml" title="2017年省级创业示范平台评估认定实地评审入围名单" target="_blank">
+            2017年省级创业示范平台评估认定实地评审入围名单</a></p>
+              <p class="list_more_one">2017-08-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62466.shtml" title="省直2017年度拟新增协议管理医药机构（第一批）公示" target="_blank">
+            省直2017年度拟新增协议管理医药机构（第一批）公示</a></p>
+              <p class="list_more_one">2017-08-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62455.shtml" title="第三届（2016年度）山东省人力资源社会保障优秀科研成果评审结果公示" target="_blank">
+            第三届（2016年度）山东省人力资源社会保障优秀科研成果评审结果公示</a></p>
+              <p class="list_more_one">2017-08-18</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62442.shtml" title="公告" target="_blank">
+            公告</a></p>
+              <p class="list_more_one">2017-08-17</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62378.shtml" title="2017年度大学生百强企业高端就业引领行动项目采购竞争性磋商公告" target="_blank">
+            2017年度大学生百强企业高端就业引领行动项目采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2017-08-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62286.shtml" title="2017年度泰山产业领军人才产业技能类会评通过初步人选考察预告" target="_blank">
+            2017年度泰山产业领军人才产业技能类会评通过初步人选考察预告</a></p>
+              <p class="list_more_one">2017-08-04</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201708/62284.shtml" title="2017年度泰山产业领军人才科技创业类（海外留学回国人才）会评通过初步人选考察预告" target="_blank">
+            2017年度泰山产业领军人才科技创业类（海外留学回国人才）会评通过初步人选考察预告</a></p>
+              <p class="list_more_one">2017-08-04</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201707/62200.shtml" title="山东省人力资源和社会保障厅2017年度省级创业示范平台评估认定采购成交公示" target="_blank">
+            山东省人力资源和社会保障厅2017年度省级创业示范平台评估认定采购成交公示</a></p>
+              <p class="list_more_one">2017-07-24</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201707/62163.shtml" title="关于引入第三方机构开发山东省公共就业服务数字课程建设项目预中标结果公告" target="_blank">
+            关于引入第三方机构开发山东省公共就业服务数字课程建设项目预中标结果公告</a></p>
+              <p class="list_more_one">2017-07-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201707/62063.shtml" title="山东省人力资源和社会保障厅2017年度省级创业示范平台评估认定采购竞争性磋商公告" target="_blank">
+            山东省人力资源和社会保障厅2017年度省级创业示范平台评估认定采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2017-07-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201707/62058.shtml" title="山东省公共就业服务数字课程开发建设项目（一期）采购竞争性磋商公告" target="_blank">
+            山东省公共就业服务数字课程开发建设项目（一期）采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2017-07-11</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201706/61951.shtml" title="关于推荐评选首届山东省青年技能形象大使的通知" target="_blank">
+            关于推荐评选首届山东省青年技能形象大使的通知</a></p>
+              <p class="list_more_one">2017-06-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201706/61916.shtml" title="关于委托商业保险机构承办省直职工大额医疗费用补助工作的公告" target="_blank">
+            关于委托商业保险机构承办省直职工大额医疗费用补助工作的公告</a></p>
+              <p class="list_more_one">2017-06-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201706/61452.shtml" title="关于公布山东省2017年具有全日制技工教育招生资格技工院校及专业的通告" target="_blank">
+            关于公布山东省2017年具有全日制技工教育招生资格技工院校及专业的通告</a></p>
+              <p class="list_more_one">2017-06-01</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201705/61287.shtml" title="关于举办第五届“灰霾天气的防控与干预高级研修班”的函" target="_blank">
+            关于举办第五届“灰霾天气的防控与干预高级研修班”的函</a></p>
+              <p class="list_more_one">2017-05-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201705/61239.shtml" title="山东省人力资源和社会保障厅财务集中核算中心法人变更信息公开" target="_blank">
+            山东省人力资源和社会保障厅财务集中核算中心法人变更信息公开</a></p>
+              <p class="list_more_one">2017-05-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201705/61226.shtml" title="关于紧急应对处置新型蠕虫式勒索病毒WannaCry工作的紧急通知" target="_blank">
+            关于紧急应对处置新型蠕虫式勒索病毒WannaCry工作的紧急通知</a></p>
+              <p class="list_more_one">2017-05-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201705/61108.shtml" title="山东省技工院校专业群建设项目绩效评价结果公示" target="_blank">
+            山东省技工院校专业群建设项目绩效评价结果公示</a></p>
+              <p class="list_more_one">2017-05-04</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201704/61005.shtml" title="山东省人力资源和社会保障厅预算项目支出绩效目标申报表及重点项目绩效评价结论" target="_blank">
+            山东省人力资源和社会保障厅预算项目支出绩效目标申报表及重点项目绩效评价结论</a></p>
+              <p class="list_more_one">2017-04-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201704/61005.shtml" title="山东省人力资源和社会保障厅预算项目支出绩效目标申报表及重点项目绩效评价结论" target="_blank">
+            山东省人力资源和社会保障厅预算项目支出绩效目标申报表及重点项目绩效评价结论</a></p>
+              <p class="list_more_one">2017-04-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201704/60981.shtml" title="关于对菏泽市建筑技工学校拟确认为省级重点技工学校的公示" target="_blank">
+            关于对菏泽市建筑技工学校拟确认为省级重点技工学校的公示</a></p>
+              <p class="list_more_one">2017-04-26</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201704/60981.shtml" title="关于对菏泽市建筑技工学校拟确认为省级重点技工学校的公示" target="_blank">
+            关于对菏泽市建筑技工学校拟确认为省级重点技工学校的公示</a></p>
+              <p class="list_more_one">2017-04-26</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201704/60887.shtml" title="关于正式启用外国人来华工作管理服务系统的公告" target="_blank">
+            关于正式启用外国人来华工作管理服务系统的公告</a></p>
+              <p class="list_more_one">2017-04-19</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201704/60887.shtml" title="关于正式启用外国人来华工作管理服务系统的公告" target="_blank">
+            关于正式启用外国人来华工作管理服务系统的公告</a></p>
+              <p class="list_more_one">2017-04-19</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201704/60808.shtml" title="山东省职业技能鉴定指导中心法人变更信息公开" target="_blank">
+            山东省职业技能鉴定指导中心法人变更信息公开</a></p>
+              <p class="list_more_one">2017-04-07</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201704/60787.shtml" title="山东省留学人员和专家服务中心法人变更信息公开" target="_blank">
+            山东省留学人员和专家服务中心法人变更信息公开</a></p>
+              <p class="list_more_one">2017-04-07</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201704/60758.shtml" title="山东省社会保险基金监管软件维护服务方案采购项目成交公示" target="_blank">
+            山东省社会保险基金监管软件维护服务方案采购项目成交公示</a></p>
+              <p class="list_more_one">2017-04-01</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60747.shtml" title="关于2017年山东省世界技能大赛集训基地建设项目候选单位的公示" target="_blank">
+            关于2017年山东省世界技能大赛集训基地建设项目候选单位的公示</a></p>
+              <p class="list_more_one">2017-03-31</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60732.shtml" title="关于引入第三方机构开发山东省人力资源社会保障精准扶贫大数据平台项目预中标结果公告" target="_blank">
+            关于引入第三方机构开发山东省人力资源社会保障精准扶贫大数据平台项目预中标结果公告</a></p>
+              <p class="list_more_one">2017-03-29</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60726.shtml" title="关于2017年国家级高技能人才培训基地、国家级技能大师工作室、山东省技工教育特色名校和齐鲁技能大师特色工作站建设项目候选单位的公示" target="_blank">
+            关于2017年国家级高技能人才培训基地、国家级技能大师工作室、山东省技工教育特色名校和齐鲁技能大师特色工作站建设项目候选单位的公示</a></p>
+              <p class="list_more_one">2017-03-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60723.shtml" title="关于委托商业保险机构承办省直职工大病保险的公告" target="_blank">
+            关于委托商业保险机构承办省直职工大病保险的公告</a></p>
+              <p class="list_more_one">2017-03-28</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201703/60718.shtml" title="关于开展省管用人单位劳动保障书面审查工作的通知" target="_blank">
+            关于开展省管用人单位劳动保障书面审查工作的通知</a></p>
+              <p class="list_more_one">2017-03-27</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201703/60717.shtml" title="关于开展省管用人单位劳动保障书面审查工作的通知" target="_blank">
+            关于开展省管用人单位劳动保障书面审查工作的通知</a></p>
+              <p class="list_more_one">2017-03-27</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60715.shtml" title="山东省技工学校教师职务高级评审委员会对2016年度评审通过人员实行异议期的通知" target="_blank">
+            山东省技工学校教师职务高级评审委员会对2016年度评审通过人员实行异议期的通知</a></p>
+              <p class="list_more_one">2017-03-27</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60636.shtml" title="关于组织国家级高技能人才培训基地建设项目和山东省技工教育特色名校建设项目等四个项目评审工作的预备通知" target="_blank">
+            关于组织国家级高技能人才培训基地建设项目和山东省技工教育特色名校建设项目等四个项目评审工作的预备通知</a></p>
+              <p class="list_more_one">2017-03-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60636.shtml" title="关于组织国家级高技能人才培训基地建设项目和山东省技工教育特色名校建设项目等四个项目评审工作的预备通知" target="_blank">
+            关于组织国家级高技能人才培训基地建设项目和山东省技工教育特色名校建设项目等四个项目评审工作的预备通知</a></p>
+              <p class="list_more_one">2017-03-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60631.shtml" title="2016年度技工学校教师系列中初级评审委员会、厅属单位工程技术系列初级评审委员会评审结果公示" target="_blank">
+            2016年度技工学校教师系列中初级评审委员会、厅属单位工程技术系列初级评审委员会评审结果公示</a></p>
+              <p class="list_more_one">2017-03-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60631.shtml" title="2016年度技工学校教师系列中初级评审委员会、厅属单位工程技术系列初级评审委员会评审结果公示" target="_blank">
+            2016年度技工学校教师系列中初级评审委员会、厅属单位工程技术系列初级评审委员会评审结果公示</a></p>
+              <p class="list_more_one">2017-03-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60593.shtml" title="山东省人力资源社会保障精准扶贫大数据平台项目竞争性磋商公告" target="_blank">
+            山东省人力资源社会保障精准扶贫大数据平台项目竞争性磋商公告</a></p>
+              <p class="list_more_one">2017-03-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60593.shtml" title="山东省人力资源社会保障精准扶贫大数据平台项目竞争性磋商公告" target="_blank">
+            山东省人力资源社会保障精准扶贫大数据平台项目竞争性磋商公告</a></p>
+              <p class="list_more_one">2017-03-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60590.shtml" title="山东省社会保险基金监管软件维护服务采购竞争性磋商公告" target="_blank">
+            山东省社会保险基金监管软件维护服务采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2017-03-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60590.shtml" title="山东省社会保险基金监管软件维护服务采购竞争性磋商公告" target="_blank">
+            山东省社会保险基金监管软件维护服务采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2017-03-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60570.shtml" title="关于报送2017年度省直医疗保险新增协议管理医药机构申请材料的通知" target="_blank">
+            关于报送2017年度省直医疗保险新增协议管理医药机构申请材料的通知</a></p>
+              <p class="list_more_one">2017-03-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60570.shtml" title="关于报送2017年度省直医疗保险新增协议管理医药机构申请材料的通知" target="_blank">
+            关于报送2017年度省直医疗保险新增协议管理医药机构申请材料的通知</a></p>
+              <p class="list_more_one">2017-03-20</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60517.shtml" title="山东省人力资源社会保障信息中心法人变更信息公开" target="_blank">
+            山东省人力资源社会保障信息中心法人变更信息公开</a></p>
+              <p class="list_more_one">2017-03-16</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60517.shtml" title="山东省人力资源社会保障信息中心法人变更信息公开" target="_blank">
+            山东省人力资源社会保障信息中心法人变更信息公开</a></p>
+              <p class="list_more_one">2017-03-16</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60355.shtml" title="关于2016年度法治政府建设情况的报告" target="_blank">
+            关于2016年度法治政府建设情况的报告</a></p>
+              <p class="list_more_one">2017-03-01</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201703/60355.shtml" title="关于2016年度法治政府建设情况的报告" target="_blank">
+            关于2016年度法治政府建设情况的报告</a></p>
+              <p class="list_more_one">2017-03-01</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201702/60143.shtml" title="2016年全省高校毕业生就业质量年度报告" target="_blank">
+            2016年全省高校毕业生就业质量年度报告</a></p>
+              <p class="list_more_one">2017-02-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201702/60143.shtml" title="2016年全省高校毕业生就业质量年度报告" target="_blank">
+            2016年全省高校毕业生就业质量年度报告</a></p>
+              <p class="list_more_one">2017-02-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201701/60005.shtml" title="关于拟推荐第四批国家级充分就业社区的公示" target="_blank">
+            关于拟推荐第四批国家级充分就业社区的公示</a></p>
+              <p class="list_more_one">2017-02-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201701/60005.shtml" title="关于拟推荐第四批国家级充分就业社区的公示" target="_blank">
+            关于拟推荐第四批国家级充分就业社区的公示</a></p>
+              <p class="list_more_one">2017-02-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201702/60082.shtml" title="山东省人力资源和社会保障厅2016年度就业目标责任考核社会抽样调查项目成交公示" target="_blank">
+            山东省人力资源和社会保障厅2016年度就业目标责任考核社会抽样调查项目成交公示</a></p>
+              <p class="list_more_one">2017-02-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201701/60026.shtml" title="山东省人力资源和社会保障厅2016年度就业目标责任考核社会抽样调查变更公告" target="_blank">
+            山东省人力资源和社会保障厅2016年度就业目标责任考核社会抽样调查变更公告</a></p>
+              <p class="list_more_one">2017-01-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201701/59895.shtml" title="山东省公共就业和人才服务中心设立登记信息公开" target="_blank">
+            山东省公共就业和人才服务中心设立登记信息公开</a></p>
+              <p class="list_more_one">2017-01-18</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201701/59949.shtml" title="2016年度就业目标责任考核社会抽样调查采购竞争性磋商公告" target="_blank">
+            2016年度就业目标责任考核社会抽样调查采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2017-01-17</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201701/59976.shtml" title="关于公布山东省专业技术人员继续教育培训机构招募结果的公告" target="_blank">
+            关于公布山东省专业技术人员继续教育培训机构招募结果的公告</a></p>
+              <p class="list_more_one">2017-01-17</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201701/59956.shtml" title="山东省人力资源和社会保障厅2016年度就业目标责任考核社会抽样调查项目变更公告" target="_blank">
+            山东省人力资源和社会保障厅2016年度就业目标责任考核社会抽样调查项目变更公告</a></p>
+              <p class="list_more_one">2017-01-17</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                <a href="http://zwfw.sd.gov.cn/sdzw/front/ggfw/bbindex_show.do?orgcode=SD370000RS&keyword=&lb=&sign=bm" title="关于发布省级公共服务事项目录的公告" target="_blank">
+关于发布省级公共服务事项目录的公告</a></p>
+              <p class="list_more_one">2017-01-11</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201612/59761.shtml" title="关于做好2017年度非教育系统国家公派出国留学申报工作的通知" target="_blank">
+            关于做好2017年度非教育系统国家公派出国留学申报工作的通知</a></p>
+              <p class="list_more_one">2016-12-23</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201612/59757.shtml" title="2016年度省级人力资源服务业发展资金重点扶持项目入选机构公示" target="_blank">
+            2016年度省级人力资源服务业发展资金重点扶持项目入选机构公示</a></p>
+              <p class="list_more_one">2016-12-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201612/59687.shtml" title="山东省职工教育办公室档案整理移交服务采购竞争性磋商公告" target="_blank">
+            山东省职工教育办公室档案整理移交服务采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2016-12-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201612/59755.shtml" title="山东省创业平台建设宣传片制作服务采购项目成交公示" target="_blank">
+            山东省创业平台建设宣传片制作服务采购项目成交公示</a></p>
+              <p class="list_more_one">2016-12-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201611/59354.shtml" title="山东省人力资源和社会保障厅2016年度省级示范创业大学评估认定采购项目成交公示" target="_blank">
+            山东省人力资源和社会保障厅2016年度省级示范创业大学评估认定采购项目成交公示</a></p>
+              <p class="list_more_one">2016-12-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201611/59329.shtml" title="山东省首批创业型街道（乡镇）、社区评估认定项目公开招标采购公告" target="_blank">
+            山东省首批创业型街道（乡镇）、社区评估认定项目公开招标采购公告</a></p>
+              <p class="list_more_one">2016-12-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201611/59332.shtml" title="关于2016年度全省就业与社会保障精准扶贫评估核查项目第三方机构预中标结果公告" target="_blank">
+            关于2016年度全省就业与社会保障精准扶贫评估核查项目第三方机构预中标结果公告</a></p>
+              <p class="list_more_one">2016-12-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201612/59672.shtml" title="山东省首批省级创业型街道（乡镇）、社区名单公示" target="_blank">
+            山东省首批省级创业型街道（乡镇）、社区名单公示</a></p>
+              <p class="list_more_one">2016-12-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201612/59662.shtml" title="关于2016年度省级示范创业大学评估认定情况的公示" target="_blank">
+            关于2016年度省级示范创业大学评估认定情况的公示</a></p>
+              <p class="list_more_one">2016-12-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201611/59366.shtml" title="山东省首批创业型街道（乡镇）和社区评估认定项目第三方机构预中标结果公告" target="_blank">
+            山东省首批创业型街道（乡镇）和社区评估认定项目第三方机构预中标结果公告</a></p>
+              <p class="list_more_one">2016-12-15</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201612/59574.shtml" title="关于邀请参加山东省大病保险特殊药品谈判的公告" target="_blank">
+            关于邀请参加山东省大病保险特殊药品谈判的公告</a></p>
+              <p class="list_more_one">2016-12-13</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201612/59564.shtml" title="竞争性磋商公告" target="_blank">
+            竞争性磋商公告</a></p>
+              <p class="list_more_one">2016-12-13</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201612/59567.shtml" title="农民工监测报告第十四期：三季度农村外出务工劳动力总量稳定" target="_blank">
+            农民工监测报告第十四期：三季度农村外出务工劳动力总量稳定</a></p>
+              <p class="list_more_one">2016-12-13</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201612/59663.shtml" title="2016年度留学人员来鲁创业启动支持计划入选企业公示" target="_blank">
+            2016年度留学人员来鲁创业启动支持计划入选企业公示</a></p>
+              <p class="list_more_one">2016-12-12</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201611/59303.shtml" title="山东省社保基金管理运行情况第三方评估选择评估单位采购项目成交公示" target="_blank">
+            山东省社保基金管理运行情况第三方评估选择评估单位采购项目成交公示</a></p>
+              <p class="list_more_one">2016-11-23</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201611/59299.shtml" title="山东省人力资源和社会保障厅2016年度省级示范创业大学评估认定采购竞争性磋商公告" target="_blank">
+            山东省人力资源和社会保障厅2016年度省级示范创业大学评估认定采购竞争性磋商公告</a></p>
+              <p class="list_more_one">2016-11-23</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201611/59309.shtml" title="山东省教育厅  山东省人力资源和社会保障厅关于做好2016年山东省政府公派出国留学项目申报工作的通知" target="_blank">
+            山东省教育厅  山东省人力资源和社会保障厅关于做好2016年山东省政府公派出国留学项目申报工作的通知</a></p>
+              <p class="list_more_one">2016-11-23</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201609/58926.shtml" title="关于公布2016年度省级创业示范平台名单的通  知" target="_blank">
+            关于公布2016年度省级创业示范平台名单的通  知</a></p>
+              <p class="list_more_one">2016-09-09</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201609/58914.shtml" title="关于2016年度省博士后创新项目专项资金拟资助项目的公示公告" target="_blank">
+            关于2016年度省博士后创新项目专项资金拟资助项目的公示公告</a></p>
+              <p class="list_more_one">2016-09-07</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201608/57497.shtml" title="2016年度泰山产业领军人才科技创业类（海外留学回国人才）会评通过初步人选" target="_blank">
+            2016年度泰山产业领军人才科技创业类（海外留学回国人才）会评通过初步人选</a></p>
+              <p class="list_more_one">2016-09-06</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201609/58857.shtml" title="关于拟推荐“全国人力资源社会保障系统2014—2016年度优质服务窗口”单位的公示" target="_blank">
+            关于拟推荐“全国人力资源社会保障系统2014—2016年度优质服务窗口”单位的公示</a></p>
+              <p class="list_more_one">2016-09-06</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201608/57696.shtml" title="泰山产业领军人才产业技能类初步人选公示公告" target="_blank">
+            泰山产业领军人才产业技能类初步人选公示公告</a></p>
+              <p class="list_more_one">2016-09-06</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201608/57498.shtml" title="2016年度泰山产业领军人才产业技能类会评通过初步人选考察预告" target="_blank">
+            2016年度泰山产业领军人才产业技能类会评通过初步人选考察预告</a></p>
+              <p class="list_more_one">2016-09-06</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201607/57402.shtml" title="关于第二届“中国创翼”青年创业创新大赛山东省“齐鲁银行杯”初赛成绩的公告" target="_blank">
+            关于第二届“中国创翼”青年创业创新大赛山东省“齐鲁银行杯”初赛成绩的公告</a></p>
+              <p class="list_more_one">2016-09-06</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201608/58752.shtml" title="关于2016年度省级创业示范平台评估认定情况的公示" target="_blank">
+            关于2016年度省级创业示范平台评估认定情况的公示</a></p>
+              <p class="list_more_one">2016-09-06</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201512/55583.shtml" title="山东省人力资源和社会保障厅2015年度就业目标责任考核社会抽样调查竞争性磋商公告" target="_blank">
+            山东省人力资源和社会保障厅2015年度就业目标责任考核社会抽样调查竞争性磋商公告</a></p>
+              <p class="list_more_one">2016-08-25</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201601/55746.shtml" title="关于申报2016年度中国留学人员回国创业启动支持计划的通知" target="_blank">
+            关于申报2016年度中国留学人员回国创业启动支持计划的通知</a></p>
+              <p class="list_more_one">2016-08-25</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201603/56055.shtml" title="山东省职业介绍中心法人变更信息公开" target="_blank">
+            山东省职业介绍中心法人变更信息公开</a></p>
+              <p class="list_more_one">2016-03-09</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201603/56025.shtml" title="山东省人力资源社会保障信息中心迁址公告" target="_blank">
+            山东省人力资源社会保障信息中心迁址公告</a></p>
+              <p class="list_more_one">2016-03-04</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201603/56024.shtml" title="山东省人力资源社会保障科学院变更住所网上信息公开" target="_blank">
+            山东省人力资源社会保障科学院变更住所网上信息公开</a></p>
+              <p class="list_more_one">2016-03-04</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201505/52915.shtml" title="2015年山东省省直机关及直属单位考试录用公务员公告" target="_blank">
+            2015年山东省省直机关及直属单位考试录用公务员公告</a></p>
+              <p class="list_more_one">2016-03-02</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201512/55507.shtml" title="山东省技工学校教师职务高级评审委员会对2015年度评审通过人员实行异议期的通知" target="_blank">
+            山东省技工学校教师职务高级评审委员会对2015年度评审通过人员实行异议期的通知</a></p>
+              <p class="list_more_one">2016-01-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                <a href="http://zwfw.sd.gov.cn/sdzw/see/notice/index.do?orgcode=SD370000RS" title="山东省人力资源和社会保障厅行政审批事项办理结果公示" target="_blank">
+山东省人力资源和社会保障厅行政审批事项办理结果公示</a></p>
+              <p class="list_more_one">2016-01-22</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201512/55604.shtml" title="2014年度山东省人力资源社会保障优秀科研成果评审结果公示" target="_blank">
+            2014年度山东省人力资源社会保障优秀科研成果评审结果公示</a></p>
+              <p class="list_more_one">2015-12-30</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201509/54584.shtml" title="迁 址 公 告" target="_blank">
+            迁 址 公 告</a></p>
+              <p class="list_more_one">2015-11-30</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00330/201510/54823.shtml" title="关于我厅行政权力事项网上申报系统试运行的公告" target="_blank">
+            关于我厅行政权力事项网上申报系统试运行的公告</a></p>
+              <p class="list_more_one">2015-11-10</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201507/53342.shtml" title="关于做好2015年度全国经济专业技术资格考试用书服务工作有关问题的通知" target="_blank">
+            关于做好2015年度全国经济专业技术资格考试用书服务工作有关问题的通知</a></p>
+              <p class="list_more_one">2015-07-08</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                <a href="http://www.rsks.sdrs.gov.cn/c.aspx?a=1977" title="关于2015年度执业药师资格考试考务工作有关问题的通知" target="_blank">
+关于2015年度执业药师资格考试考务工作有关问题的通知</a></p>
+              <p class="list_more_one">2015-06-30</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201505/53007.shtml" title="关于2015年度省直考区计算机应用能力第三批考试有关问题的通知" target="_blank">
+            关于2015年度省直考区计算机应用能力第三批考试有关问题的通知</a></p>
+              <p class="list_more_one">2015-05-19</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201504/52849.shtml" title="关于做好2015年技师、高级技师社会化考评工作的通知" target="_blank">
+            关于做好2015年技师、高级技师社会化考评工作的通知</a></p>
+              <p class="list_more_one">2015-04-24</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201504/52848.shtml" title="关于组织开展2015年全省技工院校与高职院校毕业生职业资格统一鉴定的通知" target="_blank">
+            关于组织开展2015年全省技工院校与高职院校毕业生职业资格统一鉴定的通知</a></p>
+              <p class="list_more_one">2015-04-24</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201504/52847.shtml" title="2015年5月全国（省）新职业统一鉴定入口" target="_blank">
+            2015年5月全国（省）新职业统一鉴定入口</a></p>
+              <p class="list_more_one">2015-04-24</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201504/52846.shtml" title="关于办理2014年度高级专业技术职务资格证书和领取中、初级专业技术职务资格证书的通知" target="_blank">
+            关于办理2014年度高级专业技术职务资格证书和领取中、初级专业技术职务资格证书的通知</a></p>
+              <p class="list_more_one">2015-04-24</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201504/52845.shtml" title="关于领取2014年度经济专业技术资格证书的通知" target="_blank">
+            关于领取2014年度经济专业技术资格证书的通知</a></p>
+              <p class="list_more_one">2015-04-24</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201504/52844.shtml" title="关于2015年招标师职业资格考试日期的通知" target="_blank">
+            关于2015年招标师职业资格考试日期的通知</a></p>
+              <p class="list_more_one">2015-04-24</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201504/52843.shtml" title="致参加2015年度省属事业单位公开招聘笔试考生的一封信" target="_blank">
+            致参加2015年度省属事业单位公开招聘笔试考生的一封信</a></p>
+              <p class="list_more_one">2015-04-24</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201504/52819.shtml" title="2015年省属事业单位初级专业技术岗位和管理岗位公开招聘工作人员简章" target="_blank">
+            2015年省属事业单位初级专业技术岗位和管理岗位公开招聘工作人员简章</a></p>
+              <p class="list_more_one">2015-04-21</p>
+           </li>      
+
+       <li class="pagedContent">
+              <p class="list_title_one">
+                        <a href="/articles/ch00586/201504/52818.shtml" title="关于2015年省属事业单位公开招聘工作人员有关问题的通知" target="_blank">
+            关于2015年省属事业单位公开招聘工作人员有关问题的通知</a></p>
+              <p class="list_more_one">2015-04-21</p>
+           </li>      
+
+      </ul>
+      	
+    </div>
+     <div class="fenye">			
+<style>
+.pageDiv{font-size:13px;}
+.pageDiv a{font-size:13px;text-decoration:none;}
+</style>
+<div class="pageDiv">
+<script type="text/javascript">
+var pageUrl=new Array();
+var pageSize=1000;
+pageUrl[1]="/channels/ch00586/index.shtml";
+var totalCount = 326;
+var perSize = 25;
+var startPage=1;
+var endPage=14;
+var curPage =1;
+var logicTotalPage = 14;
+
+<!--var re=/^+?[1-9][0-9]*$/;-->
+
+var nowStartPage=1;
+if(request('page'))
+{
+  nowStartPage=request('page');
+}
+document.write('共 '+totalCount+' 条，每页 '+perSize+' 条，页次<span id="curPageShow"></span> / '+logicTotalPage+'页，');
+</script>
+<a href="javascript:changePage(1);">首页</a>
+<a href="javascript:changePage(startPage+parseInt(curPage)-2);" id="prevP">上页 </a>
+<a href="javascript:changePage(startPage+parseInt(curPage));" id="nextP">下页 </a>
+<a href="javascript:changePage(logicTotalPage);">尾页</a>
+跳转到第<input id="pageSelect" type="text" value="1"   style="width:35px;"/>页
+<script type="text/javascript">
+var valCurrentPage = $("#pageSelect");
+chgpage(nowStartPage);
+function chgpage(pageNum){
+	valCurrentPage.val(pageNum);
+	$('#prevP').show();	$('#nextP').show();
+	if(pageNum < 1 || pageNum > logicTotalPage) return;
+
+	if(pageNum == 1) $('#prevP').hide();
+	if(pageNum == logicTotalPage) $('#nextP').hide();
+	curPage = pageNum-startPage+1 ;
+
+	$('.pagedContent').hide();
+	$('.pagedContent').slice((curPage-1)*perSize,curPage*perSize).show();
+	$('#curPageShow').text(pageNum);
+}
+valCurrentPage.keydown(
+		function(event){
+			var targetPage = parseInt($(this).val());
+			if(event.keyCode==13 ){
+              if(targetPage<1){
+			 	  	alert("页数不能小于1");
+			 	  	return false;
+			 	  }
+			   if(targetPage>logicTotalPage){
+			 	  	alert("页数不能大于"+logicTotalPage);
+			 	  	return false;
+			 	  }
+			 	  changePage(targetPage);
+			}
+		}
+	);
+
+ function  changePage(changePage)
+ {
+ 	   if(changePage<startPage||changePage>endPage)
+    {
+      var rPage=Math.ceil(changePage*perSize/pageSize);
+
+      if(rPage==0){
+      	 rPage=1;
+      }
+       var rUrl=addParam(pageUrl[rPage],"page",changePage);
+      window.location.href=rUrl;
+      return ;
+    }
+    chgpage(changePage);
+
+ }
+</script>
+</div>
+
+		</div> 	
+		
+    </div>
+    </div>
+  </div>
+
+
+<!--body end--> 
+<!--footer start-->
+<!--footer start-->
+
+<style>
+
+.index_map .cont .item {
+
+    float: left;
+
+    margin: 0 4.8%;
+
+}
+
+</style>
+
+<link rel="stylesheet" href="/template/srst/default/css/nav.css" type="text/css">
+
+<link href="/template/srst/default/css/public.css" rel="stylesheet" type="text/css" />
+
+<script type="text/javascript">var embedRootPath = "/gentleCMS";var memberPath="/gentleCMS";</script>
+
+<script type="text/javascript">
+
+    $(document).ready(function () {
+
+        //导航
+
+        $(".mainProNav dl dt").click(function () {
+
+            $(".mainProNav dl").removeClass("dlHover");
+
+            $(this).parent().addClass("dlHover");
+
+            $("#of_whole").removeClass("of_whole2");
+
+            $("#of_whole").addClass("of_whole");
+
+        })
+
+        $(".mainProNav").hover(function () {
+
+            $(this).addClass("mainProNavHover");
+
+        }, function () {
+
+            $(this).removeClass("mainProNavHover");
+
+            $(".mainProNav dl").removeClass("dlHover");
+
+            $("#of_whole").removeClass("of_whole");
+
+            $("#of_whole").addClass("of_whole2");
+
+        })
+
+
+
+    });
+
+</script>
+
+
+
+<script type="text/javascript">
+
+    //日历――――――――――――――――――――――――――――――――――――――――――
+
+    $(function () {
+
+
+
+        //绘制月历体――――――――――――――――――――――――――――――――――――――――――
+
+
+
+        for (var i = 0; i < 35; i++) {
+
+            $("<li><span></span></li>").appendTo(".month-body").addClass("month-cell");
+
+        }
+
+
+
+        var today = new Date()
+
+
+
+        var FullYear = today.getFullYear(); //获取年份
+
+        var m = today.getMonth(); //获取月号
+
+        var month = today.getMonth() + 1; //获取月份
+
+
+
+        if (month < 10) {
+
+            month = "0" + month;
+
+        }
+
+        var date = today.getDate(); //获取日期
+
+        var day = today.getDay(); //获取星期
+
+
+
+        var monthsNum = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+
+        var isleapyear = FullYear % 4; //判断闰年
+
+        if (isleapyear == 0) {
+
+            monthsNum[1] = 29;
+
+        }
+
+
+
+        if (day == 0) {
+
+            day = 7;
+
+        }
+
+        var firstDay = day - (date % 7 - 1); //!important 计算月初星期数
+
+
+
+        if (firstDay == 7) { //如果月初为七，归零
+
+            firstDay = 0;
+
+        }
+
+        if (firstDay < 0) { //如果月初为负，加七循环
+
+            firstDay += 7;
+
+        }
+
+
+
+        var f = firstDay;
+
+        for (var j = 1; j <= monthsNum[m]; j++) {
+
+            $("li.month-cell span").eq(f).text(j).parent().addClass("pink");
+
+            f++;
+
+        }
+
+
+
+        $("li.month-cell span").eq(firstDay - 1 + date).parent().addClass("pink_now");
+
+
+
+        $(".month-head span").text(FullYear + "年" + month + "月");
+
+        $("li.month-cell span").mouseover(function () {
+
+            $(this).parent().removeClass("pink");
+
+            $(this).parent().addClass("red");
+
+        });
+
+        $("li.month-cell span").mouseout(function () {
+
+            $(this).parent().removeClass("red");
+
+            $(this).parent().addClass("pink");
+
+        });
+
+        $("li.month-cell span").click(function () {
+
+            var fwrq = null;
+
+            if (parseInt($(this).text()) <= parseInt($("li.month-cell span").eq(firstDay - 1 + date)
+
+                    .text()))
+
+                if ($(this).text() < 10) {
+
+                    fwrq = FullYear + "-" + month + "-" + 0 + $(this).text();
+
+                    //window.location.href = "includes/search_allbyday.html-fwrq=.htm" + fwrq;
+
+                } else {
+
+                    fwrq = FullYear + "-" + month + "-" + $(this).text();
+
+                    //window.location.href = "includes/search_allbyday.html-fwrq=.htm" + fwrq;
+
+                }
+
+        });
+
+
+
+    });
+
+</script>
+
+
+
+<div class="footer-box">
+
+    <style>
+
+        .foot-CRselectBox4 a.foot-CRselectValue4,.foot-CRselectBox2 a.foot-CRselectValue2{width: 160px;padding-right: 30px;white-space: normal;}
+
+ </style>
+
+
+
+    <div class="index_pane4 cont" style="width:1000px;margin-left:auto;margin-right:auto;">
+
+        <!-- 改动 -->
+
+        <div class="ico_nav" > <a style="width:100px;" href="javascript:void(0)">站点地图</a>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+
+    <div class="index_map" style="display: none;">
+
+        <div class="cont" style="width:1050px;margin-left:auto;margin-right:auto;">
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00003/">资讯中心</a></dt>
+
+                    <dd>
+
+                        <ul>
+                            <li><a target="_blank" href="/channels/ch00005/">人社要闻</a></li>
+                            <li><a target="_blank" href="/channels/ch07787/">时政要闻</a></li>
+                            <li><a target="_blank" href="/channels/ch00021/">热点聚焦</a></li>
+                            <li><a target="_blank" href="/channels/ch00330/">通知公告</a></li>
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00332/">政府信息公开</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch06434/">政府信息公开指南</a></li>
+                            <li><a target="_blank" href="/channels/ch00336/">政府信息公开制度</a></li>
+                            <li><a target="_blank" href="/channels/ch06438/">法定主动公开内容</a></li>
+                            <li><a target="_blank" href="/channels/ch06439/">政府信息公开年报</a></li>
+                            <li><a target="_blank" href="http://credit.shandong.gov.cn/creditsearch.publicity.dhtml">双公示信息</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+       <!--     <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00470/">政策法规</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/?wjfl=5rOV5b6L5rOV6KeE6KeE56ug5Y+K6KeE6IyD5oCn5paH5Lu2&title=&wh=&fwrq=">法律法规规章规范性文件</a></li>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/?wjfl=6KeE6IyD5oCn5paH5Lu26I2J5qGI&title=&wh=&fwrq=">规范性文件草案</a></li>
+
+                            <li><a target="_blank" href="http://hrss.shandong.gov.cn/channels/ch00472/">政策文件查询</a></li>
+
+                            <li><a target="_blank" href="/channels/ch00580/">政策解读</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>-->
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00582/">服务大厅</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch00586/">通知公告</a></li>
+                            <li><a target="_blank" href="/channels/ch00588/">信息查询</a></li>
+                            <li><a target="_blank" href="/channels/ch00594/">下载中心</a></li>
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="item">
+
+                <dl>
+
+                    <dt><a href="/channels/ch00592/">互动交流</a></dt>
+
+                    <dd>
+
+                        <ul>
+
+                            <li><a target="_blank" href="/channels/ch00946/">
+							厅长信箱</a></li>
+                            <li><a target="_blank" href="/channels/ch00948/">
+							建言献策</a></li>
+                            <li><a target="_blank" href="/channels/ch00610/">
+							咨询热点回放</a></li>
+
+
+                        </ul>
+
+                    </dd>
+
+                </dl>
+
+            </div>
+
+            <div class="clearfix"></div>
+
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+    <script type="text/javascript" src="/template/srst/default/images/js/public.js"></script>
+
+    <div class="footer-link clearfix" style="background-color: #8fb5d2;" >
+
+        <div class="text-box2" style="width: 1000px;height: auto; margin-left: 0 auto;">
+
+            <div style="display: inline-block;font-size: 16px;color: #fff;">友情链接 >></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.gov.cn/" style="color: #fff;" target="_blank">国务院</a></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.mohrss.gov.cn/" style="color: #fff;" target="_blank">人社部</a></div>
+
+            <div style="display: inline-block;padding: 0 60px;font-size: 15px;border-right: 2px solid #fff;"><a href="http://www.shandong.gov.cn/" style="color: #fff;" target="_blank">山东省政府</a></div>
+
+            <select id="select33" size="1" onchange="javascript:window.open(this.options[this.selectedIndex].value);this.selectedIndex=0"
+
+                style="width:27%;border: 0;outline-style: none;margin-left: 30px;font-size: 15px;color: #fff;background: #8fb5d1;">
+
+                <option style="color: #000;background: #fff;" selected="">山东省各地市人力资源和社会保障局</option>
+
+                <option style="color: #000;background: #fff;" value="http://jnhrss.jinan.gov.cn/">济南市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.qingdao.gov.cn/">青岛市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.zibo.gov.cn/">淄博市</option>
+
+                <option style="color: #000;background: #fff;" value="http://zzhrss.zaozhuang.gov.cn/">枣庄市</option>
+
+                <option style="color: #000;background: #fff;" value="http://dylss.dongying.gov.cn/">东营市</option>
+
+                <option style="color: #000;background: #fff;" value="https://rshj.yantai.gov.cn">烟台市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.weifang.gov.cn/">潍坊市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.jining.gov.cn">济宁市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.taian.gov.cn/">泰安市</option>       
+
+                <option style="color: #000;background: #fff;" value="http://rsj.weihai.gov.cn/">威海市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.rizhao.gov.cn/">日照市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.linyi.gov.cn/">临沂市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hrss.dezhou.gov.cn/">德州市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rsj.liaocheng.gov.cn/">聊城市</option>
+
+                <option style="color: #000;background: #fff;" value="http://rs.binzhou.gov.cn/">滨州市</option>
+
+                <option style="color: #000;background: #fff;" value="http://hzrsj.heze.gov.cn/">菏泽市</option>
+
+            </select>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+    <div class="copyright">
+
+        <div class="container" style="height:95px;margin: 0 auto;">
+
+            <div style="float:left;margin-left:100px;width:110px; text-align:center; overflow:hidden;padding-top:12px;">
+
+                <script id="_jiucuo_" sitecode="3700000027" src="https://zfwzgl.www.gov.cn/exposure/jiucuo.js"></script>
+
+            </div>
+
+            <div style="float:left;width:70px;text-align:center;overflow:hidden;">
+
+                <!--<script src="http://dcs.conac.cn/js/16/000/0000/60418909/CA160000000604189090002.js" type="text/javascript"></script>-->
+
+<span id="_ideConac"><a href="//bszs.conac.cn/sitename?method=show&amp;id=08314E66B4BB5B11E053012819AC5237" target="_blank"><img id="imgConac" vspace="0" hspace="0" border="0" src="/template/srst/default/images/dzjg/red.png" data-bd-imgshare-binded="1"></a></span>
+
+            </div>
+
+<!--加入收藏 -->
+
+<script>
+
+function addFavorite2() {
+
+var url = window.location;
+
+var title = document.title;
+
+var ua = navigator.userAgent.toLowerCase();
+
+if (ua.indexOf("360se") > -1) {
+
+alert("由于360浏览器功能限制，请按 Ctrl+D 手动收藏！");
+
+}
+
+else if (ua.indexOf("msie 8") > -1) {
+
+window.external.AddToFavoritesBar(url, title); //IE8
+
+}
+
+else if (document.all) {
+
+try{
+
+window.external.addFavorite(url, title);
+
+}catch(e){
+
+alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+
+}
+
+}
+
+else if (window.sidebar) {
+
+window.sidebar.addPanel(title, url, "");
+
+}
+
+else {
+
+alert('您的浏览器不支持,请按 Ctrl+D 手动收藏!');
+
+}
+
+}
+
+</script>
+
+            <div style="float:left;width:500px; text-align:center; overflow:hidden;">
+
+                <p class="link">
+
+                    <a href="/channels/ch02606/" float:left; margin-left:40px;>联系我们</a>|<a href="javascript:void(0);" onclick="javascript:addFavorite2()"
+
+                        float:left; margin-left:40px;>加入收藏</a>|<a href="https://mail.shandong.cn/" target="_blank" float:left; margin-left:40px;>邮箱登录</a></p>
+
+                <p>主办单位：山东省人力资源和社会保障厅&nbsp;&nbsp;&nbsp;&nbsp;版权所有：山东省人力资源和社会保障厅</p>
+
+                <p>技术支持：山东省社会保险事业中心社会保障卡管理服务处&nbsp;&nbsp;&nbsp;&nbsp;政府网站标识码：3700000027</p><div style="display:none;"> <script type="text/javascript">
+ $.get("/statistics/do/embedservice/count?method=read&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+<span id="site_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#site_show_count").empty();
+   $("#site_show_count").append(data.result[0]);
+	}
+}
+);
+</script>
+</div>
+
+                <p style="margin-left:90px;"><span style="float:left;padding-right:10px;"><a href="https://beian.miit.gov.cn"  target="_blank" style="color:#ffffff;">鲁ICP备10039682号-6</a></span>
+
+                    <a target="_blank" href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=37010202001324"><img
+
+                            src="/template/srst/default/images/batb.png" style="float:left;"><span style="float:left;margin: 0px 0px 0px 5px; color:#ffffff;">鲁公网安备37010202001324号</span></a>
+
+                </p>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--悬浮 start-->
+
+<!--<div class="left-fixed-tool"> <a class="top-a" href="#">索引<br>
+
+ 服务</a> <a class="box-a" href="#">站点<br>
+
+ 日历</a> <a class="box-b" href="#">智能<br>
+
+ 咨询</a> <a class="bottom-a" href="#">渠道<br>
+
+ 媒体</a></div>-->
+
+<!--悬浮 end-->
+
+              <script>
+
+                   function search1() {
+
+                            var content = $('#search_content1').val();
+
+                            content = utf8_to_b64(content);
+
+                            var url = '/channels/ch05821/';
+
+                            url = url + '?content=' + content;
+
+                            window.open(url);
+
+                        }
+
+                    
+
+                        //加密
+
+                        function utf8_to_b64(str) {
+
+                            return window.btoa(unescape(encodeURIComponent(str)));
+
+                        }
+
+                        //解密
+
+                        function b64_to_utf8(str) {
+
+                            return decodeURIComponent(escape(window.atob(str)));
+
+                        }
+
+                    $(document).ready(function() {
+
+                        $("#search_content1").keydown(function() {
+
+                            if (event.keyCode == 13) {
+
+                                search1();
+
+                            }
+
+                        })
+
+                        $(".searchBtn2").click(function() {
+
+                            search1()
+
+                        })
+
+                    });
+
+                            function search2(keyword){
+
+                                $('#search_content1').attr('value',keyword);
+
+                                search1()
+
+                            }
+
+                 </script>
+
+<div id="of_whole" class="of_whole2">
+
+    <!--主体内容区开始-->
+
+    <div id="of_mainBody" class="push_t">
+
+        <!--左侧栏开始-->
+
+        <div class="side_small tag_line float_l">
+
+            <div class="mainProNav">
+
+                <dl class="navM1">
+
+                    <dd style="width:430px;">
+
+
+
+                        <div class="navbox_con1">
+
+                            <!--全文检索-->
+
+                            <div class="navbox_con1_left" style="padding:0!important;">
+
+                                <div class="navbox_con1_left_tit">
+
+                                    <div class="float_left">全文检索</div>
+
+                                </div>
+
+                                 <span>在整个网站范围内搜索</span>
+
+                                <div class="navbox_con1_left_search">
+
+                                        <input  name="content" type="text"  id="search_content1"  value="请输入关键字"
+
+                                            onClick="this.value=''" onFocus="if (value =='请输入关键字'){value =''}" onBlur="if (value ==''){value='请输入关键字'}">
+
+                                    <!-- <input name="" id='serachAllsy' type="text"> -->
+
+                                    <input id="search-button" class="searchBtn2" type="button" value="搜索" >
+
+                                </div>
+
+                                <div class="navbox_con1_left_con">
+
+                                    <a href="javascript:search2('就业')">就业</a><a href="javascript:search2('失业')">失业</a><a
+
+                                        href="javascript:search2('养老')">养老</a>
+
+                                    <a href="javascript:search2('社会保险')">社会保险</a><a href="javascript:search2('人事人才')">人事人才</a><a
+
+                                        href="javascript:search2('收入分配')">收入分配</a>
+
+                                    <a href="javascript:search2('劳动关系')">劳动关系</a><a href="javascript:search2('法律法规')">法律法规</a><a
+
+                                        href="javascript:search2('规范性文件')">规范性文件</a>
+
+                                    <a href="javascript:search2('行政许可')">行政许可</a><a href="javascript:search2('招聘')">招聘</a><a
+
+                                        href="javascript:search2('求职')">求职</a>
+
+                                    <a href="javascript:search2('农业')">农业</a><a href="javascript:search2('工业')">工业</a><a
+
+                                        href="javascript:search2('经济')">经济</a>
+
+                                    <a href="javascript:search2('工伤')">工伤</a><a href="javascript:search2('医疗')">医疗</a><a
+
+                                        href="javascript:search2('服务')">服务</a>
+
+                                    <a href="javascript:search2('政策')">政策</a><a href="javascript:search2('工作')">工作</a><a
+
+                                        href="javascript:search2('人力资源')">人力资源</a></div>
+
+                            </div>
+
+                            <!--网站导航-->
+
+                            
+
+
+
+                        </div>
+
+
+
+                    </dd>
+
+
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="top-a"></div>索引<br>服务
+
+                    </dt>
+
+                </dl>
+
+
+
+                <dl class="navM2">
+
+                    <dd>
+
+
+
+                        <div class="navbox_con2">
+
+                            <!--日历-->
+
+                            <div class="navbox_con2_left">
+
+                                <div class="month-container">
+
+                                    <div class="month-head"><span></span></div>
+
+                                    <ul class="month-body">
+
+                                        <div class="month-cell orange"><span>日</span></div>
+
+                                        <div class="month-cell blue"><span>一</span></div>
+
+                                        <div class="month-cell blue"><span>二</span></div>
+
+                                        <div class="month-cell blue"><span>三</span></div>
+
+                                        <div class="month-cell blue"><span>四</span></div>
+
+                                        <div class="month-cell blue"><span>五</span></div>
+
+                                        <div class="month-cell blue"><span>六</span></div>
+
+                                    </ul>
+
+                                    <div class="clear"></div>
+
+                                </div>
+
+                            </div>
+
+                            <!--最新发布-->
+
+                            <div class="navbox_con2_right">
+
+                                <div class="navbox_con2_right_tit">
+
+                                    <div class="float_left">最新发布</div>
+
+                                </div>
+
+                                <div class="navbox_con2_right_con">
+
+                                    <div class="navbox_con2_right_con" style="float:left;">
+
+                                        <ul class="news-list" style="float:left;margin-left:0px;padding:0px;margin-top:0px;">
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch08631/202609/f6c043c4-b29f-4cf4-be71-800e85634834.shtml" title="山东九月培训计划和“乐业山东”技能培训加油站活动信息新鲜出炉，快来邂逅你的“技”遇"
+
+                                                                        target="_blank">
+
+
+                                                        山东九月培训计划和“乐业山东”技能培训加油站活动...</a>
+
+                                                    </span><span class="span2">2026-09-01</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch08631/202608/0e6a8ac1-d44f-4d86-82dc-de74ac68a5f9.shtml" title="全省第一批“乐业山东”技能培训加油站名录"
+
+                                                                        target="_blank">
+
+
+                                                        全省第一批“乐业山东”技能培训加油站名录</a>
+
+                                                    </span><span class="span2">2026-08-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                            <a href="http://hrss.shandong.gov.cn/articles/ch06434/202012/edca2b7f-e279-4db1-a0c2-cdea970c7b14.shtml" title="推进政务公开  建设阳光政府" target="_blank">
+
+
+                                                        推进政务公开  建设阳光政府</a>
+
+                                                    </span><span class="span2">2022-01-05</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/f3637d87-4071-4230-bdcd-063718e6b525.shtml" title="省人力资源社会保障厅党组理论学习中心组开展集中学习研讨"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅党组理论学习中心组开展集中学...</a>
+
+                                                    </span><span class="span2">2023-09-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/ea8a3044-4edc-431b-99d6-a7976e132695.shtml" title="张涛一行赴山东技师学院调研校企合作"
+
+                                                                        target="_blank">
+
+
+                                                        张涛一行赴山东技师学院调研校企合作</a>
+
+                                                    </span><span class="span2">2023-09-08</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202309/79ef6f17-ec65-47ed-9307-ef5f40b19bd8.shtml" title="全省人力资源社会保障重点工作推进会召开"
+
+                                                                        target="_blank">
+
+
+                                                        全省人力资源社会保障重点工作推进会召开</a>
+
+                                                    </span><span class="span2">2023-09-05</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202308/3663b7f4-db23-452c-bfdc-f9b74befb4ed.shtml" title="省人力资源社会保障厅召开党组会传达学习习近平总书记重要讲话精神"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅召开党组会传达学习习近平总书...</a>
+
+                                                    </span><span class="span2">2023-08-26</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00005/202308/0f11cfa3-1a28-427d-b51c-5a70a1ae829c.shtml" title="省人力资源社会保障厅党组中心组开展集中学习研讨"
+
+                                                                        target="_blank">
+
+
+                                                        省人力资源社会保障厅党组中心组开展集中学习研讨</a>
+
+                                                    </span><span class="span2">2023-08-23</span></li>
+
+
+                                                <li><span class="span1">
+
+
+                                                                    <a href="/articles/ch00314/201808/65496.shtml" title="第十届海内外高端人才交流会"
+
+                                                                        target="_blank">
+
+
+                                                        第十届海内外高端人才交流会</a>
+
+                                                    </span><span class="span2">2018-08-28</span></li>
+
+
+                                        </ul>
+
+                                    </div>
+
+                                </div>
+
+
+
+                            </div>
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="box-a"></div>站点<br>日历
+
+                    </dt>
+
+                </dl>
+
+                <dl class="navM3">
+
+                    <dd>
+
+                        <div class="navbox_con3"><a href="/channels/ch06859/" target="_blank"><img src="/template/srst/default/images/navbox_con3.jpg"></a></div>
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="box-b"></div>智能<br>咨询
+
+                    </dt>
+
+                </dl>
+<style>
+
+.navbox_con4_center_btn a {
+    line-height: 20px;
+}
+</style>
+                <dl class="navM4">
+
+                    <dd style="width: 655px;">
+
+                        <div class="navbox_con4" >
+
+                            <!--ico-->
+
+                            <div class="navbox_con4_left">
+
+                                <div class="navbox_con4_left_ico">
+
+                                   
+
+                                    <div class="navbox_con4_left_btn"><img src="/template/srst/default/images/gwyicon.png"><a href="http://www.gov.cn/public/yidongkehuduan.htm" target="_blank">国务院</a></div>
+
+                                    <div class="navbox_con4_left_code"><img src="/template/srst/default/images/gwy.png" width="100" height="93"></div>
+
+                               
+
+                                </div>
+
+                                <div class="navbox_con4_left_ico">
+
+                                    <div class="navbox_con4_left_btn"><img src="/template/srst/default/images/wechat.png"><a href="">山东人社</a></div>
+
+                                    <div class="navbox_con4_left_code"><img src="/template/srst/default/images/sdrs_wx.png" width="100" height="93"></div>
+
+                                </div>
+
+                            </div>
+
+                            <div class="navbox_con4_center">
+
+                                <div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/gwyicon.png"><a href="http://www.gov.cn/guowuyuan/gwykhdxcx/xiaochengxu.html" target="_blank">国务院客户端小程序</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/gwyxcx2023.png" width="100" height="93"></div>
+
+                                </div>
+								
+								<div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/20231206dy.png"><a href="">“山东人社”<br />抖音号</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/20231206.jpg" width="100" height="93"></div>
+
+                                </div>
+
+                               
+
+                            </div>
+							
+							<div class="navbox_con4_center">
+
+                                <div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/zs_12333icon.png"><a href="http://www.12333.gov.cn/ggfwstatic/download/app.html" target="_blank">人社部12333app</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/zs_12333.jpg" width="100" height="93"></div>
+
+                                </div>
+								
+								<div class="navbox_con4_center_ico">
+
+                                    <div class="navbox_con4_center_btn"><img src="/template/srst/default/images/wechat.png"><a href="">山东人社杂志</a></div>
+
+                                    <div class="navbox_con4_center_code"><img src="/template/srst/default/images/rszz.jpg" width="100" height="93"></div>
+
+                                </div>
+								
+								
+
+                               
+
+                            </div>
+
+                            <!--人社APP
+
+                            <div class="navbox_con4_right"> <img src="/template/srst/default/images/navbox_con4_right.png"> </div>-->
+
+
+
+                        </div>
+
+
+
+                    </dd>
+
+                    <dt style="cursor:pointer;">
+
+                        <div class="bottom-a"></div>渠道<br>媒体
+
+                    </dt>
+
+                </dl>
+
+
+
+            </div><!-- mainProNav end -->
+
+        </div>
+
+    </div>
+
+</div>
+
+<!--footer end-->
+
+
+
+<script src="/template/srst/default/images/js/jquery.placehold.min.js"></script>
+
+<script src="/template/srst/default/images/js/switchable.js"></script>
+
+<script src="/template/srst/default/images/js/forweb.js"></script>
+
+<script src="/template/srst/default/images/js/sdrs.js"></script>
+
+<div style="display:none">
+
+<!--今日访问量：<span id="site_today_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e&today=true",
+function(data){
+	if(data.success){
+   $("#site_today_show_count").empty(); 
+   $("#site_today_show_count").append(data.result[0]);
+	}
+}
+); 
+</script>
+<br>
+
+总访问量： <script type="text/javascript">
+ $.get("/statistics/do/embedservice/count?method=read&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e");
+</script>
+<span id="site_show_count"></span>
+<script type="text/javascript">
+$.get("/statistics/do/embedservice/count?method=count&articleId=index&channelId=root&siteId=7f6d5d22-89b8-44d7-b0b4-f4a0185a4f8e",
+function(data){
+	if(data.success){
+   $("#site_show_count").empty();
+   $("#site_show_count").append(data.result[0]);
+	}
+}
+);
+</script>
+-->
+
+</div>
+
+
+
+
+
+<!--无障碍-->
+<link href="/indeci/assets/css1/bf/barrierfree.css" rel="stylesheet" type="text/css" />
+<!--<script src="http://hrss.shandong.gov.cn/indeci/assets/js/jquery-1.12.4.min.js"></script>-->
+<script src="/indeci/assets/js/iframe.js" id="barrierFree" data="sn=00BA70FA0C66666406857D7D95415F64DDFE095C3F999B519710480B7876C508&rcode=F03AAE6D55B0B46A87F426F827D7C49F2BA26A9FCBC4310D78CDAE41E28334EAA3D0610CE8492C14D5629C162B0C021B8801FB1C343AC2C2E3976946431E58B6AC854C44D12EE9335702E64F7045C926E1F15AC3B43BEC073E8F5008F5727EF6A6CB129A29DF06037AB2DFAEBC06C2F33AB0354C48193E8029BDE39EA18477AD"></script>
+<script>
+$(document).ready(function(){
+
+	
+	if ($('div').hasClass('index-main')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.index-main', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('ejcontent')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.ejcontent', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('list_bei')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.list_bei', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])	
+};
+	if ($('div').hasClass('zhengce_top')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.zhengce_top', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+	if ($('div').hasClass('fuwu_warp')) {
+	$.elderOptions([
+	{ el: '.nav-box', desc: '主栏目导航，本区域为一级栏目快捷链接' },
+  	{ el: '.fuwu_warp', desc: '主窗口' },
+	{ el: '.copyright', desc: '页尾信息，本区域包含单位联系方式等内容' }
+	])
+};
+})
+</script>
+<!--无障碍-->
+
+<!--登录显示-->
+	<script >
+function getMyCookie(key){
+		var val = "";	
+		// 对cookie操作
+		var cookies = document.cookie;
+			
+		cookies = cookies.replace(/\s+/g,"");
+//console.log("cookies 000:"+cookies );
+		var cookie_array = cookies.split(";");
+		for(i=0;i<cookie_array.length;i++){
+			var cookie = cookie_array[i];
+			var array = cookie.split("=");
+			if(array[0]==key){
+				val = array[1];
+			}
+		}
+		
+		return val;
+	}
+
+function denglu(){ 
+
+if(!navigator.cookieEnabled){
+alert('浏览器cookie已被禁用，请开启！');
+}
+
+        var sdid = getMyCookie("sdid");
+		if(sdid!=null&&sdid!=''){
+					 $.ajax({
+			  url : "/interact/oauthclient/getUserJson.do",
+			  dataType : "json",
+			  type : "post",
+			  async : true,
+			  success : function(data) { 
+			personname=decodeURIComponent(data.name);
+			/*console.log(personname);*/
+			/*仅显示*/
+			document.getElementById("xsname").innerText=personname;
+
+			 /*名字星号*/
+                var huifuname = document.getElementById("xsname").innerText;
+					var huifuname1 = huifuname.substr(0,1) + new Array(huifuname.length).join('*');
+                    document.getElementById('xsname').innerText = huifuname1;
+			/*显示*/		
+			document.getElementById("denglu").style.display='block';
+			document.getElementById("weidenglu").style.display='none';	
+			}
+					
+		 })
+			
+			}else{		
+	
+						 $.ajax({
+				
+						      url : "/interact/oauthclient/getUser.do",//请求地址
+						      dataType : "json",//数据格式 
+						      type : "post",//请求方式
+						      async : true,//是否异步请求
+						      success : function(data) {   //如果发送成功
+
+										if(data.flag=="true"){
+										document.getElementById("personname").value=decodeURIComponent(data.name);
+									      }else{
+			document.getElementById("denglu").style.display='none';
+			document.getElementById("weidenglu").style.display='';
+												//	 if(window.confirm('请先登录！')){
+												//	 window.parent.location.href="http://hrss.shandong.gov.cn/gentleCMS/oauthclient/toLogin.do?sitedomain=hrss";
+												//	 return true;
+												//  }else{
+												//	 return false;
+												// }
+													
+									       }
+										}
+										
+						 })
+						
+			 
+				}
+                
+	}
+$(function(){denglu();})
+function clearCookie(){
+document.cookie = "sdid=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; domain=.shandong.gov.cn";
+
+ $.ajax({
+				
+						      url : "/interact/oauthclient/Out.do",//请求地址
+						      dataType : "json",//数据格式 
+						      type : "post",//请求方式
+						      async : true,//是否异步请求
+						      success : function() {   //如果发送成功
+                                                                  location.reload(true);
+										
+										},
+								error: function(){
+								alert('操作失败');}
+										
+						 })
+						
+	}
+</script>
+<div id="denglu" style="position: absolute; top: 10px; left: 85%; width: 150px; z-index:999; display:none;">
+        <table class="wyts_Class" width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>
+					<a href="/channels/ch08303/"><span id="xsname"></span></a>
+					<input type="text" id="personname" name="personname" class="validate[,required,minSize[0],maxSize[30]]"
+                            size="30" maxlength="30" readonly="readonly" style="display:none;">
+                    </td>
+                    <td>
+					<a href="javascript:clearCookie();">[退出]</a>
+                    </td>
+                </tr>                                            
+            </tbody>
+        </table>
+</div>
+<div id="weidenglu" style="position: absolute; top: 10px; left: 85%; width: 150px; z-index:999;">
+        <table class="wyts_Class" width="100%" border="0" cellspacing="1" cellpadding="0">
+            <tbody>
+                <tr>
+                    <td>
+					<a href="/channels/ch08303/">用户中心</a>					
+                    </td>
+					<td>
+					<a href="/interact/oauthclient/toLogin.do?sitedomain=hrss">[登录]</a>
+					</td>
+                </tr>                                            
+            </tbody>
+        </table>
+</div>
+<!--登录显示end-->
+</body>
+
+
+
+</html>

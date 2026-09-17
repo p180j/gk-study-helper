@@ -9,7 +9,6 @@ import com.gkstudy.ai.AiResponse;
 import com.gkstudy.essay.dto.EssayEvaluationResult;
 import com.gkstudy.essay.model.EssayQuestion;
 import org.springframework.context.annotation.Primary;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -26,16 +25,15 @@ public class AiEssayGrader implements EssayGrader {
     private static final TypeReference<List<String>> LIST_TYPE = new TypeReference<List<String>>() { };
     private final AiProvider aiProvider;
     private final ObjectMapper objectMapper;
-    private final String model;
 
-    public AiEssayGrader(AiProvider aiProvider, ObjectMapper objectMapper, @Value("${ai.model:}") String model) {
-        this.aiProvider = aiProvider; this.objectMapper = objectMapper; this.model = model;
+    public AiEssayGrader(AiProvider aiProvider, ObjectMapper objectMapper) {
+        this.aiProvider = aiProvider; this.objectMapper = objectMapper;
     }
 
     @Override
     public String evaluator() { return EVALUATOR; }
-    @Override public String provider() { return "OPENAI_COMPATIBLE"; }
-    @Override public String model() { return model; }
+    @Override public String provider() { return aiProvider.providerCode(); }
+    @Override public String model() { return aiProvider.currentModel(); }
     @Override public String promptVersion() { return PROMPT_VERSION; }
 
     @Override

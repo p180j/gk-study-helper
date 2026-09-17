@@ -1,5 +1,6 @@
 package com.gkstudy.coach.controller;
 
+import com.gkstudy.coach.dto.CoachInsight;
 import com.gkstudy.coach.dto.CoachRequest;
 import com.gkstudy.coach.dto.CoachResponse;
 import com.gkstudy.coach.service.AiCoachService;
@@ -16,5 +17,10 @@ public class AiCoachController {
     public ApiResponse<CoachResponse> ask(@RequestHeader(value = "X-User-Id", defaultValue = "1") Long userId,
                                          @RequestBody(required = false) CoachRequest request) {
         return ApiResponse.success(coachService.ask(userId, request == null ? null : request.getQuestion()));
+    }
+
+    @GetMapping("/insight")
+    public ApiResponse<CoachInsight> insight(@RequestHeader(value = "X-User-Id", defaultValue = "1") Long userId) {
+        return ApiResponse.success(coachService.insight(userId));
     }
 }

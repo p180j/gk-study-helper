@@ -55,14 +55,26 @@ class DailyPlanEngineTest {
     }
 
     @Test
-    void newUserExplorationCandidateProducesTrainingTask() {
-        MaintenanceCandidate candidate = maintenance(4, "年均增长率"); candidate.setPurpose("TRAINING");
+    void newUserExplorationCandidateProducesAssessmentTask() {
+        MaintenanceCandidate candidate = maintenance(4, "年均增长率"); candidate.setPurpose("ASSESSMENT");
 
         DailyPlan plan = engine.generate(7L, LocalDate.now(), 20, Collections.emptyList(), Collections.singletonList(candidate));
 
         assertEquals("QUESTION_SET", plan.getItems().get(0).getItemType());
-        assertEquals("TRAINING", plan.getItems().get(0).getPurpose());
-        assertTrue(plan.getItems().get(0).getReason().contains("初始训练"));
+        assertEquals("ASSESSMENT", plan.getItems().get(0).getPurpose());
+        assertTrue(plan.getItems().get(0).getReason().contains("建立真实能力基线"));
+    }
+
+    @Test
+    void realProblemNaturallyReplacesAssessmentWithTraining() {
+        MaintenanceCandidate assessment = maintenance(4, "年均增长率"); assessment.setPurpose("ASSESSMENT");
+        DailyPlan first = engine.generate(7L, LocalDate.now(), 20, Collections.emptyList(), Collections.singletonList(assessment));
+        LearningProblem confirmed = problem(4, "年均增长率", "CONFIRMED");
+
+        DailyPlan later = engine.generate(7L, LocalDate.now().plusDays(1), 20, Collections.singletonList(confirmed), Collections.emptyList());
+
+        assertEquals("ASSESSMENT", first.getItems().get(0).getPurpose());
+        assertEquals("TRAINING", later.getItems().get(0).getPurpose());
     }
 
     @Test

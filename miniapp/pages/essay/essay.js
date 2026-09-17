@@ -1,10 +1,5 @@
 const { request } = require('../../utils/request')
-
-const PURPOSE_LABELS = {
-  TRAINING: '专项训练',
-  REVIEW: '巩固复习',
-  VALIDATION: '问题验证'
-}
+const { purposeLabel } = require('../../utils/display')
 
 Page({
   data: { loading: true, error: '', planItems: [], questions: [] },
@@ -14,7 +9,7 @@ Page({
     try {
       const tasks = await request({ url: '/api/essay/tasks', showLoading: false })
       const planItems = (tasks.planItems || []).map(item => Object.assign({}, item, {
-        purposeLabel: PURPOSE_LABELS[item.purpose] || item.purpose || '专项训练'
+        purposeLabel: purposeLabel(item.purpose)
       }))
       this.setData({ planItems, questions: tasks.questions || [], loading: false })
     } catch (error) {

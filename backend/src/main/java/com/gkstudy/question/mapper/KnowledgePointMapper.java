@@ -17,6 +17,9 @@ public interface KnowledgePointMapper {
     @Select("SELECT id FROM knowledge_point WHERE code=#{code}")
     Long findIdByCode(String code);
 
+    @Select("SELECT name FROM knowledge_point WHERE id=#{id}")
+    String findNameById(Long id);
+
     @Select("SELECT COALESCE(MAX(sort_no),0)+1 FROM knowledge_point WHERE parent_id=#{parentId}")
     int findNextSortNo(Long parentId);
 

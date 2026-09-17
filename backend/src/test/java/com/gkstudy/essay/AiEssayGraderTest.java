@@ -46,7 +46,7 @@ class AiEssayGraderTest {
             public AiResponse completeStructured(String system, String user, int max) { return response; }
             public boolean healthCheck() { return true; }
         };
-        return new AiEssayGrader(provider, mapper, "model-x");
+        return new AiEssayGrader(provider, mapper);
     }
 
     private EssayQuestion question() {

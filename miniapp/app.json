@@ -11,13 +11,13 @@
   ],
   "window": {
     "navigationBarTitleText": "公考学习助手",
-    "navigationBarBackgroundColor": "#f7f8f5",
+    "navigationBarBackgroundColor": "#f2f7ff",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#f3f5f1"
+    "backgroundColor": "#f2f7ff"
   },
   "tabBar": {
-    "color": "#7a8178",
-    "selectedColor": "#1f6f55",
+    "color": "#7b8ba5",
+    "selectedColor": "#1677ff",
     "backgroundColor": "#ffffff",
     "list": [
       { "pagePath": "pages/home/home", "text": "首页" },

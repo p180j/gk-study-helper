@@ -6,6 +6,7 @@ import com.gkstudy.plan.engine.DailyPlanEngine;
 import com.gkstudy.plan.mapper.DailyPlanMapper;
 import com.gkstudy.plan.model.DailyPlan;
 import com.gkstudy.plan.model.DailyPlanItem;
+import com.gkstudy.plan.model.MaintenanceCandidate;
 import com.gkstudy.plan.service.DailyPlanService;
 import com.gkstudy.priority.service.ProblemPriorityService;
 import org.junit.jupiter.api.Test;
@@ -18,6 +19,24 @@ import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
 class DailyPlanServiceTest {
+    @Test
+    void todayRebuildsInvalidEmptyPlan() {
+        DailyPlanMapper mapper = mock(DailyPlanMapper.class); ProblemPriorityService priorityService = mock(ProblemPriorityService.class);
+        DailyPlan existing = new DailyPlan(); existing.setId(9L); existing.setUserId(7L); existing.setPlanDate(LocalDate.now()); existing.setPlannedMinutes(45);
+        MaintenanceCandidate candidate = new MaintenanceCandidate(); candidate.setKnowledgePointId(12L); candidate.setKnowledgePointCode("AVG_GROWTH_RATE");
+        candidate.setKnowledgePointName("年均增长率"); candidate.setPurpose("ASSESSMENT");
+        when(mapper.findForUpdate(7L, LocalDate.now())).thenReturn(existing); when(mapper.findItems(9L)).thenReturn(Collections.emptyList());
+        when(priorityService.coreForPlanWithReadingGap(7L)).thenReturn(Collections.emptyList());
+        when(mapper.findMaintenanceCandidates(7L)).thenReturn(Collections.emptyList());
+        when(mapper.findExplorationCandidates(7L)).thenReturn(Collections.singletonList(candidate));
+        DailyPlanService service = new DailyPlanService(new DailyPlanEngine(), mapper, priorityService, new ObjectMapper());
+
+        DailyPlan rebuilt = service.today(7L);
+
+        assertEquals(9L, rebuilt.getId()); assertFalse(rebuilt.getItems().isEmpty()); assertEquals("ASSESSMENT", rebuilt.getItems().get(0).getPurpose());
+        verify(mapper).deleteItems(9L); verify(mapper).updatePlan(rebuilt); verify(mapper).insertItem(rebuilt.getItems().get(0));
+    }
+
     @Test
     void repeatedTodayReturnsExistingPlanWithoutRegeneration() {
         DailyPlanMapper mapper = mock(DailyPlanMapper.class); ProblemPriorityService priorityService = mock(ProblemPriorityService.class);

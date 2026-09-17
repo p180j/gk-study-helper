@@ -87,8 +87,7 @@ public class ErrorDiagnosisService {
     }
 
     private void enrichWithAi(ErrorDiagnosis diagnosis, AnswerRecord current, List<AnswerRecord> recent) {
-        if (aiAnalyzer == null || questionMapper == null || diagnosis.getOccurrenceCount() == null
-                || diagnosis.getOccurrenceCount() < 2 || "CONFIRMED".equals(diagnosis.getAiStatus())) return;
+        if (aiAnalyzer == null || questionMapper == null || "CONFIRMED".equals(diagnosis.getAiStatus())) return;
         try {
             AiRootCauseAnalyzer.Analysis analysis = aiAnalyzer.analyze(questionMapper.findById(current.getQuestionId()),
                     questionMapper.findOptions(current.getQuestionId()), current, recent, diagnosis);

@@ -1,10 +1,10 @@
 .topic-name { font-size: 31rpx; font-weight: 650; }
 .topic-desc { margin-top: 12rpx; line-height: 1.6; }
-.progress { height: 12rpx; background: #edf0ed; border-radius: 999rpx; overflow: hidden; margin-top: 18rpx; }
-.progress-inner { height: 100%; background: #1f6f55; border-radius: 999rpx; }
+.progress { height: 12rpx; background: #dfe8f5; border-radius: 999rpx; overflow: hidden; margin-top: 18rpx; }
+.progress-inner { height: 100%; background: linear-gradient(90deg,#1677ff,#18c4b0); border-radius: 999rpx; }
 .topic-header { display: flex; align-items: center; gap: 18rpx; margin-bottom: 22rpx; }
 .topic-current { font-size: 32rpx; font-weight: 650; }
 .material-title { line-height: 1.5; }
 .tags { margin-top: 14rpx; }
 .tag.gray { background: #eef0ee; color: #7a817d; }
-button[size="mini"].back { margin-left: 0; color: #1f6f55; }
+button[size="mini"].back { margin-left: 0; color: #1677ff; }

@@ -15,3 +15,5 @@ ai:
   model: ${AI_MODEL:}
   timeout-seconds: ${AI_TIMEOUT_SECONDS:45}
   retry-count: ${AI_RETRY_COUNT:1}
+content:
+  storage-dir: ${CONTENT_STORAGE_DIR:./data/content}

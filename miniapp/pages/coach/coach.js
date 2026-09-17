@@ -20,14 +20,14 @@ function localizeResult(result) {
   })
 }
 
-// 三层摘要：结论（真实数据洞察）+ 关键证据（AI 证据优先，失败时回退洞察证据）+ 下一步建议
+// 三层摘要：结论（真实数据洞察）+ 关键证据（最多 3 条，AI 证据优先，失败时回退洞察证据）+ 下一步建议
 function buildSummary(insight, result) {
   if (!insight) return null
   const evidenceSource = result && result.evidence && result.evidence.length ? result.evidence : (insight.evidence || [])
   return {
     problem: insight.problem,
     suggestion: insight.suggestion,
-    evidence: evidenceSource.slice(0, 4)
+    evidence: evidenceSource.slice(0, 3)
   }
 }
 

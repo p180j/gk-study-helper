@@ -7,10 +7,16 @@
   <view wx:elif="{{error}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="load">重新加载</button></view>
   <block wx:else>
     <view class="card today-card">
-      <view class="row"><view class="section-title">今天学习 {{plan.plannedMinutes || 0}} 分钟</view><view class="plan-count">{{completedCount}} / {{plan.items.length}}</view></view>
+      <view class="row"><view class="section-title">今天学什么</view><view class="plan-count">{{completedCount}} / {{plan.items.length}}</view></view>
       <view class="progress-track"><view class="progress-fill" style="width: {{progressPercent}}%"></view></view>
-      <view class="muted plan-copy">计划根据你的真实能力数据生成，完成后会持续校准。</view>
-      <button class="primary" bindtap="startFirst">{{completedCount ? '继续今日学习' : '开始今日学习'}} 〉</button>
+      <view wx:if="{{currentItem}}" class="current-task">
+        <view class="current-task-name">{{currentItem.knowledgePointName}}</view>
+        <view class="muted">{{currentItem.reason}}</view>
+        <view class="task-meta"><text class="purpose purpose-{{currentItem.purpose}}">{{currentItem.purposeLabel}}</text><text>{{currentItem.plannedMinutes}} 分钟</text><text wx:if="{{currentItem.targetQuestionCount}}">已完成 {{currentItem.completedQuestionCount || 0}} / {{currentItem.targetQuestionCount}} 题</text></view>
+        <button class="primary" bindtap="startFirst">{{currentItem.status === 'COMPLETED' ? '查看今日学习' : '继续今日学习'}} 〉</button>
+      </view>
+      <view wx:else class="muted plan-copy">今日计划已完成，去学习页主动练习，继续巩固吧。</view>
+      <view class="today-link" bindtap="viewTodayTasks">{{remainingCount ? '查看并切换今日任务' : '查看今日完成情况'}} 〉</view>
     </view>
     <view class="card insight-card">
       <view class="row"><view class="section-title ai-title">AI 今日洞察 ✦</view><button class="link-button" size="mini" bindtap="openCoach">问 AI 教练 〉</button></view>
@@ -18,11 +24,9 @@
       <view wx:else class="insight-content"><view class="insight-icon new">?</view><view><view class="eyebrow">先建立能力基线</view><view class="insight-name">完成今日摸底</view><view class="muted">样本不足时不判断强弱，先用真实作答认识你。</view></view></view>
     </view>
     <view class="card plan-card">
-      <view class="row"><view class="section-title">今日学习计划</view><view class="muted">为什么这样安排？</view></view>
+      <view class="row"><view class="section-title">为什么这样安排</view><view class="muted">{{plan.plannedMinutes || 0}} 分钟</view></view>
       <view class="reason-box">{{plan.generationReason}}</view>
-      <block wx:for="{{plan.items}}" wx:key="id">
-        <view class="timeline-task" data-id="{{item.id}}" bindtap="startItem"><view class="timeline-dot">{{index + 1}}</view><view class="task-main"><view class="row"><view class="task-name">{{item.knowledgePointName}}</view><view class="task-time">{{item.plannedMinutes}} 分钟</view></view><view class="muted task-reason">{{item.reason}}</view><text class="purpose purpose-{{item.purpose}}">{{item.purposeLabel}}</text></view></view>
-      </block>
+      <view class="today-link inline-link" bindtap="viewTodayTasks">查看 {{plan.items.length}} 个今日任务 〉</view>
     </view>
     <view class="card growth-card">
       <view class="section-title">能力画像建立度</view><view class="coverage-number">{{overview.evaluatedCount}} <text>/ {{overview.totalCount}}</text></view>

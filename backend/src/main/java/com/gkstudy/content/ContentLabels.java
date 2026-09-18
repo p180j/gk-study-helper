@@ -6,6 +6,7 @@ import java.util.Map;
 /** 内容自动化内部枚举 → 用户可见中文，管理页面统一使用 */
 public final class ContentLabels {
     private static final Map<String, String> STATUS = new HashMap<>();
+    private static final Map<String, String> CRAWL_STATUS = new HashMap<>();
     private static final Map<String, String> TRUST = new HashMap<>();
     private static final Map<String, String> SOURCE_TYPE = new HashMap<>();
     private static final Map<String, String> SITE_TYPE = new HashMap<>();
@@ -19,6 +20,10 @@ public final class ContentLabels {
         STATUS.put("IMPORTED", "已入库");
         STATUS.put("NEEDS_REVIEW", "需要人工检查");
         STATUS.put("FAILED", "处理失败");
+
+        CRAWL_STATUS.put("RUNNING", "采集中");
+        CRAWL_STATUS.put("SUCCESS", "采集完成");
+        CRAWL_STATUS.put("FAILED", "采集失败");
 
         TRUST.put("S", "S：官方真题 / 官方样题");
         TRUST.put("A", "A：官方附件 / 官方材料");
@@ -42,6 +47,7 @@ public final class ContentLabels {
     private ContentLabels() { }
 
     public static String status(String status) { return STATUS.getOrDefault(status, status); }
+    public static String crawlStatus(String status) { return CRAWL_STATUS.getOrDefault(status, status); }
     public static String trust(String trustLevel) { return trustLevel == null ? "" : TRUST.getOrDefault(trustLevel, trustLevel); }
     public static String sourceType(String sourceType) { return SOURCE_TYPE.getOrDefault(sourceType, sourceType); }
     public static String siteType(String siteType) { return SITE_TYPE.getOrDefault(siteType, siteType); }

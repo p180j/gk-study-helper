@@ -15,14 +15,14 @@ public class AbilityEngine {
         AbilityProfile result = current == null ? initialProfile() : copy(current);
         int previousSamples = result.getSampleCount();
         double weight = clamp(value(event.getKnowledgeWeight(), 1.0), 0.0, 1.0);
-        double maturity = Math.max(AbilityConstants.MIN_MATURITY_FACTOR, 1.0 / (1.0 + previousSamples / AbilityConstants.MATURITY_SAMPLE_DIVISOR));
+        double maturity = maturity(previousSamples);
         result.setMasteryScore(score(value(result.getMasteryScore(), AbilityConstants.INITIAL_SCORE) + masteryDelta(event) * weight * maturity));
         double speedTarget = speedTarget(event);
         double speed = value(result.getSpeedScore(), AbilityConstants.INITIAL_SCORE);
         result.setSpeedScore(score(speed + (speedTarget - speed) * AbilityConstants.SPEED_BLEND * weight * maturity));
         double stabilityTarget = stabilityTarget(event.getRecentCorrectness());
         double stability = value(result.getStabilityScore(), AbilityConstants.INITIAL_SCORE);
-        result.setStabilityScore(score(stability + (stabilityTarget - stability) * weight));
+        result.setStabilityScore(score(stability + (stabilityTarget - stability) * weight * maturity));
         result.setSampleCount(previousSamples + 1);
         result.setConfidenceScore(score(confidence(event, result.getSampleCount(), current) * (0.5 + 0.5 * weight)));
         result.setLastPracticeTime(event.getAnswerTime());
@@ -41,6 +41,14 @@ public class AbilityEngine {
         double difficultyFactor = 1.3 - difficulty * 0.6;
         double evidenceFactor = "GUESS".equals(event.getAnswerConfidenceType()) ? 0.8 : 1.0;
         return AbilityConstants.WRONG_MASTERY_DELTA * difficultyFactor * evidenceFactor * practiceWeight;
+    }
+
+    /** 前几题只提供有限证据，避免连续答对几题就被当成高能力。 */
+    private double maturity(int previousSamples) {
+        double sampleEvidence = AbilityConstants.MIN_MATURITY_FACTOR
+                + previousSamples / (double) AbilityConstants.CONFIDENCE_FULL_SAMPLE_COUNT;
+        double historicalStability = 1.0 / (1.0 + previousSamples / AbilityConstants.MATURITY_SAMPLE_DIVISOR);
+        return Math.max(AbilityConstants.MIN_MATURITY_FACTOR, Math.min(sampleEvidence, historicalStability));
     }
 
     private double speedTarget(AbilityEvent event) {

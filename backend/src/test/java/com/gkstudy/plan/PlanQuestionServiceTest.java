@@ -34,7 +34,7 @@ class PlanQuestionServiceTest {
         Question question = new Question(); question.setId(100L); question.setStem("题干");
         QuestionOption option = new QuestionOption(); option.setOptionKey("A"); option.setOptionText("选项");
         when(planMapper.findItemForUser(8L, 7L)).thenReturn(item);
-        when(questionMapper.findForPlanItem(12L, "VALIDATION", 10)).thenReturn(Collections.singletonList(question));
+        when(questionMapper.findForPlanItemExpanded(12L, "VALIDATION", 7L, 10)).thenReturn(Collections.singletonList(question));
         when(questionMapper.findOptions(100L)).thenReturn(Collections.singletonList(option));
         when(questionMapper.findKnowledgePoints(100L)).thenReturn(Collections.emptyList());
 
@@ -60,7 +60,7 @@ class PlanQuestionServiceTest {
         DailyPlanMapper planMapper = mock(DailyPlanMapper.class); QuestionMapper questionMapper = mock(QuestionMapper.class);
         DailyPlanItem item = new DailyPlanItem(); item.setKnowledgePointId(12L); item.setPurpose("TRAINING");
         when(planMapper.findItemForUser(8L, 7L)).thenReturn(item);
-        when(questionMapper.findForPlanItem(12L, "TRAINING", 20)).thenReturn(Collections.emptyList());
+        when(questionMapper.findForPlanItemExpanded(12L, "TRAINING", 7L, 20)).thenReturn(Collections.emptyList());
 
         assertTrue(service(planMapper, questionMapper).questions(7L, 8L, 999).isEmpty());
     }

@@ -34,6 +34,15 @@ public class QuestionController {
     @GetMapping("/{id}")
     public ApiResponse<QuestionResponse> detail(@PathVariable Long id) { return ApiResponse.success(QuestionResponse.from(questionService.detail(id))); }
 
+    /** 小程序自由练习取题：不创建、也不推进每日计划任务。 */
+    @GetMapping("/practice")
+    public ApiResponse<java.util.List<QuestionResponse>> freePractice(
+            @RequestHeader(value = "X-User-Id", defaultValue = "1") Long userId,
+            @RequestParam String knowledgePointCode,
+            @RequestParam(defaultValue = "3") int limit) {
+        return ApiResponse.success(questionService.freePracticeQuestions(userId, knowledgePointCode, limit));
+    }
+
     @PostMapping(value = "/import", consumes = "multipart/form-data")
     public ApiResponse<ImportResult> importCsv(@RequestPart("file") MultipartFile file) throws IOException {
         return ApiResponse.success(importService.importCsv(file));

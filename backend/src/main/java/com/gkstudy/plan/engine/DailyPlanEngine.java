@@ -118,6 +118,11 @@ public class DailyPlanEngine {
     private String problemName(String type) {
         if ("MASTERY".equals(type)) return "掌握问题";
         if ("SPEED".equals(type)) return "速度问题";
+        if ("EXAM_TIME_MANAGEMENT".equals(type)) return "模考时间分配问题";
+        if ("EXAM_COMPLETION".equals(type)) return "模考完成率问题";
+        if ("EXAM_SECTION_STABILITY".equals(type)) return "模考稳定性问题";
+        if ("EXAM_ORDER_STRATEGY".equals(type)) return "模考做题顺序问题";
+        if ("EXAM_PERFORMANCE_GAP".equals(type)) return "专项能力与模考表现落差";
         return "稳定性问题";
     }
 

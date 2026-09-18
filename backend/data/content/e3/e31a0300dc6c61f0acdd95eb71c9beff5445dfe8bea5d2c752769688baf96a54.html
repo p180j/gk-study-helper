@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<!-- 标准自适应视口，禁止双指缩放适配所有手机 -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>事业单位考试培训课程|成公教育cgzj.com</title>
+<meta name="keywords" content="事业单位培训,事业编培训,事业单位笔试面试培训,事业编联考ABCDE课程,单招,职测综应,事业编真题资料">
+<meta name="description" content="成公教育事业单位系统培训，联考ABCDE类、各地单招精讲，职测综应笔面试一体化，配套全套事业编备考资料">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:"Microsoft Yahei",PingFang SC,sans-serif;color:#333;background:#f8f9fa}
+.container{max-width:1200px;margin:0 auto;padding:0 min(15px,4vw);width:100%;}
+
+/* 顶部下拉导航 修复定位+自适应 */
+.top-nav{
+  width:100%;
+  background:#1f2329;
+  position:sticky;
+  top:0;
+  z-index:10000;
+  position:relative;
+}
+.nav-wrap{display:flex;align-items:center;justify-content:space-between;width:100%;}
+.nav-logo{color:#fff;font-size:clamp(18px,4vw,22px);font-weight:bold;text-decoration:none;padding:0 min(10px,3vw);height:60px;line-height:60px}
+.nav-logo img{ width: min(180px, 50vw); height: auto; padding: 8px;}
+.nav-list{display:flex;list-style:none}
+.nav-list>li{position:relative;height:60px;line-height:60px;padding:0 min(12px,2vw)}
+.nav-list>li>a{color:#e5e5e5;font-size:clamp(13px,3vw,15px);text-decoration:none;display:block;height:100%;white-space:nowrap;}
+.nav-list>li:hover>a{color:#fff}
+.nav-list>li.active>a{color:#722ed1}
+.sub-list{display:none;position:absolute;top:60px;left:0;background:#fff;box-shadow:0 3px 12px rgba(0,0,0,0.15);min-width:180px;list-style:none;z-index:10001}
+.sub-list li{height:42px;line-height:42px;padding:0 20px;white-space:nowrap}
+.sub-list li a{color:#333;font-size:14px;text-decoration:none;display:block}
+.sub-list li:hover{background:#f0f5ff}
+.sub-list li:hover a{color:#1677ff}
+.nav-list>li:hover .sub-list{display:block}
+
+/* 移动端汉堡按钮 */
+.hamburger{
+  display:none;
+  font-size:24px;
+  color:#fff;
+  background:none;
+  border:none;
+  padding:0 15px;
+  cursor:pointer;
+}
+
+/* 悬浮咨询按钮自适应 */
+.fixed-btn{position:fixed;right:min(30px,4vw);bottom:50px;z-index:9999;display:flex;flex-direction:column;gap:12px}
+.fixed-btn a{display:block;width:min(120px,28vw);height:44px;line-height:44px;text-align:center;border-radius:22px;color:#fff;font-size:clamp(12px,3vw,14px);text-decoration:none;box-shadow:0 4px 12px rgba(0,0,0,0.15);transition:0.3s;cursor:pointer}
+.fixed-btn a:hover{transform:translateY(-3px)}
+.btn-course{background:linear-gradient(135deg,#1677ff,#0958d9)}
+.btn-data{background:linear-gradient(135deg,#52c41a,#389e0d)}
+.btn-consult{background:linear-gradient(135deg,#fa8c16,#d46b08)}
+
+/* 通用区块自适应 */
+.section{padding:clamp(40px,8vw,60px) 0;width:100%;}
+.section-title{font-size:clamp(22px,5vw,28px);font-weight:700;color:#1f2329;text-align:center;margin-bottom:12px}
+.section-desc{font-size:clamp(14px,3.5vw,16px);color:#666;text-align:center;margin-bottom:40px;padding:0 5vw;}
+
+/* Banner 全屏自适应 */
+.banner{
+  width:100%;
+  min-height:clamp(320px,60vw,460px);
+  height:auto;
+  background:url("/imanges/kc/SYDWbg.jpg") no-repeat center center;
+  background-size:cover;
+  display:flex;
+  align-items:center;
+  padding:clamp(30px,6vw,60px) 0;
+}
+.banner-content{color:#fff;width:100%;padding:0 min(15px,4vw);}
+.banner h1{font-size:clamp(26px,6vw,42px);margin-bottom:20px}
+.banner p{font-size:clamp(13px,3.2vw,19px);opacity:0.95;line-height:1.8;margin-bottom:30px}
+.tag-wrap{display:flex;gap:min(12px,3vw);flex-wrap:wrap}
+.tag-wrap span{padding:6px min(16px,4vw);background:rgba(255,255,255,0.2);border-radius:20px;color:#a994fb;font-size:clamp(12px,2.8vw,14px)}
+
+/* 课程卡片网格自适应 */
+.course-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(min(340px,95vw),1fr));
+  gap:clamp(20px,4vw,30px);
+  width:100%;
+}
+.course-card{background:#fff;border-radius:12px;box-shadow:0 2px 14px rgba(0,0,0,0.08);padding:min(26px,5vw);width:100%;}
+.course-card h3{font-size:clamp(18px,4vw,20px);color:#722ed1;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid #eee}
+.course-card p{color:#666;font-size:clamp(13px,3vw,14px);line-height:1.7;margin-bottom:16px}
+.course-card .tip{font-size:clamp(12px,2.8vw,13px);color:#999;margin-bottom:12px}
+.course-card .btn{display:inline-block;padding:9px min(22px,5vw);background:#722ed1;color:#fff;border-radius:22px;font-size:clamp(13px,3vw,14px);cursor:pointer}
+
+/* 文件夹资料样式 */
+.folder-wrap{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(min(220px,42vw),1fr));
+  gap:clamp(16px,3vw,24px);
+  width:100%;
+}
+.folder-card{
+  background:#fff;
+  border-radius:10px;
+  box-shadow:0 2px 12px rgba(0,0,0,0.06);
+  padding:min(24px,5vw) min(20px,4vw);
+  text-align:center;
+  transition:0.3s;
+  cursor:pointer;
+  width:100%;
+}
+.folder-card:hover{transform:translateY(-6px);box-shadow:0 8px 20px rgba(114,46,209,0.12)}
+.folder-icon{font-size:clamp(42px,10vw,52px);color:#ffb800;margin-bottom:12px}
+.folder-name{font-size:clamp(14px,3.2vw,15px);font-weight:600;color:#222;margin-bottom:8px;line-height:1.5}
+.folder-tip{font-size:clamp(11px,2.6vw,12px);color:#888}
+
+/* 弹窗公共样式 自适应留边 */
+.mask{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.65);
+    z-index:99999;
+    align-items:center;
+    justify-content:center;
+    padding:15px;
+}
+.pop-box{
+    background:#fff;
+    width:min(340px,92vw);
+    padding:30px 25px;
+    border-radius:14px;
+    text-align:center;
+    position:relative;
+}
+.close{
+    position:absolute;
+    right:14px;
+    top:10px;
+    font-size:22px;
+    color:#999;
+    cursor:pointer;
+}
+.close:hover{color:#333}
+.qr-box{
+    width:min(200px,60vw);
+    height:min(200px,60vw);
+    background:#f5f5f5;
+    margin:15px auto;
+    border:1px solid #eee;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.qr-box img{width:75%;height:auto;}
+.qr-title{font-size:clamp(16px,4vw,17px);font-weight:600;color:#222;margin-bottom:6px;}
+.qr-desc{font-size:clamp(13px,3vw,14px);color:#666;margin-bottom:8px;}
+.qr-note{font-size:clamp(12px,2.8vw,13px);color:#888;}
+
+.footer-convert{background:#1f2329;padding:clamp(40px,8vw,50px) 0;color:#fff;text-align:center;width:100%;}
+.footer-btn{display:flex;gap:min(20px,4vw);justify-content:center;flex-wrap:wrap;margin-top:30px;padding:0 10px;}
+.footer-btn div{padding:12px min(28px,6vw);border-radius:25px;font-size:clamp(13px,3vw,15px);cursor:pointer}
+
+/* ========== 分段响应式 无样式冲突 ========== */
+/* 平板 769 ~ 992px 横向滚动导航，不干扰手机菜单 */
+@media(min-width:769px) and (max-width:992px){
+.nav-logo{font-size:18px}
+.nav-list>li{padding:0 8px}
+.nav-list>li>a{font-size:13px}
+.top-nav{overflow-x:auto}
+.nav-wrap{white-space:nowrap}
+.folder-wrap{grid-template-columns:repeat(3,1fr)}
+}
+
+/* 手机 <768px 汉堡下拉菜单核心 */
+@media(max-width:768px){
+  .hamburger{display:block}
+  .nav-list{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    background:#1f2329;
+    padding:10px 0;
+    z-index:10002;
+  }
+  .nav-list.show{display:flex !important;}
+  .nav-list>li{
+    height:auto;
+    line-height:46px;
+    padding:0 20px;
+    border-bottom:1px solid #2a2f37
+  }
+  .sub-list{
+    position:static;
+    background:#2a2f37;
+    box-shadow:none;
+  }
+  .sub-list li a{color:#eee}
+  .sub-list li:hover{background:#333}
+
+	.footer-btn div {
+    padding: 12px 13px;
+    font-size: 12px;
+}
+	.tag-wrap span {
+    padding: 6px 14px;
+    font-size: 12px;
+}
+.banner{height:auto;padding:40px 0}
+.banner h1{font-size:28px}
+	.banner p {
+		font-size: 13px;}
+.section-title{font-size:22px}
+.fixed-btn{right:15px}
+.fixed-btn a{width:100px;height:38px;line-height:38px;font-size:12px}
+.course-grid{grid-template-columns:1fr}
+.folder-wrap{grid-template-columns:repeat(2,1fr);gap:16px}
+.folder-icon{font-size:42px}
+.pop-box{width:90%;max-width:320px}
+}
+
+/* 超小老年机/迷你手机 <480px 极致适配 */
+@media(max-width:480px){
+.folder-wrap{grid-template-columns:1fr}
+.course-grid{grid-template-columns:1fr;}
+.footer-btn{flex-direction:column;align-items:center;}
+.footer-btn div{width:70%;text-align:center;}
+}
+</style>
+</head>
+<body>
+
+<!-- 全套独立弹窗 -->
+<!-- 1事业单位专属资料弹窗 -->
+<div class="mask" id="maskSy">
+    <div class="pop-box">
+        <span class="close" onclick="closeMask('maskSy')">×</span>
+        <p class="qr-title">事业单位专属老师</p>
+        <p class="qr-desc">回复【事业资料】领取ABCDE类职测综应全套资料</p>
+        <div class="qr-box"><img src="/imanges/kc/gkzz.png" alt="事业单位资料领取" width="150"></div>
+        <p class="qr-note">无套路免费领取，全程答疑辅导</p>
+    </div>
+</div>
+<!-- 2公考弹窗 -->
+<div class="mask" id="maskGk">
+    <div class="pop-box">
+        <span class="close" onclick="closeMask('maskGk')">×</span>
+        <p class="qr-title">公考专属咨询老师</p>
+        <p class="qr-desc">回复【公考资料】领取国考/省考全套真题讲义</p>
+        <div class="qr-box">公考微信二维码</div>
+        <p class="qr-note">全程免费领取，无任何隐形收费</p>
+    </div>
+</div>
+<!-- 3三支一扶弹窗 -->
+<div class="mask" id="maskSz">
+    <div class="pop-box">
+        <span class="close" onclick="closeMask('maskSz')">×</span>
+        <p class="qr-title">三支一扶专属老师</p>
+        <p class="qr-desc">回复【三支资料】基层政策、真题、主观答题模板</p>
+        <div class="qr-box">三支微信二维码</div>
+        <p class="qr-note">全程免费领取，无任何隐形收费</p>
+    </div>
+</div>
+<!-- 4辅警招警弹窗 -->
+<div class="mask" id="maskJc">
+    <div class="pop-box">
+        <span class="close" onclick="closeMask('maskJc')">×</span>
+        <p class="qr-title">公安辅警专属老师</p>
+        <p class="qr-desc">回复【辅警资料】公安法条、笔试面试题库</p>
+        <div class="qr-box">辅警微信二维码</div>
+        <p class="qr-note">全程免费领取，无任何隐形收费</p>
+    </div>
+</div>
+<!-- 5国企银行弹窗 -->
+<div class="mask" id="maskQg">
+    <div class="pop-box">
+        <span class="close" onclick="closeMask('maskQg')">×</span>
+        <p class="qr-title">国企银行专属老师</p>
+        <p class="qr-desc">回复【银行资料】银行真题、电网烟草题库、网申简历模板</p>
+        <div class="qr-box">银行微信二维码</div>
+        <p class="qr-note">全程免费领取，无任何隐形收费</p>
+    </div>
+</div>
+<!-- 6教资教招弹窗 -->
+<div class="mask" id="maskJz">
+    <div class="pop-box">
+        <span class="close" onclick="closeMask('maskJz')">×</span>
+        <p class="qr-title">教资教招专属老师</p>
+        <p class="qr-desc">回复【教招资料】教案、试讲模板</p>
+        <div class="qr-box">教招微信二维码</div>
+        <p class="qr-note">无套路免费领取</p>
+    </div>
+</div>
+<!-- 7全年时政通用弹窗 -->
+<div class="mask" id="maskSzS">
+    <div class="pop-box">
+        <span class="close" onclick="closeMask('maskSzS')">×</span>
+        <p class="qr-title">时政资料领取通道</p>
+        <p class="qr-desc">回复【时政】每月更新全年时政热点题库</p>
+        <div class="qr-box"><img src="/imanges/kc/gkzz.png" alt="事业单位资料领取" width="150"></div>
+        <p class="qr-note">无套路免费领取</p>
+    </div>
+</div>
+<!-- 8面试模板通用弹窗 -->
+<div class="mask" id="maskMs">
+    <div class="pop-box">
+        <span class="close" onclick="closeMask('maskMs')">×</span>
+        <p class="qr-title">面试全套模板领取</p>
+        <p class="qr-desc">回复【面试模板】全公职考试通用答题话术框架</p>
+        <div class="qr-box"><img src="/imanges/kc/gkzz.png" alt="事业单位资料领取" width="150"></div>
+        <p class="qr-note">无套路免费领取</p>
+    </div>
+</div>
+<!-- 总咨询弹窗 -->
+<div class="mask" id="maskConsult">
+    <div class="pop-box">
+        <span class="close" onclick="closeMask('maskConsult')">×</span>
+        <p class="qr-title">事业单位总咨询老师</p>
+        <p class="qr-desc">扫码咨询班型、试听、备考规划</p>
+        <div class="qr-box"><img src="/imanges/kc/gkzz.png" alt="事业单位资料领取" width="150"></div>
+        <p class="qr-note">免费测评基础、定制备考方案</p>
+    </div>
+</div>
+
+<!-- 导航 -->
+<div class="top-nav">
+<div class="container nav-wrap">
+<a href="https://www.cgzj.com/" target="_blank" class="nav-logo"><img src="/imanges/kc/logo.png" alt="成公教育logo" width="200"></a>
+<!-- 移动端汉堡按钮 -->
+<button class="hamburger" id="menuBtn">☰</button>
+<!-- 导航菜单绑定ID -->
+<ul class="nav-list" id="navList">
+<li>
+<a href="index.html">首页</a>
+</li>
+<li >
+<a href="gk.html">公务员</a>
+<ul class="sub-list">
+<li><a href="#course">公考笔试培训</a></li>
+<li><a href="#interview">公考面试培训</a></li>
+<li><a href="#data">公考全套资料</a></li>
+<li><a href="https://www.cgzj.com/gk" target="_blank">国考资讯</a></li>
+<li><a href="https://www.cgzj.com/sk" target="_blank">各省省考资讯</a></li>
+</ul>
+</li>
+<li class="active">
+<a href="sydw.html">事业单位</a>
+<ul class="sub-list">
+<li><a href="sydw.html#abc">事业单位联考ABCDE类课程</a></li>
+<li><a href="sydw.html#local">各地单招课程</a></li>
+<li><a href="sydw.html#data">事业单位资料</a></li>
+<li><a href="https://www.cgzj.com/sydw" target="_blank">事业单位资讯</a></li>
+</ul>
+</li>
+<li>
+<a href="szyf.html">三支一扶</a>
+<ul class="sub-list">
+<li><a href="szyf.html#full">三支一扶培训</a></li>
+<li><a href="szyf.html#prov">三支一扶培训定制课程</a></li>
+<li><a href="szyf.html#data">基层备考资料</a></li>
+<li><a href="https://www.cgzj.com/szyf"  target="_blank">三支一扶资讯</a></li>
+</ul>
+</li>
+<li>
+<a href="jz.html">教资/教招</a>
+<ul class="sub-list">
+<li><a href="jz.html#tez">教师资格证培训</a></li>
+<li><a href="jz.html#jzks">教师招聘培训</a></li>
+<li><a href="jz.html#data">教招备考资料</a></li>
+<li><a href="https://www.cgzj.com/jszg" target="_blank">教招/教资资讯</a></li>
+</ul>
+<li>
+<a href="jc.html">警察辅警</a>
+<ul class="sub-list">
+<li><a href="jc.html#police">公安招警培训</a></li>
+<li><a href="jc.html#fujing">辅警笔试面试培训</a></li>
+<li><a href="https://www.cgzj.com/jcfj" target="_blank">警察/辅警资讯</a></li>
+</ul>
+</li>
+<li>
+<a href="qg.html">国企银行</a>
+<ul class="sub-list">
+<li><a href="qg.html#bank">银行招聘培训</a></li>
+<li><a href="qg.html#power">电网烟草招聘培训</a></li>
+<li><a href="qg.html#resume">网申简历辅导</a></li>
+<li><a href="https://www.cgzj.com/gqyh" target="_blank">国企/银行资讯</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div class="fixed-btn">
+<a onclick="openMask('maskConsult')" class="btn-course">免费试听</a>
+<a onclick="openMask('maskConsult')" class="btn-data">领资料</a>
+<a onclick="openMask('maskConsult')" class="btn-consult">一对一规划</a>
+</div>
+
+<section class="banner">
+<div class="container banner-content">
+<h1>2026事业单位系统培训课程</h1>
+<p>全国事业单位联考ABCDE类｜各地市单招综合/医疗/教师岗<br>分层班型：零基础精讲、模块刷题、封闭冲刺、面试全真模拟<br>专属服务：分岗分科授课、综应作文精批、全程督学打卡、岗位筛选报考指导、笔面试连贯辅导</p>
+<div class="tag-wrap">
+<span>分ABCDE精准授课</span>
+<span>医疗/教师专项班</span>
+<span>直播+线下封闭</span>
+<span>一对一作文批改</span>
+<span>面试反套路答题</span>
+<span>本土考情教研</span>
+<span>模考测评常态化</span>
+</div>
+</div>
+</section>
+
+<section id="abc" class="section" style="background: url(/imanges/kc/sy-bg.png) no-repeat center;background-size:cover;">
+<div class="container">
+<h2 class="section-title">联考ABCDE类主力课程</h2>
+<p class="section-desc">综合管理、社会专技、医疗卫生、中小学教师分体系教学</p>
+<div class="course-grid">
+<div class="course-card">
+<h3>事业编一年笔试无限通关学</h3>
+<p>一整年所有联考、单招笔试面试课程不限次数循环跟读；职测+综应全科精讲，综合/医疗/教师岗全部覆盖；主讲+助教+班主任三对一全程看管学习。</p>
+<div class="tip">价格：19800起，各校区各季度优惠可咨询</div>
+<div class="tip">服务：全年模考、作文逐份批改、岗位报考规划</div>
+<div class="btn" onclick="openMask('maskConsult')">预约试听</div>
+</div>
+<div class="course-card">
+<h3>2027国省事业一战成公实验班</h3>
+<p>笔试超 140 天分八阶分层教学，国省事笔面一站式学完，全程阶梯式稳步提分；限额 50 人精品小班，本土金牌师资全程固定带班不换老师，院长班主任双坐镇严管督学；</p>
+<div class="tip">服务：专属报考规划、精细试卷批改</div>
+<div class="btn" onclick="openMask('maskConsult')">预约试听体验</div>
+</div>
+<div class="course-card">
+<h3>39天系统班</h3>
+<p>39天均分三大阶段，每阶段13天，模块精讲→提升刷题→强化刷题循序渐进;贴合本地事业单位考情，区分综合、医疗、教师岗专项训练，长线系统学习，告别短期突击知识点掌握不扎实的问题。</p>
+<div class="tip">服务：全职讲师随堂精讲答疑，习题、套卷逐份精细批改；班主任全程督学盯学习进度</div>
+<div class="btn" onclick="openMask('maskConsult')">预约试听体验</div>
+</div>
+<div class="course-card">
+<h3>26天系统班</h3>
+<p>26天分两大完整阶段，各13天，先精讲打基础、再刷题提能力，支持单阶段报名或全程连读，适配不同基础考生;贴合本地事业单位考情，短期闭环学习，高效完成基础 + 提分全过程。</p>
+<div class="tip">服务：专职讲师实时答疑，习题逐题批改；班主任全程督学跟进进度，定期模考查漏补缺</div>
+<div class="btn" onclick="openMask('maskConsult')">预约试听体验</div>
+</div>
+
+<div class="course-card">
+<h3>28天模块精讲刷题班</h3>
+<p>在职考生晚间/周末班可选，职测五大模块、综应归纳概括、对策、公文、大作文逐个拆解；大量真题刷题训练，精讲易错失分点。</p>
+<div class="tip">价格：4680元起</div>
+<div class="tip">服务：配套题库资料、课后答疑、阶段性测评打分</div>
+<div class="btn" onclick="openMask('maskConsult')">查看排课时间</div>
+</div>
+<div class="course-card">
+<h3>13天强化刷题</h3>
+<p>集中分模块刷题强化，适配事业单位考情，公基、职测重点题型逐个突破，快速补齐答题短板；贴合本地事业单位命题特点教研出题，精讲高频考点与易错题；短期高强度集训刷题模式，快速把知识点转化为做题得分能力</p>
+<div class="tip">价格：3580￥起</div>
+<div class="btn" onclick="openMask('maskConsult')">咨询冲刺安排</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="local" class="section bg-white" >
+<div class="container">
+<h2 class="section-title">各地市单招专项课程</h2>
+<p class="section-desc">本地自主招考、卫健系统、教育系统、文旅城管等单独定制授课</p>
+<div class="course-grid">
+<div class="course-card">
+<h3>山东事业单位单招课程</h3>
+<p>山东各地市事业单位单招专属定制课，各地考情单独教研，公告一出即刻灵活开班，贴合本地考情针对性授课，名师带学刷题模考，详情点击咨询规划备考。</p>
+<div class="btn" onclick="openMask('maskConsult')">查询本地班期</div>
+</div>
+<div class="course-card">
+<h3>北京事业单位单招课程</h3>
+<p>北京事业单位单招专属课程，聚焦北京公基能力测验特色考点，公告下发即刻开班，分岗针对性精讲刷题，专业师资全程辅导，点击咨询获取专属备考方案</p>
+<div class="btn" onclick="openMask('maskConsult')">查询本地班期</div>
+</div>
+<div class="course-card">
+<h3>河北事业单位单招课程</h3>
+<p>河北各地事业单位单招定制课，适配河北职测 + 综应本地考情，公告落地快速开班，分岗刷题精讲，本地师资带练模考，点击咨询定制备考方案</p>
+<div class="btn" onclick="openMask('maskConsult')">查询本地班期</div>
+</div>
+<div class="course-card">
+<h3>内蒙古事业单位单招课程</h3>
+<p>内蒙古各地事业单位单招定制课，贴合区考公基、职测、综应考情，公告随即开班，本土师资精讲牧区、基层岗位考点，刷题模考全程辅导，点击咨询规划备考</p>
+<div class="btn" onclick="openMask('maskConsult')">查询本地班期</div>
+</div>
+<div class="course-card">
+<h3>事业单位面试短期班</h3>
+<p>课时3-20天灵活任选，3天短时密押冲刺、20天长期系统集训，适配不同备考基础与备考周期<br>合本地事业单位面试考情，区分综合、医疗、教师岗专项授课，摒弃模板化作答打造高分思路</p>
+<div class="btn" onclick="openMask('maskConsult')">面试优惠咨询</div>
+</div>
+<div class="course-card">
+<h3>事业单位一年面试通关无限学</h3>
+<p>一费享全年各省/各地市事业单位所有面试班次无限循环跟读，不限场次反复练题打磨作答。<br>深耕本地事业单位面试考情,全年所有事业单位招考面试全覆盖</p>
+
+<div class="btn" onclick="openMask('maskConsult')">面试优惠咨询</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="data" class="section bg-gray-50">
+<div class="container">
+<h2 class="section-title">事业单位全套备考资料包 一键领取</h2>
+<p class="section-desc">点击文件夹，弹出对应专属微信二维码领取资料</p>
+<div class="folder-wrap">
+    <div class="folder-card" onclick="openMask('maskSy')">
+        <div class="folder-icon">📁</div>
+        <div class="folder-name">联考A类综合岗历年真题包</div>
+        <div class="folder-tip">《职测》《综应》全套真题+答题技巧口诀</div>
+    </div>
+    <div class="folder-card" onclick="openMask('maskSy')">
+        <div class="folder-icon">📁</div>
+        <div class="folder-name">联考B类社会专技资料</div>
+        <div class="folder-tip">概念分析、校阅改错真题</div>
+    </div>
+    <div class="folder-card" onclick="openMask('maskSy')">
+        <div class="folder-icon">📁</div>
+        <div class="folder-name">联考C类自然科学资料</div>
+        <div class="folder-tip">实验设计、科技实务题库</div>
+    </div>
+    <div class="folder-card" onclick="openMask('maskSy')">
+        <div class="folder-icon">📁</div>
+        <div class="folder-name">联考D类中小学教师资料</div>
+        <div class="folder-tip">教育学心理学+教案模板</div>
+    </div>
+    <div class="folder-card" onclick="openMask('maskSy')">
+        <div class="folder-icon">📁</div>
+        <div class="folder-name">联考E类医疗卫生全套资料</div>
+        <div class="folder-tip">西医中医护理专业题库</div>
+    </div>
+    <div class="folder-card" onclick="openMask('maskSy')">
+        <div class="folder-icon">📁</div>
+        <div class="folder-name">各地单招公基真题合集</div>
+        <div class="folder-tip">内蒙/山东/河北/北京本地试卷</div>
+    </div>
+    <div class="folder-card" onclick="openMask('maskSzS')">
+        <div class="folder-icon">📁</div>
+        <div class="folder-name">全年时政汇总大礼包</div>
+        <div class="folder-tip">每月更新时政考点题库</div>
+    </div>
+    <div class="folder-card" onclick="openMask('maskMs')">
+        <div class="folder-icon">📁</div>
+        <div class="folder-name">事业编面试答题模板库</div>
+        <div class="folder-tip">结构化/试讲/实操话术</div>
+    </div>
+</div>
+</div>
+</section>
+
+<footer id="consult" class="footer-convert">
+<div class="container">
+<h2 style="font-size:clamp(22px,5vw,26px);margin-bottom:16px">分不清ABCDE选哪个班？</h2>
+<p style="opacity:0.8;margin-bottom:30px;padding:0 10px;">所有课程均可申请免费试听，资料无套路领取</p>
+<div class="footer-btn">
+	 <div onclick="openMask('maskConsult')" style="background:#722ed1;color:#fff">预约试听</div>
+    <div onclick="openMask('maskConsult')" style="background:#52c41a;color:#fff">领取全套资料</div>
+    <div onclick="openMask('maskConsult')" style="background:#fa8c16;color:#fff">一对一备考规划</div>
+</div>
+<p style="margin-top:40px;opacity:0.6;font-size:clamp(12px,2.8vw,14px)">成公教育   https://www.cgzj.com/ | 专注公职人才培训</p>
+</div>
+</footer>
+
+<script>
+// 移动端汉堡菜单完整交互 横竖屏自动收起菜单
+const menuBtn = document.getElementById('menuBtn');
+const navList = document.getElementById('navList');
+menuBtn.onclick = function(e){
+  e.stopPropagation();
+  navList.classList.toggle('show');
+  this.textContent = navList.classList.contains('show') ? '✕' : '☰';
+}
+// 点击页面空白自动关闭菜单
+document.addEventListener('click', function(e){
+  if(!menuBtn.contains(e.target) && !navList.contains(e.target)){
+    navList.classList.remove('show');
+    menuBtn.textContent = '☰';
+  }
+})
+// 窗口缩放/屏幕旋转自动收起菜单，防止菜单卡住遮挡页面
+window.addEventListener('resize', function(){
+  if(window.innerWidth > 768){
+    navList.classList.remove('show');
+    menuBtn.textContent = '☰';
+  }
+})
+
+// 弹窗通用方法
+function openMask(maskId){
+    document.getElementById(maskId).style.display = 'flex';
+}
+function closeMask(maskId){
+    document.getElementById(maskId).style.display = 'none';
+}
+// 点击遮罩关闭弹窗
+document.querySelectorAll('.mask').forEach(m=>{
+    m.onclick=e=>{if(e.target===m)m.style.display='none'}
+})
+</script>
+</body>
+</html>

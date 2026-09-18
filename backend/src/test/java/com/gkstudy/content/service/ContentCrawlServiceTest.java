@@ -1,8 +1,11 @@
 package com.gkstudy.content.service;
 
+import com.gkstudy.common.BusinessException;
 import com.gkstudy.content.fetch.ContentFetcher;
+import com.gkstudy.content.mapper.ContentCrawlLogMapper;
 import com.gkstudy.content.mapper.ContentSourceMapper;
 import com.gkstudy.content.mapper.ContentStagingMapper;
+import com.gkstudy.content.model.ContentCrawlLog;
 import com.gkstudy.content.model.ContentSource;
 import com.gkstudy.content.model.ContentStaging;
 import com.gkstudy.content.service.ContentCrawlService.CrawlSummary;
@@ -31,6 +34,9 @@ class ContentCrawlServiceTest {
     private PoliticalTopicMapper topicMapper;
     private ReadingMaterialMapper materialMapper;
     private ContentFetcher fetcher;
+    private QuestionTextExtractor textExtractor;
+    private QuestionStagingImportService questionImporter;
+    private ContentCrawlLogMapper crawlLogMapper;
     private ContentCrawlService service;
 
     @TempDir
@@ -43,8 +49,11 @@ class ContentCrawlServiceTest {
         topicMapper = mock(PoliticalTopicMapper.class);
         materialMapper = mock(ReadingMaterialMapper.class);
         fetcher = mock(ContentFetcher.class);
+        textExtractor = new QuestionTextExtractor();
+        questionImporter = mock(QuestionStagingImportService.class);
+        crawlLogMapper = mock(ContentCrawlLogMapper.class);
         service = new ContentCrawlService(sourceMapper, stagingMapper, fetcher, topicMapper,
-                materialMapper, tempDir.toString());
+                materialMapper, textExtractor, questionImporter, crawlLogMapper, tempDir.toString());
     }
 
     private ContentStaging staging(String url, String trustLevel) {
@@ -101,6 +110,8 @@ class ContentCrawlServiceTest {
         assertTrue(captor.getValue().getContent().contains("基层治理"));
         verify(stagingMapper).markImported(1L, "READING_MATERIAL", 99L);
         assertEquals(1, summary.imported);
+        assertEquals(1, summary.downloaded);
+        assertEquals(1, summary.parsed);
     }
 
     @Test
@@ -115,6 +126,7 @@ class ContentCrawlServiceTest {
         verify(stagingMapper).markFailed(eq(1L), contains("重复"));
         verify(materialMapper, never()).insert(any());
         assertEquals(1, summary.failed);
+        assertEquals(1, summary.duplicates);
     }
 
     @Test
@@ -144,16 +156,62 @@ class ContentCrawlServiceTest {
     }
 
     @Test
-    void questionLikeContentNeedsReview() throws Exception {
+    void questionLikeContentWithoutAnswerGoesToManualCheck() throws Exception {
         String url = "https://gov.example.cn/sample.html";
         String body = "<p>单选题：下列关于基层治理的说法正确的是</p>"
                 + "<p>A．选项一 B．选项二 C．选项三 D．选项四</p><p>" + longMaterialText() + "</p>";
+        mockFetch(url, html(body));
+        when(questionImporter.importCandidates(any(), anyList())).thenAnswer(invocation -> {
+            QuestionStagingImportService.ImportStats stats = new QuestionStagingImportService.ImportStats();
+            stats.total = 1;
+            stats.needsReview = 1;
+            return stats;
+        });
+
+        CrawlSummary summary = new CrawlSummary();
+        service.processItem(staging(url, "A"), summary);
+
+        verify(questionImporter).importCandidates(any(), anyList());
+        verify(stagingMapper).markNeedsReview(eq(1L), contains("试题"));
+        verify(materialMapper, never()).insert(any());
+    }
+
+    @Test
+    void questionLikeContentAutoImportsAndMarksStagingImported() throws Exception {
+        String url = "https://gov.example.cn/sample2.html";
+        String body = "<p>单选题：下列关于基层治理的说法正确的是</p>"
+                + "<p>A．选项一 B．选项二 C．选项三 D．选项四</p><p>答案：A</p><p>解析：基层治理相关解析说明。</p>";
+        mockFetch(url, html(body));
+        when(questionImporter.importCandidates(any(), anyList())).thenAnswer(invocation -> {
+            QuestionStagingImportService.ImportStats stats = new QuestionStagingImportService.ImportStats();
+            stats.total = 1;
+            stats.imported = 1;
+            stats.firstQuestionId = 501L;
+            return stats;
+        });
+
+        CrawlSummary summary = new CrawlSummary();
+        service.processItem(staging(url, "A"), summary);
+
+        verify(stagingMapper).markImported(1L, "QUESTION", 501L);
+        verify(stagingMapper).updateReviewNote(eq(1L), contains("自动入库 1 题"));
+        assertEquals(1, summary.imported);
+        verify(materialMapper, never()).insert(any());
+    }
+
+    @Test
+    void questionLikeContentWithoutExtractableStructureKeepsManualPath() throws Exception {
+        String url = "https://gov.example.cn/sample3.html";
+        // 试题关键词存在但无选项结构，抽取器返回空列表
+        String body = "<p>单选题相关说明：本年度考试题型包括单选题、多选题和判断题，请考生注意复习。</p>"
+                + "<p>" + longMaterialText() + "</p>";
         mockFetch(url, html(body));
 
         CrawlSummary summary = new CrawlSummary();
         service.processItem(staging(url, "A"), summary);
 
         verify(stagingMapper).markNeedsReview(eq(1L), contains("试题"));
+        verify(questionImporter, never()).importCandidates(any(), anyList());
         verify(materialMapper, never()).insert(any());
     }
 
@@ -245,6 +303,90 @@ class ContentCrawlServiceTest {
 
         assertEquals(0, created);
         verify(stagingMapper, never()).insert(any(ContentStaging.class));
+    }
+
+    @Test
+    void discoverAddsStructuredQuestionPageItself() throws Exception {
+        ContentSource source = new ContentSource();
+        source.setId(10L); source.setName("公开题源"); source.setBaseUrl("https://questions.example.cn/paper.html");
+        source.setTrustLevel("B"); source.setExamType("GK");
+        String page = html("<p>单选题 1. 下列说法最恰当的是？ A. 甲 B. 乙 C. 丙 D. 丁 答案：A 解析：依据题干选择甲。</p>");
+        when(fetcher.fetch(source.getBaseUrl())).thenReturn(new ContentFetcher.Fetched(page.getBytes(StandardCharsets.UTF_8), "text/html", "paper.html"));
+        when(stagingMapper.countByUrl(source.getBaseUrl())).thenReturn(0);
+
+        int created = service.discover(source);
+
+        ArgumentCaptor<ContentStaging> captor = ArgumentCaptor.forClass(ContentStaging.class);
+        verify(stagingMapper).insert(captor.capture());
+        assertEquals(1, created);
+        assertEquals(source.getBaseUrl(), captor.getValue().getSourceUrl());
+        assertEquals("公开题源", captor.getValue().getSiteName());
+    }
+
+    @Test
+    void triggerCrawlRejectsWhenAlreadyRunning() {
+        ContentSource source = new ContentSource();
+        source.setId(10L); source.setName("某省人社厅"); source.setEnabled(true);
+        when(sourceMapper.findById(10L)).thenReturn(source);
+        ContentCrawlLog running = new ContentCrawlLog();
+        running.setStatus(ContentCrawlLog.RUNNING);
+        when(crawlLogMapper.findLatestBySource(10L)).thenReturn(running);
+
+        BusinessException error = assertThrows(BusinessException.class, () -> service.triggerCrawl(10L));
+        assertEquals("CRAWL_ALREADY_RUNNING", error.getCode());
+        verify(crawlLogMapper, never()).insert(any(ContentCrawlLog.class));
+    }
+
+    @Test
+    void triggerCrawlCreatesRunningLogAndReturnsImmediately() {
+        ContentSource source = new ContentSource();
+        source.setId(10L); source.setName("某省人社厅"); source.setEnabled(true);
+        when(sourceMapper.findById(10L)).thenReturn(source);
+        when(crawlLogMapper.findLatestBySource(10L)).thenReturn(null);
+        when(crawlLogMapper.insert(any(ContentCrawlLog.class))).thenAnswer(invocation -> {
+            invocation.<ContentCrawlLog>getArgument(0).setId(77L);
+            return 1;
+        });
+
+        ContentCrawlLog entry = service.triggerCrawl(10L);
+
+        assertEquals(77L, entry.getId());
+        assertEquals("RUNNING", entry.getStatus());
+        assertNotNull(entry.getStartTime());
+        verify(crawlLogMapper).insert(any(ContentCrawlLog.class));
+    }
+
+    @Test
+    void runCrawlTaskWritesFailedLogWhenSourceMissing() {
+        ContentCrawlLog entry = new ContentCrawlLog();
+        entry.setId(78L); entry.setSourceId(99L); entry.setStatus(ContentCrawlLog.RUNNING);
+        when(sourceMapper.findById(99L)).thenReturn(null);
+
+        service.runCrawlTask(entry);
+
+        ArgumentCaptor<ContentCrawlLog> captor = ArgumentCaptor.forClass(ContentCrawlLog.class);
+        verify(crawlLogMapper).update(captor.capture());
+        assertEquals("FAILED", captor.getValue().getStatus());
+        assertEquals("内容来源不存在", captor.getValue().getMessage());
+        assertNotNull(captor.getValue().getEndTime());
+    }
+
+    @Test
+    void runCrawlTaskWritesFailedLogWhenDiscoveryFails() throws Exception {
+        ContentSource source = new ContentSource();
+        source.setId(10L); source.setName("公开题源"); source.setBaseUrl("https://source.example.cn/list.html"); source.setEnabled(true);
+        when(sourceMapper.findById(10L)).thenReturn(source);
+        when(fetcher.fetch("https://source.example.cn/list.html")).thenThrow(new RuntimeException("TLS 校验失败"));
+        ContentCrawlLog entry = new ContentCrawlLog();
+        entry.setId(79L); entry.setSourceId(10L); entry.setStatus(ContentCrawlLog.RUNNING);
+
+        service.runCrawlTask(entry);
+
+        ArgumentCaptor<ContentCrawlLog> captor = ArgumentCaptor.forClass(ContentCrawlLog.class);
+        verify(crawlLogMapper).update(captor.capture());
+        assertEquals(ContentCrawlLog.FAILED, captor.getValue().getStatus());
+        assertTrue(captor.getValue().getMessage().contains("TLS 校验失败"));
+        verify(sourceMapper).updateCrawlState(10L, "FAILED");
     }
 
     @Test

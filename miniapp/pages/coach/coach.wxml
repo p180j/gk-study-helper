@@ -21,11 +21,11 @@
         <view class="detail-section"><view class="section-title">真实数据依据</view><view wx:for="{{result.evidence}}" wx:key="*this" class="line muted">· {{item}}</view></view>
       </block>
     </view>
-    <view wx:elif="{{asking}}" class="card generating-card">AI 教练正在生成详细分析…</view>
-    <view wx:elif="{{error}}" class="card error"><view>{{error}}</view><button class="secondary retry-button" size="mini" bindtap="ask">重试 AI 分析</button></view>
+    <view wx:elif="{{asking}}" class="card generating-card">AI 教练正在基于你的真实学习数据生成分析…</view>
+    <view wx:elif="{{error}}" class="card error"><view>AI 教练暂时不可用。你仍可以查看上方基于真实数据的建议。</view><button class="secondary retry-button" size="mini" bindtap="ask">重试 AI 分析</button></view>
   </block>
   <view class="card">
     <textarea class="question" value="{{question}}" bindinput="onInput" placeholder="继续追问，例如：我最该先改什么？"></textarea>
-    <button class="primary" loading="{{asking}}" disabled="{{asking}}" bindtap="ask">问教练</button>
+    <button class="primary" loading="{{asking}}" disabled="{{asking}}" bindtap="ask">{{result ? '重新生成 AI 分析' : '生成 AI 分析'}} </button>
   </view>
 </view>

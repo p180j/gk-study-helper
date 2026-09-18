@@ -1,6 +1,7 @@
 package com.gkstudy.ability.mapper;
 
 import com.gkstudy.ability.model.AbilityProfile;
+import com.gkstudy.ability.engine.AbilityConstants;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;
@@ -18,7 +19,7 @@ public interface AbilityMapper {
             "COALESCE(ROUND(SUM(a.speed_score*a.sample_count)/NULLIF(SUM(a.sample_count),0),2),0) AS speed_score," +
             "COALESCE(ROUND(SUM(a.stability_score*a.sample_count)/NULLIF(SUM(a.sample_count),0),2),0) AS stability_score," +
             "COALESCE(ROUND(SUM(a.confidence_score*a.sample_count)/NULLIF(SUM(a.sample_count),0),2),0) AS confidence_score," +
-            "COALESCE(SUM(a.sample_count),0) AS sample_count,CASE WHEN COALESCE(SUM(a.sample_count),0)=0 THEN 'UNASSESSED' ELSE 'ASSESSED' END AS status,MAX(a.last_practice_time) AS last_practice_time " +
+            "COALESCE(SUM(a.sample_count),0) AS sample_count,CASE WHEN COALESCE(SUM(a.sample_count),0)=0 THEN 'UNASSESSED' WHEN COALESCE(SUM(a.sample_count),0)<" + AbilityConstants.ASSESSMENT_MIN_SAMPLE_COUNT + " THEN 'ASSESSING' ELSE 'ASSESSED' END AS status,MAX(a.last_practice_time) AS last_practice_time " +
             "FROM knowledge_point kp JOIN knowledge_point root ON root.id=kp.parent_id AND root.code IN ('XINGCE','SHENLUN') " +
             "LEFT JOIN (SELECT ap.*,CASE WHEN leaf.level=2 THEN leaf.id ELSE leaf.parent_id END AS core_knowledge_point_id FROM ability_profile ap JOIN knowledge_point leaf ON leaf.id=ap.knowledge_point_id WHERE ap.user_id=#{userId} AND leaf.level IN (2,3)) a ON a.core_knowledge_point_id=kp.id " +
             "WHERE kp.status='ACTIVE' AND kp.level=2 AND kp.code<>'ESSAY_THEMES' GROUP BY kp.id,kp.code,kp.name,root.code,root.sort_no,kp.sort_no ORDER BY root.sort_no,kp.sort_no,kp.id")

@@ -6,7 +6,9 @@ import java.util.Map;
 
 public final class AbilityConstants {
     public static final int RECENT_WINDOW_SIZE = 6;
-    public static final int CONFIDENCE_FULL_SAMPLE_COUNT = 12;
+    public static final int CONFIDENCE_FULL_SAMPLE_COUNT = 20;
+    /** 少于该题数只视为摸底中，不能向用户展示为稳定能力分。 */
+    public static final int ASSESSMENT_MIN_SAMPLE_COUNT = 20;
     public static final int RECENT_PRACTICE_DAYS = 30;
     public static final double INITIAL_SCORE = 50.0;
     public static final double INITIAL_CONFIDENCE = 0.0;

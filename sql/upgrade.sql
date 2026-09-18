@@ -1,1 +1,1 @@
--- 当前无待执行增量；第九阶段后半段（ai_provider_config / content_source / content_staging）已验证并合并至 schema.sql。
+-- 当前无待执行增量；部署前收口（计划题量模型/答题幂等索引/题源分级/采集质量字段/采集日志表）已在主库验证并合并至 schema.sql。

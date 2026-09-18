@@ -21,6 +21,9 @@ public class Question {
     private String status;
     private Integer version;
     private String contentHash;
+    /** 题源可信等级 S/A/B/C/D，C/D 会被验证取题排除 */
+    private String sourceLevel;
+    private BigDecimal qualityScore;
     private LocalDateTime createTime;
     private List<QuestionOption> options = new ArrayList<>();
     private List<KnowledgePointRef> knowledgePoints = new ArrayList<>();
@@ -47,6 +50,8 @@ public class Question {
     public void setSourceExam(String sourceExam) { this.sourceExam = sourceExam; }
     public String getSourceName() { return sourceName; }
     public void setSourceName(String sourceName) { this.sourceName = sourceName; }
+    public String getSourceLevel() { return sourceLevel; }
+    public void setSourceLevel(String sourceLevel) { this.sourceLevel = sourceLevel; }
     public String getUsageType() { return usageType; }
     public void setUsageType(String usageType) { this.usageType = usageType; }
     public String getStatus() { return status; }
@@ -55,6 +60,8 @@ public class Question {
     public void setVersion(Integer version) { this.version = version; }
     public String getContentHash() { return contentHash; }
     public void setContentHash(String contentHash) { this.contentHash = contentHash; }
+    public BigDecimal getQualityScore() { return qualityScore; }
+    public void setQualityScore(BigDecimal qualityScore) { this.qualityScore = qualityScore; }
     public LocalDateTime getCreateTime() { return createTime; }
     public void setCreateTime(LocalDateTime createTime) { this.createTime = createTime; }
     public List<QuestionOption> getOptions() { return options; }

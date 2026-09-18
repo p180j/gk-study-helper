@@ -1,43 +1,121 @@
 <view class="page">
   <view class="hero"><view class="hero-title">学习</view><view class="hero-subtitle">我该怎么练？</view></view>
   <view wx:if="{{loading}}" class="state">正在准备训练…</view>
-  <view wx:elif="{{error && !question}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="load">重新加载</button></view>
+  <view wx:elif="{{error && !question}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="reload">重新加载</button></view>
   <block wx:elif="{{!showPractice}}">
     <view class="card continue-card">
-      <view class="row"><view class="section-title">继续今日学习</view><text class="switch-copy">切换任务 〉</text></view>
-      <view wx:if="{{item}}" class="continue-main"><view><view class="continue-title">{{item.knowledgePointName}}</view><view class="muted">{{item.reason}}</view><view class="muted progress-copy">共 {{questions.length}} 题 · {{item.plannedMinutes}} 分钟</view></view><view class="task-illustration">▤</view></view>
+      <view class="row"><view class="section-title">继续今日任务</view><text class="switch-copy" bindtap="openTaskPicker">切换今日任务 〉</text></view>
+      <view wx:if="{{item}}" class="continue-main">
+        <view>
+          <view class="continue-title">{{item.knowledgePointName}}</view>
+          <view class="muted">{{item.reason}}</view>
+          <view class="muted progress-copy">{{targetCount ? '已完成 ' + completedCount + ' / 目标 ' + targetCount + ' 题 · ' + item.plannedMinutes + ' 分钟' : '共 ' + questions.length + ' 题 · ' + item.plannedMinutes + ' 分钟'}}</view>
+          <view wx:if="{{taskDone}}" class="stock-hint">本组训练已完成，可在下方任务列表再练一组。</view>
+          <view wx:elif="{{!question}}" class="stock-hint">当前可用题目不足，暂无法开始本组训练。</view>
+        </view>
+        <view class="task-illustration">▤</view>
+      </view>
       <view wx:else class="muted">今日暂无可用题目，仍可进行申论或政治阅读。</view>
       <button wx:if="{{item && question}}" class="primary" bindtap="startCurrent">继续学习 〉</button>
     </view>
-    <view class="section-row"><view class="section-title">为你推荐 ✦</view><view class="muted">基于今日计划</view></view>
-    <view class="recommend card" wx:for="{{plan.items}}" wx:key="id">
-      <view class="recommend-icon {{item.itemType}}">{{item.itemType === 'ESSAY' ? '申' : item.itemType === 'READING' ? '阅' : '练'}}</view>
-      <view class="recommend-body"><view class="row"><view class="recommend-title">{{item.knowledgePointName}}</view><text class="purpose purpose-{{item.purpose}}">{{item.purposeLabel}}</text></view><view class="muted recommend-reason">{{item.reason}}</view></view>
-      <button wx:if="{{item.itemType === 'QUESTION_SET' || item.itemType === 'REVIEW'}}" class="mini-action" size="mini" data-id="{{item.id}}" bindtap="selectTask">开始练习</button>
+    <view class="card independent-practice">
+      <view class="row"><view><view class="section-title">自主选择练习</view><view class="muted independent-copy">想练哪个模块自己选，不影响今天任务进度</view></view><text class="independent-mark">自主练</text></view>
+      <view wx:if="{{inventory && inventory.length}}" class="module-shortcuts">
+        <view wx:for="{{inventory}}" wx:key="moduleCode" class="module-shortcut" data-code="{{item.moduleCode}}" bindtap="startFreePractice"><view class="module-shortcut-name">{{item.moduleName}}</view><view class="module-shortcut-stock">{{item.availableCount}} 题可练 〉</view></view>
+      </view>
+      <view wx:else class="muted independent-empty">正在读取可练模块…</view>
+      <view class="independent-links"><text bindtap="goEssay">申论专项</text><text bindtap="goReview">错题回顾</text><text bindtap="goReading">政治阅读</text><text bindtap="goMock">模拟考试</text></view>
     </view>
-    <view class="section-title free-title">自由学习</view>
+    <view wx:if="{{showTaskPicker}}" class="card task-picker">
+      <view class="row"><view class="section-title">选择今日任务</view><text class="picker-close" bindtap="closeTaskPicker">收起</text></view>
+      <view class="muted picker-hint">这里只显示今天已安排的任务；切换不会重建计划或丢失进度。</view>
+      <view wx:for="{{taskItems}}" wx:key="id" class="task-choice {{selectedTaskId === item.id ? 'selected' : ''}}" data-id="{{item.id}}" bindtap="selectTask">
+        <view class="task-choice-main"><view class="task-choice-name">{{item.knowledgePointName}}</view><view class="muted">{{item.reason}}</view><view class="task-choice-meta"><text class="purpose purpose-{{item.purpose}}">{{item.purposeLabel}}</text><text class="task-status status-{{item.status}}">{{item.statusLabel}}</text><text wx:if="{{item.targetQuestionCount}}">{{item.completedQuestionCount || 0}} / {{item.targetQuestionCount}} 题</text></view></view>
+        <view class="task-choice-arrow">〉</view>
+      </view>
+    </view>
+
+    <view wx:if="{{coreProblems.length}}" class="section-row"><view class="section-title">按当前问题练</view><view class="muted">基于真实作答</view></view>
+    <view wx:for="{{coreProblems}}" wx:key="id" class="problem-recommend card">
+      <view class="problem-icon">◎</view><view class="recommend-body"><view class="recommend-title">{{item.knowledgePointName}}</view><view class="muted recommend-reason">{{item.problemTypeText}} · {{item.recommendation}}</view></view>
+      <button class="mini-action" size="mini" data-code="{{item.knowledgePointCode}}" data-name="{{item.knowledgePointName}}" bindtap="startProblemPractice">去巩固</button>
+    </view>
+
+    <view class="section-row"><view class="section-title">更多练习方式</view><view class="muted">不改变今日计划进度</view></view>
     <view class="free-grid">
-      <view class="free-entry blue" bindtap="goXingce"><view class="free-icon">▥</view><view><view>行测专项</view><text>按知识点练习</text></view></view>
       <view class="free-entry indigo" bindtap="goEssay"><view class="free-icon">申</view><view><view>申论专项</view><text>真题与模拟题</text></view></view>
       <view class="free-entry green" bindtap="goReading"><view class="free-icon">阅</view><view><view>政治阅读</view><text>时政热点与素材</text></view></view>
-      <view class="free-entry orange" bindtap="goReview"><view class="free-icon">错</view><view><view>错题复习</view><text>针对性巩固</text></view></view>
+      <view class="free-entry orange" bindtap="goReview"><view class="free-icon">错</view><view><view>错题回顾</view><text>围绕错题知识点巩固</text></view></view>
+      <view class="free-entry teal" bindtap="goMock"><view class="free-icon">考</view><view><view>模拟考试</view><text>全真计时与能力校准</text></view></view>
     </view>
   </block>
   <block wx:else>
-    <view class="practice-head row"><button class="back-button" size="mini" bindtap="closePractice">‹ 返回学习</button><view class="muted">{{questionIndex + 1}} / {{questions.length}}</view></view>
-    <view wx:if="{{!question}}" class="state">该任务暂时没有可用题目。</view>
-    <view wx:else class="card question-card">
-      <view><text class="tag">{{item.purposeLabel}}</text><text class="question-kp">{{item.knowledgePointName}}</text></view>
-      <view class="stem">{{question.stem}}</view>
-      <view class="option {{selectedAnswer === option.optionKey ? 'selected' : ''}}" wx:for="{{question.options}}" wx:key="optionKey" wx:for-item="option" data-key="{{option.optionKey}}" bindtap="selectAnswer"><text class="option-key">{{option.optionKey}}</text><text>{{option.optionText}}</text></view>
-      <view class="label">这道题你有多确定？</view><view class="choices"><view class="choice {{confidence === option.value ? 'selected' : ''}}" wx:for="{{confidenceOptions}}" wx:key="value" wx:for-item="option" data-value="{{option.value}}" bindtap="selectConfidence">{{option.label}}</view></view>
-      <view class="label">如答错，选择可能错因</view><picker range="{{errorOptions}}" range-key="label" value="{{errorIndex}}" bindchange="selectError"><view class="picker">{{errorOptions[errorIndex].label}} 〉</view></picker>
-      <button wx:if="{{!result}}" class="primary" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submit">提交答案</button>
-    </view>
-    <view wx:if="{{result}}" class="card result {{result.correct ? 'correct' : 'wrong'}}">
-      <view class="result-badge">{{result.correct ? '✓' : '!'}}</view><view class="result-title">{{result.correct ? '回答正确' : '回答错误'}}</view><view class="answer-line">正确答案：{{result.correctAnswer}}</view><view class="analysis">{{result.analysis || '暂无解析'}}</view>
-      <view wx:if="{{!result.correct && result.errorDiagnosis}}" class="diagnosis"><view class="ai-label">{{result.errorDiagnosis.aiExplanation ? '真实 AI 错因分析 ✦' : '规则错因候选'}}</view><view class="section-title">系统判断：{{result.errorDiagnosis.suspectedCause}}</view><view class="muted">候选置信度 {{result.errorDiagnosis.confidence}}% · 已出现 {{result.errorDiagnosis.occurrenceCount}} 次</view><view wx:if="{{result.errorDiagnosis.aiExplanation}}" class="ai-explanation">{{result.errorDiagnosis.aiExplanation}}</view><view wx:if="{{result.errorDiagnosis.status === 'PENDING_CONFIRMATION'}}" class="diagnosis-actions"><button class="secondary diagnosis-button" loading="{{diagnosisDeciding}}" disabled="{{diagnosisDeciding}}" data-confirmed="{{true}}" bindtap="decideDiagnosis">确认</button><button class="secondary diagnosis-button" loading="{{diagnosisDeciding}}" disabled="{{diagnosisDeciding}}" data-confirmed="{{false}}" bindtap="decideDiagnosis">不是</button></view></view>
-      <view class="section-title change-title">能力变化</view><view wx:for="{{result.abilityChanges}}" wx:key="knowledgePointCode" class="change"><view>{{item.knowledgePointName}}</view><view class="muted">掌握 {{item.oldMastery}} → {{item.newMastery}} · 速度 {{item.oldSpeed}} → {{item.newSpeed}}</view></view><button class="primary" bindtap="nextQuestion">继续下一题</button>
-    </view>
+    <view class="practice-head row"><button class="back-button" size="mini" bindtap="closePractice">‹ 返回学习</button><view class="muted">{{targetCount ? '已完成 ' + completedCount + ' / 目标 ' + targetCount : '已完成 ' + completedCount + ' 题'}}</view></view>
+
+    <block wx:if="{{phase === 'answering'}}">
+      <view wx:if="{{!question}}" class="card notice-card">
+        <view class="notice-title">暂时无法开始</view>
+        <view class="muted">{{practiceNotice || '该任务暂时没有可用题目。'}}</view>
+      </view>
+      <view wx:else class="card question-card">
+        <view><text class="tag">{{item.purposeLabel}}</text><text class="question-kp">{{item.knowledgePointName}}</text></view>
+        <view class="stem">{{question.stem}}</view>
+        <view class="option {{selectedAnswer === option.optionKey ? 'selected' : ''}}" wx:for="{{question.options}}" wx:key="optionKey" wx:for-item="option" data-key="{{option.optionKey}}" bindtap="selectAnswer"><text class="option-key">{{option.optionKey}}</text><text>{{option.optionText}}</text></view>
+        <view class="label">这道题你有多确定？</view><view class="choices"><view class="choice {{confidence === option.value ? 'selected' : ''}}" wx:for="{{confidenceOptions}}" wx:key="value" wx:for-item="option" data-value="{{option.value}}" bindtap="selectConfidence">{{option.label}}</view></view>
+        <button class="primary" loading="{{submitting}}" disabled="{{submitting}}" bindtap="submit">提交答案</button>
+      </view>
+    </block>
+
+    <block wx:elif="{{phase === 'result'}}">
+      <view class="card question-card">
+        <view><text class="tag">{{item.purposeLabel}}</text><text class="question-kp">{{item.knowledgePointName}}</text></view>
+        <view class="stem">{{question.stem}}</view>
+        <view class="option {{selectedAnswer === option.optionKey ? 'selected' : ''}}" wx:for="{{question.options}}" wx:key="optionKey" wx:for-item="option" data-key="{{option.optionKey}}" bindtap="selectAnswer"><text class="option-key">{{option.optionKey}}</text><text>{{option.optionText}}</text></view>
+      </view>
+      <view class="card result {{result.correct ? 'correct' : 'wrong'}}">
+        <view class="result-badge">{{result.correct ? '✓' : '!'}}</view><view class="result-title">{{result.correct ? '回答正确' : '回答错误'}}</view><view class="answer-line">正确答案：{{result.correctAnswer}}</view><view class="analysis">{{result.analysis || '暂无解析'}}</view>
+        <view wx:if="{{!result.correct}}" class="error-reason">
+          <view class="label">这道题可能错在</view>
+          <picker range="{{errorOptions}}" range-key="label" value="{{errorIndex}}" bindchange="selectError"><view class="picker">{{errorOptions[errorIndex].label}} 〉</view></picker>
+          <view wx:if="{{result.errorDiagnosis}}" class="diagnosis"><view class="ai-label">{{result.errorDiagnosis.aiExplanation ? '真实 AI 错因分析 ✦' : '规则错因候选'}}</view><view class="section-title">系统判断：{{result.errorDiagnosis.suspectedCause}}</view><view class="muted">候选置信度 {{result.errorDiagnosis.confidence}}% · 已出现 {{result.errorDiagnosis.occurrenceCount}} 次</view><view wx:if="{{result.errorDiagnosis.aiExplanation}}" class="ai-explanation">{{result.errorDiagnosis.aiExplanation}}</view><view wx:if="{{result.errorDiagnosis.status === 'PENDING_CONFIRMATION'}}" class="diagnosis-actions"><button class="secondary diagnosis-button" loading="{{diagnosisDeciding}}" disabled="{{diagnosisDeciding}}" data-confirmed="{{true}}" bindtap="decideDiagnosis">确认</button><button class="secondary diagnosis-button" loading="{{diagnosisDeciding}}" disabled="{{diagnosisDeciding}}" data-confirmed="{{false}}" bindtap="decideDiagnosis">不是</button></view></view>
+        </view>
+        <view class="section-title change-title">能力变化</view>
+        <view wx:for="{{result.abilityChanges}}" wx:key="knowledgePointCode" class="change">
+          <view class="change-name">{{item.knowledgePointName}}</view>
+          <view class="muted change-line">掌握 {{item.masteryText}}（{{item.masteryExplainText}}）</view>
+          <view class="muted change-line">速度 {{item.speedText}}（{{item.speedExplainText}}）</view>
+        </view>
+        <view class="result-actions">
+          <button wx:if="{{taskDone}}" class="primary" bindtap="goTaskSummary">查看本组总结 〉</button>
+          <view wx:elif="{{insufficientStock}}" class="stock-notice">已完成 {{completedCount}} / 目标 {{targetCount}}，当前可用题目不足，系统暂时无法继续本组训练</view>
+          <block wx:else>
+            <view class="muted result-progress">已完成 {{completedCount}} / 目标 {{targetCount}}</view>
+            <button class="primary" loading="{{fetchingMore}}" disabled="{{fetchingMore}}" bindtap="nextQuestion">继续下一题</button>
+          </block>
+        </view>
+      </view>
+    </block>
+
+    <block wx:elif="{{phase === 'task_completed'}}">
+      <view class="card done-card">
+        <view class="done-badge">✓</view>
+        <view class="done-title">本组训练已完成</view>
+        <view class="done-stats">
+          <view class="done-stat"><view class="done-num">{{completedCount}} / {{targetCount}}</view><view class="muted">完成题数</view></view>
+          <view class="done-stat"><view class="done-num">{{sessionSummary ? sessionSummary.accuracy + '%' : '—'}}</view><view class="muted">正确率</view></view>
+          <view class="done-stat"><view class="done-num">{{sessionSummary ? sessionSummary.avgDurationText : '—'}}</view><view class="muted">平均耗时</view></view>
+        </view>
+        <view wx:if="{{sessionSummary && sessionSummary.changes.length}}">
+          <view class="section-title change-title done-change-title">主要能力变化（本次会话）</view>
+          <view wx:for="{{sessionSummary.changes}}" wx:key="code" class="change">
+            <view class="change-name">{{item.name}}</view>
+            <view class="muted change-line">掌握 {{item.oldMastery}} → {{item.newMastery}} · 速度 {{item.oldSpeed}} → {{item.newSpeed}}</view>
+          </view>
+        </view>
+        <view wx:elif="{{!sessionSummary}}" class="muted done-hint">本次会话暂无作答，可再练一组巩固。</view>
+        <button class="primary done-primary" loading="{{restarting}}" disabled="{{restarting}}" bindtap="restartPractice">再练一组</button>
+        <button class="secondary" bindtap="closePractice">返回今日计划</button>
+      </view>
+    </block>
   </block>
 </view>

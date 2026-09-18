@@ -38,6 +38,12 @@ class AbilityEngineTest {
         assertTrue(engine.calculate(null, alternating).getStabilityScore().compareTo(engine.calculate(null, stable).getStabilityScore()) < 0);
     }
     @Test void fewSamplesHaveLowConfidence() { assertTrue(engine.calculate(null, event(true, 50, "SURE", 60000, 1)).getConfidenceScore().doubleValue() < 20); }
+    @Test void earlyPerfectAnswersStayNearBaselineUntilAssessmentIsComplete() {
+        AbilityProfile profile = null;
+        for (int index = 0; index < 4; index++) profile = engine.calculate(profile, event(true, 50, "SURE", 60000, 1));
+        assertTrue(profile.getMasteryScore().doubleValue() < 70.0);
+        assertTrue(profile.getStabilityScore().doubleValue() < 70.0);
+    }
     @Test void confidenceRisesWithSamples() {
         AbilityProfile profile = profile(5, 55); AbilityProfile next = engine.calculate(profile, event(true, 70, "SURE", 60000, 1));
         assertTrue(next.getConfidenceScore().doubleValue() > engine.calculate(null, event(true, 50, "SURE", 60000, 1)).getConfidenceScore().doubleValue());

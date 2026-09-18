@@ -1,0 +1,22 @@
+<view class="page">
+  <view class="hero"><view class="hero-title">模拟考试</view><view class="hero-subtitle">在真实计时环境中验证能力</view></view>
+  <view wx:if="{{loading}}" class="state">正在加载试卷…</view>
+  <view wx:elif="{{error && mode === 'list'}}" class="state error">{{error}}<button class="secondary" bindtap="loadPapers">重试</button></view>
+  <block wx:elif="{{mode === 'list'}}">
+    <view wx:if="{{!papers.length}}" class="card state">暂无已启用模考试卷</view>
+    <view class="card paper" wx:for="{{papers}}" wx:key="id"><view class="row"><view><view class="section-title">{{item.name}}</view><view class="muted">{{item.examType === 'XINGCE' ? '行测' : '申论'}} · {{item.durationMinutes}} 分钟 · {{item.totalScore}} 分</view></view><button class="mini" data-id="{{item.id}}" bindtap="showInstructions">查看</button></view></view>
+  </block>
+  <block wx:elif="{{mode === 'instructions'}}">
+    <view class="card"><view class="section-title">{{paper.name}}</view><view class="notice">考试说明</view><view class="muted lines">全程计时，考试中不显示答案、解析、AI 提示和能力变化。可切换题号或主动跳过；时间到将自动交卷。</view><view class="section-list" wx:for="{{paper.sections}}" wx:key="id"><text>{{item.name}}</text><text>{{item.items.length}} 题 · {{item.score}} 分</text></view><button class="primary" loading="{{saving}}" disabled="{{saving}}" bindtap="start">开始考试</button><button class="secondary" bindtap="backList">返回试卷列表</button></view>
+  </block>
+  <block wx:elif="{{mode === 'exam'}}">
+    <view class="exam-top card"><view><view class="muted">剩余时间</view><view class="timer">{{timeText}}</view></view><view class="progress">{{currentIndex + 1}} / {{sessionView.items.length}}</view><button class="danger" size="mini" bindtap="confirmSubmit">交卷</button></view>
+    <scroll-view scroll-x class="numbers"><view class="number {{currentIndex === index ? 'active' : ''}}" wx:for="{{sessionView.items}}" wx:key="id" wx:for-index="index" data-index="{{index}}" bindtap="jump">{{index + 1}}</view></scroll-view>
+    <view class="card question"><view class="muted">{{sessionView.items[currentIndex].sectionName}} · 第 {{currentIndex + 1}} 题</view><view wx:if="{{sessionView.items[currentIndex].material}}" class="material">{{sessionView.items[currentIndex].material}}</view><view class="stem">{{sessionView.items[currentIndex].stem}}</view><block wx:if="{{sessionView.items[currentIndex].itemType === 'QUESTION'}}"><view class="option {{selectedAnswer === option.optionKey ? 'selected' : ''}}" wx:for="{{sessionView.items[currentIndex].options}}" wx:key="optionKey" wx:for-item="option" data-key="{{option.optionKey}}" bindtap="selectAnswer"><text class="key">{{option.optionKey}}</text>{{option.optionText}}</view></block><textarea wx:else class="essay-input" value="{{essayAnswer}}" bindinput="inputEssay" placeholder="请输入申论作答" maxlength="-1"/><view class="actions"><button class="secondary" bindtap="previous">上一题</button><button class="secondary" loading="{{saving}}" disabled="{{saving}}" bindtap="skip">跳过</button><button class="primary" loading="{{saving}}" disabled="{{saving}}" bindtap="answer">保存下一题</button></view></view>
+  </block>
+  <block wx:elif="{{mode === 'result'}}">
+    <view class="score-card card"><view class="muted">本次模考得分</view><view class="score">{{result.totalScore}}</view><view class="summary"><text>正确率 {{result.accuracyRate}}%</text><text>完成率 {{result.completionRate}}%</text></view></view>
+    <view class="section-title block-title">模块表现</view><view class="card stat" wx:for="{{result.sectionStats}}" wx:key="sectionCode"><view class="row"><view class="section-title">{{item.sectionName}}</view><text>{{item.score}} 分</text></view><view class="stat-primary">正确率 {{item.accuracyRate}}% · 完成率 {{item.completionRate}}%</view><view class="muted stat-secondary">平均耗时 {{item.avgText}} · 超时 {{item.timeoutCount}} 题 · 跳过 {{item.skippedCount}} 题 · 未答 {{item.unansweredCount}} 题</view></view>
+    <view class="section-title block-title">专项能力与模考表现</view><view class="card compare" wx:for="{{result.calibrations}}" wx:key="sectionCode"><view class="row"><view class="section-title">{{item.sectionName}}</view><text class="tag">可信度 {{item.confidence}}%</text></view><view class="bars">专项能力 {{item.dailyText}} · 模考表现 {{item.mockPerformance}}</view><view class="insight">{{item.conclusion}}</view></view><view class="tip">专项能力不等于预测分数；模考样本积累后才形成考试表现趋势。</view><button class="primary" bindtap="backList">返回模拟考试</button>
+  </block>
+</view>

@@ -1,6 +1,6 @@
 (function () {
   const context = {
-    baseUrl: localStorage.getItem('gk.apiBaseUrl') || 'http://127.0.0.1:8080',
+    baseUrl: localStorage.getItem('gk.apiBaseUrl') || window.location.origin,
     userId: Number(localStorage.getItem('gk.currentUserId') || 1)
   }
 

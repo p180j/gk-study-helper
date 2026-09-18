@@ -36,7 +36,7 @@ class AbilityServiceTest {
     }
 
     @Test
-    void existingAbilityIsReturnedWithoutBeingOverwrittenAndCoverageIsCalculated() {
+    void partialAssessmentIsReturnedWithoutBeingOverwrittenButDoesNotCountAsCoverage() {
         AbilityMapper mapper = mock(AbilityMapper.class);
         AbilityProfile evaluated = unassessed(1L, "DATA_ANALYSIS"); evaluated.setId(88L); evaluated.setStatus("LEARNING");
         evaluated.setMasteryScore(BigDecimal.valueOf(62)); evaluated.setSampleCount(3);
@@ -45,7 +45,8 @@ class AbilityServiceTest {
 
         AbilityOverview overview = service.overview(9L);
 
-        assertEquals(1, overview.getEvaluatedCount()); assertEquals(2, overview.getTotalCount()); assertEquals(50, overview.getCoveragePercent());
+        assertEquals(0, overview.getEvaluatedCount()); assertEquals(1, overview.getAssessingCount());
+        assertEquals(2, overview.getTotalCount()); assertEquals(0, overview.getCoveragePercent());
         assertEquals(new BigDecimal("62"), overview.getAbilities().get(0).getMasteryScore());
         verify(mapper, never()).insertProfile(any()); verify(mapper, never()).updateProfile(any());
     }

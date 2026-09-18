@@ -39,7 +39,7 @@ public class PlanQuestionService {
         DailyPlanItem item = planMapper.findItemForUser(itemId, userId);
         if (item == null) throw new BusinessException("PLAN_ITEM_NOT_FOUND", "计划任务不存在");
         int safeLimit = Math.min(Math.max(limit, 1), 20);
-        List<Question> questions = questionMapper.findForPlanItem(item.getKnowledgePointId(), item.getPurpose(), safeLimit);
+        List<Question> questions = questionMapper.findForPlanItemExpanded(item.getKnowledgePointId(), item.getPurpose(), userId, safeLimit);
         for (Question question : questions) {
             question.setOptions(questionMapper.findOptions(question.getId()));
             question.setKnowledgePoints(questionMapper.findKnowledgePoints(question.getId()));

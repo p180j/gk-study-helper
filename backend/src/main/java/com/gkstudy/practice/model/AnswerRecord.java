@@ -7,6 +7,7 @@ public class AnswerRecord {
     private Long id;
     private Long userId;
     private Long questionId;
+    private Long planItemId;
     private Integer questionVersion;
     private String practiceType;
     private String userAnswer;
@@ -26,6 +27,8 @@ public class AnswerRecord {
     public void setUserId(Long userId) { this.userId = userId; }
     public Long getQuestionId() { return questionId; }
     public void setQuestionId(Long questionId) { this.questionId = questionId; }
+    public Long getPlanItemId() { return planItemId; }
+    public void setPlanItemId(Long planItemId) { this.planItemId = planItemId; }
     public Integer getQuestionVersion() { return questionVersion; }
     public void setQuestionVersion(Integer questionVersion) { this.questionVersion = questionVersion; }
     public String getPracticeType() { return practiceType; }

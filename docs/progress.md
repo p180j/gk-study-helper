@@ -179,3 +179,100 @@
 - [x] 管理控台内容管理：内容来源、抓取任务、Staging 分页与筛选、异常处理、内容库存（按知识点统计未使用高质量题）
 - [x] 新增 31 项单元测试（Key 加解密 / 掩码 / 默认唯一 / 抓取管线 / 去重 / 状态隔离 / 人工处理），Java 11 下全量 178 项全部通过
 - [x] 三表增量合并 schema.sql，upgrade.sql 清理恢复注释；独立空库仅执行 schema.sql、init_data.sql 后 Spring Boot 启动成功
+
+## 第十阶段：模考 + 考试能力校准
+
+- [x] 新增模考数据模型六表：mock_paper / mock_paper_section / mock_paper_item / mock_session / mock_answer / mock_result，复用现有 Question / EssayQuestion，不复制题库
+- [x] 行测全真模考：选卷 → 考试说明 → 总计时 → 连续作答 → 跳题 / 切题 → 主动交卷 / 到时自动交卷，考试中不显示答案与解析
+- [x] 每题记录作答顺序、耗时、用户答案、正确答案快照、resultStatus（CORRECT / WRONG / UNANSWERED / SKIPPED / TIMEOUT，跳过与未做严格区分）
+- [x] 申论整套计时模考：材料 + 多小题共用总计时，记录每题开始时间、用时、原始答案、字数、作答顺序；交卷后调用 AiEssayGrader 真实评分，AI 失败降级不阻断交卷
+- [x] 模考结果分析：总分、正确率、完成率、总耗时 + 各模块得分 / 正确率 / 完成率 / 平均耗时 / 超时题数 / 未答题数 / 后半程正确率下降
+- [x] 专项能力 vs 模考表现对比与考试能力校准集中实现 MockCalibrationEngine：区分知识薄弱（MASTERY）与完成率 / 时间分配 / 稳定性 / 做题顺序 / 表现落差（EXAM_*）五类考试问题，多次模考提升校准 confidence
+- [x] 模考不覆盖 AbilityProfile：全程只读日常能力，校准结论写入 mock_result.calibration_json，能力画像保持不变（已实测验证）
+- [x] 模考问题进入 LearningProblem 并复用完整生命周期：一次 OBSERVING、重复 CONFIRMED、改善后 PROCESSING → VERIFYING → RESOLVED
+- [x] 模考结果影响下一次 DailyPlan：模考时间分配问题驱动资料分析限时训练安排，知识薄弱安排基础 TRAINING，不修改当日已有计划
+- [x] MOCK_RESERVED 题目严格隔离：不进入日常训练 / 摸底 / 验证选题，试卷启用前校验卷内题目全部为模考专用
+- [x] EXAM_ORDER_STRATEGY 做题顺序问题识别：按全局作答顺序统计模块穿插度（连续段数）
+- [x] init_data.sql 新增初始模考内容：10 道 MOCK_RESERVED 题（言语 / 判断 / 数量 / 资料 / 常识各 2 道）+ 行测全真模拟（第一套）+ 申论全真模拟（第一套），空库即可模考
+- [x] 小程序学习页新增“模拟考试”入口（保持三 Tab），试卷列表 / 考试说明 / 行测与申论考试页 / 交卷确认 / 结果 / 模块分析 / 专项能力对比全中文展示，内部枚举统一映射
+- [x] 能力页新增“考试表现”区块：专项能力 vs 模考表现对比，明确说明专项能力 ≠ 预测分数
+- [x] 管理控台模考试卷管理：创建 / 详情 / 题目组成 / Section / 启用停用 / 模考记录与结果查看
+- [x] 真实验收场景 A-E 全部通过：行测完整模考（顺序 / 耗时 / 对错 / 跳过 / 未答 / 超时）、能力差异识别（资料日常 78 模考 50 → 时间分配而非知识薄弱）、知识薄弱增强（数量 40/0 → MASTERY）、重复模考状态推进（OBSERVING → CONFIRMED → PROCESSING）、申论整套模考（DeepSeek 真实评分 92/88、原始答案保留、每题耗时可见）
+- [x] 到时自动交卷实测：超时 session 访问即自动交卷（AUTO_TIME_LIMIT）并补齐 UNANSWERED
+- [x] 新增 26 项模考单元测试（试卷隔离 / 会话创建 / 每题耗时顺序 / 五种 resultStatus / 自动与主动交卷 / 结果聚合 / 五类考试问题判定 / 申论评分成功缩放与失败降级 / 不覆盖能力 / 问题生成与状态推进 / 计划联动），Java 11 下全量 203 项全部通过
+- [x] 模考六表与初始数据增量已验证并合并 schema.sql / init_data.sql，upgrade.sql 清理恢复注释
+- [x] 独立空库仅执行 schema.sql、init_data.sql（29 张表、10 道模考题、2 套试卷）后 Spring Boot 启动验收通过
+- [x] 收口修复：用户可见时间统一人类可读格式（倒计时 01:59:52、平均耗时 119分52秒 / 32秒、管理控台 32 秒 / 2.5 分钟，禁止展示原始毫秒与大整数秒）；无专项能力数据显示“未测评”不显示“专项能力 0”；结果页正确率 / 完成率为主指标、耗时 / 超时 / 跳过 / 未答为次级信息（计算逻辑零改动）
+
+## 第十一阶段：题库采集中心（采集自动化 + 质量门禁 + 批量上传）
+
+- [x] ContentQualityService 集中纯规则质量门禁：题干 / 选项 / 答案 / 解析 / 乱码噪声 / 知识点 / 来源可信度（S/A +10、B 0、C/D -15）打分，score>=60 且无致命问题且 confidence>=70 视为通过，不用 AI，可独立单测
+- [x] QuestionTextExtractor 从纯文本抽取单选题候选：题号 / 题型标记切块 + A-D 选项行 + 答案行 + 可选解析，题干中出现的答案字样不干扰抽取，无答案候选同样输出由门禁拦截，无结构返回空列表
+- [x] QuestionStagingImportService 分流入库：S/A 质量通过自动入库；B 需 confidence>=80（记抽样质检提示）；C/D 需 confidence>=85（source_level 写入，验证取题自然排除）；不满足生成逐题 NEEDS_REVIEW 暂存（原 URL#idx-n 防冲突、质量三字段、中文异常原因），原始数据不丢失
+- [x] content_hash 与手工 CSV 导入完全一致（sha256(stem|A:text|...|answer)），与 question 表撞记 duplicates 跳过，全局统一去重
+- [x] 疑似试题采集内容不再一律人工复核：先抽取候选再走质量分流，自动入库后 staging 标记 IMPORTED + “自动入库 N 题/重复 M/异常 K” 备注；抽取不出结构才保留原人工路径
+- [x] 采集改造异步：POST /sources/{id}/crawl 立即返回 {logId,status}，后台单线程执行并回写 content_crawl_log（RUNNING/SUCCESS/FAILED + 各阶段计数），同来源 RUNNING 时拒绝重复触发（CRAWL_ALREADY_RUNNING）
+- [x] GET /crawl-logs 采集日志列表（最近 20 条，新→旧，原始枚举由前端映射中文）
+- [x] GET /inventory 重构为聚合响应 InventoryOverviewView：总览（可训练 / 模考专用 / 申论 / AI 生成 / 待人工检查 / 采集失败来源）+ 一级模块（含子知识点、lowStock=unused<阈值，阈值 @Value 默认 10）
+- [x] POST /upload 题目文件批量上传：CSV / XLSX / XLS（Apache POI，表头同 CSV 模板），保存原始文件 → file 级 staging（ATTACHMENT）→ 逐行转候选 → 质量分流入库 → 同步返回 {stagingId,total,imported,duplicates,needsReview,failed,errors 前10条}，重复文件上传直接拒绝
+- [x] POST /staging/{id}/review 支持 IMPORT_QUESTION（修正题目入库，校验同手工导入规则）与 CONFIRM_DUPLICATE，保留 IMPORT_MATERIAL / DISCARD；新增 POST /staging/batch-review 批量丢弃 / 确认重复
+- [x] content_staging 增量：quality_score / quality_confidence / quality_issues 三字段（upgrade.sql 追加 + schema.sql 合并，空库基线完整）；Question 模型映射 source_level / quality_score
+- [x] 新增 55 项单元测试（质量门禁 13 / 抽取器 8 / 分流入库 13 / 上传 8 / 采集与人工处理 13 适配扩展），Java 11 下全量 273 项全部通过
+- [x] 后端接口层面真机验证：手动触发异步采集（立即返回 logId、日志回写、重复触发拦截）、文件批量上传（CSV/XLSX 分流入库）、库存聚合查询
+
+## 部署前收口：主闭环修复 + 题库采集中心前端
+
+- [x] DailyPlanItem 任务模型补全：target_question_count / completed_question_count 入库，完成判定唯一标准为 completedQuestionCount >= targetQuestionCount，杜绝“做 1 题即提示完成”
+- [x] QuestionTaskPolicy 集中按时间 / 题型 / 任务类型计算目标题量，消除散落 magic number
+- [x] QuestionInventoryService 统一按模块 / 知识点统计可用库存（排除 MOCK_RESERVED），DailyPlan 生成前必须检查真实库存，不足标记 INSUFFICIENT_STOCK 不生成虚假任务
+- [x] 新用户摸底最小可信样本：候选知识点库存 >= 5 才生成摸底任务，单知识点不足自动扩展同模块兄弟知识点，整个模块不足不生成虚假任务
+- [x] 取题顺序固定：当前知识点未做 → 当前已做 → 同模块兄弟未做 → 兄弟已做
+- [x] 题库不足不伪完成：前端页面内提示“已完成 X/Y，当前可用题目不足”，后端不标记完成、不伪造进度
+- [x] 小程序答题页重构为 answering / result / task_completed 三态互斥状态机：答对不显示错因选择（错因移至结果卡仅答错显示），最后一题完成后不显示“继续下一题”，不再用中央 Toast 遮挡页面
+- [x] 能力变化增加可读解释（掌握 / 速度升降含义说明）
+- [x] 答题幂等：answer_record 增加 (user_id, plan_item_id, question_id) 索引，同一题同一任务重复提交返回旧结果，不重复计数、不重复更新能力
+- [x] 管理控台新增一级功能“题库采集”5 页：库存概览（总览 + 模块 + 子知识点 + 低库存标记）/ 手动触发采集（异步触发 + 日志轮询）/ 文件导入（CSV / XLSX / XLS）/ 异常处理（逐题修正 + 批量丢弃 / 确认重复）/ 采集记录
+- [x] 修复三处核心缺陷：模块级知识点库存统计越界扩展到同科目其它模块（库存虚高）、daily_plan_item UPDATE 列顺序求值导致提前误判完成、小程序库存汇总 exam_type 筛选条件与实际存储不符导致空结果
+- [x] 爬虫缺失知识点编码时按题干强特征词自动推断模块级知识点（推断不出才进异常处理），提升自动入库率
+- [x] 真实业务验收场景 A-H 全部通过：任务题量与完成判定 / 摸底最小样本与库存扩展 / 库存不足提示不伪完成 / 手动采集与文件导入 / 自动入库与异常分流 / 幂等提交 / MOCK_RESERVED 隔离 / 答题页状态机
+- [x] 全量单元测试 273 项全部通过（Java 11）；admin-web 与小程序脚本 node --check 通过
+- [x] 增量在主库验证后合并 schema.sql，upgrade.sql 清理恢复注释
+- [ ] 管理控台题库采集 5 页浏览器真机操作验收（NOT VERIFIED：脚本语法已检查，待浏览器实际操作确认）
+- [ ] 独立空库验收（SKIPPED：本次按用户指示跳过，主库增量已实际执行验证，schema.sql 已同步合并）
+
+## 产品全流程打通验收（本轮）
+
+- [x] 后端统一托管管理后台：`http://127.0.0.1:8089/admin/`、静态资源及 `/api/...` 实际返回 200
+- [x] 管理后台库存改为复用 `QuestionInventoryService` 的普通可训练题定义；实际库存为 66 道（言语 13 / 判断 16 / 数量 11 / 资料 12 / 常识 14）
+- [x] 真实 CSV 经“上传 → staging → 质量门禁 → 自动入库 / 异常处理”导入 50 道，49 道自动入库、1 道异常修正后入库
+- [x] 真实缺答案异常记录未进入 Question；通过管理后台修正答案后入库，普通可训练库存实际从 65 增至 66
+- [x] 公开题源采集的 staging 自动入库 7 道题；同一来源重复采集后 Question 数保持 7，不重复增长
+- [x] 新用户 99002 由真实库存生成 3 组 5 题摸底任务；首组连续提交 5 题，前四题未完成、第五题才完成
+- [x] 同一用户完成全部 3 组任务后 DailyPlan 与全部 DailyPlanItem 均为 COMPLETED；共产生 18 条 AnswerRecord、18 条 AbilityHistory、3 条 AbilityProfile、1 条 LearningProblem、1 条 ErrorDiagnosis
+- [x] 显式生成下一计划后，任务从纯 ASSESSMENT 调整为资料分析稳定性 TRAINING + 言语 MAINTENANCE + 数量 ASSESSMENT
+- [x] 自由练习补齐模块选择及无 planItemId 的真实取题路径；实际连续答 3 题且 DailyPlanItem 进度保持不变
+- [x] 小程序答对时未传 `errorType` 不再返回 400：服务端缺省持久化为 `UNKNOWN`；以真实请求实际返回 HTTP 200，并写入 AnswerRecord
+- [x] Java 11 `mvn clean test` 实际通过：279 项，0 失败
+- [x] Spring Boot 实际启动并连接主库：8089 端口正常监听
+- [ ] 微信开发者工具小程序 UI 点击、截图及连续作答验收（NOT VERIFIED：官方 CLI 已实际导入并打开项目，但本会话的 GUI 自动化连接返回空应用/连接错误，无法伪造交互结果）
+
+## 以真实备考用户为中心的产品体验改造（本轮）
+
+- [x] 首页收敛为“今天学什么”：当前推荐任务、完成进度、安排原因和唯一主操作“继续今日学习”
+- [x] 学习页补齐真实可用的任务切换：展示今日任务状态/进度，切换不重建 DailyPlan、不丢失进度
+- [x] 学习页补齐主动练习：按模块、按当前学习问题、按错题知识点练习；均走真实题目和 EXTRA AnswerRecord 链路，不推进 DailyPlanItem
+- [x] 能力页改为行测综合能力 + 六维能力图（言语/判断/数量/资料/常识/申论）+ 可展开模块详情；未测评维度不再显示为 0 分
+- [x] 新增集中中文展示映射，任务目的、问题类型、状态、错因和 AI 文本不再向用户暴露内部英文枚举
+- [x] AI Coach 改为先展示真实数据洞察、用户主动请求完整 AI 分析；AI 不可用时保留中文洞察与重试入口
+- [x] Java 11 `mvn clean test` 实际通过：279 项，0 失败；小程序纯展示聚合与中文映射 Node 自动测试通过
+- [x] 现有主库 API 实际验证：计划、能力概览、核心问题、AI 洞察、计划取题、主动练习取题均返回成功，题目答案未提前返回
+- [x] 经用户明确授权后，真实 `POST /api/ai/coach` 调用 DeepSeek 成功；返回为简体中文，且未出现内部英文枚举
+- [x] 学习页明确区分“切换今日任务”和“自主选择练习”；五个行测模块在首屏即可按真实库存直接进入练习
+- [x] 六维能力图始终绘制完整六轴底图和模块标签；未测维度明确显示“待测评”，不填充为 0 分
+- [x] 修改后小程序脚本语法和能力聚合测试通过；微信开发者工具 CLI 实际重新信任并打开项目
+- [x] 能力分改为正式评估口径：单模块累计 20 道有效作答后才展示分数；此前统一显示“摸底中”
+- [x] 行测综合能力分改为五个行测模块均完成正式评估后才展示，禁止以单个模块高分代替整体能力
+- [x] Java 11 `mvn test` 实际通过：280 项，0 失败；前端能力聚合测试通过
+- [ ] 微信开发者工具 GUI 点击、截图与小程序端连续作答（NOT VERIFIED：官方 CLI 已打开并信任项目、Agent 服务已启动，但本会话 GUI 自动化连接两次返回空窗口/连接错误）
+- [ ] Java 11 `mvn clean test`（FAIL：IDEA 正在运行的 gk-study-helper 锁定 `backend/target/test-classes`，未停止用户运行实例）
+- [ ] 新评分规则的 8089 运行复验与当前用户画像回放（NOT VERIFIED：等待明确授权停止并重启 IDEA 启动的旧 Spring Boot 进程）

@@ -61,9 +61,18 @@ public class AbilityService {
     public AbilityOverview overview(Long userId) {
         List<AbilityProfile> abilities = profiles(userId);
         int evaluated = 0;
-        for (AbilityProfile profile : abilities) if (!"UNASSESSED".equals(profile.getStatus()) && profile.getSampleCount() > 0) evaluated++;
+        int assessing = 0;
+        for (AbilityProfile profile : abilities) {
+            if (isFullyAssessed(profile)) evaluated++;
+            else if (profile.getSampleCount() != null && profile.getSampleCount() > 0) assessing++;
+        }
         applyTrends(abilities, abilityMapper.findMasteryTrends(userId));
-        return new AbilityOverview(evaluated, abilities.size(), abilities);
+        return new AbilityOverview(evaluated, assessing, abilities.size(), abilities);
+    }
+
+    private boolean isFullyAssessed(AbilityProfile profile) {
+        return profile.getSampleCount() != null && profile.getSampleCount() >= AbilityConstants.ASSESSMENT_MIN_SAMPLE_COUNT
+                && !"UNASSESSED".equals(profile.getStatus());
     }
 
     private void applyTrends(List<AbilityProfile> abilities, List<AbilityProfile> trends) {

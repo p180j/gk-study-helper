@@ -209,6 +209,17 @@ class DailyPlanEngineTest {
         assertEquals(45, plan.getItems().stream().mapToInt(DailyPlanItem::getPlannedMinutes).sum());
     }
 
+    @Test
+    void confirmedMockTimeProblemCreatesTimedTrainingReason() {
+        LearningProblem problem = problem(5, "资料分析", "CONFIRMED");
+        problem.setProblemType("EXAM_TIME_MANAGEMENT");
+
+        DailyPlan plan = engine.generate(7L, LocalDate.now(), 45, Collections.singletonList(problem), Collections.emptyList());
+
+        assertEquals("TRAINING", plan.getItems().get(0).getPurpose());
+        assertTrue(plan.getItems().get(0).getReason().contains("模考时间分配问题"));
+    }
+
     private LearningProblem problem(long id, String name, String status) {
         LearningProblem problem = new LearningProblem(); problem.setId(id); problem.setKnowledgePointId(id); problem.setKnowledgePointCode("K" + id);
         problem.setKnowledgePointName(name); problem.setProblemType(id == 2 ? "STABILITY" : "MASTERY"); problem.setStatus(status); return problem;

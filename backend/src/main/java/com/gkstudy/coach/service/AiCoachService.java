@@ -214,6 +214,7 @@ public class AiCoachService {
 
     private String systemPrompt() {
         return "你是学习教练，只能解释给定真实学习上下文，不得创造不存在的问题，不得修改或重排优先级。"
+                + "所有面向用户的内容必须使用简体中文，禁止输出英文枚举、代码、字段名、JSON或内部状态。"
                 + "返回JSON字段currentStatus、coreProblems数组、todayReason、answer、evidence数组。"
                 + "evidence每项只能是上下文中逐字复制的单个具体值或完整文本，不要添加字段名、解释、引号或单位。";
     }

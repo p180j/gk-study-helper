@@ -1,0 +1,6 @@
+package com.gkstudy.mockexam.model;
+import java.math.BigDecimal; import java.time.LocalDateTime;
+public class MockSession {
+ private Long id; private Long userId; private Long paperId; private LocalDateTime startTime; private LocalDateTime submitTime; private Long durationMs; private String status; private BigDecimal totalScore; private BigDecimal completionRate; private String submitType;
+ public Long getId(){return id;} public void setId(Long v){id=v;} public Long getUserId(){return userId;} public void setUserId(Long v){userId=v;} public Long getPaperId(){return paperId;} public void setPaperId(Long v){paperId=v;} public LocalDateTime getStartTime(){return startTime;} public void setStartTime(LocalDateTime v){startTime=v;} public LocalDateTime getSubmitTime(){return submitTime;} public void setSubmitTime(LocalDateTime v){submitTime=v;} public Long getDurationMs(){return durationMs;} public void setDurationMs(Long v){durationMs=v;} public String getStatus(){return status;} public void setStatus(String v){status=v;} public BigDecimal getTotalScore(){return totalScore;} public void setTotalScore(BigDecimal v){totalScore=v;} public BigDecimal getCompletionRate(){return completionRate;} public void setCompletionRate(BigDecimal v){completionRate=v;} public String getSubmitType(){return submitType;} public void setSubmitType(String v){submitType=v;}
+}

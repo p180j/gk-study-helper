@@ -4,7 +4,7 @@
   const title = document.getElementById('pageTitle')
   const dialog = document.getElementById('detailDialog')
   const formDialog = document.getElementById('formDialog')
-  const titles = { questions: '题库', import: '题目导入', knowledge: '知识点', answers: '答题记录', essays: '申论题库', 'essay-answers': '申论作答', readings: '政治阅读', content: '内容管理', ai: 'AI 设置' }
+  const titles = { questions: '题库', import: '题目导入', knowledge: '知识点', answers: '答题记录', essays: '申论题库', 'essay-answers': '申论作答', readings: '政治阅读', content: '题库采集', mock: '模考试卷', ai: 'AI 设置' }
   const ESSAY_QUESTION_TYPES = ['SUMMARY', 'ANALYSIS', 'COUNTERMEASURE', 'IMPLEMENTATION']
   const ESSAY_TOPIC_CODES = ['HQ_DEVELOPMENT', 'TECH_INNOVATION', 'NEW_QUALITY_PRODUCTIVITY', 'RURAL_REVITALIZATION', 'GRASSROOTS_GOVERNANCE', 'PEOPLE_LIVELIHOOD', 'ECO_CIVILIZATION', 'CULTURE', 'GOVERNANCE', 'TALENT']
   const ESSAY_STATUSES = ['DRAFT', 'ACTIVE', 'ARCHIVED']
@@ -43,6 +43,11 @@
   function toMinutes(durationMs) {
     if (durationMs == null) return '—'
     return (durationMs / 60000).toFixed(1) + ' 分钟'
+  }
+  function toDuration(durationMs) {
+    if (durationMs == null) return '—'
+    if (durationMs < 60000) return Math.round(durationMs / 1000) + ' 秒'
+    return toMinutes(durationMs)
   }
   function toLines(text) {
     return String(text || '').split('\n').map(line => line.trim()).filter(Boolean)
@@ -85,6 +90,7 @@
       if (view === 'essay-answers') await renderEssayAnswers()
       if (view === 'readings') await renderReadings()
       if (view === 'content') await renderContent()
+      if (view === 'mock') await renderMockPapers()
       if (view === 'ai') await renderAiProviders()
     } catch (ignore) {}
   }
@@ -110,6 +116,35 @@
     content.querySelectorAll('[data-question-id]').forEach(row => {
       row.onclick = () => openQuestion(Number(row.dataset.questionId))
     })
+  }
+
+  async function renderMockPapers() {
+    const [papers, sessions, reserved] = await Promise.all([
+      Api.request('/api/admin/mock-papers'),
+      Api.request('/api/mock/history'),
+      Api.request('/api/questions?usageType=MOCK_RESERVED&status=ACTIVE&page=1&size=100')
+    ])
+    content.innerHTML = `
+      <div class="toolbar"><button class="primary" id="createMockBtn">创建模考试卷</button><span class="table-meta">可用模考专用行测题 ${reserved.length} 道</span></div>
+      <div class="table-wrap"><table><thead><tr><th>ID</th><th>试卷</th><th>类型</th><th>年份 / 来源</th><th>时长</th><th>总分</th><th>状态</th><th>操作</th></tr></thead><tbody>${papers.map(p => `<tr><td>${p.id}</td><td><button class="link" data-mock-detail="${p.id}">${escapeHtml(p.name)}</button></td><td>${p.examType === 'XINGCE' ? '行测' : '申论'}</td><td>${value(p.sourceYear)} / ${escapeHtml(value(p.source))}</td><td>${p.durationMinutes} 分钟</td><td>${p.totalScore}</td><td>${p.status === 'ACTIVE' ? '已启用' : p.status === 'SUSPENDED' ? '已停用' : p.status === 'ARCHIVED' ? '已归档' : '草稿'}</td><td><button class="secondary" data-mock-status="${p.id}" data-status="${p.status === 'ACTIVE' ? 'SUSPENDED' : 'ACTIVE'}">${p.status === 'ACTIVE' ? '停用' : '启用'}</button></td></tr>`).join('')}</tbody></table></div>
+      <h2>模考记录</h2><div class="table-wrap"><table><thead><tr><th>场次</th><th>用户</th><th>试卷</th><th>开始</th><th>交卷方式</th><th>得分</th><th>完成率</th></tr></thead><tbody>${sessions.map(s => `<tr><td>#${s.id}</td><td>${s.userId}</td><td>#${s.paperId}</td><td>${escapeHtml(value(formatDateTime(s.startTime)))}</td><td>${s.submitType === 'AUTO_TIME_LIMIT' ? '到时自动交卷' : s.submitType === 'MANUAL' ? '主动交卷' : '进行中'}</td><td>${value(s.totalScore)}</td><td>${value(s.completionRate)}%</td></tr>`).join('')}</tbody></table></div>`
+    document.getElementById('createMockBtn').onclick = () => openMockForm(reserved)
+    content.querySelectorAll('[data-mock-detail]').forEach(button => button.onclick = () => openMockDetail(button.dataset.mockDetail))
+    content.querySelectorAll('[data-mock-status]').forEach(button => button.onclick = async () => { try { await Api.request('/api/admin/mock-papers/' + button.dataset.mockStatus + '/status', { method: 'POST', body: { status: button.dataset.status } }); await renderMockPapers() } catch (ignore) {} })
+  }
+
+  function openMockForm(reserved) {
+    const hint = reserved.map(q => '#' + q.id + ' ' + q.stem.slice(0, 35)).join('\n') || '当前没有已启用的模考专用行测题，请先在题库导入 usageType=MOCK_RESERVED 的题目。'
+    document.getElementById('formContent').innerHTML = `<h2>创建模考试卷</h2><form id="mockForm" class="form"><label>试卷名称<input name="name" required></label><label>类型<select name="examType"><option value="XINGCE">行测</option><option value="SHENLUN">申论</option></select></label><label>年份<input name="sourceYear" type="number"></label><label>来源<input name="source"></label><label>时长（分钟）<input name="durationMinutes" type="number" min="1" required value="120"></label><label>总分<input name="totalScore" type="number" min="1" required value="100"></label><label>Section 与题目组成（JSON）<textarea name="sections" rows="10" required placeholder='[{"name":"资料分析","sectionCode":"DATA_ANALYSIS","knowledgePointId":1,"sortNo":1,"score":20,"items":[{"itemType":"QUESTION","questionId":1001,"sortNo":1,"score":2}]}]'></textarea></label><div class="form-tip pre-wrap">可用题目：\n${escapeHtml(hint)}</div><div class="actions"><button type="button" class="secondary" data-form-cancel>取消</button><button class="primary">创建草稿</button></div></form>`
+    document.querySelector('#mockForm [data-form-cancel]').onclick = () => formDialog.close()
+    document.getElementById('mockForm').onsubmit = async event => { event.preventDefault(); const form = Object.fromEntries(new FormData(event.target)); try { const sections = JSON.parse(form.sections); await Api.request('/api/admin/mock-papers', { method: 'POST', body: { name: form.name, examType: form.examType, sourceYear: form.sourceYear ? Number(form.sourceYear) : null, source: form.source, durationMinutes: Number(form.durationMinutes), totalScore: Number(form.totalScore), sections } }); formDialog.close(); await renderMockPapers() } catch (error) { if (error instanceof SyntaxError) showError('Section JSON 格式不正确') } }
+    formDialog.showModal()
+  }
+
+  async function openMockDetail(id) {
+    const paper = await Api.request('/api/admin/mock-papers/' + id)
+    document.getElementById('detailContent').innerHTML = `<div class="eyebrow">${paper.examType === 'XINGCE' ? '行测' : '申论'}模考 #${paper.id}</div><h2>${escapeHtml(paper.name)}</h2><dl><dt>来源</dt><dd>${escapeHtml(value(paper.source))}</dd><dt>时长 / 总分</dt><dd>${paper.durationMinutes} 分钟 / ${paper.totalScore} 分</dd><dt>状态</dt><dd>${escapeHtml(paper.status)}</dd></dl>${(paper.sections || []).map(section => `<h3>${escapeHtml(section.name)}</h3><div class="table-wrap"><table><thead><tr><th>顺序</th><th>类型</th><th>题目</th><th>分值</th></tr></thead><tbody>${(section.items || []).map(item => `<tr><td>${item.sortNo}</td><td>${item.itemType === 'QUESTION' ? '行测题' : '申论题'}</td><td>${escapeHtml(value(item.stem))}</td><td>${item.score}</td></tr>`).join('')}</tbody></table></div>`).join('')}`
+    dialog.showModal()
   }
 
   async function openQuestion(id) {
@@ -159,7 +194,7 @@
   async function renderAnswers() {
     const records = await Api.request('/api/practice/answers?page=1&size=100')
     content.innerHTML = '<div class="table-wrap"><table><thead><tr><th>题目</th><th>用户答案</th><th>答案快照</th><th>结果</th><th>耗时</th><th>场景</th><th>信心</th><th>错因</th><th>时间</th></tr></thead><tbody>' +
-      records.map(item => '<tr><td>#' + item.questionId + '</td><td>' + escapeHtml(item.userAnswer) + '</td><td>' + escapeHtml(item.correctAnswerSnapshot) + '</td><td><span class="pill ' + (item.correct ? 'good' : 'bad') + '">' + (item.correct ? '正确' : '错误') + '</span></td><td>' + item.durationMs + ' ms</td><td>' + escapeHtml(item.practiceType) + '</td><td>' + escapeHtml(item.confidenceType) + '</td><td>' + escapeHtml(item.errorType) + '</td><td>' + escapeHtml(item.answerTime) + '</td></tr>').join('') +
+      records.map(item => '<tr><td>#' + item.questionId + '</td><td>' + escapeHtml(item.userAnswer) + '</td><td>' + escapeHtml(item.correctAnswerSnapshot) + '</td><td><span class="pill ' + (item.correct ? 'good' : 'bad') + '">' + (item.correct ? '正确' : '错误') + '</span></td><td>' + toDuration(item.durationMs) + '</td><td>' + escapeHtml(item.practiceType) + '</td><td>' + escapeHtml(item.confidenceType) + '</td><td>' + escapeHtml(item.errorType) + '</td><td>' + escapeHtml(item.answerTime) + '</td></tr>').join('') +
       '</tbody></table></div>' + (records.length ? '' : '<div class="empty">当前用户暂无答题记录</div>')
   }
 
@@ -621,72 +656,45 @@
   }
 
   let contentStagingFilters = {}
+  let contentTab = 'inventory'
+  const contentTabs = [['inventory', '库存概览'], ['sources', '手动采集'], ['upload', '文件导入'], ['exceptions', '异常处理'], ['logs', '采集记录']]
+  const contentTabBar = () => '<div class="toolbar">' + contentTabs.map(tab => '<button class="mini' + (contentTab === tab[0] ? ' primary' : '') + '" data-content-tab="' + tab[0] + '">' + tab[1] + '</button>').join('') + '</div>'
   async function renderContent(filters) {
     if (filters) contentStagingFilters = filters
-    const sources = await Api.request('/api/admin/content/sources')
-    const inventory = await Api.request('/api/admin/content/inventory')
-    const query = new URLSearchParams(Object.assign({ page: 1 }, contentStagingFilters))
-    Array.from(query.keys()).forEach(key => { if (!query.get(key)) query.delete(key) })
-    const staging = await Api.request('/api/admin/content/staging?' + query)
+    const [sources, overview] = await Promise.all([Api.request('/api/admin/content/sources'), Api.request('/api/admin/content/inventory')])
+    let staging = null
+    let logs = null
+    if (contentTab === 'exceptions') staging = await Api.request('/api/admin/content/staging?status=NEEDS_REVIEW&page=1')
+    if (contentTab === 'logs') logs = await Api.request('/api/admin/content/crawl-logs')
     const items = (staging && staging.items) || []
-    const total = (staging && staging.total) || 0
-    const page = (staging && staging.page) || 1
-    const pageSize = (staging && staging.pageSize) || 20
-    const pageCount = Math.max(1, Math.ceil(total / pageSize))
-    content.innerHTML = `
-      <div class="section-head"><h2>内容来源</h2><button id="createSourceBtn" class="primary">新增来源</button></div>
-      <div class="table-wrap"><table><thead><tr><th>名称</th><th>地址</th><th>类型</th><th>可信度</th><th>启用</th><th>最后抓取</th><th>操作</th></tr></thead>
-      <tbody>${sources.map(item => '<tr><td>' + escapeHtml(item.name) + '</td><td class="stem">' + escapeHtml(item.baseUrl) + '</td><td>' + escapeHtml(value(item.sourceTypeText)) + '</td><td>' + escapeHtml(value(item.trustText)) + '</td><td><span class="pill ' + (item.enabled ? 'good' : '') + '">' + (item.enabled ? '已启用' : '已停用') + '</span></td><td>' + escapeHtml(value(formatDateTime(item.lastCrawlTime))) + '</td><td><button class="mini" data-source-edit="' + item.id + '">编辑</button> <button class="mini" data-source-crawl="' + item.id + '">立即抓取</button></td></tr>').join('')}</tbody></table></div>
-      ${sources.length ? '' : '<div class="empty">暂无内容来源，点击右上角新增</div>'}
-      <div class="section-head"><h2>暂存与异常处理</h2></div>
-      <form id="stagingFilters" class="toolbar">
-        <select name="status"><option value="">全部状态</option>${labeledOptions(STAGING_STATUSES, contentStagingFilters.status)}</select>
-        <input name="keyword" placeholder="标题关键词" value="${escapeHtml(contentStagingFilters.keyword || '')}">
-        <button class="primary">查询</button>
-      </form>
-      <div class="table-wrap"><table><thead><tr><th>标题</th><th>来源</th><th>状态</th><th>可信度</th><th>年份</th><th>失败原因 / 备注</th><th>操作</th></tr></thead>
-      <tbody>${items.map(item => '<tr><td class="stem">' + escapeHtml(value(item.title)) + '</td><td>' + escapeHtml(value(item.sourceName)) + '</td><td><span class="pill ' + (item.status === 'IMPORTED' ? 'good' : (item.status === 'FAILED' || item.status === 'NEEDS_REVIEW' ? 'bad' : '')) + '">' + escapeHtml(value(item.statusText)) + '</span></td><td>' + escapeHtml(value(item.trustText)) + '</td><td>' + value(item.sourceYear) + '</td><td>' + escapeHtml(value(item.failReason, item.reviewNote)) + '</td><td><button class="mini" data-staging-detail="' + item.id + '">详情</button> <button class="mini" data-staging-retry="' + item.id + '">重试</button>' + (item.status === 'NEEDS_REVIEW' ? ' <button class="mini" data-staging-review="' + item.id + '">人工处理</button>' : '') + '</td></tr>').join('')}</tbody></table></div>
-      ${items.length ? '<div class="pager"><button class="mini" id="stagingPrev"' + (page <= 1 ? ' disabled' : '') + '>上一页</button><span class="table-meta">第 ' + page + ' / ' + pageCount + ' 页 · 共 ' + total + ' 条</span><button class="mini" id="stagingNext"' + (page >= pageCount ? ' disabled' : '') + '>下一页</button></div>' : '<div class="empty">没有符合条件的暂存记录</div>'}
-      <div class="section-head"><h2>内容库存</h2></div>
-      <div class="table-wrap"><table><thead><tr><th>知识点名称</th><th>考试类型</th><th>题库总量</th><th>高质量题</th><th>未使用高质量题</th></tr></thead>
-      <tbody>${inventory.map(item => {
-        const low = item.unusedQualityQuestions < 5
-        return '<tr><td>' + escapeHtml(item.name) + '</td><td>' + escapeHtml(value(item.examType)) + '</td><td>' + item.totalQuestions + '</td><td>' + item.qualityQuestions + '</td><td' + (low ? ' class="low-stock"' : '') + '>' + item.unusedQualityQuestions + (low ? '（库存不足）' : '') + '</td></tr>'
-      }).join('')}</tbody></table></div>
-      ${inventory.length ? '<div class="table-meta">未使用高质量题少于 5 的知识点已用橙色标注，表示训练库存不足。</div>' : '<div class="empty">暂无内容库存数据</div>'}`
-    document.getElementById('createSourceBtn').onclick = () => openSourceForm()
-    document.getElementById('stagingFilters').onsubmit = event => {
-      event.preventDefault()
-      renderContent(Object.assign({}, contentStagingFilters, Object.fromEntries(new FormData(event.target)), { page: 1 }))
+    const summary = overview.overview || {}
+    let body = ''
+    if (contentTab === 'inventory') {
+      body = '<div class="summary">' + [['普通可训练题', summary.trainableTotal], ['模考保留题', summary.mockReservedTotal], ['申论题', summary.essayTotal], ['AI 训练题', summary.aiTotal], ['异常待处理', summary.needsReviewCount], ['采集失败', summary.crawlFailedCount]].map(item => '<div><b>' + (item[1] || 0) + '</b><span>' + item[0] + '</span></div>').join('') + '</div>'
+        + '<div class="section-head"><h2>五大模块库存</h2><span class="table-meta">来自实时题库统计</span></div><div class="table-wrap"><table><thead><tr><th>模块</th><th>总题数</th><th>可训练</th><th>未做题</th><th>知识点</th></tr></thead><tbody>'
+        + (overview.modules || []).map(module => '<tr><td>' + escapeHtml(module.moduleName) + '</td><td>' + module.totalQuestions + '</td><td>' + module.trainable + '</td><td>' + module.unused + '</td><td>' + (module.knowledgePoints || []).map(point => escapeHtml(point.name) + ' ' + point.trainable + '题').join('；') + '</td></tr>').join('') + '</tbody></table></div>'
+    } else if (contentTab === 'sources') {
+      body = '<div class="section-head"><h2>手动采集</h2><button id="createSourceBtn" class="primary">新增来源</button></div><p class="form-tip">仅对公开、无需登录且确实包含结构化题目的来源发起采集。抓取结果以新增 Question 数量为准。</p><div class="table-wrap"><table><thead><tr><th>名称</th><th>地址</th><th>可信度</th><th>启用</th><th>操作</th></tr></thead><tbody>'
+        + sources.map(item => '<tr><td>' + escapeHtml(item.name) + '</td><td class="stem">' + escapeHtml(item.baseUrl) + '</td><td>' + escapeHtml(value(item.trustText)) + '</td><td>' + (item.enabled ? '已启用' : '已停用') + '</td><td><button class="mini" data-source-edit="' + item.id + '">编辑</button> <button class="mini" data-source-crawl="' + item.id + '">立即采集</button></td></tr>').join('') + '</tbody></table></div>'
+    } else if (contentTab === 'upload') {
+      body = '<div class="section-head"><h2>文件导入</h2></div><p class="form-tip">CSV、XLSX、XLS 将先进入暂存区，再依次经过解析、去重、质量门禁、自动分类和入库；异常记录进入“异常处理”。</p><form id="contentUploadForm" class="form"><label>题目文件<input name="file" type="file" accept=".csv,.xlsx,.xls" required></label><label>来源名称<input name="sourceName" required placeholder="例如：公开题目整理"></label><label>来源等级<select name="trustLevel">' + labeledOptions(SOURCE_TRUST_LEVELS, 'B') + '</select></label><div class="actions"><button class="primary">上传并处理</button></div></form><div id="uploadResult"></div>'
+    } else if (contentTab === 'exceptions') {
+      body = '<div class="section-head"><h2>异常处理</h2><span class="table-meta">仅异常记录需要人工处理；正常题已自动入库。</span></div><div class="table-wrap"><table><thead><tr><th>标题</th><th>来源</th><th>异常原因</th><th>质量信息</th><th>操作</th></tr></thead><tbody>'
+        + items.map(item => '<tr><td class="stem">' + escapeHtml(value(item.title)) + '</td><td>' + escapeHtml(value(item.sourceName)) + '</td><td>' + escapeHtml(value(item.failReason)) + '</td><td>' + escapeHtml(value(item.qualityIssues)) + '</td><td><button class="mini" data-staging-detail="' + item.id + '">详情</button> <button class="mini" data-staging-review="' + item.id + '">修正并入库</button></td></tr>').join('') + '</tbody></table></div>' + (items.length ? '' : '<div class="empty">当前没有待处理异常。</div>')
+    } else {
+      body = '<div class="section-head"><h2>采集记录</h2></div><div class="table-wrap"><table><thead><tr><th>来源</th><th>状态</th><th>发现页面</th><th>已下载</th><th>解析内容</th><th>自动入库</th><th>重复</th><th>异常</th><th>失败</th><th>时间</th></tr></thead><tbody>'
+        + (logs || []).map(log => '<tr><td>' + escapeHtml(value(log.sourceName, log.sourceId)) + '</td><td>' + escapeHtml(value(log.status)) + '</td><td>' + value(log.discovered) + '</td><td>' + value(log.downloaded) + '</td><td>' + value(log.parsed) + '</td><td>' + value(log.imported) + '</td><td>' + value(log.duplicates) + '</td><td>' + value(log.needsReview) + '</td><td>' + value(log.failed) + '</td><td>' + escapeHtml(value(formatDateTime(log.startTime))) + '</td></tr>').join('') + '</tbody></table></div>' + ((logs || []).length ? '' : '<div class="empty">暂无采集记录。</div>')
     }
-    const goPage = next => renderContent(Object.assign({}, contentStagingFilters, { page: next }))
-    const prevButton = document.getElementById('stagingPrev')
-    const nextButton = document.getElementById('stagingNext')
-    if (prevButton) prevButton.onclick = () => goPage(Math.max(1, page - 1))
-    if (nextButton) nextButton.onclick = () => goPage(page + 1)
-    content.querySelectorAll('[data-source-edit]').forEach(button => {
-      button.onclick = () => openSourceForm(sources.find(source => String(source.id) === button.dataset.sourceEdit))
-    })
-    content.querySelectorAll('[data-source-crawl]').forEach(button => {
-      button.onclick = () => crawlSource(sources.find(source => String(source.id) === button.dataset.sourceCrawl), button)
-    })
-    content.querySelectorAll('[data-staging-detail]').forEach(button => {
-      button.onclick = () => openStagingDetail(Number(button.dataset.stagingDetail))
-    })
-    content.querySelectorAll('[data-staging-retry]').forEach(button => {
-      button.onclick = async () => {
-        button.disabled = true
-        try {
-          await Api.request('/api/admin/content/staging/' + button.dataset.stagingRetry + '/retry', { method: 'POST', timeout: 120000 })
-          await renderContent()
-        } catch (ignore) {} finally {
-          button.disabled = false
-        }
-      }
-    })
-    content.querySelectorAll('[data-staging-review]').forEach(button => {
-      button.onclick = () => openStagingReview(items.find(entry => String(entry.id) === button.dataset.stagingReview))
-    })
+    content.innerHTML = contentTabBar() + body
+    content.querySelectorAll('[data-content-tab]').forEach(button => button.onclick = () => { contentTab = button.dataset.contentTab; renderContent() })
+    const create = document.getElementById('createSourceBtn')
+    if (create) create.onclick = () => openSourceForm()
+    const uploadForm = document.getElementById('contentUploadForm')
+    if (uploadForm) uploadForm.onsubmit = async event => { event.preventDefault(); const form = new FormData(event.target); try { const result = await Api.request('/api/admin/content/upload', { method: 'POST', body: form, timeout: 120000 }); document.getElementById('uploadResult').innerHTML = '<div class="notice success">文件共 ' + result.total + ' 题；自动入库 ' + result.imported + '；重复 ' + result.duplicates + '；异常 ' + result.needsReview + '；失败 ' + result.failed + '。<br>' + escapeHtml((result.errors || []).join('；')) + '</div>' } catch (ignore) {} }
+    content.querySelectorAll('[data-source-edit]').forEach(button => button.onclick = () => openSourceForm(sources.find(source => String(source.id) === button.dataset.sourceEdit)))
+    content.querySelectorAll('[data-source-crawl]').forEach(button => button.onclick = () => crawlSource(sources.find(source => String(source.id) === button.dataset.sourceCrawl), button))
+    content.querySelectorAll('[data-staging-detail]').forEach(button => button.onclick = () => openStagingDetail(Number(button.dataset.stagingDetail)))
+    content.querySelectorAll('[data-staging-review]').forEach(button => button.onclick = () => openStagingReview(items.find(entry => String(entry.id) === button.dataset.stagingReview)))
   }
 
   function openSourceForm(item) {
@@ -736,14 +744,15 @@
     const original = button.textContent
     button.textContent = '抓取中…'
     try {
-      const result = await Api.request('/api/admin/content/sources/' + source.id + '/crawl', { method: 'POST', timeout: 120000 })
-      const errors = result.errors || []
+      const trigger = await Api.request('/api/admin/content/sources/' + source.id + '/crawl', { method: 'POST', timeout: 120000 })
+      const result = await waitForCrawlLog(source.id, trigger.logId)
+      const errors = result.message ? [result.message] : []
       document.getElementById('detailContent').innerHTML = `
         <div class="eyebrow">内容抓取 · ${escapeHtml(source.name)}</div>
-        <h2>抓取完成</h2>
+        <h2>${result.status === 'SUCCESS' ? '抓取完成' : '抓取失败'}</h2>
         <div class="summary">
           <div><b>${result.discovered}</b><span>新发现</span></div>
-          <div><b>${result.processed}</b><span>处理</span></div>
+          <div><b>${(result.downloaded || 0)}</b><span>下载</span></div>
           <div><b>${result.imported}</b><span>入库</span></div>
           <div><b>${result.needsReview}</b><span>需人工检查</span></div>
           <div><b>${result.failed}</b><span>失败</span></div>
@@ -757,10 +766,26 @@
         await renderContent()
       }
       dialog.showModal()
-    } catch (ignore) {} finally {
+    } catch (error) {
+      document.getElementById('detailContent').innerHTML = `
+        <div class="eyebrow">内容抓取 · ${escapeHtml(source.name)}</div>
+        <h2>抓取未完成</h2>
+        <div class="notice error">${escapeHtml(error.message || '抓取状态读取失败，请在采集记录中查看')}</div>`
+      dialog.showModal()
+    } finally {
       button.disabled = false
       button.textContent = original
     }
+  }
+
+  async function waitForCrawlLog(sourceId, logId) {
+    for (let attempt = 0; attempt < 45; attempt++) {
+      const logs = await Api.request('/api/admin/content/crawl-logs?sourceId=' + sourceId, { showLoading: false })
+      const log = (logs || []).find(item => item.id === logId)
+      if (log && log.status !== 'RUNNING') return log
+      await new Promise(resolve => setTimeout(resolve, 1000))
+    }
+    throw new Error('采集仍在执行，请在采集记录中稍后查看')
   }
 
   async function openStagingDetail(id) {
@@ -786,31 +811,37 @@
   }
 
   async function openStagingReview(item) {
-    const topics = await Api.request('/api/admin/reading-topics')
-    const topicList = topics || []
-    const topicOptions = topicList.length
-      ? topicList.map(topic => '<option value="' + topic.id + '">' + escapeHtml(topic.name) + '（' + escapeHtml(topic.code) + '）</option>').join('')
-      : '<option value="">（请先创建阅读专题）</option>'
+    item = await Api.request('/api/admin/content/staging/' + item.id)
+    let candidate = {}
+    try { candidate = JSON.parse(item.parsedText || '{}') } catch (ignore) {}
+    const optionText = key => ((candidate.options || []).find(option => option.key === key) || {}).text || ''
     document.getElementById('formContent').innerHTML = `
       <div class="eyebrow">暂存记录 #${item.id} · 需要人工检查</div>
-      <h2>人工处理</h2>
-      <p class="form-tip">${escapeHtml(value(item.title))}</p>
+      <h2>修正题目并入库</h2>
+      <p class="form-tip">仅修正异常字段后再入库；原始暂存记录会保留，便于追溯。</p>
       <form id="stagingReviewForm" class="form">
         <label>处理方式<select name="action" id="reviewAction">
-          <option value="IMPORT_MATERIAL">入库到政治专题</option>
+          <option value="IMPORT_QUESTION">修正后入题库</option>
+          <option value="CONFIRM_DUPLICATE">确认重复</option>
           <option value="DISCARD">不予入库</option>
         </select></label>
-        <label id="reviewTopicRow">目标专题<select name="topicId" required>${topicOptions}</select></label>
+        <div id="questionFixFields">
+          <label>题干<textarea name="stem" rows="3" required>${escapeHtml(candidate.stem || '')}</textarea></label>
+          <div class="row"><label>A<input name="optionA" required value="${escapeHtml(optionText('A'))}"></label><label>B<input name="optionB" required value="${escapeHtml(optionText('B'))}"></label></div>
+          <div class="row"><label>C<input name="optionC" required value="${escapeHtml(optionText('C'))}"></label><label>D<input name="optionD" required value="${escapeHtml(optionText('D'))}"></label></div>
+          <div class="row"><label>正确答案<select name="answer">${labeledOptions([['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D']], candidate.answer || 'A')}</select></label><label>知识点编码<input name="knowledgeCode" required value="${escapeHtml(candidate.knowledgeCode || '')}"></label></div>
+          <label>解析<textarea name="analysis" rows="3">${escapeHtml(candidate.analysis || '')}</textarea></label>
+          <input name="sourceType" type="hidden" value="${escapeHtml(candidate.sourceType || 'IMPORTED')}">
+        </div>
         <label>处理备注<textarea name="note" rows="3" placeholder="记录判定原因，便于后续追溯"></textarea></label>
         <div class="actions"><button type="button" class="secondary" data-form-cancel>取消</button><button class="primary">提交处理</button></div>
       </form>`
     const actionSelect = document.getElementById('reviewAction')
-    const topicRow = document.getElementById('reviewTopicRow')
-    const topicSelect = document.querySelector('#stagingReviewForm select[name="topicId"]')
+    const questionFields = document.getElementById('questionFixFields')
     const syncAction = () => {
-      const importMaterial = actionSelect.value === 'IMPORT_MATERIAL'
-      topicRow.style.display = importMaterial ? '' : 'none'
-      topicSelect.disabled = !importMaterial
+      const importing = actionSelect.value === 'IMPORT_QUESTION'
+      questionFields.style.display = importing ? '' : 'none'
+      questionFields.querySelectorAll('input,textarea,select').forEach(field => field.disabled = !importing)
     }
     actionSelect.onchange = syncAction
     syncAction()
@@ -823,8 +854,16 @@
           method: 'POST',
           body: {
             action: form.action,
-            topicId: form.action === 'IMPORT_MATERIAL' ? Number(form.topicId) : undefined,
-            note: form.note
+            note: form.note,
+            stem: form.stem,
+            optionA: form.optionA,
+            optionB: form.optionB,
+            optionC: form.optionC,
+            optionD: form.optionD,
+            answer: form.answer,
+            analysis: form.analysis,
+            knowledgeCode: form.knowledgeCode,
+            sourceType: form.sourceType
           }
         })
         formDialog.close()

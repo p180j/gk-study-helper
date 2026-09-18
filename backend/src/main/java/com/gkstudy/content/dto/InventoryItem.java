@@ -9,6 +9,10 @@ public class InventoryItem {
     private int totalQuestions;
     private int qualityQuestions;
     private int unusedQualityQuestions;
+    /** 可训练题量（ACTIVE 且 TRAINING/VALIDATION） */
+    private int trainable;
+    /** 从未出现在答题记录的可训练题量 */
+    private int unused;
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
@@ -26,4 +30,8 @@ public class InventoryItem {
     public void setQualityQuestions(int qualityQuestions) { this.qualityQuestions = qualityQuestions; }
     public int getUnusedQualityQuestions() { return unusedQualityQuestions; }
     public void setUnusedQualityQuestions(int unusedQualityQuestions) { this.unusedQualityQuestions = unusedQualityQuestions; }
+    public int getTrainable() { return trainable; }
+    public void setTrainable(int trainable) { this.trainable = trainable; }
+    public int getUnused() { return unused; }
+    public void setUnused(int unused) { this.unused = unused; }
 }

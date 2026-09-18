@@ -2,7 +2,10 @@ package com.gkstudy.content.fetch;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
 import org.springframework.stereotype.Component;
+
+import java.nio.charset.StandardCharsets;
 
 /** 基于 jsoup 的抓取实现：遵守 robots 约束的轻量抓取，不绕过登录/验证码/付费/访问控制 */
 @Component
@@ -21,6 +24,11 @@ public class JsoupContentFetcher implements ContentFetcher {
         String contentType = response.contentType() == null ? "" : response.contentType();
         String mimeType = contentType.split(";")[0].trim().toLowerCase();
         String fileName = fileNameFromUrl(url);
+        if ("text/html".equals(mimeType) || "application/xhtml+xml".equals(mimeType)) {
+            // response.parse() 按页面声明的编码解码（很多中文历史题页仍是 GBK），再统一保存为 UTF-8。
+            Document document = response.parse();
+            return new Fetched(document.outerHtml().getBytes(StandardCharsets.UTF_8), mimeType, fileName);
+        }
         return new Fetched(response.bodyAsBytes(), mimeType, fileName);
     }
 

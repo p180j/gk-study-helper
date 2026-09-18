@@ -1,7 +1,8 @@
 const { request } = require('../../utils/request')
+const { localizedText } = require('../../utils/display')
 
 function localize(text) {
-  return String(text || '')
+  return localizedText(String(text || ''))
     .replace(/mastery=/gi, '掌握度 ')
     .replace(/speed=/gi, '速度 ')
     .replace(/stability=/gi, '稳定性 ')
@@ -33,11 +34,15 @@ function buildSummary(insight, result) {
 
 Page({
   data: { loading: true, insight: null, summary: null, result: null, error: '', question: '', asking: false, detailExpanded: false },
-  onLoad() { this.loadInsight(); this.ask() },
+  // 先展示基于真实数据的洞察；用户点击后才调用 AI，避免页面一打开就因外部服务短暂失败而不可用。
+  onLoad() { this.loadInsight() },
   async loadInsight() {
     try {
       const insight = await request({ url: '/api/ai/coach/insight', showLoading: false, silent: true })
-      this.setData({ insight, summary: buildSummary(insight, this.data.result), loading: false })
+      const localizedInsight = Object.assign({}, insight, {
+        problem: localize(insight.problem), suggestion: localize(insight.suggestion), evidence: (insight.evidence || []).map(localize)
+      })
+      this.setData({ insight: localizedInsight, summary: buildSummary(localizedInsight, this.data.result), loading: false })
     } catch (error) {
       this.setData({ loading: false })
     }

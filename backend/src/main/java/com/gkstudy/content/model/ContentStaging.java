@@ -36,6 +36,10 @@ public class ContentStaging {
     private String importedType;
     private Long importedId;
     private String reviewNote;
+    /** 质量门禁结果：评分 / 置信度 / 中文问题串 */
+    private java.math.BigDecimal qualityScore;
+    private java.math.BigDecimal qualityConfidence;
+    private String qualityIssues;
     private LocalDateTime createTime;
     private LocalDateTime updateTime;
     /** 非数据库字段：关联来源名称 */
@@ -89,6 +93,12 @@ public class ContentStaging {
     public void setImportedId(Long importedId) { this.importedId = importedId; }
     public String getReviewNote() { return reviewNote; }
     public void setReviewNote(String reviewNote) { this.reviewNote = reviewNote; }
+    public java.math.BigDecimal getQualityScore() { return qualityScore; }
+    public void setQualityScore(java.math.BigDecimal qualityScore) { this.qualityScore = qualityScore; }
+    public java.math.BigDecimal getQualityConfidence() { return qualityConfidence; }
+    public void setQualityConfidence(java.math.BigDecimal qualityConfidence) { this.qualityConfidence = qualityConfidence; }
+    public String getQualityIssues() { return qualityIssues; }
+    public void setQualityIssues(String qualityIssues) { this.qualityIssues = qualityIssues; }
     public LocalDateTime getCreateTime() { return createTime; }
     public void setCreateTime(LocalDateTime createTime) { this.createTime = createTime; }
     public LocalDateTime getUpdateTime() { return updateTime; }

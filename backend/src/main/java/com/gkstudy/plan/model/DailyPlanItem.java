@@ -14,6 +14,8 @@ public class DailyPlanItem {
     private String purpose;
     private String reason;
     private Integer plannedMinutes;
+    private Integer targetQuestionCount;
+    private Integer completedQuestionCount;
     private Integer sortNo;
     private String status;
 
@@ -43,6 +45,10 @@ public class DailyPlanItem {
     public void setReason(String reason) { this.reason = reason; }
     public Integer getPlannedMinutes() { return plannedMinutes; }
     public void setPlannedMinutes(Integer plannedMinutes) { this.plannedMinutes = plannedMinutes; }
+    public Integer getTargetQuestionCount() { return targetQuestionCount; }
+    public void setTargetQuestionCount(Integer targetQuestionCount) { this.targetQuestionCount = targetQuestionCount; }
+    public Integer getCompletedQuestionCount() { return completedQuestionCount; }
+    public void setCompletedQuestionCount(Integer completedQuestionCount) { this.completedQuestionCount = completedQuestionCount; }
     public Integer getSortNo() { return sortNo; }
     public void setSortNo(Integer sortNo) { this.sortNo = sortNo; }
     public String getStatus() { return status; }

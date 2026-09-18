@@ -1,0 +1,2 @@
+questionType,stem,answer,optionA,optionB,optionC,optionD,analysis,knowledgeCode,sourceType,usageType,difficultyExpected,standardTimeSeconds
+SINGLE,"这道题故意不填答案字段，用于验证缺答案时必须进入异常处理而不是自动入库。（缺答案验收题）",,"选项甲","选项乙","选项丙","选项丁",这是一段正常长度的解析内容，超过二十个字符以避免缺少解析扣分。,VERBAL,IMPORTED,TRAINING,50,60

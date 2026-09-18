@@ -1,0 +1,7 @@
+questionType,stem,answer,optionA,optionB,optionC,optionD,analysis,knowledgeCode,sourceType,usageType,difficultyExpected,standardTimeSeconds
+SINGLE,"2024年某省GDP为5000亿元，同比增长10%，求2023年该省GDP约为多少亿元？（验收题D1）",B,"4500亿元","4545亿元","4600亿元","4700亿元","基期量=5000/(1+10%)≈4545亿元，故选B。",GROWTH_RATE,IMPORTED,TRAINING,55,90
+SINGLE,"某企业2024年营收330万元，比上年增长10%，2023年营收是多少万元？（验收题D2）",A,"300万元","310万元","320万元","335万元","基期量=330/1.1=300万元，故选A。",GROWTH_RATE,IMPORTED,TRAINING,52,90
+SINGLE,"已知某市2024年社会消费品零售总额为1210亿元，同比增长10%，则2023年约为多少亿元？（验收题D3）",C,"1000亿元","1050亿元","1100亿元","1150亿元","1210/1.1=1100亿元，故选C。",BASE_AMOUNT,IMPORTED,TRAINING,54,90
+SINGLE,"某工厂去年产量为200万件，今年比去年多生产了50万件，今年产量是去年的多少倍？（验收题D4）",D,"1.15倍","1.2倍","1.3倍","1.25倍","今年250万件，250/200=1.25倍，故选D。",BASE_AMOUNT,IMPORTED,TRAINING,50,90
+SINGLE,"2024年某地区第一产业增加值为800亿元，占地区生产总值的16%，该地区生产总值是多少亿元？（验收题D5）",A,"4800亿元","5000亿元","5200亿元","5600亿元","800/16%=5000亿元，故选A。",CURRENT_PROPORTION,IMPORTED,TRAINING,53,90
+SINGLE,"某市城镇人口300万，占常住人口的60%，该市常住人口是多少万？（验收题D6）",B,"450万","500万","520万","480万","300/60%=500万，故选B。",CURRENT_PROPORTION,IMPORTED,TRAINING,51,90

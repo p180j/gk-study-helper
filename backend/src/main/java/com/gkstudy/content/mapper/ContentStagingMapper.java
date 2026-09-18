@@ -12,8 +12,8 @@ import java.util.List;
 
 @Mapper
 public interface ContentStagingMapper {
-    @Insert("INSERT INTO content_staging (source_id, source_url, site_name, title, exam_type, source_type, trust_level, status) "
-            + "VALUES (#{sourceId}, #{sourceUrl}, #{siteName}, #{title}, #{examType}, #{sourceType}, #{trustLevel}, #{status})")
+    @Insert("INSERT INTO content_staging (source_id, source_url, site_name, title, exam_type, source_type, trust_level, parsed_text, status, fail_reason, quality_score, quality_confidence, quality_issues) "
+            + "VALUES (#{sourceId}, #{sourceUrl}, #{siteName}, #{title}, #{examType}, #{sourceType}, #{trustLevel}, #{parsedText}, #{status}, #{failReason}, #{qualityScore}, #{qualityConfidence}, #{qualityIssues})")
     @Options(useGeneratedKeys = true, keyProperty = "id")
     int insert(ContentStaging staging);
 

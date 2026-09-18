@@ -3,19 +3,27 @@ package com.gkstudy.content.service;
 import com.gkstudy.common.BusinessException;
 import com.gkstudy.content.ContentLabels;
 import com.gkstudy.content.dto.InventoryItem;
+import com.gkstudy.content.dto.InventoryOverviewView;
+import com.gkstudy.content.dto.QuestionCandidate;
 import com.gkstudy.content.dto.SourceView;
 import com.gkstudy.content.dto.StagingView;
+import com.gkstudy.content.mapper.ContentCrawlLogMapper;
 import com.gkstudy.content.mapper.ContentInventoryMapper;
 import com.gkstudy.content.mapper.ContentSourceMapper;
 import com.gkstudy.content.mapper.ContentStagingMapper;
+import com.gkstudy.content.model.ContentCrawlLog;
 import com.gkstudy.content.model.ContentSource;
 import com.gkstudy.content.model.ContentStaging;
 import com.gkstudy.reading.mapper.PoliticalTopicMapper;
 import com.gkstudy.reading.mapper.ReadingMaterialMapper;
 import com.gkstudy.reading.model.PoliticalTopic;
 import com.gkstudy.reading.model.ReadingMaterial;
+import com.gkstudy.question.service.QuestionInventoryService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -25,6 +33,7 @@ import java.util.Map;
 @Service
 public class ContentAdminService {
     private static final int PAGE_SIZE = 20;
+    private static final int CRAWL_LOG_LIMIT = 20;
 
     private final ContentSourceMapper sourceMapper;
     private final ContentStagingMapper stagingMapper;
@@ -32,12 +41,23 @@ public class ContentAdminService {
     private final ContentCrawlService crawlService;
     private final PoliticalTopicMapper topicMapper;
     private final ReadingMaterialMapper materialMapper;
+    private final QuestionStagingImportService questionImporter;
+    private final ContentUploadService uploadService;
+    private final ContentCrawlLogMapper crawlLogMapper;
+    private final QuestionInventoryService questionInventoryService;
+    private final int lowStockThreshold;
 
     public ContentAdminService(ContentSourceMapper sourceMapper, ContentStagingMapper stagingMapper,
                                ContentInventoryMapper inventoryMapper, ContentCrawlService crawlService,
-                               PoliticalTopicMapper topicMapper, ReadingMaterialMapper materialMapper) {
+                               PoliticalTopicMapper topicMapper, ReadingMaterialMapper materialMapper,
+                               QuestionStagingImportService questionImporter, ContentUploadService uploadService,
+                               ContentCrawlLogMapper crawlLogMapper, QuestionInventoryService questionInventoryService,
+                               @Value("${question.low-stock-threshold:10}") int lowStockThreshold) {
         this.sourceMapper = sourceMapper; this.stagingMapper = stagingMapper; this.inventoryMapper = inventoryMapper;
         this.crawlService = crawlService; this.topicMapper = topicMapper; this.materialMapper = materialMapper;
+        this.questionImporter = questionImporter; this.uploadService = uploadService;
+        this.crawlLogMapper = crawlLogMapper; this.questionInventoryService = questionInventoryService;
+        this.lowStockThreshold = lowStockThreshold;
     }
 
     public List<SourceView> listSources() {
@@ -76,8 +96,14 @@ public class ContentAdminService {
         return SourceView.of(sourceMapper.findById(id));
     }
 
-    public ContentCrawlService.CrawlSummary crawl(Long sourceId) {
-        return crawlService.crawlSource(sourceId);
+    /** 异步触发采集：立即返回 RUNNING 日志，进度通过采集日志查询 */
+    public ContentCrawlLog crawl(Long sourceId) {
+        return crawlService.triggerCrawl(sourceId);
+    }
+
+    /** 采集日志列表（新 → 旧，默认最近 20 条） */
+    public List<ContentCrawlLog> crawlLogs(Long sourceId) {
+        return crawlLogMapper.findList(sourceId, CRAWL_LOG_LIMIT);
     }
 
     public Map<String, Object> listStaging(String status, Long sourceId, String keyword, int page) {
@@ -114,6 +140,9 @@ public class ContentAdminService {
         result.put("fileSize", item.getFileSize());
         result.put("trustLevel", item.getTrustLevel());
         result.put("sourceYear", item.getSourceYear());
+        result.put("qualityScore", item.getQualityScore());
+        result.put("qualityConfidence", item.getQualityConfidence());
+        result.put("qualityIssues", item.getQualityIssues());
         return result;
     }
 
@@ -121,8 +150,8 @@ public class ContentAdminService {
         crawlService.retry(id);
     }
 
-    /** 人工处理：入库到指定政治专题，或人工判定不予入库 */
-    public void review(Long id, String action, Long topicId, String note) {
+    /** 人工处理：题目修正入库 / 确认重复 / 材料入库 / 丢弃 */
+    public void review(Long id, String action, Long topicId, String note, QuestionCandidate question) {
         ContentStaging item = stagingMapper.findById(id);
         if (item == null) throw new BusinessException("STAGING_NOT_FOUND", "暂存记录不存在");
         if (!ContentStaging.NEEDS_REVIEW.equals(item.getStatus())) {
@@ -131,6 +160,18 @@ public class ContentAdminService {
         if ("DISCARD".equals(action)) {
             stagingMapper.updateReviewNote(id, note == null ? "" : note);
             stagingMapper.markFailed(id, "人工判定不予入库");
+            return;
+        }
+        if ("CONFIRM_DUPLICATE".equals(action)) {
+            stagingMapper.updateReviewNote(id, note == null ? "" : note);
+            stagingMapper.markFailed(id, "确认重复");
+            return;
+        }
+        if ("IMPORT_QUESTION".equals(action)) {
+            if (question == null) throw new BusinessException("QUESTION_BODY_REQUIRED", "请提交修正后的题目内容");
+            Long questionId = questionImporter.importConfirmed(item, question);
+            stagingMapper.updateReviewNote(id, note == null ? "" : note);
+            stagingMapper.markImported(id, "QUESTION", questionId);
             return;
         }
         if (!"IMPORT_MATERIAL".equals(action)) throw new BusinessException("ACTION_INVALID", "不支持的处理操作");
@@ -155,8 +196,62 @@ public class ContentAdminService {
         stagingMapper.markImported(id, "READING_MATERIAL", material.getId());
     }
 
+    /** 批量人工处理：丢弃 / 确认重复，只处理 NEEDS_REVIEW 记录，返回实际处理数 */
+    public int batchReview(List<Long> ids, String action) {
+        if (ids == null || ids.isEmpty()) throw new BusinessException("IDS_EMPTY", "请选择要处理的记录");
+        if (!"DISCARD".equals(action) && !"CONFIRM_DUPLICATE".equals(action)) {
+            throw new BusinessException("ACTION_INVALID", "批量处理仅支持丢弃或确认重复");
+        }
+        int processed = 0;
+        for (Long id : ids) {
+            ContentStaging item = stagingMapper.findById(id);
+            if (item == null || !ContentStaging.NEEDS_REVIEW.equals(item.getStatus())) continue;
+            stagingMapper.markFailed(id, "DISCARD".equals(action) ? "人工判定不予入库" : "确认重复");
+            processed++;
+        }
+        return processed;
+    }
+
+    /** 内容库存聚合：总览计数 + 一级模块（含子知识点）库存 */
+    public InventoryOverviewView inventoryOverview() {
+        InventoryOverviewView view = new InventoryOverviewView();
+        InventoryOverviewView.Overview overview = inventoryMapper.overviewCounts();
+        view.setOverview(overview == null ? new InventoryOverviewView.Overview() : overview);
+        view.getOverview().setTrainableTotal(questionInventoryService.totalAvailable());
+        List<InventoryItem> points = inventoryMapper.pointStats();
+        Map<Long, List<InventoryOverviewView.PointView>> byParent = new HashMap<>();
+        for (InventoryItem point : points) {
+            if (point.getParentId() == null) continue;
+            byParent.computeIfAbsent(point.getParentId(), key -> new ArrayList<>())
+                    .add(new InventoryOverviewView.PointView(point, point.getUnused() < lowStockThreshold));
+        }
+        Map<String, Integer> availableByModule = new HashMap<>();
+        for (QuestionInventoryService.ModuleInventory module : questionInventoryService.moduleSummary(null)) {
+            availableByModule.put(module.getModuleCode(), module.getAvailableCount());
+        }
+        for (InventoryItem module : inventoryMapper.moduleStats()) {
+            InventoryOverviewView.ModuleView moduleView = new InventoryOverviewView.ModuleView();
+            moduleView.setId(module.getId());
+            moduleView.setCode(module.getCode());
+            moduleView.setModuleName(module.getName());
+            moduleView.setTotalQuestions(module.getTotalQuestions());
+            moduleView.setTrainable(availableByModule.getOrDefault(module.getCode(), 0));
+            moduleView.setUnused(module.getUnused());
+            moduleView.setKnowledgePoints(byParent.getOrDefault(module.getId(), new ArrayList<>()));
+            view.getModules().add(moduleView);
+        }
+        return view;
+    }
+
     public List<InventoryItem> inventory() {
         return inventoryMapper.inventory();
+    }
+
+    /** 题目文件批量上传：CSV / XLSX 逐行校验分流入库 */
+    public ContentUploadService.UploadResult upload(MultipartFile file, String trustLevel, String sourceName) throws IOException {
+        String level = trustLevel == null || trustLevel.trim().isEmpty() ? "B" : trustLevel.trim();
+        if (!ContentLabels.validTrust(level)) throw new BusinessException("SOURCE_TRUST_INVALID", "可信度必须是 S/A/B/C/D");
+        return uploadService.upload(file, level, sourceName);
     }
 
     private ContentSource requireSource(Long id) {

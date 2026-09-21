@@ -1,887 +1,136 @@
 (function () {
-  const content = document.getElementById('content')
-  const status = document.getElementById('status')
-  const title = document.getElementById('pageTitle')
-  const dialog = document.getElementById('detailDialog')
-  const formDialog = document.getElementById('formDialog')
-  const titles = { questions: '题库', import: '题目导入', knowledge: '知识点', answers: '答题记录', essays: '申论题库', 'essay-answers': '申论作答', readings: '政治阅读', content: '题库采集', mock: '模考试卷', ai: 'AI 设置' }
-  const ESSAY_QUESTION_TYPES = ['SUMMARY', 'ANALYSIS', 'COUNTERMEASURE', 'IMPLEMENTATION']
-  const ESSAY_TOPIC_CODES = ['HQ_DEVELOPMENT', 'TECH_INNOVATION', 'NEW_QUALITY_PRODUCTIVITY', 'RURAL_REVITALIZATION', 'GRASSROOTS_GOVERNANCE', 'PEOPLE_LIVELIHOOD', 'ECO_CIVILIZATION', 'CULTURE', 'GOVERNANCE', 'TALENT']
-  const ESSAY_STATUSES = ['DRAFT', 'ACTIVE', 'ARCHIVED']
-  const READING_STATUSES = ['DRAFT', 'PUBLISHED', 'ARCHIVED']
-  const READING_STATUS_LABELS = { PUBLISHED: '发布', DRAFT: '下架', ARCHIVED: '归档' }
-  const SOURCE_SITE_TYPES = [['GOVERNMENT', '政府网站'], ['ORGANIZATION', '组织部门'], ['HR_DEPARTMENT', '人社部门'], ['EXAM_AUTHORITY', '公务员主管部门'], ['OTHER', '其他']]
-  const SOURCE_TRUST_LEVELS = [['S', 'S：官方真题 / 官方样题'], ['A', 'A：官方附件 / 官方材料'], ['B', 'B：多来源交叉验证'], ['C', 'C：单来源回忆'], ['D', 'D：未经验证']]
-  const STAGING_STATUSES = [['DISCOVERED', '已发现'], ['DOWNLOADED', '已下载'], ['PARSED', '已解析'], ['DEDUPED', '已去重'], ['READY', '待入库'], ['IMPORTED', '已入库'], ['NEEDS_REVIEW', '需要人工检查'], ['FAILED', '处理失败']]
+  const content = document.getElementById('content'), detailDialog = document.getElementById('detailDialog'), formDialog = document.getElementById('formDialog')
+  const groups = [
+    ['工作台', [['dashboard', '运营工作台', '⌂']]],
+    ['内容中心', [['questions', '题库管理', '题'], ['collection', '内容采集', '采'], ['knowledge', '知识点管理', '知'], ['readings', '政治阅读内容', '阅']]],
+    ['学习运营', [['plan', '今日计划', '计'], ['records', '学习记录', '录'], ['abilities', '能力画像', '能'], ['problems', '学习问题', '问'], ['diagnoses', '错因诊断', '因']]],
+    ['考试运营', [['mock-papers', '模考试卷', '卷'], ['mock-records', '模考记录', '考'], ['mock-analysis', '考试分析', '析']]],
+    ['系统', [['ai', 'AI 配置', 'AI'], ['sources', '内容源配置', '源'], ['system', '系统状态', '态']]]
+  ]
+  const pages = {
+    dashboard: ['运营工作台', '掌握内容供给、学习闭环和系统健康状态'], questions: ['题库管理', '统一管理行测与申论题目，识别库存和质量风险'], collection: ['内容采集', '管理来源、上传、审核与采集运行结果'], knowledge: ['知识点管理', '从知识体系查看题量覆盖与低库存风险'], readings: ['政治阅读内容', '管理政治阅读素材、结构化状态与发布质量'], plan: ['今日计划', '查看真实用户计划、任务来源与执行进度'], records: ['学习记录', '追溯行测、申论、政治阅读和模考学习行为'], abilities: ['能力画像', '查看能力建立度、样本可信度与薄弱方向'], problems: ['学习问题', '跟踪问题证据、优先级、状态与主要根因'], diagnoses: ['错因诊断', '查看规则与 AI 诊断证据及用户确认结果'], 'mock-papers': ['模考试卷', '管理行测与申论模考试卷及题目覆盖'], 'mock-records': ['模考记录', '查看用户模考完成与评分情况'], 'mock-analysis': ['考试分析', '比较模考表现、模块表现与能力校准状态'], ai: ['AI 配置', '维护模型配置并查看真实连接状态'], sources: ['内容源配置', '管理内容来源、启停状态与最近运行结果'], system: ['系统状态', '集中查看接口、内容、学习闭环与 AI 健康状态']
+  }
+  const state = { view: 'dashboard', tab: '', inventory: null }
 
-  function escapeHtml(value) {
-    return String(value == null ? '' : value)
-      .replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;')
-      .replaceAll('"', '&quot;').replaceAll("'", '&#039;')
-  }
-  function value(value, fallback) { return value == null || value === '' ? (fallback || '—') : value }
-  function options(list, selected) {
-    return list.map(item => '<option value="' + escapeHtml(item) + '"' + (item === selected ? ' selected' : '') + '>' + escapeHtml(item) + '</option>').join('')
-  }
-  function labeledOptions(pairs, selected) {
-    return pairs.map(pair => '<option value="' + escapeHtml(pair[0]) + '"' + (pair[0] === selected ? ' selected' : '') + '>' + escapeHtml(pair[1]) + '</option>').join('')
-  }
-  function trustText(level) {
-    const found = SOURCE_TRUST_LEVELS.find(pair => pair[0] === level)
-    return found ? found[1] : value(level)
-  }
-  function formatDateTime(text) {
-    if (!text) return null
-    const match = String(text).match(/^(\d{4}-\d{2}-\d{2})[T ](\d{2}:\d{2})/)
-    return match ? match[1] + ' ' + match[2] : String(text)
-  }
-  function fileSizeText(size) {
-    if (size == null) return '—'
-    if (size < 1024) return size + ' 字节'
-    return (size / 1024).toFixed(1) + ' KB'
-  }
-  function toMinutes(durationMs) {
-    if (durationMs == null) return '—'
-    return (durationMs / 60000).toFixed(1) + ' 分钟'
-  }
-  function toDuration(durationMs) {
-    if (durationMs == null) return '—'
-    if (durationMs < 60000) return Math.round(durationMs / 1000) + ' 秒'
-    return toMinutes(durationMs)
-  }
-  function toLines(text) {
-    return String(text || '').split('\n').map(line => line.trim()).filter(Boolean)
-  }
-  function listBlock(items) {
-    const list = items || []
-    return list.length ? '<ul class="detail-list">' + list.map(item => '<li>' + escapeHtml(item) + '</li>').join('') + '</ul>' : '—'
-  }
-  function parseReferencePoints(text) {
-    return toLines(text).map(line => {
-      const separator = line.indexOf('|')
-      const point = (separator === -1 ? line : line.slice(0, separator)).trim()
-      const keywords = separator === -1 ? '' : line.slice(separator + 1)
-      return { point: point, keywords: keywords.split(/[,，、]/).map(keyword => keyword.trim()).filter(Boolean) }
-    }).filter(item => item.point)
-  }
-  function evaluatorTag(evaluator) {
-    if (evaluator === 'LOCAL_RULE_V1') return '<span class="pill">本地规则评分（测试实现）</span>'
-    return escapeHtml(value(evaluator))
-  }
-  function setBusy(busy) { status.textContent = busy ? '正在读取真实数据…' : '就绪'; status.className = 'status ' + (busy ? 'busy' : '') }
-  function showError(message) {
-    status.textContent = message; status.className = 'status error'
-    content.innerHTML = '<div class="notice error">请求失败：' + escapeHtml(message) + ' <button id="retry">重试</button></div>'
-    document.getElementById('retry').onclick = () => loadView(currentView)
-  }
-  function showEmpty(text) { content.innerHTML = '<div class="empty">' + escapeHtml(text) + '</div>' }
+  const esc = value => String(value === null || value === undefined ? '' : value).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]))
+  const fmt = value => value ? String(value).replace('T', ' ').slice(0, 19) : '—'
+  const listOf = data => Array.isArray(data) ? data : ((data && (data.list || data.records || data.items)) || [])
+  const badge = (value, kind = 'status') => '<span class="badge ' + Display.tone(value) + '">' + esc(Display.text(kind, value)) + '</span>'
+  const empty = text => '<div class="empty">' + esc(text || '暂无真实数据') + '</div>'
+  const card = (title, body, extra = '') => '<section class="card ' + extra + '"><div class="card-head"><h2>' + esc(title) + '</h2></div>' + body + '</section>'
+  const kpi = (label, value, note, cls = 'accent-blue') => '<div class="card kpi ' + cls + '"><div class="kpi-label">' + esc(label) + '</div><div class="kpi-value">' + esc(value) + '</div><div class="kpi-note">' + esc(note || '') + '</div></div>'
+  const json = value => { try { return typeof value === 'string' ? JSON.parse(value) : value } catch (_) { return null } }
+  const table = (headers, rows) => rows.length ? '<div class="card table-wrap"><table><thead><tr>' + headers.map(x => '<th>' + esc(x) + '</th>').join('') + '</tr></thead><tbody>' + rows.join('') + '</tbody></table></div>' : empty()
+  const tabs = items => '<div class="tabs">' + items.map(([id, label]) => '<button class="tab ' + (state.tab === id ? 'active' : '') + '" data-tab="' + id + '">' + label + '</button>').join('') + '</div>'
 
-  let currentView = 'questions'
-  async function loadView(view) {
-    currentView = view; title.textContent = titles[view]
-    document.querySelectorAll('nav button').forEach(button => button.classList.toggle('active', button.dataset.view === view))
-    if (view !== 'import') content.innerHTML = '<div class="empty">正在读取真实数据…</div>'
-    try {
-      if (view === 'questions') await renderQuestions()
-      if (view === 'import') renderImport()
-      if (view === 'knowledge') await renderKnowledge()
-      if (view === 'answers') await renderAnswers()
-      if (view === 'essays') await renderEssays()
-      if (view === 'essay-answers') await renderEssayAnswers()
-      if (view === 'readings') await renderReadings()
-      if (view === 'content') await renderContent()
-      if (view === 'mock') await renderMockPapers()
-      if (view === 'ai') await renderAiProviders()
-    } catch (ignore) {}
+  window.AdminApp = {
+    setBusy(busy) { const el = document.getElementById('status'); el.textContent = busy ? '正在读取真实数据…' : '数据已同步'; el.classList.toggle('busy', busy) },
+    showError(message) { document.getElementById('status').textContent = '请求失败'; if (!content.querySelector('.error-state')) content.insertAdjacentHTML('afterbegin', '<div class="error-state">' + esc(message) + '<br><button class="button small" data-retry>重试</button></div>') }
   }
 
-  async function renderQuestions(filters) {
-    const query = new URLSearchParams(Object.assign({ page: 1, size: 50 }, filters || {}))
-    Array.from(query.keys()).forEach(key => { if (!query.get(key)) query.delete(key) })
-    const questions = await Api.request('/api/questions?' + query)
-    content.innerHTML = `
-      <form id="questionFilters" class="toolbar">
-        <input name="keyword" placeholder="题干或来源关键词" value="${escapeHtml((filters || {}).keyword || '')}">
-        <select name="questionType"><option value="">全部题型</option><option>SINGLE</option></select>
-        <select name="usageType"><option value="">全部用途</option><option>TRAINING</option><option>VALIDATION</option><option>MOCK_RESERVED</option></select>
-        <select name="status"><option value="">全部状态</option><option>ACTIVE</option><option>DRAFT</option><option>SUSPENDED</option><option>ARCHIVED</option></select>
-        <button class="primary">查询</button>
-      </form>
-      <div class="table-wrap"><table><thead><tr><th>ID</th><th>题型</th><th>题干摘要</th><th>来源</th><th>用途</th><th>难度</th><th>状态</th><th>版本</th><th>创建时间</th></tr></thead>
-      <tbody>${questions.map(item => `<tr data-question-id="${item.id}"><td>${item.id}</td><td>${escapeHtml(item.questionType)}</td><td class="stem">${escapeHtml(item.stem)}</td><td>${escapeHtml(value(item.sourceName, item.sourceType))}</td><td>${escapeHtml(item.usageType)}</td><td>${item.difficulty}</td><td><span class="pill">${escapeHtml(item.status)}</span></td><td>v${item.version}</td><td>${escapeHtml(value(item.createTime))}</td></tr>`).join('')}</tbody></table></div>
-      ${questions.length ? '' : '<div class="empty">没有符合条件的题目</div>'}`
-    document.getElementById('questionFilters').onsubmit = event => {
-      event.preventDefault(); renderQuestions(Object.fromEntries(new FormData(event.target)))
-    }
-    content.querySelectorAll('[data-question-id]').forEach(row => {
-      row.onclick = () => openQuestion(Number(row.dataset.questionId))
-    })
+  function buildNavigation() {
+    document.getElementById('navigation').innerHTML = groups.map(([name, items]) => '<div class="nav-group"><div class="nav-group-title">' + name + '</div>' + items.map(([id, label, icon]) => '<button class="nav-item" data-view="' + id + '"><span class="nav-icon">' + icon + '</span>' + label + '</button>').join('') + '</div>').join('')
+    document.querySelectorAll('[data-view]').forEach(button => button.onclick = () => navigate(button.dataset.view))
+  }
+  function navigate(view, tab) { state.view = pages[view] ? view : 'dashboard'; state.tab = tab || ''; location.hash = state.view + (state.tab ? ':' + state.tab : ''); render() }
+  function setHeader() {
+    const page = pages[state.view]; document.getElementById('pageTitle').textContent = page[0]; document.getElementById('pageDescription').textContent = page[1]
+    const group = groups.find(g => g[1].some(i => i[0] === state.view)); document.getElementById('breadcrumb').textContent = group[0] + ' / ' + page[0]
+    document.querySelectorAll('.nav-item').forEach(x => x.classList.toggle('active', x.dataset.view === state.view)); document.getElementById('currentUser').textContent = Api.context.userId
+  }
+  function bindTabs() { content.querySelectorAll('[data-tab]').forEach(x => x.onclick = () => navigate(state.view, x.dataset.tab)) }
+  async function load(path) { return Api.request(path) }
+  async function inventory() { if (!state.inventory) state.inventory = await load('/api/admin/content/inventory'); return state.inventory }
+
+  async function renderDashboard() {
+    const [inv, sources, logs, plan, answers, overview, problems, providers, papers] = await Promise.all([inventory(), load('/api/admin/content/sources'), load('/api/admin/content/crawl-logs'), load('/api/plan/today'), load('/api/practice/answers?page=1&size=100'), load('/api/abilities/overview'), load('/api/learning-problems'), load('/api/admin/ai-providers'), load('/api/admin/mock-papers')])
+    const o = inv.overview || {}, answerList = listOf(answers), problemList = listOf(problems), sourceList = listOf(sources), logList = listOf(logs), providerList = listOf(providers)
+    const low = (inv.modules || []).flatMap(m => (m.knowledgePoints || []).filter(k => k.lowStock).map(k => ({ module: m.moduleName, name: k.name, count: k.trainable })))
+    const failed = logList.filter(x => x.status === 'FAILED'), aiOk = providerList.some(x => x.enabled && x.lastTestStatus === 'SUCCESS'), activeSources = sourceList.filter(x => x.enabled).length
+    const actions = []
+    if (o.needsReviewCount) actions.push(['待审核内容', o.needsReviewCount + ' 条采集结果等待处理', 'collection:exceptions'])
+    if (low.length) actions.push(['知识点低库存', low.length + ' 个知识点训练题不足', 'knowledge'])
+    if (failed.length) actions.push(['采集失败', failed.length + ' 次运行需要排查', 'collection:logs'])
+    if (!listOf(papers).length) actions.push(['模考试卷为空', '需要配置至少一套可用试卷', 'mock-papers'])
+    const health = [['后端接口', true, '核心接口已响应'], ['内容供给', o.trainableTotal > 0, o.trainableTotal + ' 道可训练题'], ['内容采集', activeSources > 0 && !failed.length, activeSources + ' 个启用来源，' + failed.length + ' 次失败'], ['学习闭环', answerList.length > 0 && overview.totalCount > 0, answerList.length + ' 条作答，' + problemList.length + ' 个学习问题'], ['AI 服务', aiOk, aiOk ? '存在可用 Provider' : '未发现可用 Provider']]
+    content.innerHTML = '<div class="grid kpi-grid">' + kpi('可训练题', o.trainableTotal || 0, '进入日常训练的真实库存') + kpi('待审核内容', o.needsReviewCount || 0, '采集异常与低置信内容', 'accent-warn') + kpi('能力建立度', (overview.evaluatedCount || 0) + '/' + (overview.totalCount || 0), '另有 ' + (overview.assessingCount || 0) + ' 项摸底中', 'accent-teal') + kpi('当前学习问题', problemList.filter(x => x.status !== 'RESOLVED').length, '持续跟踪，不按单题抖动', 'accent-red') + kpi('今日计划', plan ? plan.plannedMinutes + ' 分钟' : '未生成', plan ? Display.text('status', plan.status) : '无计划') + '</div>' +
+      '<div class="grid two-col" style="margin-top:16px">' + card('今日待处理', actions.length ? '<div class="list">' + actions.map(a => '<div class="list-item action-item"><div><b>' + esc(a[0]) + '</b><div class="muted">' + esc(a[1]) + '</div></div><button class="link" data-jump="' + a[2] + '">立即处理 →</button></div>').join('') + '</div>' : '<div class="notice success">目前没有高优先级运营事项。</div>') + card('系统健康', health.map(x => '<div class="health-row"><b>' + x[0] + '</b><span class="muted">' + esc(x[2]) + '</span>' + badge(x[1] ? 'SUCCESS' : 'FAILED') + '</div>').join('')) + '</div>' +
+      '<div class="grid two-col" style="margin-top:16px">' + card('题库库存', '<div class="grid three-col">' + (inv.modules || []).map(m => '<div class="card module-card" data-module="' + esc(m.code) + '"><div class="muted">' + esc(m.moduleName) + '</div><div class="module-value">' + m.trainable + '</div><div class="kpi-note">总量 ' + m.totalQuestions + ' · 未使用 ' + m.unused + '</div></div>').join('') + '</div>') + card('最近学习动态', answerList.slice(0, 6).map(a => '<div class="list-item"><div><b>题目 #' + a.questionId + '</b><div class="muted">' + Display.text('practice', a.practiceType) + ' · ' + fmt(a.answerTime) + '</div></div>' + badge(a.correct ? 'SUCCESS' : 'FAILED') + '</div>').join('') || empty()) + '</div>'
+    content.querySelectorAll('[data-jump]').forEach(x => x.onclick = () => { const [v, t] = x.dataset.jump.split(':'); navigate(v, t) }); content.querySelectorAll('[data-module]').forEach(x => x.onclick = () => { sessionStorage.setItem('admin.question.module', x.dataset.module); navigate('questions') })
   }
 
-  async function renderMockPapers() {
-    const [papers, sessions, reserved] = await Promise.all([
-      Api.request('/api/admin/mock-papers'),
-      Api.request('/api/mock/history'),
-      Api.request('/api/questions?usageType=MOCK_RESERVED&status=ACTIVE&page=1&size=100')
-    ])
-    content.innerHTML = `
-      <div class="toolbar"><button class="primary" id="createMockBtn">创建模考试卷</button><span class="table-meta">可用模考专用行测题 ${reserved.length} 道</span></div>
-      <div class="table-wrap"><table><thead><tr><th>ID</th><th>试卷</th><th>类型</th><th>年份 / 来源</th><th>时长</th><th>总分</th><th>状态</th><th>操作</th></tr></thead><tbody>${papers.map(p => `<tr><td>${p.id}</td><td><button class="link" data-mock-detail="${p.id}">${escapeHtml(p.name)}</button></td><td>${p.examType === 'XINGCE' ? '行测' : '申论'}</td><td>${value(p.sourceYear)} / ${escapeHtml(value(p.source))}</td><td>${p.durationMinutes} 分钟</td><td>${p.totalScore}</td><td>${p.status === 'ACTIVE' ? '已启用' : p.status === 'SUSPENDED' ? '已停用' : p.status === 'ARCHIVED' ? '已归档' : '草稿'}</td><td><button class="secondary" data-mock-status="${p.id}" data-status="${p.status === 'ACTIVE' ? 'SUSPENDED' : 'ACTIVE'}">${p.status === 'ACTIVE' ? '停用' : '启用'}</button></td></tr>`).join('')}</tbody></table></div>
-      <h2>模考记录</h2><div class="table-wrap"><table><thead><tr><th>场次</th><th>用户</th><th>试卷</th><th>开始</th><th>交卷方式</th><th>得分</th><th>完成率</th></tr></thead><tbody>${sessions.map(s => `<tr><td>#${s.id}</td><td>${s.userId}</td><td>#${s.paperId}</td><td>${escapeHtml(value(formatDateTime(s.startTime)))}</td><td>${s.submitType === 'AUTO_TIME_LIMIT' ? '到时自动交卷' : s.submitType === 'MANUAL' ? '主动交卷' : '进行中'}</td><td>${value(s.totalScore)}</td><td>${value(s.completionRate)}%</td></tr>`).join('')}</tbody></table></div>`
-    document.getElementById('createMockBtn').onclick = () => openMockForm(reserved)
-    content.querySelectorAll('[data-mock-detail]').forEach(button => button.onclick = () => openMockDetail(button.dataset.mockDetail))
-    content.querySelectorAll('[data-mock-status]').forEach(button => button.onclick = async () => { try { await Api.request('/api/admin/mock-papers/' + button.dataset.mockStatus + '/status', { method: 'POST', body: { status: button.dataset.status } }); await renderMockPapers() } catch (ignore) {} })
+  async function renderQuestions() {
+    const inv = await inventory(), module = sessionStorage.getItem('admin.question.module') || '', query = new URLSearchParams({ page: '1', size: '60' }); if (module) query.set('knowledgePointCode', module)
+    const [questions, essays] = await Promise.all([load('/api/questions?' + query), load('/api/admin/essay-questions?page=1&size=30')]); const qs = listOf(questions), es = listOf(essays)
+    content.innerHTML = '<div class="page-actions"><button class="button" data-import>导入题目</button><button class="button primary" data-collection>进入内容采集</button></div><div class="grid kpi-grid">' + (inv.modules || []).map(m => kpi(m.moduleName, m.trainable, '总量 ' + m.totalQuestions + ' · 未使用 ' + m.unused, m.code === module ? 'accent-teal' : 'accent-blue')).join('') + '</div>' +
+      '<form class="filters" id="questionFilters"><div class="field"><label>模块</label><select name="module"><option value="">全部模块</option>' + (inv.modules || []).map(m => '<option value="' + m.code + '" ' + (m.code === module ? 'selected' : '') + '>' + m.moduleName + '</option>').join('') + '</select></div><div class="field"><label>状态</label><select name="status"><option value="">全部状态</option><option>ACTIVE</option><option>DRAFT</option><option>SUSPENDED</option><option>ARCHIVED</option></select></div><button class="button primary">筛选</button></form>' +
+      card('行测题目 · 当前页 ' + qs.length + ' 条', tableRowsQuestions(qs)) + '<div style="height:16px"></div>' + card('申论题目 · ' + es.length + ' 条', tableRowsEssays(es))
+    document.querySelector('[data-import]').onclick = showImport; document.querySelector('[data-collection]').onclick = () => navigate('collection'); document.getElementById('questionFilters').onsubmit = e => { e.preventDefault(); sessionStorage.setItem('admin.question.module', new FormData(e.target).get('module')); renderQuestions() }
+    bindQuestionDetails(); bindEssayDetails()
+  }
+  function tableRowsQuestions(items) { return table(['ID', '题目摘要', '题型', '难度', '用途', '来源', '状态', '版本', '操作'], items.map(q => '<tr><td>#' + q.id + '</td><td><b>' + esc((q.stem || '').slice(0, 54)) + '</b></td><td>' + Display.text('type', q.questionType) + '</td><td>' + (q.difficulty || '—') + '</td><td>' + badge(q.usageType, 'usage') + '</td><td>' + esc(q.source || Display.text('source', q.sourceType)) + '</td><td>' + badge(q.status) + '</td><td>v' + q.version + '</td><td><button class="link" data-question="' + q.id + '">查看</button></td></tr>')) }
+  function tableRowsEssays(items) { return table(['ID', '题目', '题型', '字数', '分值', '状态', '操作'], items.map(q => '<tr><td>#' + q.id + '</td><td><b>' + esc((q.title || q.prompt || '').slice(0, 58)) + '</b></td><td>' + esc(q.questionType || '申论') + '</td><td>' + (q.wordLimit || '—') + '</td><td>' + (q.totalScore || '—') + '</td><td>' + badge(q.status) + '</td><td><button class="link" data-essay="' + q.id + '">查看</button></td></tr>')) }
+  function bindQuestionDetails() { content.querySelectorAll('[data-question]').forEach(x => x.onclick = async () => showQuestion(await load('/api/admin/questions/' + x.dataset.question))) }
+  function bindEssayDetails() { content.querySelectorAll('[data-essay]').forEach(x => x.onclick = async () => showObject('申论题目详情', await load('/api/admin/essay-questions/' + x.dataset.essay))) }
+  function showQuestion(q) { const options = q.options || []; document.getElementById('detailContent').innerHTML = '<h2>题目 #' + q.id + '</h2><div class="chips">' + badge(q.status) + badge(q.usageType, 'usage') + '<span class="badge info">v' + q.version + '</span></div><h3>题干</h3><p>' + esc(q.stem) + '</p><div class="list">' + options.map(o => '<div class="list-item"><b>' + esc(o.optionKey) + '</b><span>' + esc(o.content) + '</span></div>').join('') + '</div><h3>正确答案</h3><div class="notice success">' + esc(q.correctAnswer) + '</div><h3>解析</h3><p>' + esc(q.analysis || '暂无解析') + '</p><dl class="detail-grid"><dt>知识点</dt><dd>' + esc((q.knowledgePoints || []).map(k => k.name).join(' / ') || '—') + '</dd><dt>来源</dt><dd>' + esc(q.source || '—') + '</dd><dt>参考耗时</dt><dd>' + (q.standardTimeSeconds || '—') + ' 秒</dd></dl>'; detailDialog.showModal() }
+  function showImport() { document.getElementById('formContent').innerHTML = '<h2>CSV 批量导入</h2><p class="muted">单行失败不会影响其他题目，导入结果将逐行反馈。</p><form id="importForm"><div class="field"><label>选择 CSV 文件</label><input name="file" type="file" accept=".csv" required></div><br><button class="button primary">开始导入</button></form><div id="importResult"></div>'; formDialog.showModal(); document.getElementById('importForm').onsubmit = async e => { e.preventDefault(); const data = await loadWith('/api/questions/import', { method: 'POST', body: new FormData(e.target), timeout: 120000 }); document.getElementById('importResult').innerHTML = '<div class="notice success">总计 ' + data.total + '，成功 ' + data.successCount + '，失败 ' + data.failureCount + '</div>' + (data.failures || []).map(x => '<div class="notice warning">第 ' + x.row + ' 行：' + esc(x.reason) + '</div>').join('') } }
+  const loadWith = (path, opts) => Api.request(path, opts)
+
+  async function renderCollection() {
+    state.tab = state.tab || 'overview'; const [inv, sources, logs] = await Promise.all([inventory(), load('/api/admin/content/sources'), load('/api/admin/content/crawl-logs')]); let body = ''
+    if (state.tab === 'overview') body = '<div class="grid kpi-grid">' + kpi('自动入库', inv.overview.trainableTotal, '当前可训练库存') + kpi('待人工审核', inv.overview.needsReviewCount, '低置信或异常内容', 'accent-warn') + kpi('采集失败', inv.overview.crawlFailedCount, '当前失败队列', 'accent-red') + kpi('内容来源', listOf(sources).length, '已登记来源', 'accent-teal') + '</div>' + card('模块供给结构', (inv.modules || []).map(m => '<div class="health-row"><b>' + m.moduleName + '</b><div><div class="metric-bar"><span style="width:' + Math.min(100, m.trainable / Math.max(1, inv.overview.trainableTotal) * 400) + '%"></span></div><small class="muted">未使用 ' + m.unused + '</small></div><strong>' + m.trainable + '</strong></div>').join(''))
+    if (state.tab === 'sources') body = sourcesTable(listOf(sources), true)
+    if (state.tab === 'upload') body = '<div class="card"><h2>文件上传采集</h2><p class="muted">仅使用真实文件；上传后执行解析、去重和质量检查。</p><form id="uploadForm"><div class="field"><label>CSV 文件</label><input type="file" name="file" accept=".csv" required></div><br><button class="button primary">上传并处理</button></form><div id="uploadResult"></div></div>'
+    if (state.tab === 'exceptions') { const staging = await load('/api/admin/content/staging?status=NEEDS_REVIEW&page=1'); body = stagingTable(listOf(staging)) }
+    if (state.tab === 'logs') body = logsTable(listOf(logs))
+    content.innerHTML = tabs([['overview', '采集概览'], ['sources', '采集来源'], ['upload', '文件上传'], ['exceptions', '异常处理'], ['logs', '采集日志']]) + body; bindTabs(); bindCollectionActions()
+  }
+  function sourcesTable(items, action) { return table(['来源', '类型', '状态', '地址 / 说明', '最近运行', '操作'], items.map(s => '<tr><td><b>' + esc(s.name) + '</b><div class="muted">#' + s.id + '</div></td><td>' + esc(s.sourceTypeText || s.sourceType || '—') + '</td><td>' + badge(s.enabled ? 'ACTIVE' : 'SUSPENDED') + '</td><td>' + esc(s.baseUrl || s.description || '—') + '</td><td>' + fmt(s.lastCrawlTime) + '</td><td>' + (action ? '<button class="button small primary" data-crawl="' + s.id + '">执行采集</button>' : '<button class="link" data-source-log="' + s.id + '">查看日志</button>') + '</td></tr>')) }
+  function logsTable(items) { return table(['时间', '来源', '结果', '发现', '解析', '入库', '重复', '异常', '失败', '说明'], items.map(x => '<tr><td>' + fmt(x.createTime || x.startTime) + '</td><td>' + esc(x.sourceName || ('#' + (x.sourceId || '—'))) + '</td><td>' + badge(x.status) + '</td><td>' + (x.discovered || 0) + '</td><td>' + (x.parsed || 0) + '</td><td>' + (x.imported || 0) + '</td><td>' + (x.duplicates || 0) + '</td><td>' + (x.needsReview || 0) + '</td><td>' + (x.failed || 0) + '</td><td>' + esc(x.message || '—') + '</td></tr>')) }
+  function stagingTable(items) { return table(['ID', '标题 / 题干', '来源', '问题', '状态', '操作'], items.map(x => '<tr><td>#' + x.id + '</td><td>' + esc((x.title || x.stem || x.rawContent || '').slice(0, 60)) + '</td><td>' + esc(x.sourceName || x.source || '—') + '</td><td>' + esc(x.reviewReason || x.errorMessage || '待人工判断') + '</td><td>' + badge(x.status) + '</td><td><button class="link" data-staging="' + x.id + '">查看证据</button></td></tr>')) }
+  function bindCollectionActions() {
+    content.querySelectorAll('[data-crawl]').forEach(x => x.onclick = async () => { x.disabled = true; const result = await loadWith('/api/admin/content/sources/' + x.dataset.crawl + '/crawl', { method: 'POST', timeout: 120000 }); alert('采集任务已执行：' + (result.message || '请查看采集日志')); state.inventory = null; navigate('collection', 'logs') })
+    const upload = document.getElementById('uploadForm'); if (upload) upload.onsubmit = async e => { e.preventDefault(); const result = await loadWith('/api/admin/content/upload', { method: 'POST', body: new FormData(e.target), timeout: 120000 }); document.getElementById('uploadResult').innerHTML = '<div class="notice success">共 ' + result.total + ' 条，入库 ' + result.imported + '，重复 ' + result.duplicates + '，待审核 ' + result.needsReview + '，失败 ' + result.failed + '</div>' }
+    content.querySelectorAll('[data-staging]').forEach(x => x.onclick = async () => showObject('异常内容证据', await load('/api/admin/content/staging/' + x.dataset.staging)))
   }
 
-  function openMockForm(reserved) {
-    const hint = reserved.map(q => '#' + q.id + ' ' + q.stem.slice(0, 35)).join('\n') || '当前没有已启用的模考专用行测题，请先在题库导入 usageType=MOCK_RESERVED 的题目。'
-    document.getElementById('formContent').innerHTML = `<h2>创建模考试卷</h2><form id="mockForm" class="form"><label>试卷名称<input name="name" required></label><label>类型<select name="examType"><option value="XINGCE">行测</option><option value="SHENLUN">申论</option></select></label><label>年份<input name="sourceYear" type="number"></label><label>来源<input name="source"></label><label>时长（分钟）<input name="durationMinutes" type="number" min="1" required value="120"></label><label>总分<input name="totalScore" type="number" min="1" required value="100"></label><label>Section 与题目组成（JSON）<textarea name="sections" rows="10" required placeholder='[{"name":"资料分析","sectionCode":"DATA_ANALYSIS","knowledgePointId":1,"sortNo":1,"score":20,"items":[{"itemType":"QUESTION","questionId":1001,"sortNo":1,"score":2}]}]'></textarea></label><div class="form-tip pre-wrap">可用题目：\n${escapeHtml(hint)}</div><div class="actions"><button type="button" class="secondary" data-form-cancel>取消</button><button class="primary">创建草稿</button></div></form>`
-    document.querySelector('#mockForm [data-form-cancel]').onclick = () => formDialog.close()
-    document.getElementById('mockForm').onsubmit = async event => { event.preventDefault(); const form = Object.fromEntries(new FormData(event.target)); try { const sections = JSON.parse(form.sections); await Api.request('/api/admin/mock-papers', { method: 'POST', body: { name: form.name, examType: form.examType, sourceYear: form.sourceYear ? Number(form.sourceYear) : null, source: form.source, durationMinutes: Number(form.durationMinutes), totalScore: Number(form.totalScore), sections } }); formDialog.close(); await renderMockPapers() } catch (error) { if (error instanceof SyntaxError) showError('Section JSON 格式不正确') } }
-    formDialog.showModal()
-  }
+  async function renderKnowledge() { const [points, inv] = await Promise.all([load('/api/knowledge-points'), inventory()]); const modules = inv.modules || []; const selected = Number(sessionStorage.getItem('admin.knowledge.id') || (modules[0] && modules[0].id)); const module = modules.find(x => x.id === selected) || modules[0]; const all = listOf(points); content.innerHTML = '<div class="grid two-col"><section class="card"><h2>知识体系</h2><ul class="tree">' + modules.map(m => '<li class="' + (module && m.id === module.id ? 'active' : '') + '" data-knowledge="' + m.id + '"><b>' + esc(m.moduleName) + '</b><span class="muted"> · ' + m.trainable + ' 题</span></li>' + (m.knowledgePoints || []).map(k => '<li style="padding-left:28px" data-knowledge="' + m.id + '">' + esc(k.name) + ' <span class="badge ' + (k.lowStock ? 'warning' : 'positive') + '">' + k.trainable + '</span></li>').join('')).join('') + '</ul></section><section class="card"><h2>' + esc(module ? module.moduleName : '知识点详情') + '</h2>' + (module ? '<div class="grid three-col">' + kpi('题目总量', module.totalQuestions, '含各状态') + kpi('可训练', module.trainable, '当前有效库存', 'accent-teal') + kpi('未使用', module.unused, '尚未进入作答', 'accent-warn') + '</div><h3>子知识点覆盖</h3>' + ((module.knowledgePoints || []).map(k => '<div class="health-row"><b>' + esc(k.name) + '</b><span class="muted">' + (k.lowStock ? '库存不足，需要补充' : '库存正常') + '</span><strong>' + k.trainable + '</strong></div>').join('') || '<div class="notice">当前题目仅关联模块级知识点，暂无更细粒度覆盖统计。</div>') + '<button class="button primary" data-go-questions>查看关联题目</button>' : empty()) + '</section></div><div class="card" style="margin-top:16px"><h2>基础配置</h2>' + table(['编码', '名称', '层级', '父级', '重要度', '提升潜力', '迁移价值'], all.map(p => '<tr><td>' + esc(p.code) + '</td><td><b>' + esc(p.name) + '</b></td><td>' + (p.level || '—') + '</td><td>' + (p.parentId || '—') + '</td><td>' + (p.importance || '—') + '</td><td>' + (p.improvementPotential || '—') + '</td><td>' + (p.transferValue || '—') + '</td></tr>')) + '</div>'; content.querySelectorAll('[data-knowledge]').forEach(x => x.onclick = () => { sessionStorage.setItem('admin.knowledge.id', x.dataset.knowledge); renderKnowledge() }); const go = content.querySelector('[data-go-questions]'); if (go) go.onclick = () => { sessionStorage.setItem('admin.question.module', module.code); navigate('questions') } }
 
-  async function openMockDetail(id) {
-    const paper = await Api.request('/api/admin/mock-papers/' + id)
-    document.getElementById('detailContent').innerHTML = `<div class="eyebrow">${paper.examType === 'XINGCE' ? '行测' : '申论'}模考 #${paper.id}</div><h2>${escapeHtml(paper.name)}</h2><dl><dt>来源</dt><dd>${escapeHtml(value(paper.source))}</dd><dt>时长 / 总分</dt><dd>${paper.durationMinutes} 分钟 / ${paper.totalScore} 分</dd><dt>状态</dt><dd>${escapeHtml(paper.status)}</dd></dl>${(paper.sections || []).map(section => `<h3>${escapeHtml(section.name)}</h3><div class="table-wrap"><table><thead><tr><th>顺序</th><th>类型</th><th>题目</th><th>分值</th></tr></thead><tbody>${(section.items || []).map(item => `<tr><td>${item.sortNo}</td><td>${item.itemType === 'QUESTION' ? '行测题' : '申论题'}</td><td>${escapeHtml(value(item.stem))}</td><td>${item.score}</td></tr>`).join('')}</tbody></table></div>`).join('')}`
-    dialog.showModal()
-  }
+  async function renderReadings() { const [topics, data] = await Promise.all([load('/api/admin/reading-topics'), load('/api/admin/reading-materials?page=1&size=100')]); const items = listOf(data), topicList = listOf(topics); content.innerHTML = '<div class="grid kpi-grid">' + kpi('素材总量', data.total || items.length, '真实政治阅读内容') + kpi('已发布', items.filter(x => x.status === 'ACTIVE').length, '可供用户阅读', 'accent-teal') + kpi('草稿', items.filter(x => x.status === 'DRAFT').length, '待结构化或审核', 'accent-warn') + kpi('主题数', topicList.length, '内容分类') + '</div><div style="height:16px"></div>' + table(['ID', '标题', '主题', '来源', '发布日期', 'AI 状态', '发布状态', '操作'], items.slice(0, 100).map(x => '<tr><td>#' + x.id + '</td><td><b>' + esc(x.title) + '</b></td><td>' + esc(x.topicName || '未分类') + '</td><td>' + esc(x.source || '—') + '</td><td>' + esc(x.publishDate || '—') + '</td><td>' + badge(x.aiStatus || 'PENDING', 'aiStatus') + '</td><td>' + badge(x.status) + '</td><td><button class="link" data-reading="' + x.id + '">查看</button></td></tr>')); content.querySelectorAll('[data-reading]').forEach(x => x.onclick = async () => showObject('政治阅读内容详情', await load('/api/admin/reading-materials/' + x.dataset.reading))) }
 
-  async function openQuestion(id) {
-    const item = await Api.request('/api/admin/questions/' + id)
-    document.getElementById('detailContent').innerHTML = `
-      <div class="eyebrow">题目 #${item.id} · ${escapeHtml(item.questionType)} · v${item.version}</div>
-      <h2>${escapeHtml(item.stem)}</h2>
-      <div class="options">${item.options.map(option => '<div><b>' + escapeHtml(option.optionKey) + '</b>' + escapeHtml(option.optionText) + '</div>').join('')}</div>
-      <dl>
-        <dt>正确答案</dt><dd class="answer">${escapeHtml(item.answer)}</dd>
-        <dt>解析</dt><dd>${escapeHtml(value(item.analysis, '暂无解析'))}</dd>
-        <dt>知识点</dt><dd>${item.knowledgePoints.map(point => escapeHtml(point.name) + '（' + escapeHtml(point.code) + '）').join('、') || '—'}</dd>
-        <dt>来源</dt><dd>${escapeHtml([item.sourceType, item.sourceYear, item.sourceExam, item.sourceName].filter(Boolean).join(' · '))}</dd>
-        <dt>难度 / 参考耗时</dt><dd>${item.difficulty} / ${item.standardTimeSeconds} 秒</dd>
-        <dt>用途 / 状态</dt><dd>${escapeHtml(item.usageType)} / ${escapeHtml(item.status)}</dd>
-      </dl>`
-    dialog.showModal()
-  }
+  async function renderPlan() { const plan = await load('/api/plan/today'); if (!plan) { content.innerHTML = empty('当前用户尚未生成今日计划'); return } const items = plan.items || []; content.innerHTML = '<div class="grid kpi-grid">' + kpi('计划时长', plan.plannedMinutes + ' 分钟', '实际 ' + (plan.actualMinutes || 0) + ' 分钟') + kpi('任务数', items.length, '保持当天计划稳定') + kpi('已完成题目', items.reduce((s, x) => s + (x.completedQuestionCount || 0), 0), '来自真实答题记录', 'accent-teal') + kpi('计划状态', Display.text('status', plan.status), plan.planDate, 'accent-warn') + '</div><div style="height:16px"></div>' + card('生成原因', '<div class="notice">' + esc(plan.generationReason) + '</div>') + '<div style="height:16px"></div>' + table(['顺序', '任务', '目的', '来源问题', '时长', '题量进度', '状态', '安排原因'], items.map(x => '<tr><td>' + x.sortNo + '</td><td><b>' + esc(x.knowledgePointName) + '</b><div class="muted">' + Display.text('itemType', x.itemType) + '</div></td><td>' + badge(x.purpose, 'purpose') + '</td><td>' + Display.text('problem', x.problemType) + '</td><td>' + x.plannedMinutes + ' 分钟</td><td>' + x.completedQuestionCount + '/' + x.targetQuestionCount + '</td><td>' + badge(x.status) + '</td><td>' + esc(x.reason) + '</td></tr>')) }
 
-  function renderImport() {
-    content.innerHTML = `
-      <div class="panel narrow"><h2>CSV 批量导入</h2>
-      <p>选择 UTF-8 CSV。单行失败不会回滚其他成功题目。</p>
-      <code>stem,optionA,optionB,optionC,optionD,answer,analysis,knowledgeCode,difficulty,standardTimeSeconds,sourceType,sourceYear,sourceExam,sourceName,status,usageType,questionType</code>
-      <form id="importForm"><label class="drop"><input name="file" type="file" accept=".csv,text/csv" required><span>选择 CSV 文件</span></label><button class="primary">开始导入</button></form>
-      <div id="importResult"></div></div>`
-    document.getElementById('importForm').onsubmit = async event => {
-      event.preventDefault()
-      const form = new FormData(event.target)
-      try {
-        const result = await Api.request('/api/questions/import', { method: 'POST', body: form })
-        document.getElementById('importResult').innerHTML = `
-          <div class="summary"><div><b>${result.totalCount}</b><span>总行数</span></div><div><b>${result.successCount}</b><span>成功</span></div><div><b>${result.failureCount}</b><span>失败</span></div></div>
-          ${result.failures.length ? '<table><thead><tr><th>失败行</th><th>原因</th></tr></thead><tbody>' + result.failures.map(item => '<tr><td>' + item.row + '</td><td>' + escapeHtml(item.reason) + '</td></tr>').join('') + '</tbody></table>' : '<div class="notice success">全部导入成功，题目已写入数据库。</div>'}`
-      } catch (ignore) {}
-    }
+  async function renderRecords() { state.tab = state.tab || 'answers'; let body = ''
+    if (state.tab === 'answers') { const data = await load('/api/practice/answers?page=1&size=100'); const items = listOf(data); body = table(['时间', '题目', '结果', '用户答案', '答案快照', '耗时', '场景', '信心', '错因', '操作'], items.map(a => '<tr><td>' + fmt(a.answerTime) + '</td><td>#' + a.questionId + '</td><td>' + badge(a.correct ? 'SUCCESS' : 'FAILED') + '</td><td>' + esc(a.userAnswer) + '</td><td>' + esc(a.correctAnswerSnapshot) + '</td><td>' + Math.round(a.durationMs / 1000) + ' 秒</td><td>' + Display.text('practice', a.practiceType) + '</td><td>' + Display.text('confidence', a.confidenceType) + '</td><td>' + Display.text('error', a.errorType) + '</td><td><button class="link" data-answer="' + a.id + '" data-question="' + a.questionId + '">查看链路</button></td></tr>')) }
+    if (state.tab === 'essay') { const data = await load('/api/admin/essay-answers?page=1&size=100'); body = genericRecords(listOf(data), '申论作答') }
+    if (state.tab === 'reading') { const data = await load('/api/admin/reading-materials?page=1&size=100'); const items = listOf(data).filter(x => x.readStatus); body = genericRecords(items, '政治阅读记录') }
+    if (state.tab === 'mock') { const data = await load('/api/mock/history'); body = mockHistoryTable(listOf(data)) }
+    content.innerHTML = tabs([['answers', '行测答题'], ['essay', '申论作答'], ['reading', '政治阅读'], ['mock', '模考记录']]) + body; bindTabs(); content.querySelectorAll('[data-answer]').forEach(x => x.onclick = () => showLearningTrace(x.dataset.answer, x.dataset.question)); if (new URLSearchParams(location.search).get('openAnswer') === '1') { const first = content.querySelector('[data-answer]'); if (first) await showLearningTrace(first.dataset.answer, first.dataset.question) } }
+  async function showLearningTrace(answerId, questionId) {
+    const [answers, question, diagnoses, abilities, problems, plan] = await Promise.all([load('/api/practice/answers?page=1&size=200'), load('/api/admin/questions/' + questionId), load('/api/error-diagnoses?limit=200'), load('/api/abilities/overview'), load('/api/learning-problems'), load('/api/plan/today')])
+    const answer = listOf(answers).find(x => String(x.id) === String(answerId)); const knowledge = json(answer && answer.knowledgeSnapshot) || []; const ids = knowledge.map(x => x.id)
+    document.getElementById('detailContent').innerHTML = '<h2>单题学习详情</h2><div class="timeline"><div class="timeline-item"><b>题目与作答</b><p>' + esc(question.stem) + '</p><div class="chips">' + badge(answer && answer.correct ? 'SUCCESS' : 'FAILED') + '<span class="badge info">用户答案 ' + esc(answer && answer.userAnswer) + '</span><span class="badge">答案快照 ' + esc(answer && answer.correctAnswerSnapshot) + '</span><span class="badge">' + Math.round((answer && answer.durationMs || 0) / 1000) + ' 秒</span></div></div><div class="timeline-item"><b>错因诊断</b><p>' + esc(listOf(diagnoses).filter(d => String(d.answerRecordId) === String(answerId)).map(d => d.suspectedCause + '（' + d.confidence + '%）').join('；') || '本题未产生错因诊断') + '</p></div><div class="timeline-item"><b>能力画像</b><p>' + esc((abilities.abilities || []).filter(a => ids.includes(a.knowledgePointId)).map(a => a.knowledgePointName + '：' + Display.text('abilityStatus', a.status) + '，样本 ' + a.sampleCount).join('；') || '暂无对应能力') + '</p></div><div class="timeline-item"><b>学习问题</b><p>' + esc(listOf(problems).filter(p => ids.includes(p.knowledgePointId)).map(p => p.title + '（' + Display.text('problemStatus', p.status) + '）').join('；') || '未形成学习问题') + '</p></div><div class="timeline-item"><b>今日计划影响</b><p>' + esc((plan.items || []).filter(i => ids.includes(i.knowledgePointId)).map(i => i.knowledgePointName + '：' + i.reason).join('；') || '未进入当前今日计划；能力和问题变化将在下次生成计划时生效') + '</p></div></div>'; detailDialog.showModal()
   }
+  function genericRecords(items, label) { return items.length ? table(['ID', label, '状态', '时间', '详情'], items.map(x => '<tr><td>#' + x.id + '</td><td><b>' + esc(x.title || x.questionTitle || x.materialTitle || ('记录 #' + x.id)) + '</b></td><td>' + badge(x.status || x.aiStatus || 'COMPLETED') + '</td><td>' + fmt(x.answerTime || x.createTime || x.updateTime) + '</td><td><button class="link" data-object="' + encodeURIComponent(JSON.stringify(x)) + '">查看</button></td></tr>')) : empty('暂无' + label) }
 
-  async function renderKnowledge() {
-    const points = await Api.request('/api/knowledge-points')
-    if (!points.length) { showEmpty('暂无知识点'); return }
-    content.innerHTML = '<div class="table-wrap"><table><thead><tr><th>层级</th><th>名称</th><th>Code</th><th>父级</th><th>重要度</th><th>提升收益</th><th>迁移价值</th><th>状态</th></tr></thead><tbody>' +
-      points.map(item => '<tr><td>L' + item.level + '</td><td><span class="indent-' + item.level + '">' + escapeHtml(item.name) + '</span></td><td><code>' + escapeHtml(item.code) + '</code></td><td>' + escapeHtml(value(item.parentName)) + '</td><td>' + item.importance + '</td><td>' + item.improvementPotential + '</td><td>' + item.transferValue + '</td><td><span class="pill">' + escapeHtml(item.status) + '</span></td></tr>').join('') +
-      '</tbody></table></div>'
-  }
+  async function renderAbilities() { const data = await load('/api/abilities/overview'), items = data.abilities || []; content.innerHTML = '<div class="grid kpi-grid">' + kpi('完整评估', data.evaluatedCount + '/' + data.totalCount, '达到可靠样本标准') + kpi('摸底中', data.assessingCount, '分数仅作过程观察', 'accent-warn') + kpi('覆盖率', data.coveragePercent + '%', '不将未测评显示为低分', 'accent-teal') + '</div><div style="height:16px"></div>' + table(['考试板块', '能力', '状态', '掌握', '速度', '稳定', '可信度', '样本', '趋势', '最近练习'], items.map(a => '<tr><td>' + (a.examSection === 'XINGCE' ? '行测' : '申论') + '</td><td><b>' + esc(a.knowledgePointName) + '</b></td><td>' + badge(a.status, 'abilityStatus') + '</td><td>' + (a.status === 'UNASSESSED' ? '未测评' : a.masteryScore) + '</td><td>' + (a.status === 'UNASSESSED' ? '—' : a.speedScore) + '</td><td>' + (a.status === 'UNASSESSED' ? '—' : a.stabilityScore) + '</td><td>' + (a.status === 'UNASSESSED' ? '—' : a.confidenceScore) + '</td><td>' + a.sampleCount + '</td><td>' + (a.masteryTrend == null ? '—' : (a.masteryTrend > 0 ? '↑ ' : '↓ ') + Math.abs(a.masteryTrend)) + '</td><td>' + fmt(a.lastPracticeTime) + '</td></tr>')) }
+  async function renderProblems() { const items = listOf(await load('/api/learning-problems')); content.innerHTML = '<div class="grid kpi-grid">' + kpi('未解决', items.filter(x => x.status !== 'RESOLVED').length, '持续跟踪问题') + kpi('观察中', items.filter(x => x.status === 'OBSERVING').length, '证据不足不直接确认', 'accent-warn') + kpi('验证中', items.filter(x => x.status === 'VERIFYING').length, '优先进入验证任务', 'accent-teal') + kpi('已解决', items.filter(x => x.status === 'RESOLVED').length, '后续恶化可重新打开') + '</div><div style="height:16px"></div>' + table(['问题', '类型', '状态', '严重度', '优先级', '主要根因', '证据', '发现时间'], items.map(x => '<tr><td><b>' + esc(x.title) + '</b><div class="muted">' + esc(x.knowledgePointName) + '</div></td><td>' + Display.text('problem', x.problemType) + '</td><td>' + badge(x.status, 'problemStatus') + '</td><td>' + x.severity + '</td><td><b>' + x.priorityScore + '</b></td><td>' + esc(x.rootCause || '待诊断') + '</td><td><button class="link" data-evidence="' + encodeURIComponent(x.evidenceJson || '{}') + '">查看证据</button></td><td>' + fmt(x.discoveredTime) + '</td></tr>')); content.querySelectorAll('[data-evidence]').forEach(x => x.onclick = () => showObject('学习问题证据', json(decodeURIComponent(x.dataset.evidence)))) }
+  async function renderDiagnoses() { const items = listOf(await load('/api/error-diagnoses?limit=200')); content.innerHTML = '<div class="grid kpi-grid">' + kpi('诊断总数', items.length, '按知识点与候选根因去重') + kpi('待确认', items.filter(x => x.status === 'PENDING_CONFIRMATION').length, '证据不足不直接认定', 'accent-warn') + kpi('用户确认', items.filter(x => x.confirmedByUser === true).length, '反馈已进入诊断事实', 'accent-teal') + kpi('用户否认', items.filter(x => x.confirmedByUser === false).length, '保留但不作为主根因') + '</div><div style="height:16px"></div>' + table(['更新时间', '题目 / 记录', '候选根因', '置信度', '出现次数', '规则状态', 'AI 分析', '用户反馈', '证据'], items.map(x => '<tr><td>' + fmt(x.updateTime) + '</td><td>题 #' + x.questionId + '<div class="muted">记录 #' + x.answerRecordId + '</div></td><td><b>' + esc(x.suspectedCause) + '</b></td><td>' + x.confidence + '%</td><td>' + x.occurrenceCount + '</td><td>' + badge(x.status) + '</td><td>' + esc(x.aiExplanation || '未生成') + '<div class="muted">' + Display.text('aiStatus', x.aiStatus) + '</div></td><td>' + (x.confirmedByUser == null ? '待用户确认' : x.confirmedByUser ? '确认' : '否认') + '</td><td><button class="link" data-diagnosis="' + encodeURIComponent(x.evidenceJson || '{}') + '">查看</button></td></tr>')); content.querySelectorAll('[data-diagnosis]').forEach(x => x.onclick = () => showObject('错因诊断证据', json(decodeURIComponent(x.dataset.diagnosis)))) }
 
-  async function renderAnswers() {
-    const records = await Api.request('/api/practice/answers?page=1&size=100')
-    content.innerHTML = '<div class="table-wrap"><table><thead><tr><th>题目</th><th>用户答案</th><th>答案快照</th><th>结果</th><th>耗时</th><th>场景</th><th>信心</th><th>错因</th><th>时间</th></tr></thead><tbody>' +
-      records.map(item => '<tr><td>#' + item.questionId + '</td><td>' + escapeHtml(item.userAnswer) + '</td><td>' + escapeHtml(item.correctAnswerSnapshot) + '</td><td><span class="pill ' + (item.correct ? 'good' : 'bad') + '">' + (item.correct ? '正确' : '错误') + '</span></td><td>' + toDuration(item.durationMs) + '</td><td>' + escapeHtml(item.practiceType) + '</td><td>' + escapeHtml(item.confidenceType) + '</td><td>' + escapeHtml(item.errorType) + '</td><td>' + escapeHtml(item.answerTime) + '</td></tr>').join('') +
-      '</tbody></table></div>' + (records.length ? '' : '<div class="empty">当前用户暂无答题记录</div>')
-  }
+  async function renderMockPapers() { const items = listOf(await load('/api/admin/mock-papers')); content.innerHTML = '<div class="grid kpi-grid">' + kpi('试卷总数', items.length, '行测与申论') + kpi('已启用', items.filter(x => x.status === 'ACTIVE').length, '可进入考试', 'accent-teal') + kpi('行测试卷', items.filter(x => x.examType === 'XINGCE').length, '客观题') + kpi('申论试卷', items.filter(x => x.examType === 'SHENLUN').length, '主观题') + '</div><div style="height:16px"></div>' + table(['ID', '试卷', '类型', '年度', '时长', '总分', '题目区块', '状态', '操作'], items.map(x => '<tr><td>#' + x.id + '</td><td><b>' + esc(x.name) + '</b><div class="muted">' + esc(x.source || '—') + '</div></td><td>' + (x.examType === 'XINGCE' ? '行测' : '申论') + '</td><td>' + (x.sourceYear || '—') + '</td><td>' + x.durationMinutes + ' 分钟</td><td>' + x.totalScore + '</td><td>' + (x.sections || []).length + '</td><td>' + badge(x.status) + '</td><td><button class="link" data-paper="' + x.id + '">查看详情</button></td></tr>')); content.querySelectorAll('[data-paper]').forEach(x => x.onclick = async () => showObject('模考试卷详情', await load('/api/admin/mock-papers/' + x.dataset.paper))) }
+  function mockHistoryTable(items) { return items.length ? table(['考试时间', '试卷', '状态', '得分', '耗时', '正确率', '操作'], items.map(x => '<tr><td>' + fmt(x.submitTime || x.startTime || x.createTime) + '</td><td>' + esc(x.paperName || ('试卷 #' + x.paperId)) + '</td><td>' + badge(x.status) + '</td><td>' + (x.totalScore || x.score || '—') + '</td><td>' + (x.durationSeconds ? Math.round(x.durationSeconds / 60) + ' 分钟' : '—') + '</td><td>' + (x.correctRate == null ? '—' : x.correctRate + '%') + '</td><td><button class="link" data-object="' + encodeURIComponent(JSON.stringify(x)) + '">查看</button></td></tr>')) : empty('当前用户暂无模考记录') }
+  async function renderMockRecords() { content.innerHTML = mockHistoryTable(listOf(await load('/api/mock/history'))); bindObjects() }
+  async function renderMockAnalysis() { const [history, perf, abilities] = await Promise.all([load('/api/mock/history'), load('/api/mock/performance'), load('/api/abilities/overview')]); const hs = listOf(history), ps = listOf(perf); content.innerHTML = '<div class="grid kpi-grid">' + kpi('模考次数', hs.length, '真实提交记录') + kpi('考试能力校准', hs.length ? '已有样本' : '待模考', '不以练习题替代考试数据', 'accent-warn') + kpi('已评估能力', abilities.evaluatedCount + '/' + abilities.totalCount, '能力画像建立度', 'accent-teal') + '</div><div style="height:16px"></div>' + card('模块表现', ps.length ? table(['模块', '题量', '正确率', '得分', '能力校准'], ps.map(x => '<tr><td>' + esc(x.moduleName || x.knowledgePointName || '—') + '</td><td>' + (x.questionCount || x.sampleCount || '—') + '</td><td>' + (x.correctRate || '—') + '</td><td>' + (x.score || '—') + '</td><td>' + esc(x.calibrationStatus || '已有真实样本') + '</td></tr>')) : empty('完成模考后展示模块表现、得分变化与能力校准结果')) }
 
-  let essayFilters = {}
-  async function renderEssays(filters) {
-    if (filters) essayFilters = filters
-    const query = new URLSearchParams(Object.assign({ page: 1, pageSize: 50 }, essayFilters))
-    Array.from(query.keys()).forEach(key => { if (!query.get(key)) query.delete(key) })
-    const data = await Api.request('/api/admin/essay-questions?' + query)
-    const list = (data && data.list) || []
-    content.innerHTML = `
-      <form id="essayFilters" class="toolbar">
-        <input name="keyword" placeholder="题干或来源关键词" value="${escapeHtml(essayFilters.keyword || '')}">
-        <select name="questionType"><option value="">全部题型</option>${options(ESSAY_QUESTION_TYPES, essayFilters.questionType)}</select>
-        <select name="topicCode"><option value="">全部主题</option>${options(ESSAY_TOPIC_CODES, essayFilters.topicCode)}</select>
-        <select name="status"><option value="">全部状态</option>${options(ESSAY_STATUSES, essayFilters.status)}</select>
-        <button class="primary">查询</button>
-        <button type="button" id="createEssayBtn" class="primary">新增申论题</button>
-      </form>
-      <div class="table-wrap"><table><thead><tr><th>ID</th><th>主题</th><th>题型</th><th>题目要求</th><th>字数限制</th><th>状态</th><th>来源</th><th>创建时间</th><th>操作</th></tr></thead>
-      <tbody>${list.map(item => '<tr data-essay-id="' + item.id + '"><td>' + item.id + '</td><td>' + escapeHtml(value(item.topicName, item.topicCode)) + '</td><td>' + escapeHtml(value(item.questionTypeName, item.questionType)) + '</td><td class="stem">' + escapeHtml(item.promptPreview) + '</td><td>' + value(item.wordLimitMin) + ' ~ ' + value(item.wordLimitMax) + ' 字</td><td><span class="pill ' + (item.status === 'ACTIVE' ? 'good' : '') + '">' + escapeHtml(item.status) + '</span></td><td>' + escapeHtml(value(item.sourceName)) + '</td><td>' + escapeHtml(value(item.createTime)) + '</td><td><button class="mini" data-essay-detail="' + item.id + '">详情</button></td></tr>').join('')}</tbody></table></div>
-      ${list.length ? '<div class="table-meta">共 ' + value(data && data.total) + ' 条</div>' : '<div class="empty">没有符合条件的申论题</div>'}`
-    document.getElementById('essayFilters').onsubmit = event => {
-      event.preventDefault(); renderEssays(Object.fromEntries(new FormData(event.target)))
-    }
-    document.getElementById('createEssayBtn').onclick = () => openEssayForm()
-    content.querySelectorAll('[data-essay-id]').forEach(row => {
-      row.onclick = () => openEssay(Number(row.dataset.essayId))
-    })
-    content.querySelectorAll('[data-essay-detail]').forEach(button => {
-      button.onclick = event => { event.stopPropagation(); openEssay(Number(button.dataset.essayDetail)) }
-    })
-  }
+  async function renderAi() { const items = listOf(await load('/api/admin/ai-providers')); content.innerHTML = '<div class="notice">密钥仅显示脱敏值，不在页面回显真实内容。AI 只负责解释和生成，不直接修改能力、问题或计划。</div>' + table(['服务商', '模型', '启用', '默认', '密钥', '最近测试', '延迟', '测试时间', '操作'], items.map(x => '<tr><td><b>' + esc(x.name || x.code) + '</b><div class="muted">' + esc(x.code) + '</div></td><td>' + esc(x.effectiveModel || x.model || '—') + '</td><td>' + badge(x.enabled ? 'ACTIVE' : 'SUSPENDED') + '</td><td>' + (x.defaultProvider ? '<span class="badge info">默认</span>' : '—') + '</td><td>' + esc(x.maskedKey || '未配置') + '</td><td>' + badge(x.lastTestStatus || (x.configured ? 'CONFIGURED' : 'UNCONFIGURED'), 'aiStatus') + '<div class="muted">' + esc(x.lastTestMessage || '') + '</div></td><td>' + (x.lastTestLatencyMs || '—') + ' ms</td><td>' + fmt(x.lastTestTime) + '</td><td><button class="button small" data-ai="' + esc(x.code) + '">测试连接</button></td></tr>')); content.querySelectorAll('[data-ai]').forEach(x => x.onclick = async () => { const result = await loadWith('/api/admin/ai-providers/' + x.dataset.ai + '/test', { method: 'POST', body: {} }); alert(result.message || '连接测试完成'); renderAi() }) }
+  async function renderSources() { const [sources, logs] = await Promise.all([load('/api/admin/content/sources'), load('/api/admin/content/crawl-logs')]); content.innerHTML = sourcesTable(listOf(sources), false); content.querySelectorAll('[data-source-log]').forEach(x => x.onclick = () => { sessionStorage.setItem('admin.source.id', x.dataset.sourceLog); navigate('collection', 'logs') }) }
+  async function renderSystem() { const checks = await Promise.allSettled([load('/api/admin/content/inventory'), load('/api/abilities/overview'), load('/api/learning-problems'), load('/api/admin/ai-providers'), load('/api/admin/content/crawl-logs')]); const labels = ['内容库存接口', '能力画像接口', '学习问题接口', 'AI 配置接口', '采集日志接口']; const logs = checks[4].status === 'fulfilled' ? listOf(checks[4].value) : []; content.innerHTML = '<div class="grid kpi-grid">' + kpi('接口可用', checks.filter(x => x.status === 'fulfilled').length + '/' + checks.length, '管理控台关键读取接口') + kpi('采集失败', logs.filter(x => x.status === 'FAILED').length, '最近日志中的失败运行', 'accent-red') + kpi('最近采集', logs.length ? fmt(logs[0].createTime || logs[0].startTime) : '无记录', '真实运行日志', 'accent-teal') + '</div><div style="height:16px"></div>' + card('关键服务检查', checks.map((x, i) => '<div class="health-row"><b>' + labels[i] + '</b><span class="muted">' + (x.status === 'fulfilled' ? '请求成功并返回业务数据' : esc(x.reason.message)) + '</span>' + badge(x.status === 'fulfilled' ? 'SUCCESS' : 'FAILED') + '</div>').join('')) + '<div style="height:16px"></div>' + card('最近异常', logs.filter(x => x.status === 'FAILED').length ? logsTable(logs.filter(x => x.status === 'FAILED').slice(0, 20)) : '<div class="notice success">最近采集日志没有失败记录。应用尚未提供持久化接口异常日志查询，因此不会虚构“系统无异常”。</div>') }
 
-  async function openEssay(id) {
-    const item = await Api.request('/api/admin/essay-questions/' + id)
-    const points = item.referencePoints || []
-    document.getElementById('detailContent').innerHTML = `
-      <div class="eyebrow">申论题 #${item.id} · ${escapeHtml(value(item.questionTypeName, item.questionType))} · ${escapeHtml(item.status)}</div>
-      <h2>${escapeHtml(item.prompt || '（无题目要求）')}</h2>
-      <dl>
-        <dt>主题</dt><dd>${escapeHtml(value(item.topicName, item.topicCode))}</dd>
-        <dt>题型</dt><dd>${escapeHtml(value(item.questionTypeName, item.questionType))}</dd>
-        <dt>材料</dt><dd class="pre-wrap">${escapeHtml(value(item.material, '暂无材料'))}</dd>
-        <dt>字数限制</dt><dd>${value(item.wordLimitMin)} ~ ${value(item.wordLimitMax)} 字</dd>
-        <dt>标准时长</dt><dd>${value(item.standardTimeSeconds)} 秒</dd>
-        <dt>参考答案</dt><dd class="pre-wrap">${escapeHtml(value(item.referenceAnswer, '暂无参考答案'))}</dd>
-        <dt>参考要点</dt><dd>${points.length ? '<ul class="detail-list">' + points.map(point => '<li>' + escapeHtml(point.point) + (point.keywords && point.keywords.length ? '（关键词：' + point.keywords.map(escapeHtml).join('、') + '）' : '') + '</li>').join('') + '</ul>' : '—'}</dd>
-        <dt>来源</dt><dd>${escapeHtml([item.sourceYear, item.sourceExam, item.sourceName].filter(Boolean).join(' · ')) || '—'}</dd>
-        <dt>状态 / 创建</dt><dd>${escapeHtml(item.status)} / ${escapeHtml(value(item.createTime))}</dd>
-      </dl>`
-    dialog.showModal()
-  }
+  function showObject(title, object) { document.getElementById('detailContent').innerHTML = '<h2>' + esc(title) + '</h2><div class="code">' + esc(JSON.stringify(object, null, 2)) + '</div>'; detailDialog.showModal() }
+  function bindObjects() { content.querySelectorAll('[data-object]').forEach(x => x.onclick = () => showObject('记录详情', JSON.parse(decodeURIComponent(x.dataset.object)))) }
+  function showContext() { document.getElementById('formContent').innerHTML = '<h2>连接与用户上下文</h2><form id="contextForm"><div class="field"><label>API 地址</label><input name="baseUrl" value="' + esc(Api.context.baseUrl) + '" required></div><div class="field"><label>当前用户 ID</label><input name="userId" type="number" min="1" value="' + Api.context.userId + '" required></div><br><button class="button primary">保存并刷新</button></form>'; formDialog.showModal(); document.getElementById('contextForm').onsubmit = e => { e.preventDefault(); const f = new FormData(e.target); Api.saveContext(f.get('baseUrl'), f.get('userId')); formDialog.close(); state.inventory = null; render() } }
+  async function render() { setHeader(); content.innerHTML = '<div class="loading">正在读取真实业务数据…</div>'; try { const fn = { dashboard: renderDashboard, questions: renderQuestions, collection: renderCollection, knowledge: renderKnowledge, readings: renderReadings, plan: renderPlan, records: renderRecords, abilities: renderAbilities, problems: renderProblems, diagnoses: renderDiagnoses, 'mock-papers': renderMockPapers, 'mock-records': renderMockRecords, 'mock-analysis': renderMockAnalysis, ai: renderAi, sources: renderSources, system: renderSystem }[state.view]; await fn(); bindObjects(); const retry = content.querySelector('[data-retry]'); if (retry) retry.onclick = render } catch (error) { if (!content.querySelector('.error-state')) content.innerHTML = '<div class="error-state">页面加载失败：' + esc(error.message) + '<br><button class="button small" data-retry>重试</button></div>'; const retry = content.querySelector('[data-retry]'); if (retry) retry.onclick = render } }
 
-  function openEssayForm() {
-    document.getElementById('formContent').innerHTML = `
-      <div class="eyebrow">申论题库</div>
-      <h2>新增申论题</h2>
-      <form id="essayForm" class="form">
-        <div class="row">
-          <label>主题<select name="topicCode" required>${options(ESSAY_TOPIC_CODES)}</select></label>
-          <label>题型<select name="questionType" required>${options(ESSAY_QUESTION_TYPES)}</select></label>
-        </div>
-        <label>材料<textarea name="material" rows="6"></textarea></label>
-        <label>题目要求<textarea name="prompt" rows="3" required></textarea></label>
-        <div class="row">
-          <label>字数下限<input name="wordLimitMin" type="number" min="0"></label>
-          <label>字数上限<input name="wordLimitMax" type="number" min="0"></label>
-        </div>
-        <div class="row">
-          <label>标准时长（秒）<input name="standardTimeSeconds" type="number" min="0"></label>
-          <label>状态<select name="status">${options(ESSAY_STATUSES, 'ACTIVE')}</select></label>
-        </div>
-        <label>参考答案<textarea name="referenceAnswer" rows="4"></textarea></label>
-        <label>参考要点（每行一条，格式：要点文字|关键词1,关键词2）<textarea name="referencePoints" rows="4" placeholder="例如：营商环境持续优化|营商环境,放管服"></textarea></label>
-        <div class="row">
-          <label>来源年份<input name="sourceYear" placeholder="如 2024"></label>
-          <label>来源考试<input name="sourceExam" placeholder="如 国考"></label>
-        </div>
-        <label>来源名称<input name="sourceName" placeholder="如 2024 年国考副省级"></label>
-        <div class="actions"><button type="button" class="secondary" data-form-cancel>取消</button><button class="primary">创建</button></div>
-      </form>`
-    document.querySelector('#essayForm [data-form-cancel]').onclick = () => formDialog.close()
-    document.getElementById('essayForm').onsubmit = async event => {
-      event.preventDefault()
-      const form = Object.fromEntries(new FormData(event.target))
-      try {
-        await Api.request('/api/admin/essay-questions', {
-          method: 'POST',
-          body: {
-            topicCode: form.topicCode,
-            questionType: form.questionType,
-            material: form.material,
-            prompt: form.prompt,
-            wordLimitMin: form.wordLimitMin === '' ? null : Number(form.wordLimitMin),
-            wordLimitMax: form.wordLimitMax === '' ? null : Number(form.wordLimitMax),
-            standardTimeSeconds: form.standardTimeSeconds === '' ? null : Number(form.standardTimeSeconds),
-            referenceAnswer: form.referenceAnswer,
-            referencePoints: parseReferencePoints(form.referencePoints),
-            sourceYear: form.sourceYear,
-            sourceExam: form.sourceExam,
-            sourceName: form.sourceName,
-            status: form.status
-          }
-        })
-        formDialog.close()
-        await renderEssays()
-      } catch (ignore) {}
-    }
-    formDialog.showModal()
-  }
-
-  let essayAnswerFilters = {}
-  async function renderEssayAnswers(filters) {
-    if (filters) essayAnswerFilters = filters
-    const query = new URLSearchParams(Object.assign({ page: 1, pageSize: 50 }, essayAnswerFilters))
-    Array.from(query.keys()).forEach(key => { if (!query.get(key)) query.delete(key) })
-    const data = await Api.request('/api/admin/essay-answers?' + query)
-    const list = (data && data.list) || []
-    content.innerHTML = `
-      <form id="essayAnswerFilters" class="toolbar">
-        <input name="userId" type="number" min="1" placeholder="用户 ID" value="${escapeHtml(essayAnswerFilters.userId || '')}">
-        <input name="essayQuestionId" type="number" min="1" placeholder="申论题 ID" value="${escapeHtml(essayAnswerFilters.essayQuestionId || '')}">
-        <button class="primary">查询</button>
-      </form>
-      <div class="table-wrap"><table><thead><tr><th>ID</th><th>用户</th><th>主题</th><th>题型</th><th>字数</th><th>耗时</th><th>提交时间</th><th>总分</th><th>评分器</th></tr></thead>
-      <tbody>${list.map(item => '<tr data-essay-answer-id="' + item.id + '"><td>' + item.id + '</td><td>' + value(item.userId) + '</td><td>' + escapeHtml(value(item.topicName)) + '</td><td>' + escapeHtml(value(item.questionTypeName, item.questionType)) + '</td><td>' + value(item.wordCount) + ' 字</td><td>' + escapeHtml(toMinutes(item.durationMs)) + '</td><td>' + escapeHtml(value(item.submitTime)) + '</td><td>' + value(item.totalScore) + '</td><td>' + evaluatorTag(item.evaluator) + '</td></tr>').join('')}</tbody></table></div>
-      ${list.length ? '<div class="table-meta">共 ' + value(data && data.total) + ' 条</div>' : '<div class="empty">没有符合条件的申论作答</div>'}`
-    document.getElementById('essayAnswerFilters').onsubmit = event => {
-      event.preventDefault(); renderEssayAnswers(Object.fromEntries(new FormData(event.target)))
-    }
-    content.querySelectorAll('[data-essay-answer-id]').forEach(row => {
-      row.onclick = () => openEssayAnswer(Number(row.dataset.essayAnswerId))
-    })
-  }
-
-  async function openEssayAnswer(id) {
-    const data = await Api.request('/api/admin/essay-answers/' + id)
-    const answer = data.answer || {}
-    const question = data.question || {}
-    const evaluation = data.evaluation || {}
-    document.getElementById('detailContent').innerHTML = `
-      <div class="eyebrow">申论作答 #${value(answer.id)} · ${evaluatorTag(evaluation.evaluator)}</div>
-      <h2>${escapeHtml(value(question.topicName, '申论作答'))} · ${escapeHtml(value(question.questionTypeName, question.questionType))}</h2>
-      <dl>
-        <dt>用户 / 题号</dt><dd>#${value(answer.userId)} / #${value(answer.essayQuestionId)}（v${value(answer.questionVersion)}）</dd>
-        <dt>练习场景</dt><dd>${escapeHtml(value(answer.practiceType))}</dd>
-        <dt>字数 / 耗时</dt><dd>${value(answer.wordCount)} 字 / ${escapeHtml(toMinutes(answer.durationMs))}</dd>
-        <dt>提交时间</dt><dd>${escapeHtml(value(answer.submitTime))}</dd>
-      </dl>
-      <h3>题目要求</h3><div class="pre-wrap">${escapeHtml(value(question.prompt))}</div>
-      <h3>材料</h3><div class="pre-wrap">${escapeHtml(value(question.material, '暂无材料'))}</div>
-      <h3>用户作答</h3><div class="pre-wrap">${escapeHtml(value(answer.answerText, '暂无作答内容'))}</div>
-      <h3>评分结果</h3>
-      <dl>
-        <dt>评分器</dt><dd>${evaluatorTag(evaluation.evaluator)}</dd>
-        <dt>AI审计</dt><dd>${escapeHtml(value(evaluation.provider))} / ${escapeHtml(value(evaluation.model))} / ${escapeHtml(value(evaluation.promptVersion))}</dd>
-        <dt>状态 / 置信度</dt><dd>${escapeHtml(value(evaluation.status))} / ${value(evaluation.confidence)}</dd>
-        <dt>总分</dt><dd class="answer">${value(evaluation.totalScore)}</dd>
-        <dt>维度得分</dt><dd>${listBlock((evaluation.dimensionScores || []).map(dimension => (dimension.name || '未命名维度') + '：' + value(dimension.score) + ' 分'))}</dd>
-        <dt>优点</dt><dd>${listBlock(evaluation.strengths)}</dd>
-        <dt>问题</dt><dd>${listBlock(evaluation.problems)}</dd>
-        <dt>遗漏要点</dt><dd>${listBlock(evaluation.missingPoints)}</dd>
-        <dt>建议</dt><dd>${listBlock(evaluation.suggestions)}</dd>
-      </dl>
-      ${evaluation.status === 'FAILED' || !evaluation.totalScore ? '<div class="dialog-actions"><button class="primary" id="retryEssayAiBtn">重试 AI 评分</button></div>' : ''}`
-    const retryButton = document.getElementById('retryEssayAiBtn')
-    if (retryButton) retryButton.onclick = async () => {
-      try {
-        await Api.request('/api/essay/answers/' + id + '/retry', { method: 'POST' })
-        dialog.close(); await openEssayAnswer(id)
-      } catch (ignore) {}
-    }
-    dialog.showModal()
-  }
-
-  let readingFilters = {}
-  async function renderReadings(filters) {
-    if (filters) readingFilters = filters
-    const topics = await Api.request('/api/admin/reading-topics')
-    const query = new URLSearchParams(Object.assign({ page: 1, pageSize: 50 }, readingFilters))
-    Array.from(query.keys()).forEach(key => { if (!query.get(key)) query.delete(key) })
-    const data = await Api.request('/api/admin/reading-materials?' + query)
-    const topicList = topics || []
-    const list = (data && data.list) || []
-    const topicOptions = topicList.map(topic => '<option value="' + topic.id + '"' + (String(topic.id) === String(readingFilters.topicId || '') ? ' selected' : '') + '>' + escapeHtml(topic.name) + '（' + escapeHtml(topic.code) + '）</option>').join('')
-    content.innerHTML = `
-      <div class="section-head"><h2>阅读专题</h2><button id="createTopicBtn" class="primary">新增专题</button></div>
-      <div class="table-wrap"><table><thead><tr><th>Code</th><th>名称</th><th>描述</th><th>材料数</th><th>状态</th></tr></thead>
-      <tbody>${topicList.map(topic => '<tr><td><code>' + escapeHtml(topic.code) + '</code></td><td>' + escapeHtml(topic.name) + '</td><td>' + escapeHtml(value(topic.description)) + '</td><td>' + value(topic.materialCount) + '</td><td><span class="pill ' + (topic.status === 'ACTIVE' ? 'good' : '') + '">' + escapeHtml(topic.status) + '</span></td></tr>').join('')}</tbody></table></div>
-      ${topicList.length ? '' : '<div class="empty">暂无阅读专题</div>'}
-      <div class="section-head"><h2>阅读材料</h2><button id="createMaterialBtn" class="primary">新增材料</button></div>
-      <form id="materialFilters" class="toolbar">
-        <input name="keyword" placeholder="标题或来源关键词" value="${escapeHtml(readingFilters.keyword || '')}">
-        <select name="topicId"><option value="">全部专题</option>${topicOptions}</select>
-        <select name="status"><option value="">全部状态</option>${options(READING_STATUSES, readingFilters.status)}</select>
-        <button class="primary">查询</button>
-      </form>
-      <div class="table-wrap"><table><thead><tr><th>ID</th><th>专题</th><th>标题</th><th>来源</th><th>发布日期</th><th>状态</th><th>创建时间</th><th>操作</th></tr></thead>
-      <tbody>${list.map(item => '<tr data-material-id="' + item.id + '"><td>' + item.id + '</td><td>' + escapeHtml(value(item.topicName, item.topicCode)) + '</td><td class="stem">' + escapeHtml(item.title) + '</td><td>' + escapeHtml(value(item.source)) + '</td><td>' + escapeHtml(value(item.publishDate)) + '</td><td><span class="pill ' + (item.status === 'PUBLISHED' ? 'good' : '') + '">' + escapeHtml(item.status) + '</span></td><td>' + escapeHtml(value(item.createTime)) + '</td><td><button class="mini" data-material-detail="' + item.id + '">详情</button></td></tr>').join('')}</tbody></table></div>
-      ${list.length ? '<div class="table-meta">共 ' + value(data && data.total) + ' 条</div>' : '<div class="empty">没有符合条件的阅读材料</div>'}`
-    document.getElementById('materialFilters').onsubmit = event => {
-      event.preventDefault(); renderReadings(Object.fromEntries(new FormData(event.target)))
-    }
-    document.getElementById('createTopicBtn').onclick = () => openTopicForm()
-    document.getElementById('createMaterialBtn').onclick = () => openMaterialForm(topicList)
-    content.querySelectorAll('[data-material-id]').forEach(row => {
-      row.onclick = () => openReadingMaterial(Number(row.dataset.materialId), topicList)
-    })
-    content.querySelectorAll('[data-material-detail]').forEach(button => {
-      button.onclick = event => { event.stopPropagation(); openReadingMaterial(Number(button.dataset.materialDetail), topicList) }
-    })
-  }
-
-  function openTopicForm() {
-    document.getElementById('formContent').innerHTML = `
-      <div class="eyebrow">政治阅读 · 专题</div>
-      <h2>新增阅读专题</h2>
-      <p>保存后会自动创建对应知识点。</p>
-      <form id="topicForm" class="form">
-        <label>专题 Code<input name="code" required placeholder="如 ECO_CIVILIZATION"></label>
-        <label>名称<input name="name" required></label>
-        <label>描述<textarea name="description" rows="3"></textarea></label>
-        <div class="actions"><button type="button" class="secondary" data-form-cancel>取消</button><button class="primary">创建</button></div>
-      </form>`
-    document.querySelector('#topicForm [data-form-cancel]').onclick = () => formDialog.close()
-    document.getElementById('topicForm').onsubmit = async event => {
-      event.preventDefault()
-      const form = Object.fromEntries(new FormData(event.target))
-      try {
-        await Api.request('/api/admin/reading-topics', { method: 'POST', body: { code: form.code, name: form.name, description: form.description } })
-        formDialog.close()
-        await renderReadings()
-      } catch (ignore) {}
-    }
-    formDialog.showModal()
-  }
-
-  function openMaterialForm(topics, item) {
-    const editing = !!item
-    const topicOptions = topics.length
-      ? topics.map(topic => '<option value="' + topic.id + '"' + (item && String(topic.id) === String(item.topicId) ? ' selected' : '') + '>' + escapeHtml(topic.name) + '（' + escapeHtml(topic.code) + '）</option>').join('')
-      : '<option value="">（请先创建阅读专题）</option>'
-    document.getElementById('formContent').innerHTML = `
-      <div class="eyebrow">${editing ? '阅读材料 #' + item.id : '政治阅读 · 材料'}</div>
-      <h2>${editing ? '编辑阅读材料' : '新增阅读材料'}</h2>
-      <form id="materialForm" class="form">
-        <div class="row">
-          <label>专题<select name="topicId" required>${topicOptions}</select></label>
-          <label>状态<select name="status">${options(READING_STATUSES, item ? item.status : 'PUBLISHED')}</select></label>
-        </div>
-        <label>标题<input name="title" required value="${escapeHtml(item ? item.title || '' : '')}"></label>
-        <div class="row">
-          <label>来源<input name="source" value="${escapeHtml(item ? item.source || '' : '')}"></label>
-          <label>发布日期<input name="publishDate" type="date" value="${escapeHtml(item ? item.publishDate || '' : '')}"></label>
-        </div>
-        <label>正文<textarea name="content" rows="8" required>${escapeHtml(item ? item.content || '' : '')}</textarea></label>
-        <label>核心观点<textarea name="coreView" rows="3">${escapeHtml(item ? item.coreView || '' : '')}</textarea></label>
-        <div class="row">
-          <label>问题<textarea name="problem" rows="2">${escapeHtml(item ? item.problem || '' : '')}</textarea></label>
-          <label>原因<textarea name="cause" rows="2">${escapeHtml(item ? item.cause || '' : '')}</textarea></label>
-        </div>
-        <div class="row">
-          <label>对策<textarea name="solution" rows="2">${escapeHtml(item ? item.solution || '' : '')}</textarea></label>
-          <label>政策逻辑<textarea name="policyLogic" rows="2">${escapeHtml(item ? item.policyLogic || '' : '')}</textarea></label>
-        </div>
-        <label>规范表达（每行一条）<textarea name="standardExpressions" rows="3">${escapeHtml(item && item.standardExpressions ? item.standardExpressions.join('\n') : '')}</textarea></label>
-        <label>案例（每行一条）<textarea name="cases" rows="3">${escapeHtml(item && item.cases ? item.cases.join('\n') : '')}</textarea></label>
-        <label>适用申论主题（每行一条）<textarea name="applicableEssayThemes" rows="3">${escapeHtml(item && item.applicableEssayThemes ? item.applicableEssayThemes.join('\n') : '')}</textarea></label>
-        <div class="actions"><button type="button" class="secondary" data-form-cancel>取消</button><button class="primary">${editing ? '保存' : '创建'}</button></div>
-      </form>`
-    document.querySelector('#materialForm [data-form-cancel]').onclick = () => formDialog.close()
-    document.getElementById('materialForm').onsubmit = async event => {
-      event.preventDefault()
-      const form = Object.fromEntries(new FormData(event.target))
-      try {
-        await Api.request(editing ? '/api/admin/reading-materials/' + item.id : '/api/admin/reading-materials', {
-          method: editing ? 'PUT' : 'POST',
-          body: {
-            topicId: Number(form.topicId),
-            title: form.title,
-            source: form.source,
-            publishDate: form.publishDate || null,
-            content: form.content,
-            coreView: form.coreView,
-            problem: form.problem,
-            cause: form.cause,
-            solution: form.solution,
-            policyLogic: form.policyLogic,
-            standardExpressions: toLines(form.standardExpressions),
-            cases: toLines(form.cases),
-            applicableEssayThemes: toLines(form.applicableEssayThemes),
-            status: form.status
-          }
-        })
-        formDialog.close()
-        await renderReadings()
-      } catch (ignore) {}
-    }
-    formDialog.showModal()
-  }
-
-  async function openReadingMaterial(id, topics) {
-    const item = await Api.request('/api/admin/reading-materials/' + id)
-    const statusButtons = READING_STATUSES.filter(status => status !== item.status)
-      .map(status => '<button class="secondary" data-material-status="' + status + '">' + READING_STATUS_LABELS[status] + '</button>').join('')
-    document.getElementById('detailContent').innerHTML = `
-      <div class="eyebrow">阅读材料 #${item.id} · ${escapeHtml(item.status)}</div>
-      <h2>${escapeHtml(item.title)}</h2>
-      <dl>
-        <dt>专题</dt><dd>${escapeHtml(value(item.topicName, item.topicCode))}${item.topicCode ? '（' + escapeHtml(item.topicCode) + '）' : ''}</dd>
-        <dt>来源 / 日期</dt><dd>${escapeHtml(value(item.source))} / ${escapeHtml(value(item.publishDate))}</dd>
-        <dt>状态</dt><dd><span class="pill ${item.status === 'PUBLISHED' ? 'good' : ''}">${escapeHtml(item.status)}</span></dd>
-        <dt>创建 / 更新</dt><dd>${escapeHtml(value(item.createTime))} / ${escapeHtml(value(item.updateTime))}</dd>
-        <dt>正文</dt><dd class="pre-wrap">${escapeHtml(value(item.content, '暂无正文'))}</dd>
-        <dt>核心观点</dt><dd class="pre-wrap">${escapeHtml(value(item.coreView))}</dd>
-        <dt>问题</dt><dd class="pre-wrap">${escapeHtml(value(item.problem))}</dd>
-        <dt>原因</dt><dd class="pre-wrap">${escapeHtml(value(item.cause))}</dd>
-        <dt>对策</dt><dd class="pre-wrap">${escapeHtml(value(item.solution))}</dd>
-        <dt>政策逻辑</dt><dd class="pre-wrap">${escapeHtml(value(item.policyLogic))}</dd>
-        <dt>规范表达</dt><dd>${listBlock(item.standardExpressions)}</dd>
-        <dt>案例</dt><dd>${listBlock(item.cases)}</dd>
-        <dt>适用主题</dt><dd>${listBlock(item.applicableEssayThemes)}</dd>
-        <dt>AI状态</dt><dd>${escapeHtml(value(item.aiStatus))} · ${escapeHtml(value(item.aiProvider))} / ${escapeHtml(value(item.aiModel))}</dd>
-        <dt>AI版本 / 置信度</dt><dd>${escapeHtml(value(item.aiPromptVersion))} / ${value(item.aiConfidence)}</dd>
-      </dl>
-      <div class="dialog-actions"><button class="primary" id="editMaterialBtn">编辑</button><button class="secondary" id="structureMaterialBtn">AI结构化</button>${statusButtons}</div>`
-    document.getElementById('editMaterialBtn').onclick = () => {
-      dialog.close(); openMaterialForm(topics, item)
-    }
-    document.getElementById('structureMaterialBtn').onclick = async () => {
-      try {
-        await Api.request('/api/admin/reading-materials/' + id + '/ai-structure', { method: 'POST' })
-        dialog.close(); await openReadingMaterial(id, topics)
-      } catch (ignore) {}
-    }
-    document.querySelectorAll('#detailContent [data-material-status]').forEach(button => {
-      button.onclick = async () => {
-        try {
-          await Api.request('/api/admin/reading-materials/' + id + '/status', { method: 'POST', body: { status: button.dataset.materialStatus } })
-          dialog.close()
-          await renderReadings()
-        } catch (ignore) {}
-      }
-    })
-    dialog.showModal()
-  }
-
-  const IMPORTED_TYPE_LABELS = { READING_MATERIAL: '政治阅读材料' }
-
-  function providerCard(item) {
-    const lastTest = [item.lastTestStatusText,
-      item.lastTestLatencyMs != null && item.lastTestLatencyMs > 0 ? '耗时 ' + item.lastTestLatencyMs + ' ms' : '',
-      formatDateTime(item.lastTestTime)].filter(Boolean).join(' · ')
-    return `
-      <article class="provider-card" data-provider-code="${escapeHtml(item.code)}">
-        <div class="provider-head">
-          <h3>${escapeHtml(item.name)}</h3>
-          <div class="pill-group">
-            ${item.defaultProvider ? '<span class="pill good">默认服务</span>' : ''}
-            <span class="pill ${item.configured ? 'good' : 'bad'}">${item.configured ? '已配置' : '未配置'}</span>
-            <span class="pill">${item.enabled ? '已启用' : '已停用'}</span>
-          </div>
-        </div>
-        <dl class="provider-meta">
-          <dt>当前模型</dt><dd>${escapeHtml(value(item.effectiveModel))}</dd>
-          <dt>API Key</dt><dd>${escapeHtml(value(item.maskedKey))}</dd>
-          <dt>最后测试</dt><dd>${escapeHtml(value(lastTest))}</dd>
-          <dt>测试详情</dt><dd>${escapeHtml(value(item.lastTestMessage))}</dd>
-        </dl>
-        <div class="card-hint">点击配置 API Key、模型与连接参数</div>
-      </article>`
-  }
-
-  async function renderAiProviders() {
-    const providers = await Api.request('/api/admin/ai-providers')
-    content.innerHTML = `
-      <div class="section-head"><h2>AI 服务商</h2></div>
-      <div class="provider-grid">${providers.map(providerCard).join('')}</div>
-      ${providers.length ? '' : '<div class="empty">暂无 AI 服务商</div>'}`
-    content.querySelectorAll('[data-provider-code]').forEach(card => {
-      card.onclick = () => openAiProviderForm(providers.find(provider => provider.code === card.dataset.providerCode))
-    })
-  }
-
-  function openAiProviderForm(item) {
-    const models = (item.defaultModels || []).slice()
-    if (item.model && models.indexOf(item.model) === -1) models.push(item.model)
-    const keyPlaceholder = item.maskedKey
-      ? '已保存：' + item.maskedKey + '，不修改请留空'
-      : '尚未配置，请输入完整 API Key'
-    document.getElementById('formContent').innerHTML = `
-      <div class="eyebrow">AI 设置</div>
-      <h2>${escapeHtml(item.name)}</h2>
-      <p class="form-tip">修改 API Key 时必须重新输入完整 Key，掩码值会被拒绝；测试连接会直接使用当前表单输入（含尚未保存的新 Key）。</p>
-      <form id="aiProviderForm" class="form">
-        <label>API Key<input name="apiKey" type="password" autocomplete="new-password" placeholder="${escapeHtml(keyPlaceholder)}"></label>
-        <div class="row">
-          <label>模型<select name="model">${options(models, item.model)}</select></label>
-          <label>自定义模型名<input name="customModel" value="${escapeHtml(item.customModel || '')}" placeholder="填写后优先生效，留空使用左侧模型"></label>
-        </div>
-        <label>Base URL（高级选项，默认可留空）<input name="baseUrl" value="${escapeHtml(item.baseUrl || '')}" placeholder="${escapeHtml(item.defaultBaseUrl || '')}"></label>
-        <label class="check"><input name="enabled" type="checkbox" ${item.enabled ? 'checked' : ''}>启用该服务</label>
-        <div id="aiTestResult" class="notice" hidden></div>
-        <div class="actions">
-          <button type="button" class="secondary" data-form-cancel>取消</button>
-          <button type="button" class="secondary" id="aiSetDefaultBtn"${item.defaultProvider ? ' disabled' : ''}>设为默认</button>
-          <button type="button" class="secondary" id="aiTestBtn">测试连接</button>
-          <button class="primary">保存</button>
-        </div>
-      </form>`
-    const form = document.getElementById('aiProviderForm')
-    const resultBox = document.getElementById('aiTestResult')
-    const readBody = () => ({
-      apiKey: form.apiKey.value.trim() || undefined,
-      model: form.model.value,
-      customModel: form.customModel.value.trim(),
-      baseUrl: form.baseUrl.value.trim(),
-      enabled: String(form.enabled.checked)
-    })
-    const showTestResult = (className, text) => {
-      resultBox.hidden = false
-      resultBox.className = 'notice ' + className
-      resultBox.textContent = text
-    }
-    document.querySelector('#aiProviderForm [data-form-cancel]').onclick = () => formDialog.close()
-    document.getElementById('aiTestBtn').onclick = async () => {
-      const button = document.getElementById('aiTestBtn')
-      button.disabled = true
-      button.textContent = '测试中…'
-      resultBox.hidden = true
-      try {
-        const result = await Api.request('/api/admin/ai-providers/' + item.code + '/test-request', { method: 'POST', body: readBody() })
-        showTestResult(result.status === 'SUCCESS' ? 'success' : 'error',
-          (result.statusText || '测试完成') + '：' + (result.message || '无详细信息') + (result.latencyMs ? '（耗时 ' + result.latencyMs + ' ms）' : ''))
-      } catch (error) {
-        showTestResult('error', '测试请求失败：' + error.message)
-      } finally {
-        button.disabled = false
-        button.textContent = '测试连接'
-      }
-    }
-    document.getElementById('aiSetDefaultBtn').onclick = async () => {
-      try {
-        await Api.request('/api/admin/ai-providers/' + item.code + '/default', { method: 'POST' })
-        formDialog.close()
-        await renderAiProviders()
-      } catch (ignore) {}
-    }
-    form.onsubmit = async event => {
-      event.preventDefault()
-      try {
-        await Api.request('/api/admin/ai-providers/' + item.code, { method: 'PUT', body: readBody() })
-        formDialog.close()
-        await renderAiProviders()
-      } catch (ignore) {}
-    }
-    formDialog.showModal()
-  }
-
-  let contentStagingFilters = {}
-  let contentTab = 'inventory'
-  const contentTabs = [['inventory', '库存概览'], ['sources', '手动采集'], ['upload', '文件导入'], ['exceptions', '异常处理'], ['logs', '采集记录']]
-  const contentTabBar = () => '<div class="toolbar">' + contentTabs.map(tab => '<button class="mini' + (contentTab === tab[0] ? ' primary' : '') + '" data-content-tab="' + tab[0] + '">' + tab[1] + '</button>').join('') + '</div>'
-  async function renderContent(filters) {
-    if (filters) contentStagingFilters = filters
-    const [sources, overview] = await Promise.all([Api.request('/api/admin/content/sources'), Api.request('/api/admin/content/inventory')])
-    let staging = null
-    let logs = null
-    if (contentTab === 'exceptions') staging = await Api.request('/api/admin/content/staging?status=NEEDS_REVIEW&page=1')
-    if (contentTab === 'logs') logs = await Api.request('/api/admin/content/crawl-logs')
-    const items = (staging && staging.items) || []
-    const summary = overview.overview || {}
-    let body = ''
-    if (contentTab === 'inventory') {
-      body = '<div class="summary">' + [['普通可训练题', summary.trainableTotal], ['模考保留题', summary.mockReservedTotal], ['申论题', summary.essayTotal], ['AI 训练题', summary.aiTotal], ['异常待处理', summary.needsReviewCount], ['采集失败', summary.crawlFailedCount]].map(item => '<div><b>' + (item[1] || 0) + '</b><span>' + item[0] + '</span></div>').join('') + '</div>'
-        + '<div class="section-head"><h2>五大模块库存</h2><span class="table-meta">来自实时题库统计</span></div><div class="table-wrap"><table><thead><tr><th>模块</th><th>总题数</th><th>可训练</th><th>未做题</th><th>知识点</th></tr></thead><tbody>'
-        + (overview.modules || []).map(module => '<tr><td>' + escapeHtml(module.moduleName) + '</td><td>' + module.totalQuestions + '</td><td>' + module.trainable + '</td><td>' + module.unused + '</td><td>' + (module.knowledgePoints || []).map(point => escapeHtml(point.name) + ' ' + point.trainable + '题').join('；') + '</td></tr>').join('') + '</tbody></table></div>'
-    } else if (contentTab === 'sources') {
-      body = '<div class="section-head"><h2>手动采集</h2><button id="createSourceBtn" class="primary">新增来源</button></div><p class="form-tip">仅对公开、无需登录且确实包含结构化题目的来源发起采集。抓取结果以新增 Question 数量为准。</p><div class="table-wrap"><table><thead><tr><th>名称</th><th>地址</th><th>可信度</th><th>启用</th><th>操作</th></tr></thead><tbody>'
-        + sources.map(item => '<tr><td>' + escapeHtml(item.name) + '</td><td class="stem">' + escapeHtml(item.baseUrl) + '</td><td>' + escapeHtml(value(item.trustText)) + '</td><td>' + (item.enabled ? '已启用' : '已停用') + '</td><td><button class="mini" data-source-edit="' + item.id + '">编辑</button> <button class="mini" data-source-crawl="' + item.id + '">立即采集</button></td></tr>').join('') + '</tbody></table></div>'
-    } else if (contentTab === 'upload') {
-      body = '<div class="section-head"><h2>文件导入</h2></div><p class="form-tip">CSV、XLSX、XLS 将先进入暂存区，再依次经过解析、去重、质量门禁、自动分类和入库；异常记录进入“异常处理”。</p><form id="contentUploadForm" class="form"><label>题目文件<input name="file" type="file" accept=".csv,.xlsx,.xls" required></label><label>来源名称<input name="sourceName" required placeholder="例如：公开题目整理"></label><label>来源等级<select name="trustLevel">' + labeledOptions(SOURCE_TRUST_LEVELS, 'B') + '</select></label><div class="actions"><button class="primary">上传并处理</button></div></form><div id="uploadResult"></div>'
-    } else if (contentTab === 'exceptions') {
-      body = '<div class="section-head"><h2>异常处理</h2><span class="table-meta">仅异常记录需要人工处理；正常题已自动入库。</span></div><div class="table-wrap"><table><thead><tr><th>标题</th><th>来源</th><th>异常原因</th><th>质量信息</th><th>操作</th></tr></thead><tbody>'
-        + items.map(item => '<tr><td class="stem">' + escapeHtml(value(item.title)) + '</td><td>' + escapeHtml(value(item.sourceName)) + '</td><td>' + escapeHtml(value(item.failReason)) + '</td><td>' + escapeHtml(value(item.qualityIssues)) + '</td><td><button class="mini" data-staging-detail="' + item.id + '">详情</button> <button class="mini" data-staging-review="' + item.id + '">修正并入库</button></td></tr>').join('') + '</tbody></table></div>' + (items.length ? '' : '<div class="empty">当前没有待处理异常。</div>')
-    } else {
-      body = '<div class="section-head"><h2>采集记录</h2></div><div class="table-wrap"><table><thead><tr><th>来源</th><th>状态</th><th>发现页面</th><th>已下载</th><th>解析内容</th><th>自动入库</th><th>重复</th><th>异常</th><th>失败</th><th>时间</th></tr></thead><tbody>'
-        + (logs || []).map(log => '<tr><td>' + escapeHtml(value(log.sourceName, log.sourceId)) + '</td><td>' + escapeHtml(value(log.status)) + '</td><td>' + value(log.discovered) + '</td><td>' + value(log.downloaded) + '</td><td>' + value(log.parsed) + '</td><td>' + value(log.imported) + '</td><td>' + value(log.duplicates) + '</td><td>' + value(log.needsReview) + '</td><td>' + value(log.failed) + '</td><td>' + escapeHtml(value(formatDateTime(log.startTime))) + '</td></tr>').join('') + '</tbody></table></div>' + ((logs || []).length ? '' : '<div class="empty">暂无采集记录。</div>')
-    }
-    content.innerHTML = contentTabBar() + body
-    content.querySelectorAll('[data-content-tab]').forEach(button => button.onclick = () => { contentTab = button.dataset.contentTab; renderContent() })
-    const create = document.getElementById('createSourceBtn')
-    if (create) create.onclick = () => openSourceForm()
-    const uploadForm = document.getElementById('contentUploadForm')
-    if (uploadForm) uploadForm.onsubmit = async event => { event.preventDefault(); const form = new FormData(event.target); try { const result = await Api.request('/api/admin/content/upload', { method: 'POST', body: form, timeout: 120000 }); document.getElementById('uploadResult').innerHTML = '<div class="notice success">文件共 ' + result.total + ' 题；自动入库 ' + result.imported + '；重复 ' + result.duplicates + '；异常 ' + result.needsReview + '；失败 ' + result.failed + '。<br>' + escapeHtml((result.errors || []).join('；')) + '</div>' } catch (ignore) {} }
-    content.querySelectorAll('[data-source-edit]').forEach(button => button.onclick = () => openSourceForm(sources.find(source => String(source.id) === button.dataset.sourceEdit)))
-    content.querySelectorAll('[data-source-crawl]').forEach(button => button.onclick = () => crawlSource(sources.find(source => String(source.id) === button.dataset.sourceCrawl), button))
-    content.querySelectorAll('[data-staging-detail]').forEach(button => button.onclick = () => openStagingDetail(Number(button.dataset.stagingDetail)))
-    content.querySelectorAll('[data-staging-review]').forEach(button => button.onclick = () => openStagingReview(items.find(entry => String(entry.id) === button.dataset.stagingReview)))
-  }
-
-  function openSourceForm(item) {
-    const editing = !!item
-    document.getElementById('formContent').innerHTML = `
-      <div class="eyebrow">${editing ? '内容来源 #' + item.id : '内容管理 · 来源'}</div>
-      <h2>${editing ? '编辑内容来源' : '新增内容来源'}</h2>
-      <p class="form-tip">地址必须以 http 开头；可信度决定该来源入库内容的默认信任等级。</p>
-      <form id="sourceForm" class="form">
-        <label>名称<input name="name" required value="${escapeHtml(item ? item.name || '' : '')}"></label>
-        <label>地址<input name="baseUrl" required placeholder="如 https://www.gov.cn/..." value="${escapeHtml(item ? item.baseUrl || '' : '')}"></label>
-        <div class="row">
-          <label>类型<select name="sourceType">${labeledOptions(SOURCE_SITE_TYPES, item ? item.sourceType : 'GOVERNMENT')}</select></label>
-          <label>考试类型<input name="examType" value="${escapeHtml(item ? item.examType || 'GK' : 'GK')}"></label>
-        </div>
-        <div class="row">
-          <label>可信度<select name="trustLevel">${labeledOptions(SOURCE_TRUST_LEVELS, item ? item.trustLevel : 'B')}</select></label>
-          <label class="check"><input name="enabled" type="checkbox" ${!item || item.enabled ? 'checked' : ''}>启用该来源</label>
-        </div>
-        <div class="actions"><button type="button" class="secondary" data-form-cancel>取消</button><button class="primary">${editing ? '保存' : '创建'}</button></div>
-      </form>`
-    document.querySelector('#sourceForm [data-form-cancel]').onclick = () => formDialog.close()
-    document.getElementById('sourceForm').onsubmit = async event => {
-      event.preventDefault()
-      const form = Object.fromEntries(new FormData(event.target))
-      try {
-        await Api.request(editing ? '/api/admin/content/sources/' + item.id : '/api/admin/content/sources', {
-          method: editing ? 'PUT' : 'POST',
-          body: {
-            name: form.name,
-            baseUrl: form.baseUrl,
-            sourceType: form.sourceType,
-            examType: form.examType,
-            trustLevel: form.trustLevel,
-            enabled: String(event.target.enabled.checked)
-          }
-        })
-        formDialog.close()
-        await renderContent()
-      } catch (ignore) {}
-    }
-    formDialog.showModal()
-  }
-
-  async function crawlSource(source, button) {
-    button.disabled = true
-    const original = button.textContent
-    button.textContent = '抓取中…'
-    try {
-      const trigger = await Api.request('/api/admin/content/sources/' + source.id + '/crawl', { method: 'POST', timeout: 120000 })
-      const result = await waitForCrawlLog(source.id, trigger.logId)
-      const errors = result.message ? [result.message] : []
-      document.getElementById('detailContent').innerHTML = `
-        <div class="eyebrow">内容抓取 · ${escapeHtml(source.name)}</div>
-        <h2>${result.status === 'SUCCESS' ? '抓取完成' : '抓取失败'}</h2>
-        <div class="summary">
-          <div><b>${result.discovered}</b><span>新发现</span></div>
-          <div><b>${(result.downloaded || 0)}</b><span>下载</span></div>
-          <div><b>${result.imported}</b><span>入库</span></div>
-          <div><b>${result.needsReview}</b><span>需人工检查</span></div>
-          <div><b>${result.failed}</b><span>失败</span></div>
-        </div>
-        ${errors.length
-          ? '<h3>失败明细（最多显示 5 条）</h3>' + listBlock(errors.slice(0, 5)) + (errors.length > 5 ? '<div class="table-meta">… 以及另外 ' + (errors.length - 5) + ' 个问题</div>' : '')
-          : '<div class="notice success">本次抓取没有失败项。</div>'}
-        <div class="dialog-actions"><button class="primary" id="refreshContentBtn">刷新内容数据</button></div>`
-      document.getElementById('refreshContentBtn').onclick = async () => {
-        dialog.close()
-        await renderContent()
-      }
-      dialog.showModal()
-    } catch (error) {
-      document.getElementById('detailContent').innerHTML = `
-        <div class="eyebrow">内容抓取 · ${escapeHtml(source.name)}</div>
-        <h2>抓取未完成</h2>
-        <div class="notice error">${escapeHtml(error.message || '抓取状态读取失败，请在采集记录中查看')}</div>`
-      dialog.showModal()
-    } finally {
-      button.disabled = false
-      button.textContent = original
-    }
-  }
-
-  async function waitForCrawlLog(sourceId, logId) {
-    for (let attempt = 0; attempt < 45; attempt++) {
-      const logs = await Api.request('/api/admin/content/crawl-logs?sourceId=' + sourceId, { showLoading: false })
-      const log = (logs || []).find(item => item.id === logId)
-      if (log && log.status !== 'RUNNING') return log
-      await new Promise(resolve => setTimeout(resolve, 1000))
-    }
-    throw new Error('采集仍在执行，请在采集记录中稍后查看')
-  }
-
-  async function openStagingDetail(id) {
-    const item = await Api.request('/api/admin/content/staging/' + id)
-    const importedLabel = IMPORTED_TYPE_LABELS[item.importedType] || '导入内容'
-    document.getElementById('detailContent').innerHTML = `
-      <div class="eyebrow">暂存记录 #${item.id} · ${escapeHtml(value(item.statusText))}</div>
-      <h2>${escapeHtml(value(item.title))}</h2>
-      <dl>
-        <dt>来源地址</dt><dd class="pre-wrap">${escapeHtml(value(item.sourceUrl))}</dd>
-        <dt>状态 / 可信度</dt><dd>${escapeHtml(value(item.statusText))} / ${escapeHtml(trustText(item.trustLevel))}</dd>
-        <dt>年份</dt><dd>${value(item.sourceYear)}</dd>
-        <dt>文件类型 / 大小</dt><dd>${escapeHtml(value(item.mimeType))} / ${fileSizeText(item.fileSize)}</dd>
-        <dt>文件哈希</dt><dd><code>${escapeHtml(value(item.fileHash))}</code></dd>
-        <dt>内容哈希</dt><dd><code>${escapeHtml(value(item.contentHash))}</code></dd>
-        <dt>失败原因</dt><dd class="pre-wrap">${escapeHtml(value(item.failReason))}</dd>
-        <dt>处理备注</dt><dd class="pre-wrap">${escapeHtml(value(item.reviewNote))}</dd>
-        <dt>入库信息</dt><dd>${item.importedId ? '#' + item.importedId + ' · ' + escapeHtml(importedLabel) : '—'}</dd>
-      </dl>
-      <h3>正文内容</h3>
-      <div class="pre-wrap detail-text">${escapeHtml(value(item.parsedText, '（暂无解析正文）'))}</div>`
-    dialog.showModal()
-  }
-
-  async function openStagingReview(item) {
-    item = await Api.request('/api/admin/content/staging/' + item.id)
-    let candidate = {}
-    try { candidate = JSON.parse(item.parsedText || '{}') } catch (ignore) {}
-    const optionText = key => ((candidate.options || []).find(option => option.key === key) || {}).text || ''
-    document.getElementById('formContent').innerHTML = `
-      <div class="eyebrow">暂存记录 #${item.id} · 需要人工检查</div>
-      <h2>修正题目并入库</h2>
-      <p class="form-tip">仅修正异常字段后再入库；原始暂存记录会保留，便于追溯。</p>
-      <form id="stagingReviewForm" class="form">
-        <label>处理方式<select name="action" id="reviewAction">
-          <option value="IMPORT_QUESTION">修正后入题库</option>
-          <option value="CONFIRM_DUPLICATE">确认重复</option>
-          <option value="DISCARD">不予入库</option>
-        </select></label>
-        <div id="questionFixFields">
-          <label>题干<textarea name="stem" rows="3" required>${escapeHtml(candidate.stem || '')}</textarea></label>
-          <div class="row"><label>A<input name="optionA" required value="${escapeHtml(optionText('A'))}"></label><label>B<input name="optionB" required value="${escapeHtml(optionText('B'))}"></label></div>
-          <div class="row"><label>C<input name="optionC" required value="${escapeHtml(optionText('C'))}"></label><label>D<input name="optionD" required value="${escapeHtml(optionText('D'))}"></label></div>
-          <div class="row"><label>正确答案<select name="answer">${labeledOptions([['A', 'A'], ['B', 'B'], ['C', 'C'], ['D', 'D']], candidate.answer || 'A')}</select></label><label>知识点编码<input name="knowledgeCode" required value="${escapeHtml(candidate.knowledgeCode || '')}"></label></div>
-          <label>解析<textarea name="analysis" rows="3">${escapeHtml(candidate.analysis || '')}</textarea></label>
-          <input name="sourceType" type="hidden" value="${escapeHtml(candidate.sourceType || 'IMPORTED')}">
-        </div>
-        <label>处理备注<textarea name="note" rows="3" placeholder="记录判定原因，便于后续追溯"></textarea></label>
-        <div class="actions"><button type="button" class="secondary" data-form-cancel>取消</button><button class="primary">提交处理</button></div>
-      </form>`
-    const actionSelect = document.getElementById('reviewAction')
-    const questionFields = document.getElementById('questionFixFields')
-    const syncAction = () => {
-      const importing = actionSelect.value === 'IMPORT_QUESTION'
-      questionFields.style.display = importing ? '' : 'none'
-      questionFields.querySelectorAll('input,textarea,select').forEach(field => field.disabled = !importing)
-    }
-    actionSelect.onchange = syncAction
-    syncAction()
-    document.querySelector('#stagingReviewForm [data-form-cancel]').onclick = () => formDialog.close()
-    document.getElementById('stagingReviewForm').onsubmit = async event => {
-      event.preventDefault()
-      const form = Object.fromEntries(new FormData(event.target))
-      try {
-        await Api.request('/api/admin/content/staging/' + item.id + '/review', {
-          method: 'POST',
-          body: {
-            action: form.action,
-            note: form.note,
-            stem: form.stem,
-            optionA: form.optionA,
-            optionB: form.optionB,
-            optionC: form.optionC,
-            optionD: form.optionD,
-            answer: form.answer,
-            analysis: form.analysis,
-            knowledgeCode: form.knowledgeCode,
-            sourceType: form.sourceType
-          }
-        })
-        formDialog.close()
-        await renderContent()
-      } catch (ignore) {}
-    }
-    formDialog.showModal()
-  }
-
-  window.AdminApp = { setBusy, showError }
-  document.querySelectorAll('nav button').forEach(button => button.onclick = () => loadView(button.dataset.view))
-  document.querySelector('#detailDialog .close').onclick = () => dialog.close()
-  document.querySelector('#formDialog .close').onclick = () => formDialog.close()
-  document.getElementById('baseUrl').value = Api.context.baseUrl
-  document.getElementById('userId').value = Api.context.userId
-  document.getElementById('saveContext').onclick = () => {
-    Api.saveContext(document.getElementById('baseUrl').value, document.getElementById('userId').value)
-    loadView(currentView)
-  }
-  loadView('questions')
+  buildNavigation(); document.querySelectorAll('dialog .dialog-close').forEach(x => x.onclick = () => x.closest('dialog').close()); document.getElementById('contextButton').onclick = showContext
+  const initial = location.hash.replace('#', '').split(':'); state.view = pages[initial[0]] ? initial[0] : 'dashboard'; state.tab = initial[1] || ''; window.onhashchange = () => { const bits = location.hash.replace('#', '').split(':'); if (bits[0] !== state.view || (bits[1] || '') !== state.tab) { state.view = pages[bits[0]] ? bits[0] : 'dashboard'; state.tab = bits[1] || ''; render() } }; render()
 })()

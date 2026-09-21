@@ -1,19 +1,5 @@
 const { request } = require('../../utils/request')
 const { buildAbilityView } = require('../../utils/ability-view')
-const { problemStatusLabel, problemTypeLabel, localizedText } = require('../../utils/display')
-
-function evidenceText(problem) {
-  try {
-    const evidence = JSON.parse(problem.evidenceJson || '{}')
-    if (evidence.recentCount != null && evidence.incorrectCount != null) {
-      return '最近 ' + evidence.recentCount + ' 次真实作答中出现 ' + evidence.incorrectCount + ' 次失误'
-    }
-    if (evidence.recentCount != null && evidence.slowCount != null) {
-      return '最近 ' + evidence.recentCount + ' 次真实作答中有 ' + evidence.slowCount + ' 次耗时偏长'
-    }
-  } catch (ignore) {}
-  return '系统会持续根据你的真实作答更新判断'
-}
 
 function axisView(axis) {
   const trend = axis.trend == null || isNaN(Number(axis.trend)) ? '' : Math.round(Number(axis.trend))
@@ -27,7 +13,7 @@ function axisView(axis) {
 
 Page({
   data: {
-    loading: true, error: '', overview: null, abilityView: null, radarAxes: [], problems: [],
+    loading: true, error: '', overview: null, abilityView: null, radarAxes: [],
     selectedAxisCode: '', selectedAxis: null, radarCanvasWidth: 320, radarCanvasHeight: 282
   },
   onLoad() {
@@ -41,20 +27,11 @@ Page({
   async load() {
     this.setData({ loading: true, error: '' })
     try {
-      const [overview, problems] = await Promise.all([
-        request({ url: '/api/abilities/overview', showLoading: false }),
-        request({ url: '/api/learning-problems/core', showLoading: false })
-      ])
+      const overview = await request({ url: '/api/abilities/overview', showLoading: false })
       const abilityView = buildAbilityView(overview.abilities || [])
       const radarAxes = abilityView.axes.map(axisView)
-      const normalizedProblems = (problems || []).filter(item => item.status !== 'RESOLVED').slice(0, 3).map(item => Object.assign({}, item, {
-        problemTypeText: problemTypeLabel(item.problemType),
-        statusText: problemStatusLabel(item.status),
-        rootCauseText: item.rootCause ? localizedText(item.rootCause) : '',
-        evidenceText: evidenceText(item)
-      }))
       const selectedAxis = radarAxes.find(axis => axis.code === this.data.selectedAxisCode) || radarAxes[0] || null
-      this.setData({ overview, abilityView, radarAxes, problems: normalizedProblems, selectedAxis, loading: false }, () => this.drawRadar())
+      this.setData({ overview, abilityView, radarAxes, selectedAxis, loading: false }, () => this.drawRadar())
     } catch (error) {
       this.setData({ loading: false, error: error.message })
     }
@@ -134,6 +111,5 @@ Page({
     const app = getApp()
     app.globalData.pendingExtraPractice = { code, name: axis.name, purposeName: '模块针对训练' }
     wx.switchTab({ url: '/pages/learn/learn' })
-  },
-  openCoach() { wx.navigateTo({ url: '/pages/coach/coach' }) }
+  }
 })

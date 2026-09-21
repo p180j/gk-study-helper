@@ -1,5 +1,6 @@
 const { request } = require('../../utils/request')
 const { purposeLabel, abilityLabel, taskStatusLabel, problemTypeLabel, localizedText } = require('../../utils/display')
+const { cleanQuestions } = require('../../utils/question-text')
 
 const CONFIDENCE = [
   { value: 'SURE', label: '确定' },
@@ -143,7 +144,7 @@ Page({
       }
       const limit = Math.min(20, Math.max(1, targetCount || 10))
       const questions = await request({ url: '/api/plan/items/' + item.id + '/questions?limit=' + limit, showLoading: false })
-      const list = questions || []
+      const list = cleanQuestions(questions)
       const insufficient = list.length === 0
       this.setData(Object.assign(base, {
         questions: list, questionIndex: 0, question: list[0] || null, phase: 'answering',
@@ -191,7 +192,7 @@ Page({
     this.setData({ loading: true, error: '' })
     try {
       const questions = await request({ url: '/api/questions/practice?knowledgePointCode=' + encodeURIComponent(code) + '&limit=3', showLoading: false })
-      const list = questions || []
+      const list = cleanQuestions(questions)
       if (!list.length) {
         this.setData({ loading: false, error: '该模块当前没有可练题目' })
         return
@@ -345,7 +346,7 @@ Page({
         const more = await request({ url, showLoading: false })
       const existingIds = {}
       this.data.questions.forEach(question => { existingIds[question.id] = true })
-      const list = (more || []).filter(question => !existingIds[question.id])
+      const list = cleanQuestions(more).filter(question => !existingIds[question.id])
       if (!list.length) {
         this.setData({ fetchingMore: false, insufficientStock: true })
         return
@@ -379,7 +380,7 @@ Page({
         ? '/api/questions/practice?knowledgePointCode=' + encodeURIComponent(this.data.freeKnowledgePointCode || this.data.item.knowledgePointCode) + '&limit=' + limit
         : '/api/plan/items/' + this.data.item.id + '/questions?limit=' + limit
       const questions = await request({ url, showLoading: false })
-      const list = questions || []
+      const list = cleanQuestions(questions)
       if (!list.length) {
         this.setData({
           restarting: false, phase: 'answering', question: null,

@@ -3,39 +3,26 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>公考学习助手 · 管理控台</title>
+  <title>公考学习助手 · 运营管理控台</title>
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
-  <aside>
-    <div class="brand"><span>GK</span><div>公考学习助手<small>内容管理控台</small></div></div>
-    <nav>
-      <button data-view="questions" class="active">题库</button>
-      <button data-view="import">题目导入</button>
-      <button data-view="knowledge">知识点</button>
-      <button data-view="answers">答题记录</button>
-      <button data-view="essays">申论题库</button>
-      <button data-view="essay-answers">申论作答</button>
-      <button data-view="readings">政治阅读</button>
-      <button data-view="content">题库采集</button>
-      <button data-view="mock">模考试卷</button>
-      <button data-view="ai">AI 设置</button>
-    </nav>
-    <div class="connection">
-      <label>API 地址</label>
-      <input id="baseUrl" value="">
-      <label>当前用户</label>
-      <input id="userId" type="number" value="1" min="1">
-      <button id="saveContext">保存连接</button>
-    </div>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">GK</span><div><strong>公考学习助手</strong><small>运营管理控台</small></div></div>
+    <nav id="navigation" aria-label="主导航"></nav>
+    <div class="sidebar-foot"><span class="live-dot"></span><span>真实数据环境</span></div>
   </aside>
-  <main>
-    <header><div><h1 id="pageTitle">题库</h1><p>真实后端数据，不使用前端假数据</p></div><span id="status" class="status">就绪</span></header>
-    <section id="content" aria-live="polite"></section>
+  <main class="workspace">
+    <header class="topbar">
+      <div><div id="breadcrumb" class="breadcrumb">工作台</div><h1 id="pageTitle">运营工作台</h1><p id="pageDescription">掌握内容供给、学习闭环和系统健康状态</p></div>
+      <div class="top-actions"><span id="status" class="status">就绪</span><button id="contextButton" class="user-chip">用户 <b id="currentUser">1</b> · 连接设置</button></div>
+    </header>
+    <section id="content" class="content" aria-live="polite"></section>
   </main>
-  <dialog id="detailDialog"><button class="close" aria-label="关闭">×</button><div id="detailContent"></div></dialog>
-  <dialog id="formDialog"><button class="close" aria-label="关闭">×</button><div id="formContent"></div></dialog>
+  <dialog id="detailDialog" class="drawer"><button class="dialog-close" aria-label="关闭">×</button><div id="detailContent"></div></dialog>
+  <dialog id="formDialog" class="modal"><button class="dialog-close" aria-label="关闭">×</button><div id="formContent"></div></dialog>
   <script src="./api.js"></script>
+  <script src="./display.js"></script>
   <script src="./app.js"></script>
 </body>
 </html>

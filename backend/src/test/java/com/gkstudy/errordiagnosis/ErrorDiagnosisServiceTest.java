@@ -84,6 +84,18 @@ class ErrorDiagnosisServiceTest {
         verifyNoInteractions(diagnosisMapper, answerMapper, problemMapper);
     }
 
+    @Test
+    void adminListReturnsRecentDiagnosesAndCapsRequestedLimit() {
+        ErrorDiagnosis diagnosis = existing();
+        when(diagnosisMapper.findRecentByUser(7L, 200)).thenReturn(java.util.Collections.singletonList(diagnosis));
+
+        List<ErrorDiagnosis> result = service.listRecent(7L, 999);
+
+        assertEquals(1, result.size());
+        assertSame(diagnosis, result.get(0));
+        verify(diagnosisMapper).findRecentByUser(7L, 200);
+    }
+
     private ErrorDiagnosis existing() {
         ErrorDiagnosis diagnosis = new ErrorDiagnosis(); diagnosis.setId(91L); diagnosis.setUserId(7L);
         diagnosis.setKnowledgePointId(12L); diagnosis.setSuspectedCause("条件理解偏差");

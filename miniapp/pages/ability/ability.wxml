@@ -1,5 +1,5 @@
 <view class="page">
-  <view class="hero row"><view><view class="hero-title">我的能力画像</view><view class="hero-subtitle">先看整体，再查看各模块</view></view><button class="coach-button" size="mini" bindtap="openCoach">✦ 问 AI 教练</button></view>
+  <view class="hero"><view class="hero-title">我的能力画像</view><view class="hero-subtitle">先看整体，再查看各模块</view></view>
   <view wx:if="{{loading}}" class="state">正在读取真实能力数据…</view>
   <view wx:elif="{{error}}" class="state error"><view>{{error}}</view><button class="secondary" bindtap="load">重新加载</button></view>
   <block wx:else>
@@ -25,9 +25,5 @@
       <view wx:else class="trend-copy">{{selectedAxis.evaluated ? '继续练习，系统会持续更新趋势。' : (selectedAxis.assessing ? '当前仍在摸底中，满 20 题后才展示能力分。' : '未测评不会被算作低分，完成相关题目后再形成判断。')}}</view>
       <button class="secondary train-button" data-code="{{selectedAxis.code}}" bindtap="startTraining">{{selectedAxis.code === 'SHENLUN' ? '去申论训练' : '去针对训练'}} 〉</button>
     </view>
-
-    <view class="section-title problem-heading">当前最值得解决的问题</view>
-    <view wx:if="{{!problems.length}}" class="card empty-problem"><view class="empty-icon">✓</view><view><view class="empty-title">暂未确认学习问题</view><view class="muted">先完成真实练习，系统再判断需要重点提升的地方。</view></view></view>
-    <view wx:for="{{problems}}" wx:key="id" class="card problem-card"><view class="row"><view class="problem-title">{{item.knowledgePointName}} · {{item.problemTypeText}}</view><text class="tag">{{item.statusText}}</text></view><view wx:if="{{item.rootCauseText}}" class="root-cause">主要原因：{{item.rootCauseText}}</view><view class="muted evidence">{{item.evidenceText}}</view><button class="train-button" size="mini" data-code="{{item.knowledgePointCode}}" bindtap="startTraining">去针对训练 〉</button></view>
   </block>
 </view>

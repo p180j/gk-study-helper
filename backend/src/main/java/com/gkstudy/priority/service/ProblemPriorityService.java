@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
 @Service
@@ -25,7 +26,7 @@ public class ProblemPriorityService {
 
     public List<LearningProblem> coreForPlan(Long userId) {
         List<LearningProblem> ranked = ranked(userId);
-        for (LearningProblem problem : ranked) problemMapper.updatePriority(problem.getId(), problem.getPriorityScore());
+        updatePriorities(ranked);
         return core(ranked);
     }
 
@@ -54,5 +55,12 @@ public class ProblemPriorityService {
 
     private List<LearningProblem> core(List<LearningProblem> ranked) {
         return ranked.subList(0, Math.min(3, ranked.size()));
+    }
+
+    /** 优先级回写统一按主键升序加锁，与答题链路（LearningProblemService.evaluate）一致，避免并发死锁。 */
+    private void updatePriorities(List<LearningProblem> ranked) {
+        List<LearningProblem> ordered = new ArrayList<>(ranked);
+        ordered.sort(Comparator.comparing(LearningProblem::getId));
+        for (LearningProblem problem : ordered) problemMapper.updatePriority(problem.getId(), problem.getPriorityScore());
     }
 }

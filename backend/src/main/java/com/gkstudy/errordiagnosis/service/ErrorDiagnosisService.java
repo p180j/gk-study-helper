@@ -49,6 +49,10 @@ public class ErrorDiagnosisService {
         this(engine, diagnosisMapper, answerRecordMapper, learningProblemMapper, objectMapper, null, null);
     }
 
+    public List<ErrorDiagnosis> listRecent(Long userId, int limit) {
+        return diagnosisMapper.findRecentByUser(userId, Math.max(1, Math.min(limit, 200)));
+    }
+
     @Transactional
     public ErrorDiagnosis diagnose(AnswerRecord current) {
         if (Boolean.TRUE.equals(current.getCorrect())) return null;
